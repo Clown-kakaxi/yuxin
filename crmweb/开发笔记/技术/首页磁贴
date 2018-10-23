@@ -1,0 +1,12 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+select * from OCRM_F_SYS_USER_TILE a where a.user_id='admin';
+所有用户的磁贴信息全部保存在这里
+下面的语句可以将某个用户的磁贴信息完全拷贝复制到另外一个用户上去，
+但是，需要注意的是，如果新用户对此磁贴没有权限，则无法显示磁贴名称，也无法打开，需要加上资源权限进行过滤
+insert into OCRM_F_SYS_USER_TILE 
+select commonsequnce.nextval, '501N1456',a.res_id,a.module_id,a.group_seq,a.tile_size,a.pos_x,a.pos_y,a.update_date,a.spare_one,a.spare_two,a.tile_color,a.tile_icon 
+from OCRM_F_SYS_USER_TILE_bak a where a.user_id='admin';
+

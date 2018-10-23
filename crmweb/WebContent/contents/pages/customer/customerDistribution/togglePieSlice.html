@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>FusionCharts v3.2 : Pie/Doughnut Chart Special API - togglePieSlice</title>
+        <script type="text/javascript" LANGUAGE="Javascript" SRC="./Charts/FusionCharts.js"></script>
+    </head>
+
+    <body>
+<div class="gen-chart-render">
+	<div class="expandable-panel">
+		<div>
+                <div class="selection-panel"  style="width:500px; text-align:center;padding:8px auto 0">
+                        		类型:
+                                    <select id="chartType" onchange="renderChart()">
+                                        <option value="Pie3D.swf" selected="selected">Pie 3D</option>
+                                        <option value="Pie2D.swf">Pie 2D</option>
+                                        <option value="Doughnut3D.swf">Doughnut 3D</option>
+                                        <option value="Doughnut2D.swf">Doughnut 2D</option>
+                                    </select>
+                                </div>
+                            </div>
+        </div>
+
+                            <div id="chartContainer">FusionCharts will load here</div>
+        <script type="text/javascript"><!--
+                           
+
+                            // render the chart as pe the selected chart type
+                            function renderChart()
+                            {
+                                // get chart type from combo box
+                                var swfUrl = document.getElementById("chartType").options[document.getElementById("chartType").selectedIndex].value;
+                                var myChart = new FusionCharts("./Charts/"+ swfUrl, "myChartId", 624, 300, "0", "1");
+                                myChart.setXMLUrl("Data.xml");
+                                myChart.render("chartContainer");
+ 
+                            }
+
+                            renderChart();
+
+     // --></script>
+
+
+</div>
+    </body>
+    
+</html>
+

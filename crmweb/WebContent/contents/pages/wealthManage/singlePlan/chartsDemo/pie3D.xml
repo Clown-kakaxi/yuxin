@@ -1,0 +1,4 @@
+<chart   formatNumberScale='0' >
+	<set label='教育金储备金额' value='41000' />
+	<set label='教育金缺口金额' value='10000' />
+</chart>

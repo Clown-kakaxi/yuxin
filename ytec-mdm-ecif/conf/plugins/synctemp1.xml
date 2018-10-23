@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="GB18030"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:ns="www.cqrcb.com.cn">
+	<soapenv:Header />
+	<soapenv:Body>
+		<ns:S007001990ECIF01>
+			<RequestHeader>
+				<VerNo />
+				<ReqSysCd>02</ReqSysCd>
+				<ReqSeqCd />
+				<TxnTyp />
+				<TxnMod />
+				<TxnCd />
+				<TxnNme />
+				<ReqDt>${Date(yyyyMMdd)}</ReqDt>
+				<ReqTm>${Date(yyyyMMddhhmmssSSSSSS)}</ReqTm>
+				<ReqSeqNo>${Date(yyyyMMddhhmmssSSSSSS)}</ReqSeqNo>
+				<ChnlNo>82</ChnlNo>
+				<BrchNo>6101</BrchNo>
+				<BrchNme />
+				<TrmNo />
+				<TrmIP />
+				<TlrNo>6101</TlrNo>
+				<TlrNme />
+				<TlrLvl />
+				<TlrTyp />
+				<TlrPwd />
+				<AuthTlr />
+				<AuthPwd />
+				<AuthCd>123456</AuthCd>
+				<AuthFlg />
+				<AuthDisc />
+				<AuthWk />
+				<SndFileNme />
+				<BgnRec />
+				<MaxRec />
+				<FileHMac />
+				<HMac />
+				<TermSeqNo />
+				<AmtFlg />
+				<TrmDt />
+				<TrmTm></TrmTm>
+				<FrntNo></FrntNo>
+			</RequestHeader>
+			<RequestBody>
+				<identType>#{selectBody://orgidentifier/identType}</identType><!-- 查询报文体,一对一 -->
+				<identNo>#{selectBody://orgidentifier/identNo}</identNo>
+				<identCustName>#{selectBody://orgidentifier/identCustName}</identCustName>
+				<farenNo>#{selectBody://customer/farenNo}</farenNo>
+				<custNo>#{selectBody://customer/custNo}</custNo>
+				<custType>#{selectBody://customer/custType}</custType>
+				<custStat>#{selectBody://customer/custStat}</custStat>
+				<potentialFlag>#{selectBody://customer/potentialFlag}</potentialFlag>
+				<ebankFlag>#{selectBody://customer/ebankFlag}</ebankFlag>
+				<realFlag>#{selectBody://customer/realFlag}</realFlag>
+				<inoutFlag>#{selectBody://customer/inoutFlag}</inoutFlag>
+				<blankFlag>#{selectBody://customer/blankFlag}</blankFlag>
+				<mergeFlag>#{selectBody://customer/mergeFlag}</mergeFlag>
+				<createDate>#{selectBody://customer/createDate}</createDate>
+				<createTime>#{selectBody://customer/createTime}</createTime>
+				<custId>#{selectBody://customer/custId}</custId>
+				<name>
+					<Code>1001</Code>
+					<authCode>${SyncOne2many(#{selectBody://ResponseBody/custName1},true,this)}</authCode>	<!--查询报文体,一对多-->
+				</name>
+				<name>
+					<Code>1002</Code>
+					<authCode>${SyncOne2many(#{selectBody://ResponseBody/custName2},true,this)}</authCode>	<!--查询报文体,一对多-->
+				</name>
+				<name>
+					<Code>1003</Code>
+					<authCode>${SyncOne2many(#{selectBody://ResponseBody/custName3},true,this)}</authCode>	<!--查询报文体,一对多-->
+				</name>
+				
+				<connectList>${SyncMany2Many(#{selectBodyObj://connectList/connect},this)}</connectList><!--查询报文体,多对多-->
+				<addr1>${SyncMany2one(#{selectBodyObj://addressList/address},addrType,01,addr)}</addr1>
+				<zipcode1>${SyncMany2one(#{selectBodyObj://addressList/address},addrType,01,zipcode)}</zipcode1><!--查询报文体,多对一-->
+				<addr2>${SyncMany2one(#{selectBodyObj://addressList/address},addrType,02,addr)}</addr2>
+				<zipcode2>${SyncMany2one(#{selectBodyObj://addressList/address},addrType,02,zipcode)}</zipcode2>
+			</RequestBody>
+		</ns:S007001990ECIF01>
+	</soapenv:Body>
+</soapenv:Envelope>

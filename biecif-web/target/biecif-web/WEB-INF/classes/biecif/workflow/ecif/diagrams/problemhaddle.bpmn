@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/demo/activiti/leave">
+  <process id="problemhaddle" name="问题">
+    <startEvent id="startques" name="开始"></startEvent>
+    <userTask id="quesdispose" name="问题处理">
+      <documentation>对提出的数据质量问题进行处理</documentation>
+    </userTask>
+    <userTask id="quesAudit" name="问题审批">
+      <documentation>对数据质量问题的处理结果进行审批</documentation>
+    </userTask>
+    <userTask id="quesfiling" name="问题归档">
+      <documentation>将已处理的数据质量问题归档保存到知识库</documentation>
+    </userTask>
+    <endEvent id="quesend" name="结束"></endEvent>
+    <exclusiveGateway id="exclusiveAudit" name="审批"></exclusiveGateway>
+    <sequenceFlow id="flow1" name="" sourceRef="startques" targetRef="quesdispose"></sequenceFlow>
+    <sequenceFlow id="flow2" name="" sourceRef="quesdispose" targetRef="quesAudit"></sequenceFlow>
+    <sequenceFlow id="flow3" name="" sourceRef="quesAudit" targetRef="exclusiveAudit"></sequenceFlow>
+    <sequenceFlow id="flow5" name="同意" sourceRef="exclusiveAudit" targetRef="quesfiling">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${deptLeaderPass}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" name="" sourceRef="quesfiling" targetRef="quesend"></sequenceFlow>
+    <sequenceFlow id="flow7" name="不同意" sourceRef="exclusiveAudit" targetRef="quesdispose">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!deptLeaderPass}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_problemhaddle">
+    <bpmndi:BPMNPlane bpmnElement="problemhaddle" id="BPMNPlane_problemhaddle">
+      <bpmndi:BPMNShape bpmnElement="startques" id="BPMNShape_startques">
+        <omgdc:Bounds height="35" width="35" x="10" y="90"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="quesdispose" id="BPMNShape_quesdispose">
+        <omgdc:Bounds height="55" width="105" x="110" y="80"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="quesAudit" id="BPMNShape_quesAudit">
+        <omgdc:Bounds height="55" width="105" x="270" y="80"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="quesfiling" id="BPMNShape_quesfiling">
+        <omgdc:Bounds height="55" width="105" x="515" y="80"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="quesend" id="BPMNShape_quesend">
+        <omgdc:Bounds height="35" width="35" x="670" y="90"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusiveAudit" id="BPMNShape_exclusiveAudit">
+        <omgdc:Bounds height="40" width="40" x="430" y="87"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="45" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="110" y="107"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="215" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="270" y="107"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="375" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="430" y="107"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="470" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="515" y="107"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="-22" y="-20"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="620" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="670" y="107"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="450" y="127"></omgdi:waypoint>
+        <omgdi:waypoint x="449" y="218"></omgdi:waypoint>
+        <omgdi:waypoint x="162" y="218"></omgdi:waypoint>
+        <omgdi:waypoint x="162" y="135"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14" width="100" x="-37" y="-18"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

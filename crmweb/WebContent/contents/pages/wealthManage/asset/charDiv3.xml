@@ -1,0 +1,5 @@
+<chart   formatNumberScale='0' >
+	<set label='保险理财类' value='200' />
+	<set label='风险理财类' value='100' />
+	<set label='存款理财类' value='80' />
+</chart>

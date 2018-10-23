@@ -1,0 +1,7 @@
+<chart caption='总资产'   subcaption='万元' formatNumberScale='0' >
+	<set label='0-5' value='27400' />
+	<set label='5-20' value='39800' />
+	<set label='20-50' value='21800' />
+	<set label='50-200'  value='39800' />
+	<set label='200以上'  value='21800' />
+</chart>

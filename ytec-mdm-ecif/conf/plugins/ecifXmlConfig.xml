@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messageAnalysis>
+	<responseFuns><!-- 响应报文数据的处理函数 -->
+		<responseFun name="Date" class="com.ytec.mdm.plugins.xmlhelper.ResponseDate" />
+		<responseFun name="TxnStat" class="com.ytec.sampleecif.interfaces.TxnStat" />
+		<responseFun name="YcEsbMsgCd" class="com.ytec.sampleecif.interfaces.YcEsbMsgCd" />
+	</responseFuns>
+	<messageTemplet name="temp1">
+		<requestTemplet>
+			<!--ECIFDATA属性提取-->
+			<property name="txCode">//RequestBody/txCode</property><!-- 交易码 -->
+			<property name="opChnlNo">//RequestHeader/ReqSysCd</property><!-- 交易请求系统或渠道-->
+			<property name="reqSeqNo">//RequestHeader/ReqSeqNo</property><!-- 请求流水号-->
+			<property name="requestHeader">//RequestHeader</property><!-- 请求响应报文头 -->
+			<property name="bodyNode">//RequestBody</property><!-- 请求响应报文体 -->
+			<property name="brchNo">//RequestHeader/BrchNo</property><!-- 机构号 -->
+			<property name="tlrNo">//RequestHeader/TlrNo</property><!-- 柜员号-->
+		</requestTemplet>
+		<responseTemplet>
+			<responseXml>response.xml</responseXml><!-- 响应报文模板文件 -->
+			<responseHead>//ResponseHeader</responseHead><!-- 响应响应报文头 -->
+			<responseBodyParent>//ns:S007001990ECIF01</responseBodyParent><!-- 响应报文体父节点 -->
+			<responseBodyName>ResponseBody</responseBodyName><!-- 响应报文体结点名称 -->
+			<responseStatus>//ns:S007001990ECIF01/Fault</responseStatus><!-- 响应状态结点 -->
+		</responseTemplet>
+	</messageTemplet>
+</messageAnalysis>

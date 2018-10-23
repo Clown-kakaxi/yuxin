@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <script type="text/javascript" src="../../../../../../../FusionCharts/FusionCharts.js"></script>
+    </head>
+
+    <body bgcolor="#ffffff">
+                        <table align="center" height="100%" width="100%">
+                        <tr>
+                        <td align="left" colspan="1" valign="top" >
+                        <div id="chartContainer1" align="left" width="100%" ></div>
+                        </td>
+                        <td align="right" colspan="1">
+                        <div id="chartContainer2" align="right" width="100%"></div>
+                        </td>
+                        </tr>
+                        </table>
+                        
+						
+                        <script type="text/javascript">//<!--
+
+                            var myChart1 = new FusionCharts( "../../../../../../../FusionCharts/AngularGauge.swf", "myChartId", "100%", "100%", "0", "0" );
+                            myChart1.setXMLUrl( "padata.xml" );
+                            myChart1.render( "chartContainer1" );
+                            var myChart2 = new FusionCharts( "../../../../../../../FusionCharts/AngularGauge.swf", "myChartId", "100%", "100%", "0", "0" );
+                            myChart2.setXMLUrl( "padata2.xml" );
+                            myChart2.render( "chartContainer2" );
+							
+                            // -->
+                        </script>
+                   
+    </body>
+</html>

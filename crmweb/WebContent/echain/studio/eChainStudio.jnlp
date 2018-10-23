@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="http://127.0.0.1:8080/crmweb/echain/studio">
+<information>
+	<title>eChainStudio</title>
+	<vendor>yuchengtech</vendor>
+	<homepage href="http://www.echannels.com.cn"/>
+	<description>eChainStudio</description>
+	<description kind="short">eChainStudio</description>
+	<icon href="logo.gif"/>
+	<offline-allowed/>
+</information>
+<security>
+	<all-permissions/>
+</security>
+<resources>
+	<j2se version="1.4+"/>
+	<jar href="eChainStudio.jar"/>
+</resources>
+<application-desc main-class="com.ecc.echain.workflow.studio.Studio">
+	<argument>servlet</argument>
+	<argument>http://127.0.0.1:8080/crmweb/definitionservlet</argument>
+	<argument>%orgid%</argument>
+	<argument>%userid%</argument>
+	<argument>mssql</argument>
+	<argument>${ALL}</argument>
+	<argument>1=1</argument>
+	<argument>echaindefault</argument>
+</application-desc>
+</jnlp>

@@ -1,0 +1,7 @@
+<chart   formatNumberScale='0' >
+	<set label='理财产品' value='200' />
+	<set label='存款产品' value='100' />
+	<set label='基金产品' value='180' />
+	<set label='国债产品' value='280' />
+	<set label='保险产品' value='380' />
+</chart>

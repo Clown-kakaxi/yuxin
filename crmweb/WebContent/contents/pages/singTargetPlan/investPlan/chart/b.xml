@@ -1,0 +1,20 @@
+<chart caption='' subCaption=''  shownames='1' showvalues='0' decimals='0' numberPrefix='$' >
+	<categories>
+		<category label='2012' />
+		<category label='2013' />
+		<category label='2014' />
+		<category label='2015' />
+		<category label='2016' />
+		<category label='2017' />
+		<category label='2018' />
+	</categories>
+	<dataset seriesName=''  showValues="0">
+		<set value='300' />
+		<set value='350' />
+		<set value='450' />
+		<set value='560' />
+		<set value='700' />
+		<set value='850' />
+		<set value='1000' />
+	</dataset>
+</chart>

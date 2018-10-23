@@ -1,0 +1,42 @@
+<chart  yAxisMaxValue="350" yAxisMinValue="0" yaxisname="金额(单位: （万元）)" showValues="0"  caption="客户业务发展趋势图" palette="1" baseFontSize="13" formatNumberScale="0"> 
+	<categories>
+		<category label="一月" />
+		<category label="二月" />
+		<category label="三月" />
+		<category label="四月" />
+		<category label="五月" />
+		<category label="六月" />
+	</categories>
+	<dataset SeriesName="存款日均">
+		<set value="120" />
+		<set value="132" />
+		<set value="145" />
+		<set value="123" />
+		<set value="114" />
+		<set value="167" />
+	</dataset>
+	<dataset SeriesName="存款余额">
+		<set value="132" />
+		<set value="156" />
+		<set value="178" />
+		<set value="80" />
+		<set value="60" />
+		<set value="300" />
+	</dataset>
+	<dataset SeriesName="贷款日均">
+		<set value="23" />
+		<set value="26" />
+		<set value="15" />
+		<set value="32" />
+		<set value="67" />
+		<set value="80" />
+	</dataset>
+	<dataset SeriesName="贷款余额">
+		<set value="45" />
+		<set value="32" />
+		<set value="9" />
+		<set value="55" />
+		<set value="121" />
+		<set value="132" />
+	</dataset>
+</chart>

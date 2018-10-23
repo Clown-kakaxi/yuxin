@@ -1,0 +1,80 @@
+**********************************2017-11-06 周一**********************************
+1.【xx功能】
+    说明：
+    涉及文件：
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-07 周二**********************************
+1.【xx功能】
+    说明：
+    涉及文件：
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-09 周四**********************************
+1.【xx功能】
+    说明：
+    涉及文件：
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-10 周五**********************************
+1.【解密网银开户成功后返回的密文密码】
+    说明：解密密码涉及到网银提供的几个JAR包。相关JAR包存放在JDK目录下。
+                具体路径：$JAVA_HOME$\jre\lib\ext
+                相关JAR包：	bcprov-jdk16-1.45.jar
+                bcprov-jdk16-145.jar
+                sunmscapi.jar	
+                sunpkcs11.jar
+     需要修改的文件：1-- $JAVA_HOME$\jre\lib\security\java.security  
+     修改内容：在# List of providers and their preference orders (see above)
+                         下添加     security.provider.9=sun.security.mscapi.SunMSCAPI
+        	  security.provider.10=org.bouncycastle.jce.provider.BouncyCastleProvider
+    更新UAT或者生产时要修改java.security,同时在JDK中添加相关的JAR包(需要用root用户登录，否则可能没有修改权限)
+    涉及文件：OnekeyMsgAnalysisService.java	
+    ★已更新SVN及UAT,未更新生产
+    
+2.【网银开户接口调试】
+    说明：修复开通网上银行时同时勾选U-KEY和短信验证后网银无法开户的BUG。原报文拼接时MCList字段下的CIFChannel最多只能有两个（PMBS、PIBS）
+    涉及文件： OneKeyAccountService.java
+     ★已更新SVN及UAT,未更新生产
+    
+**********************************2017-11-11 周六**********************************
+1.【网银开户】
+	说明：网银开户发送报文时需要注意系统字符集的影响。经测试，在Windows系统下且系统字符集为GB2312时，用UTF-8或者GBK发送报文均不受影响。
+		在Linux系统下且系统字符集为UTF-8时，如果使用GBK发送报文，服务器端接收报文会出现乱码及报文内容错乱等问题导致服务端无法解析请求报文。
+		如果使用UTF-8发送报文时服务端可以正常接收报文
+	涉及文件： OneKeyAccountService.java
+		   OnekeyMsgAnalysisService.java	
+		   NioClient.java
+	★已更新SVN及UAT,未更新生产
+2.【替换码值表实体类】
+    说明：
+    	替换码值表实体类：原先的一键开户包下的实体类删除，换成bcrm.model下的实体类
+    	 ★SVN已更新,UAT未更新,生产已更新
+    	
+    涉及文件：OcrmSysLookupItem.java
+    ★SVN已更新,UAT未更新,生产已更新
+    
+    
+**********************************2017-11-20 周一**********************************
+1.【核心校验是否允许开户】
+    说明：请求核心是否允许开户的地址及端口修改为从bip.properties中获取
+                修改交易请求地址为10.20.35.242，端口不变，还是12019
+                修改交易返回结果处理。
+    涉及文件：CheckHXOpenAccountService.java
+        bip.properties
+    ★未更新SVN★未更新UAT
+    
+2.【开户交易提示信息修改】
+    说明：修改核心开户交易返回信息提示、修改联网核查交易返回信息提示，修改部分ajax请求方式
+    涉及文件：OneKeyAccountAction.java
+        acccountSecond.js
+    ★未更新SVN★未更新UAT    
+    
+    
+3.【修改ECIF核心开户交易返回信息】
+    说明：核心开户成功时响应报文中<TxStatString>内容为FAIL，修改为SUCCESS
+    涉及文件：ytec-mdm-fubonecif\src\main\java\com\ytec\fubonecif\service\svc\comb\OnekeyAccount2CB.java
+    ★未更新SVN★未更新UAT
+
+
+3.【修改ECIF开户的客户识别规则】
+    说明：在ECIF系统中新增识别规则--根据证件类型、证件号码识别，修改ECIF开户识别规则为根据证件类型、证件号码识别，
+    涉及文件：ytec-mdm-fubonecif\src\main\java\com\ytec\fubonecif\service\svc\comb\OpenPersonCustAccount4CRM.java
+    ★未更新SVN★未更新UAT

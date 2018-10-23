@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>organizationChart</title>
+
+        <link href="../assets/ui/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/prettify/prettify.css" rel="stylesheet" type="text/css" />
+
+        <script language="JavaScript" src="FusionCharts.js"></script>
+        <script type="text/javascript" src="json2.js"></script>
+
+        <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="prettify.js"></script>
+        <script type="text/javascript" src="gallery_helper.js"></script>
+
+        <style type="text/css">
+            body { background:none !important }
+        </style>
+
+    </head>
+    <body>
+        <!-- heading -->
+
+<p>&nbsp;</p>
+        <div id="chartdiv" align="center">
+            FusionCharts.
+        </div>
+
+        <script type="text/javascript">
+            var chart = new FusionCharts("DragNode.swf", "ChartId", "1024", "768", "0", "0");
+            chart.setXMLUrl("DragNode3.xml");
+            chart.render("chartdiv");
+        </script>
+<p>&nbsp;</p>
+    
+
+        <!-- data viewer -->
+        <div class="show-code-block">
+            
+            
+            
+            <pre class="prettyprint"></pre>
+           
+        </div>
+
+    </body>
+</html>

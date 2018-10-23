@@ -1,0 +1,148 @@
+以accountLogin.js 中的查询客户预约为例
+1.客户端发送ajax请求
+ $.ajax({
+            url : basepath + '/oneKeyAccountAction!checkCustOrderInfo.json?tm='+Date.now(),
+            type : "GET",
+            timeout : 180000,
+            dataType : "json",
+            data : {
+                'serializeId' : serializeId,
+                'flag' : '2',//查询方式   1：根据姓名证件号证件类型查询 2：根据预约号和证件号查询
+                'orderNo' : visitJson.reviewNumLogin,
+                'custName' : '',
+                'certtype' : '',
+                'certid' : visitJson.reviewIdentNumLogin
+            },
+            beforeSend : function(){
+                myMask = new Ext.LoadMask(Ext.getBody(), {msg:"正在查询客户预约信息，请稍等..."});
+                myMask.show();
+            },
+            success : function(result) {
+                if(myMask){
+                    myMask.hide();
+                    myMask.destroy();
+                    myMask = null;
+                }
+                if(result.JSON.status == 'success'){
+                    var appStatus = result.JSON.custInfo.appStatus;//预约状态 0-取消预约 1-预约成功
+                    if(appStatus == '1'){
+                       //预约信息返显
+                        reviewShow(result);
+                        var checkParams = {
+                            'logId' : serializeId,
+                            'jointaccount':visitJson.jointaccount,
+                            'custNm' : visitJson.customername,//客户姓名
+                            'certtype' :visitJson.certtype,//客户证件类型
+                            'certid' :  visitJson.certid,//客户证件号码
+                            'certtype2' :visitJson.certtype2,//从户证件类型
+                            'certid2' :  visitJson.certid2//从户证件号码
+                        };
+                        //根据核查结果判断是否具有开户资格
+                        //黑名单联网核查
+                        NetCheckAndBlackOrderCheck(checkParams);
+                    }else{
+                        Ext.Msg.alert('提示', "您取消了预约~");
+                        Ext.getCmp("reviewBtn").enable();
+                        return;
+                    }
+                }else{
+                    Ext.Msg.alert('提示', result.JSON.msg);
+                    Ext.getCmp("reviewBtn").enable();
+                    return;
+                }
+            },
+            complete : function(response, status){
+                if(myMask){
+                    myMask.hide();
+                    myMask.destroy();
+                    myMask = null;
+                }
+                if(status && status == 'timeout'){//超时
+                    Ext.Msg.alert('预约信息查询', '核查超时，请联系管理员');
+                    Ext.getCmp("reviewBtn").enable();
+                    return;     
+                }
+            }
+        });
+
+2.Action中接受前台参数，调用service
+在service中首先拼接报文，然后创建交易
+Transaction trans = new CheckCustOrderInfoTranscation(txData);  //创建交易
+CheckCustOrderInfoTranscation类继承自BaseTransaction类，其构造方法:
+
+public CheckCustOrderInfoTranscation(TxData txData) {
+		this.txData = txData;
+		String port = FileTypeConstance.getBipProperty("ECIF.PORT");  //获取ECIF端口号
+		this.setTransName("查询客户预约信息");
+		this.setHost(FileTypeConstance.getBipProperty("ECIF.IP"));   //获取ECIFIP
+		this.setPort(Integer.parseInt(port));
+		this.setRequestCharSet("GBK");
+}
+
+上面设置的几个属性都是继承自BaseTransaction类的
+
+交易创建完毕后开始交易流程:
+trans.process();  //继承方法
+
+具体实现：
+/**
+ * 处理交易，包括发送，接收，解析
+ * @return
+ */
+public TxData process() {
+	request();
+	txData = analysisResMsg(txData);
+	return txData;
+}
+
+request方法就是进行实际的接口调用
+/**
+ * 发送交易请求
+ * @return txData 封装了交易信息的VO
+ */
+public TxData request() {
+	NioClient nioClient = new NioClient(host, port);
+	String resp = null;
+	if (requestCharSet == null || requestCharSet.equals("")) {
+		requestCharSet = "GBK";
+	}
+	resp = nioClient.SocketCommunication(txData, requestCharSet, this.transName);
+	txData.setResMsg(resp);
+	return txData;
+}
+
+完成交易后将相应信息存放入txData中然后进行解析：
+txData = analysisResMsg(txData);
+
+解析完返回给客户端
+
+总结：crmweb中调用ecif接口主要是向ecif的ip的某个端口发送报文，报文中的
+<txCode>queryCustOrderInfo</txCode>
+就是要调用的接口
+在ecif端需要在ecif-web中配置交易，指定接收到的报文对应处理类。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

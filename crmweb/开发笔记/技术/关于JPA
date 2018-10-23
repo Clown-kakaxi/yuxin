@@ -1,0 +1,27 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+JPA是Java Persistence API,Java持久化API
+JPA是一个ORM标准，实现JPA的框架有：Hibernate、Toplink、eclipselink
+目前项目里使用的是eclipselink
+
+实体的新增、修改、删除操作基本上类似于Hibernate,可以在service层进行如下操作：
+新增修改:this.save(entity);
+删除：
+    baseDAO.removeById(id);//这个有限制，这里默认使用的JPABaseDAO<OcrmSysMarqueeNotice,Long> baseDAO里配置的实体
+    baseDAO.remove(entity);//这个直接删除实体，不受具体类限制
+批量删除：
+    Map<String,Object> params = new HashMap<String,Object>();
+    params.put("id", Long.parseLong(id));
+    this.batchUpdateByName("delete from OcrmSysMarqueeNotice where id=:id", params);
+查询：
+    baseDAO.get(id);//这个有限制，这里默认使用的JPABaseDAO<OcrmSysMarqueeNotice,Long> baseDAO里配置的实体
+    baseDAO.getEntityManager().find(entityClass, id);
+    
+原生SQL执行：
+String sql = " update OCRM_F_MK_MKT_MY_ACTI t set t.EXECUTOR_ID=#tMgrId ,t.EXECUTOR_NAME=#tMgrName where t.CUST_ID IN (#custIds)"; 
+baseDAO.createNativeQueryWithNameParam(sql, paramMap).executeUpdate();
+
+String sql = " update OCRM_F_MK_MKT_MY_ACTI t set t.EXECUTOR_ID=?0 ,t.EXECUTOR_NAME=?1 where t.CUST_ID IN (?2)"; 
+baseDAO.createNativeQueryWithIndexParam(sql, paramMap.get("tMgrId"),paramMap.get("tMgrName"),paramMap.get("custIds")).executeUpdate();

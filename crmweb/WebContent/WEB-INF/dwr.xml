@@ -1,0 +1,9 @@
+<dwr>
+	<allow>
+		<!--
+		<create creator="new" javascript="MessagePush">
+			<param name="class" value="com.huatech.messageremind.service.MessagePush"/>
+		</create>
+		-->
+	</allow>
+</dwr>

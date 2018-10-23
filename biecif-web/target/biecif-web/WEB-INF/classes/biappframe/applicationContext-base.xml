@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-utRappil-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+	default-lazy-init="true">
+	<description>Spring公共配置</description>
+	<!-- 定义属性配置文件 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<!-- 读取配置文件 -->
+				<value>classpath*:database.properties</value>
+				<value>classpath*:**/email.properties</value>
+				<!-- 可以配置多个 -->
+			</list>
+		</property>
+	</bean>
+
+	<!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+	<!-- <context:component-scan base-package="com.yuchengtech.emp"> <context:exclude-filter 
+		type="annotation" expression="org.springframework.stereotype.Controller" 
+		/> </context:component-scan> -->
+	<context:component-scan base-package="com.yuchengtech" />
+
+	<!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
+	<bean id="dataSourceDBCP" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 数据库连接属性 -->
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池属性 -->
+		<property name="maxIdle" value="${dbcp.maxIdle}" />
+		<property name="maxActive" value="${dbcp.maxActive}" />
+		<property name="defaultAutoCommit" value="false" />
+		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+		<property name="minEvictableIdleTimeMillis" value="3600000" />
+	</bean>
+
+	<!-- 数据源配置,使用应用服务器的数据库连接池 -->
+	<jee:jndi-lookup id="dataSourceJNDI" jndi-name="${dataSource.jndiName}"
+		proxy-interface="javax.sql.DataSource" lookup-on-startup="false"
+		resource-ref="true" />
+
+
+	<bean id="bioneDataSource" class="com.yuchengtech.emp.bione.common.BioneDataSource">
+		<property name="dataSource">
+			<ref bean="${app.dataSource}" />
+		</property>
+	</bean>
+
+	<!-- 定义 entityManager Factory -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="bioneDataSource" />
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+		<property name="packagesToScan" value="com.yuchengtech" />
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+			</props>
+		</property>
+		<property name="loadTimeWeaver">
+			<bean
+				class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+	</bean>
+	<bean id="hibernateJpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="showSql" value="${jpa.showSql}" />
+		<property name="databasePlatform">
+			<bean factory-method="getDialect"
+				class="com.yuchengtech.emp.bione.util.DialectUtils">
+				<constructor-arg ref="bioneDataSource" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 自动注入entityManager，保证@PersistenceContext可用 -->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<!-- jpa 事务配置 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+	<!-- 定义aspectj -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<bean id="springContextHolder" class="com.yuchengtech.emp.utils.SpringContextHolder"
+		lazy-init="false"></bean>
+
+	<!-- JDBC数据抽取器 -->
+	<bean id="simpleNativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+
+	<bean id="webLogicNativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.WebLogicNativeJdbcExtractor" />
+
+	<bean id="webSphereNativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.WebSphereNativeJdbcExtractor" />
+
+	<bean id="commonsdbcpNativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor" />
+
+
+	<!-- 专用于Oracle数据库 -->
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler">
+		<property name="nativeJdbcExtractor">
+			<ref bean="${jdbc.extractor}" />
+		</property>
+	</bean>
+
+	<!-- 用于除Oracle之外的其它数据库 -->
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler">
+		<property name="nativeJdbcExtractor">
+			<ref bean="${jdbc.extractor}" />
+		</property>
+	</bean>
+	<!-- 初始化数据结构 -->
+	<jdbc:initialize-database data-source="bioneDataSource"
+		enabled="${database.init}" ignore-failures="ALL">
+		<jdbc:script
+			location="classpath:biappframe/sql/bione/${database.type}/schema.sql" />
+	</jdbc:initialize-database>
+	<jdbc:initialize-database data-source="bioneDataSource"
+		enabled="${database.init}" ignore-failures="ALL">
+		<jdbc:script
+			location="classpath:biappframe/sql/bione/${database.type}/quartz.sql" />
+	</jdbc:initialize-database>
+	<jdbc:initialize-database data-source="bioneDataSource"
+		enabled="${database.init}" ignore-failures="ALL">
+		<jdbc:script
+			location="classpath:biappframe/sql/bione/${database.type}/import-data.sql" />
+	</jdbc:initialize-database>
+
+	<bean name="ecifLisenceManager" class="com.yuchengtech.emp.ecif.base.core.EcifLisenceManager"
+		factory-method="getInstance" init-method="initialize">
+		<property name="lisenceModel">
+			<value>${lisenceModel}</value>
+		</property>
+		<property name="licenseFile">
+			<value>${licenseFile}</value>
+		</property>
+	</bean>
+
+	<bean name="EcifPubDataUtils" class="com.yuchengtech.emp.ecif.base.util.EcifPubDataUtils"
+		init-method="initialize">
+	</bean>
+</beans>

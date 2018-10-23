@@ -1,0 +1,29 @@
+<chart palette="2" caption="" subcaption="" showvalues="0" xAxisName="" yAxisName="元"  formatNumberScale='0'>
+−
+<categories>
+<category name="投资总额"/>
+<category name="投资净额"/>
+<category name="收到的年息"/>
+<category name="实现的收益"/>
+</categories>
+−
+<dataset id="IJ" seriesName="存款">
+<set id="IJ2005" value="25601" allowDrag="0"/>
+<set id="IJ2006" value="20148" allowDrag="0"/>
+<set id="IJ2007" value="17372" allowDrag="0"/>
+<set id="IJ2008" value="35407" allowDrag="0" dashed="0"/>
+</dataset>
+−
+<styles>
+−
+<definition>
+<style name="myCaptionFont" type="font" font="Arial" size="14" bold="1"/>
+<style name="mySubCaptionFont" type="font" font="Arial" size="10" bold="0"/>
+</definition>
+−
+<application>
+<apply toObject="Caption" styles="myCaptionFont"/>
+<apply toObject="SubCaption" styles="mySubCaptionFont"/>
+</application>
+</styles>
+</chart>

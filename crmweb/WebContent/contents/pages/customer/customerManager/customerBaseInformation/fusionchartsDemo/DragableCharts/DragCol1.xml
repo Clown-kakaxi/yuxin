@@ -1,0 +1,37 @@
+<chart palette="2" caption="客户存贷款业务量" subcaption="2012年" showvalues="0" xAxisName="" yAxisName="元"  formatNumberScale='0'>
+−
+<categories>
+<category name="时点余额"/>
+<category name="时点较年初增量"/>
+<category name="日均余额"/>
+<category name="日均较年初增量"/>
+</categories>
+−
+<dataset id="IJ" seriesName="存款">
+<set id="IJ2005" value="25601" allowDrag="0"/>
+<set id="IJ2006" value="20148" allowDrag="0"/>
+<set id="IJ2007" value="17372" allowDrag="0"/>
+<set id="IJ2008" value="35407" allowDrag="0" dashed="0"/>
+</dataset>
+−
+<dataset id="LJ" seriesName="贷款" showValues="0">
+<set id="LJ2005" value="57401" allowDrag="0"/>
+<set id="LJ2006" value="41941" allowDrag="0"/>
+<set id="LJ2007" value="45263" allowDrag="0"/>
+<set id="LJ2008" value="117320" allowDrag="0"/>
+</dataset>
+−
+−
+<styles>
+−
+<definition>
+<style name="myCaptionFont" type="font" font="Arial" size="14" bold="1"/>
+<style name="mySubCaptionFont" type="font" font="Arial" size="10" bold="0"/>
+</definition>
+−
+<application>
+<apply toObject="Caption" styles="myCaptionFont"/>
+<apply toObject="SubCaption" styles="mySubCaptionFont"/>
+</application>
+</styles>
+</chart>

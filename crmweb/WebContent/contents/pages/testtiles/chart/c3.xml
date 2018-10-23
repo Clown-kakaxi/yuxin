@@ -1,0 +1,27 @@
+
+
+
+<chart palette='3' is3D='1' xAxisMaxValue='120' yAxisMaxValue='14000' formatNumberScale='0' showPlotBorder='0'  chartRightMargin='30'>
+
+   <categories>
+      <category label='0' x='0' />
+      <category label='微型客户' x='20' />
+      <category label='小型客户' x='40' />
+      <category label='中型客户' x='60' />
+      <category label='大型客户' x='80' />
+      <category label='特大型客户' x='100'/>
+       <category label='' x='120'/>
+   </categories>
+
+   <dataSet showValues='0'>
+      <set x='20' y='2000' z='320940'  name='微型客户'/>
+      <set x='40' y='4000' z='120340' name='小型客户'/>
+      <set x='60' y='6000' z='80000' name='中型客户'/>
+      <set x='80' y='8000' z='20000' name='大型客户'/>
+      <set x='100' y='10000' z='10000' name='特大型客户'/>
+  
+   </dataSet>
+
+
+</chart>
+

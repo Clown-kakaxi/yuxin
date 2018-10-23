@@ -1,0 +1,7 @@
+<chart caption='五级分类客户数' showPercentValues='1'>
+   <set label='正常' value='420000' />
+   <set label='关注' value='720000' />
+   <set label='次级' value='550000' />
+   <set label='可疑' value='510000' />
+    <set label='损失' value='680000' />
+</chart>

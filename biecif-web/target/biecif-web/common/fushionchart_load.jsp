@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${ctx}/Fusioncharts/FusionCharts.js"></script>

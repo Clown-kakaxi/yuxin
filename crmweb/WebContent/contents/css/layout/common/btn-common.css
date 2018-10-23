@@ -1,0 +1,29 @@
+.button {
+  margin: 5px;
+  font-family: 'Open Sans',sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button_shadow {
+  /*padding: .85em 1.3em .65em;*/
+  /*font-size: 1.2em;*/
+  background: #fafafa;
+  border: 0;
+  box-shadow: 0 0 20px silver;
+  color: #787878;
+}
+
+.button_shadow:hover, .button_border:hover {
+  color: #fff !important;
+  background: #a0a0a0;
+}
+
+.button_shadow[data-button=green], .button_border[data-button=green] {
+    border-color: #2ecc71;
+    color: #2ecc71;
+}
+
+.button_shadow[data-button=green]:hover, .button_border[data-button=green]:hover {
+  background: #2ecc71;
+}

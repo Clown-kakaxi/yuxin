@@ -1,0 +1,66 @@
+@media print{
+	.Noprint {display: none;}
+	.PageNext {page-break-after: always;}
+}
+
+/* 
+html{
+	_background-color:white;
+}
+ */
+*{
+	showPrintContent
+} 
+html{
+	_background-image:url(about:blank); /*用浏览器空白页面作为背景*/
+	_background-attachment:fixed;   /*IE6确保滚动条滚动时，元素不闪动*/
+}
+.showPrintContent{width: 210mm; background-color:#fff; padding-bottom:10mm;
+				}/*193mm*/
+.Noprint{
+	z-index:100;/*设置浮动层次*/
+	position: fixed;/*IE6以外的浏览器浮动设置*/
+	top:48px;/*IE6以外的浏览器下定位*/
+	left:212mm;
+	_position:absolute;/*IE6用absolute模拟fixed*/
+	_top:expression(documentElement.scrollTop +48+ "px");/*IE6动态设置top位置为10px*/
+}
+
+/**
+ * .Noprint{position:absolute;margin-left:98mm;margin-top: expression(documentElement.scrollTop+"px");}
+ * ie6/ie7/ie8不兼容问题写三个样式方法
+ * #id{IE6}  *html #id{ie7} *+html #id{ie8}
+ *  .Noprint{text-align: left;position: fixed!important;top: 5px;z-index:100;top:expression(offsetParent.scrollTop);}
+ */
+ 
+.titleDiv {text-align: center;font-weight:bolder;font-size:12px;}
+.endDiv {text-align: right; padding-right: 10mm;float: right}
+.title2 {padding-left: 2mm;font-size:14px;}
+/*列表样式 开始*/
+.print_tab_01 {margin-left:1mm; background-color:white;border: 0px;width: 99%;border-spacing: 0px;border-right: 1px ccc solid;border-bottom: 1px #ccc solid;font-size:12px;}
+.print_tab_01 td.css1 {text-align:right; padding: 2px;padding-left: 2px;padding-right: 2px;border-top: 1px #ccc solid;border-left: 1px #fff solid;font-size:12px;}
+.print_tab_01 td.css3 {text-align:right; padding: 2px;padding-left: 2px;padding-right: 2px;border-top: 1px #ccc solid;border-left: 1px #ccc solid;font-size:12px;}
+.print_tab_01 td.css2 {padding: 2px;padding-left: 2px;padding-right: 2px;border-top: 1px #ccc solid;border-left: 1px #ccc solid;font-size:12px;}
+
+
+.print_tab_02 {margin-left:1mm;background-color:white;border: 0px;width: 99%;border-spacing: 0px;border-right: 1px #ccc solid;border-bottom: 1px #ccc solid;font-size:14px;}
+.print_tab_02 td {padding: 2px;padding-left: 2px;padding-right: 2px;border-top: 1px #ccc solid;border-left: 1px #ccc solid;font-size:12px}
+.print_tab_02 th {padding: 2px;padding-left: 2px;padding-right: 2px;border-top: 1px #ccc solid;border-left: 1px #ccc solid;font-size:12px}
+.trDiv{width:990;height:35px;}
+.tr3Div{width:990;height:105px;}
+.tr6Div{width:990;height:210px;}
+.tr10Div{width:990;height:350px;}
+.tdDiv{text-align:left;font-size:15px;}
+.td1Div{text-align:left;font-weight:bolder;font-size:15px;}
+
+
+
+
+
+
+
+
+
+
+
+

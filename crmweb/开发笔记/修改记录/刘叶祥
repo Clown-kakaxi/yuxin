@@ -1,0 +1,463 @@
+******************************************************************************
+######################################跑马灯功能涉及到的SQL脚本（start）#####################
+select * from OCRM_SYS_MARQUEE_NOTICE;
+drop table OCRM_SYS_MARQUEE_NOTICE;
+-- Create Table
+create table OCRM_SYS_MARQUEE_NOTICE
+(
+    id integer primary key,
+    text varchar2(400),
+    valid_dt timestamp,
+    create_dt timestamp,
+    create_user varchar2(20)
+) tablespace TBS_CRM_DAT;
+comment on table OCRM_SYS_MARQUEE_NOTICE is '跑马灯信息';
+comment on column OCRM_SYS_MARQUEE_NOTICE.Id is '公告id';
+comment on column OCRM_SYS_MARQUEE_NOTICE.text is '公告内容';
+comment on column OCRM_SYS_MARQUEE_NOTICE.valid_dt is '公告有效时间';
+comment on column OCRM_SYS_MARQUEE_NOTICE.create_dt is '公告创建时间';
+comment on column OCRM_SYS_MARQUEE_NOTICE.create_user is '公告创建人';
+
+drop sequence ID_OCRM_SYS_MARQUEE_NOTICE;
+-- Create sequence 
+create sequence ID_OCRM_SYS_MARQUEE_NOTICE
+minvalue 100000
+maxvalue 9999999999999999999999999999
+start with 100000
+increment by 1
+cache 20
+order;
+######################################跑马灯功能涉及到的SQL脚本（end）#####################
+1.【跑马灯的首页展示】与【跑马灯信息维护】
+    /crmweb/contents/frameControllers/widgets/search/window.js
+          这里修改了框架的代码，实现首页在底部 功能栏上显示跑马灯信息   
+    com.yuchengtech.bcrm.notice.action.OcrmSysMarqueeNoticeAction.java
+    com.yuchengtech.bcrm.notice.service.OcrmSysMarqueeNoticeService.java
+        还需要在系统里：新建模块、新建菜单、分配权限
+★已上SVN,已更新UAT,未更新生产,未更新SVN生产
+**********************************2017-11-01 周三**********************************
+1.【客户信息管理】
+    com.yuchengtech.bcrm.customer.newCustomer.service.CustomerManagerNewService类的commitFsxComAll方法
+        保存的时候，修正原先没有保存修改时间，设置修改时间updateDate为当前时间
+        ★已上SVN,已更新UAT,未更新生产,未更新SVN生产
+2.【客户信息管理】
+    转信贷临时户--取消是否台资企业的必输项：588行
+	/crmweb/contents/pages/wlj/customerManager/queryAllCustomer/lnBlankOrRead.js
+★已上SVN,已更新UAT,未更新生产,未更新SVN生产
+
+**********************************2017-11-02  周四**********************************
+1.【全行客户查询】
+协助甘雨修正证件1证件2联动查询问题
+    crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/customerView/action/CustomerQueryAllNewAction.class
+    crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/customerView/service/CustomerQueryAllNewService.class
+    crmweb/contents/pages/wlj/customerManager/customerQueryAllNew.js
+★已更新生产，UAT已更新，SVN上生产代码已更新
+2.【客户信息管理】修正IE8无法打开问题(多了个逗号)
+    crmweb/contents/pages/wlj/customerManager/queryAllCustomer/qzComInfoFive.js
+★已更新生产，UAT已更新，SVN上生产代码已更新
+
+**********************************2017-11-03  周五**********************************
+1.【ECIF与CMS之间数据同步】
+协助徐云龙修正证件1与证件2推送的问题，2个证件都要推送，客户信息表里的证件为证件1，证件信息表里的另外一个为证件2
+	ytec-mdm-fubonecif-2.3.0.jar里的
+	com.ytec.fubonecif.integration.sync.FubonSynchroHandler4WMS.class
+	ytec-mdm-ecif-2.3.0.jar里的
+	com.ytec.mdm.service.svc.comb.WmsQueryBizLogic.class
+★已更新生产，UAT已更新，SVN上生产代码已更新
+**********************************2017-11-06 周一**********************************
+1.【一键开户】
+协助崔恒薇修正一键开户功能页面打印开户手册IE8报错的问题
+2.将之前（2017-11-02和2017-11-03）已经更新生产的的问题更新到SVN上的生产文件
+3.协助汪星研究word在线显示的问题
+**********************************2017-11-07 周二**********************************
+1.协助徐云龙解决相关技术问题：动态显示/隐藏表格列、点击左侧树联动加载表格数据
+  showGridField(fieldName);
+  setsearchparams(params);
+2.协助汪星实现一键开户里“退出系统”按钮功能，即程序控制当前功能窗口关闭
+    parent.window._APP.taskBar.currentItem.close();
+    parent.Wlj.TaskMgr.tasks.each(function(task){
+        task.minisize();
+    });
+    后经过确认，不是关闭当前窗口，而是回到一键开户打开时的页面，因此换成刷新页面
+    parent.window._APP.taskBar.currentItem.reload();
+3.协助杨毅查询反洗钱三个功能的开放条件
+    ★★★★检查中发现这三个功能有些缺陷，IE无法使用，因为多了逗号。。。于2017-11-11更新了生产★★★★
+4.核心开户后同步数据到ECIF,ECIF里原先是根据证件类型和证件号合并潜在客户的，需要改为如果证件类型和证件号找不到则继续按客户名称模糊匹配
+    查询代码中。。。
+**********************************2017-11-08 周三**********************************
+1.核心开户后同步数据到ECIF,ECIF里原先是根据证件类型和证件号合并潜在客户的，需要改为如果证件类型和证件号找不到则继续按客户名称模糊匹配
+    查询客户合并代码完成，初步确认可以使用该识别规则，等待UAT上测试通过后可以转生产
+    ★无需更新SVN★未更新UAT★未更新生产★无需更新SVN上生产代码
+**********************************2017-11-09 周四**********************************
+1.服务端推送技术研究
+        修改了WEB-INF/web.xml添加了dwr的servlet
+        添加文件WEB-INF/dwr.xml
+        添加文件/contents/pages/common/Com.yucheng.bcrm.common.TipsWindow.js
+        修改了/contents/frameControllers/WljAPPBooter.js文件，添加了对TipsWindow.js的引用
+        修改了/crmweb/contents/wljFrontFrame/searchFace.js文件，添加了右下角提示框控件，添加了dwr初始化程序，添加了服务端回调客户端js函数_showServerMsg
+        添加了JAVA包com.yuchengtech.bcrm.dwr并在包下新增了类DwrUtil
+        使用示例：
+            服务端：
+            AuthUser auth=(AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            //推送到web端
+            DwrUtil t =  new DwrUtil();
+            List<Object> args = new ArrayList<Object>();
+            Map<String, Object> pushArgs = new HashMap<String, Object>();
+            pushArgs.put("pushUserId", auth.getUserId());
+            pushArgs.put("pushMsg", "推送信息");
+            pushArgs.put("pushIp", auth.getCurrentIP());
+            pushArgs.put("reciveUserId", "501N8888");
+            pushArgs.put("autoHide", "10");
+            args.add(pushArgs);
+            t.invokeJavascriptFunction("_showServerMsg",args);
+            客户端：
+            var afterinit = function(){
+                parent._showServerMsg = parent._showServerMsg.createSequence(function(args){
+                    if(args.reciveUserId&&(args.reciveUserId=='ALL'||args.reciveUserId==__userId)){
+                        alert("推送人:"+args.pushUserId+",被推送人："+__userId+",推送信息\""+args.pushMsg+"\"");
+                    }
+                });
+            }
+    ★已提交SVN
+2.协助崔恒薇调试轮询的代码
+3.修复低风险反洗钱功能的月份限制代码以及IE兼容问题
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyLowRiskCustAudit.js
+        ★已提交SVN，已上UAT,已上生产,已更SVN生产文件
+4.修复高风险反洗钱功能IE兼容问题
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyHighRiskCustAudit.js
+        ★已提交SVN，已上UAT,已上生产,已更SVN生产文件
+5.修复中风险反洗钱功能IE兼容问题
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyMediumRiskCustAudit.js
+        ★已提交SVN，已上UAT,已上生产,已更SVN生产文件
+**********************************2017-11-10 周五**********************************
+1.协助甘雨解决一键开户打印页面在IE8上排版错乱问题
+        ★已提交SVN，未上UAT
+2.协助汪星解决网银密码解密问题
+**********************************2017-11-11 周六**********************************
+1.更新反洗钱修复问题到生产
+        ★已提交SVN，已上UAT,已上生产,已更SVN生产文件
+2.全行客户查询功能更新上生产
+    上线过程发现调用了一键开户里的码值实体类，不合理，因此更新代码，拷贝实体类到bcrm.model下，
+    修改全行客户查询service里对实体类的引用的地方，改为从bcrm.model里引用
+        ★已提交SVN,已上UAT,已上生产,已更新SVN生产文件
+**********************************2017-11-13 周一**********************************
+1.更新2017-11-11上生产的文件到UAT和SVN生产文件
+2.检查徐云龙提交的代码，并提出修改建议
+3.协助汪星解决网银报文解析错误问题
+4.检查文件的过程中发现全行客户查询页面使用了历史表OCRM_F_CI_GROUP_INFO，后期需与开云沟通是否需要更新为OCRM_F_CI_GROUP_INFO_NEW
+5.【法金预估3功能】
+    说明：
+       1)去掉客户名称放大镜里，点击查询按钮后出现的【新增潜在 客户】按钮
+       2)功能对IE也存在兼容问题
+       3)放大镜查询结果不对，根据开云给的SQL进行修改
+    涉及文件：
+    /crmweb/contents/pages/common/Com.yucheng.bcrm.common.CustomerQueryFieldDK.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/payOrRepay.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/depositOrDrawing.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/tmuOther.js
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+**********************************2017-11-14 周二**********************************
+1.【法金预估3功能】
+    说明：放大镜查询结果不对,根据开云给的SQL进行修改，并测试所有查询条件
+    涉及文件：
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationDKAction.class
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+**********************************2017-11-15 周三**********************************
+1.【一键开户】
+    说明：协助甘雨处理打印预览错位
+    涉及文件：无
+
+2.【一键开户】
+    说明：协助汪星处理程序无法读卡
+    涉及文件：无
+
+3.【Pipeline营销概览】
+    说明：开云说查询也不正确，需进一步沟通确认,检查时发现IE兼容问题
+    涉及文件：
+    /crmweb/WebContent/contents/pages/common/Com.yucheng.bcrm.common.CustomerQueryFieldYY.js
+    /crmweb/src/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationYYAction.java
+★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+
+**********************************2017-11-16 周四**********************************
+1.【反洗钱】
+    说明：低风险判断奇数年，高、中风险限制时间去掉，查询SQL根据开云给的改
+    涉及文件：
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyLowRiskCustAudit.js
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyHighRiskCustAudit.js
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyMediumRiskCustAudit.js
+    /crmweb/src/com/yuchengtech/bcrm/custmanager/action/CustomerAntMoneyAuditQueryAction.java
+    ★已更新SVN★已更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-17 周五**********************************
+1.【反洗钱】
+    说明：检查代码发现原先 按钮的控制逻辑存在问题，写反了，修正
+    涉及文件：
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyLowRiskCustAudit.js
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyHighRiskCustAudit.js
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyMediumRiskCustAudit.js
+    ★已更新SVN★已更新UAT★未更新生产★未更新SVN上生产代码
+2.协助汪星检查密码打印问题
+  
+**********************************2017-11-20 周一**********************************
+1.协助崔恒薇研究一键开户里提示信息的显示方式
+2.协助甘雨调整一键开户里控件错乱的问题
+**********************************2017-11-21 周二**********************************
+1.协助徐云龙解决360试图里按金额合计的表格数据生成
+2.协助甘雨解决一键开户里放大的字体在IE下偏小的问题(不同浏览器使用不同的大小)
+3.协助崔恒薇解决文件下载问题(文件下载不能使用Ajax请求，同时Action的方法需要指定返回值为success来取消自动生成json)
+**********************************2017-11-22 周三**********************************
+1.【Pipeline营销概览】
+    说明：开云之前错将客户名称放大镜的查询SQL写成了法金预估的，需修改Pipeline放大镜查询 SQL并修改原先法金预估客户名称放大镜SQL
+        放大镜里查询条件【客户类型】样式不对，去掉背景灰色(去掉样式x-readOnly)
+    涉及文件：
+    /crmweb/WebContent/contents/pages/common/Com.yucheng.bcrm.common.CustomerQueryFieldYY.js
+    /crmweb/src/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationYYAction.java
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+1.【法金预估3功能】
+    说明：放大镜查询SQL之前开云给错了
+    涉及文件：
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationDKAction.class
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+
+**********************************2017-11-23 周四**********************************
+1.协助崔恒薇解决一键开户布局问题
+2.【法金预估3功能】
+    说明：放大镜查询SQL之前开云给错了
+    涉及文件：
+    /crmweb/contents/pages/common/Com.yucheng.bcrm.common.CustomerQueryFieldDK.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/payOrRepay.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/depositOrDrawing.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/tmuOther.js
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationDKAction.class
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+**********************************2017-11-24 周五**********************************
+1.【法金预估3功能】
+    说明：放大镜查询SQL之前开云给错了
+    涉及文件：
+    /crmweb/contents/pages/common/Com.yucheng.bcrm.common.CustomerQueryFieldDK.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/payOrRepay.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/depositOrDrawing.js
+    /crmweb/WebContent/contents/pages/wlj/serviceManager/tmuOther.js
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationDKAction.class
+2.【Pipeline营销概览】
+        说明：测试过程中发现之前的SQL写法还有问题，需要再套一层查询，并指定被嵌套的子查询别名为C,因为用户过滤条件配置页面里配置的查询SQL使用的是C
+        涉及文件：/crmweb/src/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationYYAction.java
+**********************************2017-11-26 周日**********************************
+1.上线法金预估
+2.上线pipeline
+3.灾备
+**********************************2017-11-27 周一**********************************
+1.将周日上线的【法金预估】和【pipeline】更新到SVN生产代码
+2.【客户信息管理】
+    说明：转客户状态时(转信贷临时户、转信贷正式户)，调用接口与本地数据库状态更新存在先后逻辑错误，没有等待接口返回接口就直接更新了数据库状态
+    涉及文件：
+    /crmweb/contents/pages/customer/customerManager/latentCustomerQueryNew2.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/saveHandler.js
+3.【反洗钱】页面控制逻辑改回去，服务端取数SQL待开云给
+    涉及文件：
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyLowRiskCustAudit.js
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyHighRiskCustAudit.js
+    /crmweb/contents/pages/wlj/custmanager/antiMoney/antMoneyMediumRiskCustAudit.js
+    /crmweb/src/com/yuchengtech/bcrm/custmanager/action/CustomerAntMoneyAuditQueryAction.java
+    ★已更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-28 周二**********************************
+1.【法金预估】
+    说明：放大镜确定后没有获取到大区的数据
+    涉及文件：
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationDKAction.class
+    ★已更新SVN★已更新UAT★未更新生产★未更新SVN上生产代码
+2.【客户信息管理】
+    说明：转客户状态时(转信贷临时户、转信贷正式户)，调用接口与本地数据库状态更新存在先后逻辑错误，没有等待接口返回接口就直接更新了数据库状态
+                理代码逻辑
+    涉及文件：
+    /crmweb/contents/pages/customer/customerManager/latentCustomerQueryNew2.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/saveHandler.js
+
+**********************************2017-11-30 周三**********************************
+1.【客户信息管理】
+    说明：转客户状态时，地址信息里出现重复数据
+    涉及文件：
+    /crmweb/contents/pages/customer/customerManager/latentCustomerQueryNew2.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/saveHandler.js
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-30 周四**********************************
+1.【法金预估】
+    说明：放大镜取数去掉存款、贷款、MTU限制，3个功能查询SQL一致
+    涉及文件：
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/CustomerBaseInformationDKAction.class
+    ★已更新SVN★已更新UAT★已更新生产★未更新SVN上生产代码
+2.【客户信息管理】
+    说明：转客户状态时，地址信息里出现重复数据，调用接口与本地数据库状态更新存在先后逻辑错误，没有等待接口返回接口就直接更新了数据库状态
+    涉及文件：
+    /crmweb/contents/pages/customer/customerManager/latentCustomerQueryNew2.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/saveHandler.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/qzComInfoThree.js
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/action/CustomerManagerNewAction.java
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/action/DealWithComAction.java
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/service/CustomerManagerNewService.java
+        已更新SVN,未更新UAT
+**********************************2017-12-01 周五**********************************
+1.【拜访复评】
+    说明：查询SQL优化
+    涉及文件：
+    /home/weblogic/bea/user_projects/domains/crm_domain/crmweb/WEB-INF/classes/com/yuchengtech/bcrm/custmanager/action/CustomerReviewQueryAction.class
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+2.【客户信息管理】
+    说明：企业规模保存的时候，丢失更新时间
+    /home/weblogic/bea/user_projects/domains/crm_domain/crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/service/CustomerManagerNewService.class
+    ★已更新SVN★已更新UAT★已更新生产★已更新SVN上生产代码
+
+**********************************2017-12-04 周一**********************************
+1.【客户信息管理】
+    说明：转客户状态时(转信贷临时户、转信贷正式户)，调用接口与本地数据库状态更新存在先后逻辑错误，没有等待接口返回接口就直接更新了数据库状态
+                理代码逻辑,经各方咨询，确定是因CRM调用ECIF更新数据，ECIF修改数据后直接返回成功，然后向信贷开启同步交易，这是两个线程，无法实时返回同步是否成功，这个有待继续讨论
+    涉及文件：
+    /crmweb/contents/pages/customer/customerManager/latentCustomerQueryNew2.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/saveHandler.js
+    /crmweb/contents/pages/wlj/customerManager/queryAllCustomer/qzComInfoThree.js
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/action/CustomerManagerNewAction.java
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/action/DealWithComAction.java
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/newCustomer/service/CustomerManagerNewService.java
+        已更新SVN,已更新UAT
+        该问题暂不处理，改动的代码已在20180111生产更新里
+**********************************2017-12-05 周二**********************************
+1.【拜访信息】
+    说明：查询条件里的客户名称放大镜，新增潜在客户 ，如果客户名称已经存在，原先只提示已存在，需要增加提示归属客户经理
+    涉及文件：
+    /crmweb/contents/pages/common/Com.yucheng.bcrm.common.CustomerQueryFieldQZ.js
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/action/VisitInfoAction.java
+    /crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/service/VisitInfoService.java
+    ★已更新SVN★未更新UAT★未新生产★未更新SVN上生产代码
+2.换版【拜访复评】、企业规模修改日期、全行客户查询(甘雨)
+**********************************2017-12-06 周三**********************************
+1.更新刚上生产的文件到SVN生产
+2.拜访信息功能测试，换版文档整理
+3.协助汪星修改crm直接交易的程序，修改后更加方便管理
+**********************************2017-12-07 周四**********************************
+1.客户信息管理页面-注册地址重复问题研究
+
+**********************************2017-12-11 周一**********************************
+1.客户信息管理页面-->注册地址重复问题研究,注册登记号没有保存
+2.客户信息管理页面-->企业规模(银监)，页面没有反显，没有数据
+3.生产换版：拜访信息&在线日志
+**********************************2017-12-12 周二**********************************
+1.协助徐云龙处理Excel批量移转遇到的问题
+2.协助杨毅查询客户移转后台的触发条件
+3.更新生产换版文件到SVN生产代码
+4.【在线日志】，去掉可以在线查询最新几行的功能(已更新SVN和UAT以及SVN生产代码，没有上生产)
+改动的代码已在20180111生产更新里，未更SVN生产
+**********************************2017-12-13 周三**********************************
+1.协助徐云龙解决批量客户移转流程问题
+2.客户信息管理页面-->注册地址重复问题研究,注册登记号没有保存
+**********************************2017-12-14 周四**********************************
+1.客户信息管理页面-->注册地址重复问题研究,注册登记号没有保存
+**********************************2017-12-15 周五**********************************
+1.客户信息管理页面-->注册地址重复问题研究,注册登记号没有保存
+2.weblogic打补丁研究
+**********************************2017-12-18 周一**********************************
+1.
+**********************************2017-12-19 周二**********************************
+1.
+**********************************2017-12-20 周三**********************************
+1.协助徐云龙处理批量移转导入问题
+2.与石金彪沟通关于注册地址重复的问题并检查程序
+**********************************2017-12-21 周四**********************************
+1.协助徐云龙处理批量移转导入问题
+2.处理注册地址重复的问题，修改ECIF同步信贷的交易代码，并更新UAT进行测试
+    涉及文件：/ytec-mdm-fubonecif/src/main/java/com/ytec/fubonecif/integration/sync/FubonSynchroHandler4LN.java
+**********************************2017-12-22 周五**********************************
+1.业务测试一键开户，有个身份证开户失败，协助查询(最终查询的结果是核心没有给响应报文)
+    900N1549登录，900N1574复核，开户客户名：何怀芹，开户证件：身份证211021198602278180
+**********************************2017-12-25 周一**********************************
+1.【主管直接移交】功能，提交失败，程序报错(NumberFormatException:For Input String)
+    说明：这个是由于客户归属表的主键长度超过了整型int的长度，而SQL又是直接拼接的而不是使用占位符，所以导致报错
+    涉及文件：/crmweb/WEB-INF/classes/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.class
+    改动的代码已在20180111生产更新里
+**********************************2017-12-26 周二**********************************
+1.【代办工作】里的已办任务和办结任务打不开，经检查是程序缺少了空格导致程序错乱
+涉及文件：
+    /crmweb/WebContent/contents/pages/echainCommon/workApprovedList.jsp
+    /crmweb/WebContent/contents/pages/echainCommon/workDoneList.jsp
+2.【客户信息管理】是否上市企业无法保存
+**********************************2017-12-27 周三**********************************
+
+**********************************2017-12-28 周四**********************************
+**********************************2017-12-29 周五**********************************
+1.新UAT环境迁移分析
+2.新UAT环境规划，用户和用户组的创建
+**********************************2018-1-2 周二**********************************
+1.联名户要不要去*交流
+2.weblogic介质确认与licence调研
+3.【法金客户经理移交】添加提示：请确认所移转客户无信贷系统审批流程,且信贷系统客户归属于CRM一致！
+**********************************2018-1-3 周三**********************************
+1.协助徐云龙改造主管直接移交功能里所有交易，改为可记录日志，原先不记录日志
+2.协助徐云龙解决主管直接移交功能里遇到的问题
+3.【法金客户经理移交】alert提示改为Confirm提示，点确认后才能限制移交面板
+    涉及文件：/crmweb/contents/pages/wlj/custmanager/custTransToManager.js
+**********************************2018-1-4 周四**********************************
+1.协助崔恒薇处理交易报错问题，交易客户端写法存在问题，没有返回报文，读到-1的情况没处理
+**********************************2018-1-5 周五**********************************
+1.ChangeCustManagerAction.java这个文件写法有问题，报错，response重复调用了
+    涉及文件/crmweb/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.class
+2.去上海银行交流USE2的安装
+3.UAT环境weblogic安装
+4.谈论企业规模的处理方法
+**********************************2018-1-8 周一**********************************
+1.整理上线文档
+2.【客户信息管理】修改企业规模生产方式
+涉及文件：
+	/crmweb/contents/pages/wlj/customerManager/queryAllCustomer/saveHandler.js
+	DealWithComAction.java
+	CustomerManagerNewService.java
+**********************************2018-1-9 周二**********************************
+1.【客户信息管理】修改企业规模生产方式
+2.协助徐云龙解决批量客户经理 移交-导入查询功能遇到的问题，研究如果控制查询按钮的逻辑
+**********************************2018-1-10 周三**********************************
+1.【客户信息管理】页面企业规模显示逻辑变更：客户状态为A的显示存款规模，其他的显示银监规模(页面不变，文本还是银监，只是显示值根据客户状态变)
+2.协助徐云龙解决批量客户经理 移交-导入查询功能遇到的问题，动态改变查询条件的值
+
+**********************************2018-1-11 周四**********************************
+1.企业规模测试报错修正
+2.客户移转流程报错处理
+**********************************2018-1-12 周五**********************************
+1.UAT环境迁移(ecif服务器)，安装文档编写
+**********************************2018-1-15 周一**********************************
+1.解决前面迁移过程中出现的fbecif-web起不来的问题，目前改为部署到tomcat里了，weblogic下起不来
+
+**********************************2018-2-5 周一**********************************
+1.客户移交定时任务taskJob里处理移交有问题，一旦失败抛出异常则后面的就不处理了，需修正为不影响其他移交的处理
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/WEB-INF/classes/com/ecc/echain/wf/TaskJob.class
+
+**********************************2018-2-7 周三**********************************
+1.360客户视图的【客户信息首页】添加一个客户来源信息，数据与一键开户里使用的一致
+360视图的【客户基本信息】页，在存款总额后面需要添加贷款余额表格，按币种统计
+360视图的【客户基本信息】页，存款总额的计算不正确，总额=活期+定期+通知存款+结构性理财+大额存单
+360视图的【客户基本信息】页，定期存款及通知存款表格里，还缺少卡号、账号、账户状态这几个字段
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/com/yuchengtech/bcrm/customer/action/PrivateCustInfoAction.java
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+
+2.360客户视图的【客户基本信息】页，将其他信息区域里的【前次来行状况】的label改为【来源备注】
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/contents/pages/wlj/customerManager/privateCustView/privateCustBaseInfo.js
+
+3.营销活动的磁贴要与提醒信息一样大，这个需要新开发一个2*2的定制化磁贴
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/contents/pages/wlj/workspaceManager/marketActivity.js
+还需要进入系统，【菜单】-->【系统管理】-->【YC.CRM参数管理】-->【模块管理】选择数据行【营销管理】，点击【功能维护】按钮
+在左侧选择【客户经理营销活动】，将右侧【功能详情】下面的【是否使用动态磁贴】勾选上，选择默认尺寸为尺寸2x2，
+并在下面的尺寸2x2行输入/contents/pages/wlj/workspaceManager/marketActivity.js
+
+**********************************2018-2-8 周四**********************************
+1.处理周三没有处理好的问题
+2.解决点击非菜单区域让菜单自动收起
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/contents/frameControllers/widgets/search/header.js
+/home/weblogic/bea/user_projects/domains/crm_domain/crmweb/contents/frameControllers/Wlj-search-APP.js
+**********************************2018-2-26 周一**********************************
+1.配合杨毅查询行业变动涉及的相关表，最终初步确定的表有两个：ACRM_F_CI_ORG、ACRM_F_CI_BUSI_TYPE
+2.配合金彪查询企业规模问题，查询结果：全行客户查询查询与修改都是银监规模，客户信息管理里的查询会跟着是否有效户变，修改时会根据是否有效户使用存款覆盖银监
+
+
+
+*********************************************************************************************************************************
+待修改的内容：
+1：反洗钱
+**********************************************************************************************************************************
+待测试上线内容：
+1.跑马灯

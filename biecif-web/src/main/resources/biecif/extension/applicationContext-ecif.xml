@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+						http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd"
+	default-lazy-init="true">
+
+	<description>ECIF平台配置</description>
+	
+	<!-- 初始化数据结构 -->
+	<jdbc:initialize-database data-source="bioneDataSource" enabled="${database.init}" ignore-failures="ALL">
+		<jdbc:script location="classpath:biecif/sql/ecif/${database.type}/schema.sql" />
+	</jdbc:initialize-database>
+	<jdbc:initialize-database data-source="bioneDataSource" enabled="${database.init}" ignore-failures="ALL">
+		<jdbc:script location="classpath:biecif/sql/ecif/${database.type}/import-data.sql" />
+	</jdbc:initialize-database>
+</beans>

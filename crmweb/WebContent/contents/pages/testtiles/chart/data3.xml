@@ -1,0 +1,40 @@
+﻿<chart palette="2" caption="经营单位存款统计(单位：元)" subcaption="2013" showvalues="0" xAxisName="" yAxisName=""  formatNumberScale='0'  >
+−
+<categories>
+<category name="存款时点"/>
+<category name="存款日均"/>
+<category name="贷款时点"/>
+<category name="贷款日均"/>
+<category name="年初时点"/>
+</categories>
+−
+<dataset id="IJ" seriesName="上日时点">
+<set id="IJ2005" value="12000" allowDrag="0"/>
+<set id="IJ2006" value="15000" allowDrag="0"/>
+<set id="IJ2007" value="16700" allowDrag="0"/>
+<set id="IJ2008" value="17800" allowDrag="0" />
+<set id="IJ2009" value="15200" allowDrag="0" />
+</dataset>
+−
+<dataset id="TZ" seriesName="年初时点">
+<set id="TZ2005" value="11590" allowDrag="0"/>
+<set id="TZ2006" value="15400" allowDrag="0"/>
+<set id="TZ2007" value="16300" allowDrag="0"/>
+<set id="TZ2008" value="56040" allowDrag="0" />
+<set id="TZ2009" value="890" allowDrag="0" />
+</dataset>
+
+
+<styles>
+−
+<definition>
+<style name="myCaptionFont" type="font" font="Arial" size="14" bold="1"/>
+<style name="mySubCaptionFont" type="font" font="Arial" size="10" bold="0"/>
+</definition>
+−
+<application>
+<apply toObject="Caption" styles="myCaptionFont"/>
+<apply toObject="SubCaption" styles="mySubCaptionFont"/>
+</application>
+</styles>
+</chart>

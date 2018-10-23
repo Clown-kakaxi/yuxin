@@ -1,0 +1,50 @@
+<chart caption='' subCaption=''  shownames='1' showvalues='0' decimals='0' numberPrefix='$' >
+	<categories>
+		<category label='2011' />
+		<category label='2012' />
+		<category label='2013' />
+		<category label='2014' />
+		<category label='2015' />
+		<category label='2016' />
+		<category label='2017' />
+		<category label='2018' />
+		<category label='2019' />
+		<category label='2020' />
+		<category label='2021' />
+		<category label='2022' />
+		<category label='2023' />
+		<category label='2024' />
+	</categories>
+	<dataset seriesName='初始资产'  showValues="0">
+		<set value='10' />
+		<set value='-10' />
+		<set value='-20' />
+		<set value='-30' />
+		<set value='-40' />
+		<set value='-50' />
+		<set value='-60' />
+		<set value='-70' />
+		<set value='-80' />
+		<set value='-90' />
+		<set value='-100' />
+		<set value='-110' />
+		<set value='-120' />
+		<set value='-130' />
+	</dataset>
+	<dataset seriesName='总支出' showValues="0">
+		<set value='130' />
+		<set value='120' />
+		<set value='110' />
+		<set value='100' />
+		<set value='90' />
+		<set value='80' />
+		<set value='70' />
+		<set value='60' />
+		<set value='50' />
+		<set value='40' />
+		<set value='30' />
+		<set value='20' />
+		<set value='10' />
+		<set value='5' />
+	</dataset>
+</chart>

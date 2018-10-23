@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dispatchs-config>
+	<!-- <dispatch txCode="ECIFCOMPLEX_001"> -->
+	<!-- <dispatchRule ruleType="order"> -->
+	<!-- <dispatchNode orderStep="1" txCode="ECIFCOMPLEX_001" beanName="" resultParametPath=""/> -->
+	<!-- <dispatchNode orderStep="2" txCode="" beanName=""/> -->
+	<!-- <dispatchNode orderStep="3" txCode="QECIF2_003" beanName=""/> -->
+	<!-- </dispatchRule> -->
+	<!-- </dispatch> -->
+	
+	<!-- updatePerCustInfoMulti和updateOrgCustInfoMulti的交易转发面向CRM系统，
+		处理新增/修改交易响应报文中涵盖证件、地址、联系的信息，
+		以便CRM可以在调用交易时包含多个证件、地址、联系节点并且响应报文中能获取相应信息以及技术主键，
+		供CRM系统使用ECIF技术主键
+	 -->
+	<dispatch txCode="updatePerCustInfoMulti">
+		<dispatchRule ruleType="order">
+			<dispatchNode orderStep="1" txCode="queryPer4Resp" beanName="" resultParametPath="" /><!-- 第一步 修改信息 -->
+		</dispatchRule>
+	</dispatch>
+
+	<dispatch txCode="updateOrgCustInfoMulti">
+		<dispatchRule ruleType="order">
+			<dispatchNode orderStep="1" txCode="queryOrg4Resp" beanName="" resultParametPath="" /><!-- 第一步 修改信息 -->
+		</dispatchRule>
+	</dispatch>
+
+	<dispatch txCode="ECIFCOMPLEX_001">
+		<dispatchRule ruleType="order">
+			<dispatchNode orderStep="0">
+				<dispatchRule ruleType="case" beanClass="com.ytec.mdm.integration.transaction.util.SimpleDecide"
+					initArg="authCode"><!-- 通过请求报文中 “authCode”标签的值 判断要不要调用 ECIFCOMPLEX_001 -->
+					<dispatchNode caseValue="0" txCode="ECIFCOMPLEX_001" beanName="" />
+					<dispatchNode caseValue="1" txCode="" beanName="" />
+				</dispatchRule>
+			</dispatchNode>
+			<dispatchNode orderStep="1" txCode="QECIF2_003" beanName="" />
+			<dispatchNode orderStep="2" txCode="" beanName="" />
+		</dispatchRule>
+	</dispatch>
+
+	<!-- <dispatch txCode="QAppAcctSign">多个查询结果集组合成一个返回 -->
+	<!-- <dispatchRule ruleType="order"> -->
+	<!-- <dispatchNode orderStep="1" txCode="QAppAcctSign" beanName="" resultParametPath="" isReturn="true" />第一步 对账单签约查询 -->
+	<!-- <dispatchNode orderStep="2" txCode="QCustContr" beanName="" isReturn="true" />第二步 综合签约查询 -->
+	<!-- </dispatchRule> -->
+	<!-- </dispatch> -->
+
+	<!-- <dispatch txCode ="addPerCustInfo"> <dispatchRule ruleType="order" > <dispatchNode orderStep="0" txCode="addPerCustInfo" 
+		beanName=""/> <dispatchNode orderStep="1" txCode="queryPerCustInfo" beanName=""/> </dispatchRule> </dispatch> -->
+</dispatchs-config>

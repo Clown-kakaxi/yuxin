@@ -1,0 +1,24 @@
+<chart caption='客户业务规模分析(年日均)' xAxisName='区间' yAxisName='存款金额' showValues='0'>
+
+   <set label='5亿以上' value='420000' />
+   <set label='1至5亿' value='910000' />
+   <set label='5000至1亿' value='720000' />
+   <set label='1000至5000亿' value='550000' />
+   <set label='500至1000万' value='810000' />
+   <set label='100至500万' value='510000' />
+   <set label='50至100万' value='680000' />
+   <set label='50万以下' value='620000' />
+
+   <styles>
+
+      <definition>
+         <style name='CanvasAnim' type='animation' param='_xScale' start='0' duration='1' />
+      </definition>
+
+      <application>
+         <apply toObject='Canvas' styles='CanvasAnim' />
+      </application>   
+
+   </styles>
+
+</chart>

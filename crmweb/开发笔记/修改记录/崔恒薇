@@ -1,0 +1,69 @@
+**********************************2017-11-06 周一**********************************
+1.【xx功能】
+    说明：
+    涉及文件：
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-07 周二**********************************
+1.【xx功能】
+    说明：
+    涉及文件：
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-16 周四**********************************
+1.【所属客户经理功能】
+    说明：将客户经理表OCRM_F_CM_CUST_MGR_INFO换成V_OPENACC_MGR，只要是这个表中的用户就行，没有任何别的限制
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/oneKeyAccount/action/OneKeyAccountAction.java
+    ★已更新SVN★已更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2017-11-20 周一**********************************
+1.【开户登录验证功能】
+    说明：开户登录验证没有实际实现，提示有问题
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/account/accountLogin.js
+    ★已更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+2.【上传文件功能】
+    说明：开户手册的上传
+    涉及文件：新增文件
+    /crmweb/WebContent/contents/pages/wlj/custmanager/account/accountFileUpload.jsp
+    /crmweb/WebContent/contents/pages/wlj/custmanager/account/fileUploadField.js
+    ★已更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+3.【报错信息功能】
+    说明：报错信息的样式调整
+    涉及文件：新增文件
+    /crmweb/WebContent/contents/pages/wlj/custmanager/account/accountFileUpload.jsp
+    /crmweb/WebContent/contents/pages/wlj/custmanager/account/fileUploadField.js
+    ★已更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+ **********************************2017-11-06 周一**********************************
+1.【新增码值类功能】
+    说明：页面验证的码值类
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/oneKeyAccount/entity/OcrmFSysAcchk.java
+    ★已更新SVN★已更新UAT★未更新生产★未更新SVN上生产代码   
+     **********************************2017-11-30 周四**********************************
+1.【修改流程功能】
+    说明：流程的instanceid命名的修改
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/oneKeyAccount/action/OneKeyAccountAction.java
+    ★已更新SVN★已更新UAT★未更新生产★未更新SVN上生产代码   
+     **********************************2017-12-08 周四**********************************
+1.【修改流程功能】
+    说明： line345  ZGJH_AMT=Double.parseDouble((String) map.get("ZGJH_AMT"));
+    map.get("ZGJH_AMT")是null ，页面报错
+ 解决方法：注释掉line345
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/customerView/retailCustView/personalAssetsPlanning.jsp
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码   
+      **********************************2017-12-15 周五**********************************
+1.【法金客户移交功能】
+    说明： 替换成生产文件
+ 解决方法：注释掉line345
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.java
+    ★已更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码         
+   
+      **********************************2018-01-17 周三**********************************
+1.【法金客户移交功能】
+    说明：密码键盘解密，不替换jdk的解决方法
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/oneKeyAccount/service/OnekeyMsgAnalysisService.java--修改
+/crmweb/src/com/yuchengtech/trans/impl/oneKeyOpen/NetBankAccountTransaction.java--修改
+/crmweb/WebContent/WEB-INF/lib/bcprov-jdk16-1.45.jar---新增
+    ★已更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码    
+    
+
+       
+   
+
+    

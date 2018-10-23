@@ -1,0 +1,4 @@
+<chart caption='性别'  formatNumberScale='0' >
+	<set label='男' value='27400' />
+	<set label='女' value='39800' />
+</chart>

@@ -1,0 +1,26 @@
+<chart showLegend='1' caption='客户结算业务规模分析' showValues='0' legendAllowDrag='1'>
+    <categories>
+    <category label='国际结算'/>
+   <category label='票据业务'/>
+   <category label='网上银行'/>
+   <category label='辖内转账' />
+   <category label='大小额汇款'/>
+   <category label='同城业务'/>
+    </categories>
+    <dataset seriesName='结算量'>
+        <set value='2390' />
+        <set value='4802' />
+        <set value='10298' />
+        <set value='20230' />
+        <set value='22103' />
+        <set value='25043' />
+    </dataset>
+    <dataset seriesName='客户数'>
+        <set value='21' />
+        <set value='245' />
+        <set value='3200' />
+        <set value='8903' />
+        <set value='12450' />
+        <set value='17053' />
+    </dataset>
+</chart>

@@ -1,0 +1,5 @@
+<chart caption="全国行业客户数量占比图" subcaption="2013年4月（单位：个）"  formatNumberScale='0'   baseFontSize="13">
+    <set label='基金' value='120' />
+    <set label='信托' value='132' />
+    <set label='证券' value='101' />
+</chart>

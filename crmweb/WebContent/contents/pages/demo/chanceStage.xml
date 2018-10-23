@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312"?>
+<graph      isSliced='1' 
+                decimalPrecision='0' >
+   <set name='收集资料阶段' value='21' />
+   <set name='进职调查阶段' value='33' />
+   <set name='撰写报告阶段' value='53' />
+   <set name='支行审批阶段' value='31' />
+   <set name='分行审批阶段' value='21' />
+   <set name='总行审批阶段' value='11' />
+   <set name='合同签定' value='4' />
+</graph> 
+

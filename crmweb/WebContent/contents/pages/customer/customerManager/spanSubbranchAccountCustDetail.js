@@ -1,0 +1,206 @@
+	//record
+	var record1 = Ext.data.Record.create([{
+		name : 'custName',
+		mapping : 'CUST_NAME'
+	},{
+		name : 'branchOrgName',
+		mapping : 'BRANCH_ORG_NAME'
+	},{
+		name : 'saveAmount',
+		mapping : 'SAVE_AMOUNT'
+	},{
+		name : 'saveDayAvg',
+		mapping : 'SAVE_DAY_AVG'
+	},{
+		name : 'loanAmount',
+		mapping : 'LOAN_AMOUNT'
+	},{
+		name : 'loanDayAvg',
+		mapping : 'LOAN_DAY_AVG'
+	},{
+		name : 'acceptAmount',
+		mapping : 'ACCEPT_AMOUNT'
+	},{
+		name : 'addAccept',
+		mapping : 'ADD_ACCEPT'
+	},{
+		name : 'discountAmount',
+		mapping : 'DISCOUNT_AMOUNT'
+	},{
+		name : 'addDiscount',
+		mapping : 'ADD_DISCOUNT'
+	},{
+		name : 'addSettingNum',
+		mapping : 'ADD_SETTIN_NUM'
+	},{
+		name : 'validCreditLine',
+		mapping : 'VALID_CREDIT_LINE'
+}]);
+
+	// 定义列模型
+	var cm1 = new Ext.grid.ColumnModel([ rownum,{
+		header : '客户名称',
+		width : 150,
+		align : 'left',
+		dataIndex : 'custName',
+		sortable : true
+	}, {
+		header : '支行名称',
+		width : 150,
+		align : 'left',
+		dataIndex : 'branchOrgName',
+		sortable : true
+	},{
+		header : '存款余额',
+		width : 150,
+		align : 'right',
+		dataIndex : 'saveAmount',
+		sortable : true
+	}, {
+		header : '存款日均',
+		width : 150,
+		align : 'right',
+		dataIndex : 'saveDayAvg',
+		sortable : true
+	},{
+		header : '贷款余额',
+		width : 150,
+		align : 'right',
+		dataIndex : 'loanAmount',
+		sortable : true
+	}, {
+		header : '贷款日均',
+		width : 150,
+		align : 'right',
+		dataIndex : 'loanDayAvg',
+		sortable : true
+	},{
+		header : '承兑金额',
+		width : 150,
+		align : 'right',
+		dataIndex : 'acceptAmount',
+		sortable : true
+	}, {
+		header : '承兑累计',
+		width : 150,
+		align : 'right',
+		dataIndex : 'addAccept',
+		sortable : true
+	},{
+		header : '贴现余额',
+		width : 150,
+		align : 'right',
+		dataIndex : 'discountAmount',
+		sortable : true
+	}, {
+		header : '贴现累计',
+		width : 150,
+		align : 'right',
+		dataIndex : 'addDiscount',
+		sortable : true
+	},{
+		header : '累计结算量',
+		width : 150,
+		align : 'right',
+		dataIndex : 'addSettingNum',
+		sortable : true
+	}, {
+		header : '有效授信额度 ',
+		width : 150,
+		align : 'right',
+		dataIndex : 'validCreditLine',
+		sortable : true
+	}]);
+
+	/**
+	 * 数据存储
+	 */
+	var store1 = new Ext.data.Store({
+		restful : true,
+		proxy : new Ext.data.HttpProxy({
+			url : basepath + '/channelCust.json'
+		}),
+		reader : new Ext.data.JsonReader({
+//			successProperty : 'success',
+//			idProperty : 'COUNT_ID',
+//			messageProperty : 'message',
+//			root : 'json.data',
+//			totalProperty : 'json.count'
+			totalProperty:'num',// 记录总数
+			root:'rows'// Json中的列表数据根节点
+		}, record1)
+	});
+	
+	var memberData1= {
+			TOTALCOUNT:3,
+			rows:[
+					{"rownum":"1","CUST_NAME":"广东宏泽集团有限公司","BRANCH_ORG_NAME":"北京朝阳支行","SAVE_AMOUNT":"20,000.00","SAVE_DAY_AVG":"18,000.00","LOAN_AMOUNT":"15,500.00",
+						"LOAN_DAY_AVG":"13,000.00","ACCEPT_AMOUNT":"1,000.00","ADD_ACCEPT":"3,000.00","DISCOUNT_AMOUNT":"1,000.00","ADD_DISCOUNT":"2,500.00","ADD_SETTIN_NUM":"12,000.00","VALID_CREDIT_LINE":"50,000.00"}
+			]
+		};
+	store1.loadData(memberData1);
+			
+	// 每页显示条数下拉选择框
+	var pagesize_combo1 = new Ext.form.ComboBox({
+		name : 'pagesize',
+		triggerAction : 'all',
+		mode : 'local',
+		store : new Ext.data.ArrayStore({
+			fields : [ 'value', 'text' ],
+			data : [ [ 100, '100条/页' ], [ 200, '200条/页' ],
+					[ 500, '500条/页' ], [ 1000, '1000条/页' ] ]
+		}),
+		valueField : 'value',
+		displayField : 'text',
+		value : '100',
+		editable : false,
+		width : 85
+	});
+
+	// 默认加载数据
+	store1.load({
+		params : {
+			start : 0,
+			limit : parseInt(pagesize_combo1.getValue())
+		}
+	});
+
+	// 改变每页显示条数reload数据
+	pagesize_combo1.on("select", function(comboBox) {
+		bbar.pageSize = parseInt(pagesize_combo1.getValue()), store1
+				.reload({
+					params : {
+						start : 0,
+						limit : parseInt(pagesize_combo1.getValue())
+					}
+				});
+	});
+	// 分页工具栏
+	var bbar1 = new Ext.PagingToolbar({
+		pageSize : parseInt(pagesize_combo1.getValue()),
+		store : store1,
+		displayInfo : true,
+		displayMsg : '显示{0}条到{1}条,共{2}条',
+		emptyMsg : "没有符合条件的记录",
+		items : [ '-', '&nbsp;&nbsp;', pagesize_combo1 ]
+	});
+
+	// 表格实例
+	var grid1 = new Ext.grid.GridPanel({
+		//title : '分行跨支行客户明细列表',
+		frame : true,
+		width : document.body.scrollWidth,
+		height:document.body.scrollHeight-120,
+		region : 'center',
+		store : store1,
+		stripeRows : true, // 斑马线
+		cm : cm1, // 列模型
+		tbar :  new Ext.Toolbar({
+	        items  : ['数据日期：　　　　年　　月','->','单位：万元']
+	    }), // 表格工具栏
+		bbar : bbar1,// 分页工具栏
+		viewConfig : {},
+		loadMask : {
+			msg : '正在加载表格数据,请稍等...'
+		}
+	});

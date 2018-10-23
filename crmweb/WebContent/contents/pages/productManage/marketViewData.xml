@@ -1,0 +1,45 @@
+
+<chart caption='客户统计趋势图'  xAxisName='月份' yAxisName='金额:(单位:万元)/户数:(单位:户)' formatNumberScale='0'>
+	<categories>
+	  	<category name='一月' />
+		<category name='二月' />
+		<category name='三月' />
+		<category name='四月' />
+		<category name='五月' />
+		<category name='六月' />
+		<category name='七月' />
+		<category name='八月' />
+		<category name='九月' />
+		<category name='十月' />	
+		<category name='十一月' />	
+		<category name='十二月' />	
+	</categories>
+	<dataset SeriesName='签约量' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='100' />
+		<set id='a3' value='200' />
+		<set id='a4' value='120'/>
+		<set id='a5' value='200'/>
+		<set id='a6' value='180'/>
+		<set id='a7' value='176'/>
+		<set id='a8' value='340'/>		
+		<set id='a9' value='290'/>
+		<set id='a10' value='340'/>
+		<set id='a11' value='300'/>
+		<set id='a12' value='320'/>
+		<set id='a13' value='400'/>
+	</dataset>
+	<dataset SeriesName='客户数 ' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='130' />
+		<set id='a3' value='200' />
+		<set id='a4' value='150'/>
+		<set id='a5' value='210'/>
+		<set id='a6' value='210'/>
+		<set id='a7' value='230'/>
+		<set id='a8' value='300'/>		
+		<set id='a9' value='230'/>
+		<set id='a10' value='300'/>
+		<set id='a11' value='240'/>
+		<set id='a12' value='250'/>
+		<set id='a13' value='340'/>
+	</dataset>
+</chart> 

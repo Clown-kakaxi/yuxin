@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--工程定义 :echainwar; 一个单独打echain的文件，不涉及其他公共文件-->
+<project name="echain-build" basedir="D:\workspace" default="echain-build">
+	<!-- java 工程名定义-->
+		<property name="base" value="crmbase"/>
+		<!-- web  工程名定义-->
+		<property name="web" value="crmweb"/>
+	<!-- 打包输出目录名-->
+	<property name="outwar.dir" value="echainwar"/>	
+	<property name="WebContent" value="WebContent"/>
+	<property name="crmbase.dir" value="crmbase"/>
+	<property name="crmweb.dir" value="crmweb"/>
+	<property name="WebContent.dir" value="${crmweb.dir}/${WebContent}"/>
+	<property name="basesrc.dir" value="${crmbase.dir}/src"/>
+	<property name="websrc.dir" value="${crmweb.dir}/src"/>	
+	<property name="outbasesrc.dir" value="${outwar.dir}/${base}/src"/>
+	<property name="outwebsrc.dir" value="${outwar.dir}/${web}/src"/>
+	<property name="weblib.dir" value="${WebContent.dir}/WEB-INF/lib"/>
+	<property name="outlib.dir" value="${outwar.dir}/${web}/${WebContent}/WEB-INF/lib"/>
+	<property name="workspace.dir" value="${basedir}"/> 
+	<target name="echain-build" description="echain-build.....">
+		<echo message="echain-build..."/>
+				<echo message="create new file path ..."/>
+				<mkdir dir="${outwar.dir}"/>
+				<mkdir dir="${outbasesrc.dir}"/>
+				<mkdir dir="${outwebsrc.dir}"/>
+				<mkdir dir="${outwar.dir}/${web}/${WebContent}/echain"/>
+				<mkdir dir="${outlib.dir}"/> 
+		
+		<copy todir="${outwebsrc.dir}" preservelastmodified="true" overwrite="true">
+			<fileset dir="${websrc.dir}">
+				<include name="echain.properties"/>
+				<include name="eChainForms.xml"/>
+				<include name="logging.xml"/>
+			</fileset>
+		</copy>
+					
+		<copy todir="${outwar.dir}/${web}/${WebContent}/echain" preservelastmodified="true"  overwrite="true">
+					<fileset dir="${WebContent.dir}/echain/"/>
+		</copy>		
+		
+		<copy todir="${outlib.dir}" preservelastmodified="true">
+							<fileset dir="${weblib.dir}">
+								<include name="echain.jar"/>
+								<include name="echainclient.jar"/>
+								<include name="commons-codec-1.7.jar"/>
+								<include name="eChainJCI.jar"/>
+							</fileset>
+		</copy>
+		<!--copy echain前台-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/${WebContent}/contents/pages"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+				<include name="common/commonEchainPanel.js" />	
+				<include name="echainCommon/*" />	
+				<include name="worklistinfo/worklistinfo_custmgr_req.js" />	
+			</fileset>
+		</copy>
+		
+		<!--copy base 下echain后台-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com"  preservelastmodified="true">				
+			<fileset dir="${workspace.dir}/${base}/src/com">
+				<include name="ecc/echain/wf/DepDstrCB.java" />	
+				<include name="yuchengtech/bcrm/common/action/EchainCommonAction.java" />	
+				<include name="yuchengtech/bcrm/common/service/EchainCommonService.java" />	
+				<include name="yuchengtech/bcrm/echain/OrgCRMIPM.java" />	
+				<include name="yuchengtech/bcrm/echain/EChainCallbackCommon.java" />	
+				<include name="yuchengtech/bcrm/model/WfInstanceWholeProperty.java" />	
+				<include name="yuchengtech/bob/common/CommonService.java" />	
+			</fileset>
+			</copy>
+		
+		<!--copy web下echain后台-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/src/com"  preservelastmodified="true">				
+			<fileset dir="${workspace.dir}/${web}/src/com">
+				<include name="yuchengtech/bcrm/action/QueryWorkApprovedAction.java" />	
+				<include name="yuchengtech/bcrm/action/QueryRestApplyWaitAction.java" />	
+				<include name="yuchengtech/bcrm/action/QueryWorkFlowEndAction.java" />	
+			</fileset>
+			</copy>
+	</target>
+</project>

@@ -1,0 +1,7 @@
+EMPIF empif=new EMPIF();
+String retValue=empif.invokeEMPBiz("CMISBiz","commonBiz","%args1%",obj);//支持%args1%、%args2%、%args3%、%args4%、%args5%最多5个个性化参数
+if(retValue!=null && retValue.equals("1")){
+  return true;
+}else{
+  return false;
+}

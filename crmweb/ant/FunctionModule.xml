@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="p_FunctionModule" basedir="${workspace}" default="FunctionModule-build">
+	<target name="FunctionModule-build" description="Tranform the properties files to UTF-8">
+ 		<!-- 前台JS以及JSP-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/${WebContent}/contents/pages"  preservelastmodified="true">
+	    	<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+	    		<!--copy报表类JS,JSP-->
+	        	<include name="baobiao/**" />
+	        	<include name="demo/**" /><!--部分属于报表下，建议移植-->
+	        	<include name="coreBanking/coreBankingResult.jsp" />
+				<include name="coreBanking/coreBankingResult.js" />
+	    		<!--copy客户管理类JS,JSP-->
+	            <include name="customer/accountManager/**" />
+	            <include name="customer/customerBusinessInfo/**" />
+	    		<include name="customer/customerContribution/**" />
+	    		<include name="customer/customerContributionEvaluate/**" />
+	    		<include name="customer/customerDistribution/**" />
+	    		<include name="customer/customerGrade/**" />
+	    		<include name="customer/customerGroup/**" />
+	    		<include name="customer/customerManager/**" />
+	    		<include name="customer/groupClientManager/**" />
+	    		<include name="customer/potentialCustomerManager/**" />
+	    		<include name="customer/serviceManage/**" />
+	    		<include name="customer/vipCustomer/**" />
+	    		<!--客户关系图JS,JSP-->
+	    		<include name="custRelationPicture/**" />
+	    		<!--copy资讯管理JS,JSP-->
+	    		<include name="FinancialInfo/financialInfo.js" />
+	    		<include name="FinancialInfo/financialInfo.jsp" />
+	    		<include name="FinancialInfo/financialInfoAdd.js" />
+	    		<include name="FinancialInfo/financialInfoAdd.jsp" />
+	    		<include name="FinancialInfo/financialInfoContent.jsp" />
+	    		<!--copy服务管理下JS,JSP-->
+	    		<include name="finService/**" /><!--有部分属于pub下,随后细分-->
+	    		<!--copy  fusionChart下JS,JSP-->
+	    		<include name="fusionChart/**" />	    	
+	    		<!--copy  客户管理轻度即席查询JS,JSP-->
+	    		<include name="mildImpromptuQuery/**" />	    	
+	    		<!--copy  营销管理所需JS,JSP-->
+	    		<include name="mktManage/**" />	    	
+	    		<include name="smallEnterprise/**" />	    	
+	    		<!--copy  工作流审批等JS,JSP-->
+	    		<include name="mxtTest/**" />	    	
+	    		<!--copy  产品管理JS,JSP-->
+	    		<include name="productManage/**" />	    	
+	    		<!--copy  统计分析,客户管理下JS,JSP     有待细分-->
+	    		<include name="report/**" />	    	
+	    		<!--copy  客户经理管理JS,JSP-->
+	    		<include name="serviceManage/**" />	    	
+	    		<include name="worklistinfo/**" />	    	
+	    		<include name="workplat/workLog/**" />	    	
+			</fileset>
+		</copy>
+		
+	 	<!-- 后台JAVA-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/src/com/yuchengtech/bcrm"  preservelastmodified="true">
+	    	<fileset dir="${workspace.dir}/${web}/src/com/yuchengtech/bcrm">
+	    		<include name="/**" />
+	    	</fileset>
+		</copy>
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/src/com/yuchengtech/bcrm"  preservelastmodified="true">
+	    	<fileset dir="${workspace.dir}/${web}/src/com/yuchengtech/bob">
+	    		<include name="/**" />
+	    	</fileset>
+		</copy>
+	</target>
+</project>

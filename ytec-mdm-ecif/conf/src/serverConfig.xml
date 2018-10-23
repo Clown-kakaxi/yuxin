@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="GBK"?>
+<server-config>
+	<interface><!--接口 -->
+		<servers default="SOCKET_Server"><!--服务端 default:默认启动接口 -->
+			<server name="HTTP_Server*" serverImpl="com.ytec.mdm.interfaces.socket.NioServer" adapter="com.ytec.fubonecif.interfaces.HttpExecutorHandler"><!--HTTP服务应用 名称，实现接口类，适配器处理类 -->
+				<server subname="1">
+					<!-- 端口号 -->
+					<server_arg key="nioServerPort">9500</server_arg>
+				</server>
+				<server subname="2">
+					<!-- 端口号 -->
+					<server_arg key="nioServerPort">9600</server_arg>
+				</server>
+				<!-- http服务网卡IP地址 -->
+				<server_arg key="nioServerIp">0.0.0.0</server_arg>
+				<!-- http 服务器名称 -->
+				<server_arg key="httpServerName">YTEC_ECIF</server_arg>
+				<!-- 核心线程数 -->
+				<server_arg key="nioServerMaxExecuter">2</server_arg>
+				<!-- 最大服务选择器 -->
+				<server_arg key="nioServerMaxSelects">1</server_arg>
+				<!-- 接收缓冲区大小 -->
+				<server_arg key="bufferBlock">65534</server_arg>
+				<!-- 报文最大字节数 -->
+				<server_arg key="httpServerMaxBody">65534</server_arg>
+				<!-- 报文中每行最大字节数 -->
+				<server_arg key="httpServerMaxLine">10240</server_arg>
+				<!-- 发送客户端超时时间(毫秒) -->
+				<server_arg key="writeTimeout">1000</server_arg>
+				<!-- 监控事件超时时间(毫秒) -->
+				<server_arg key="selectTimeOut">1000</server_arg>
+				<!-- http接入超时时间(毫秒) -->
+				<server_arg key="socketTimeOut">300000</server_arg>
+				<!-- 是否服务结束就关闭 -->
+				<server_arg key="isCloseAfterSvc">false</server_arg>
+
+				<!-- 流量控制 -->
+				<!-- 最大线程数 -->
+				<server_arg key="maximumPoolSize">4</server_arg>
+				<!-- 队列大小 -->
+				<server_arg key="queueSize">8</server_arg>
+			</server>
+			<server name="YC_ESB2" serverImpl="com.ytec.mdm.interfaces.esb.ycesb.server.YcEsbServer" adapter="com.ytec.fubonecif.interfaces.YcEsbExecutorHandler"><!--ESB2服务应用 -->
+				<!-- 发送消息多通道信息(渠道方和服务方共享使用发送通道) -->
+				<!--<server_arg key="access">[{name:'GWIN',maxCnnNum:5,channel:{hostname:'192.168.9.73',port:33300,channel:'SVRCONN_GW'}},{name:'GWOUT',maxCnnNum:5,channel:{hostname:'192.168.9.73',port:33399,channel:'SVRCONN_GW'}}]</server_arg> -->
+				<server_arg key="access">[{name:'QM_GW_OUT',maxCnnNum:1,channel:{hostname:'193.168.5.50',port:33399,channel:'SVRCONN_GWOUT'}}]
+				</server_arg>
+				<!-- 服务方和渠道方使用， 用于读取服务方请求消息和渠道放异步应答消息 -->
+				<server_arg key="requestPools">[{qname:'REQ.ECIF.SOA',size:4,props:{hostname:'193.168.5.50',port:33399,channel:'SVRCONN_GWOUT'}}]
+				</server_arg>
+				<!--<server_arg key="requestPools">[{qname:'REQ.ECIF',size:5,props:{hostname:'192.168.9.73',port:33300,channel:'SVRCONN_GW'}},{qname:'REQ.EICF',size:5,props:{hostname:'192.168.9.73',port:33399,channel:'SVRCONN_GW'}}]</server_arg> -->
+				<!-- 同步应答队列 -->
+				<!--<server_arg key="synReplyToQ">REP.ECIF.SYN</server_arg> -->
+				<!--<server_arg key="synResponsePools">[{props:{hostname:'192.168.9.73',port:33300,channel:'SVRCONN_GW'}},{props:{hostname:'192.168.9.73',port:33399,channel:'SVRCONN_GW'}}]</server_arg> -->
+				<!-- 工作线程池大小 -->
+				<server_arg key="poolSize">2</server_arg>
+			</server>
+			<server name="ActiveMQ" serverImpl="com.ytec.mdm.interfaces.mq.activemq.server.ActiveMQServer" adapter="com.ytec.fubonecif.interfaces.ActiveMQExecutorHandler"><!--ActiveMQ服务应用 -->
+				<server_arg key="activeMqUrl">tcp://192.168.1.99:61616</server_arg>
+				<server_arg key="activeMqRcvQueueName">queue-1</server_arg>
+				<server_arg key="activeMqSndQueueName">queue-2</server_arg>
+				<!-- 核心线程的大小 -->
+				<server_arg key="corePoolSize">4</server_arg>
+			</server>
+			<server name="WEBSERVICE" serverImpl="com.ytec.mdm.interfaces.ws.server.WsServer" adapter="com.ytec.fubonecif.interfaces.WsExecutorHandler2"><!--WEB SERVICE服务应用 -->
+				<!-- web service 协议 -->
+				<server_arg key="webServiceProtocol">http://</server_arg>
+				<!-- web service 发布IP -->
+				<server_arg key="webServiceIp">0.0.0.0</server_arg>
+				<!-- web service 发布端口 -->
+				<server_arg key="webServicePort">9000</server_arg>
+			</server>
+			<server name="HTTP_Servlet" serverImpl="com.ytec.mdm.interfaces.socket.http.servlet.EcifServerServlet" adapter="com.ytec.fubonecif.interfaces.HttpServletExecutorHandler"><!--HTTP服务应用 名称，实现接口类，适配器处理类 -->
+			</server>
+
+			<server name="HTTPS_Server" serverImpl="com.ytec.mdm.interfaces.socket.SSLNioServer" adapter="com.ytec.fubonecif.interfaces.HttpsExecutorHandler"><!--HTTP服务应用 名称，实现接口类，适配器处理类 -->
+				<!-- http服务网卡IP地址 -->
+				<server_arg key="nioServerIp">0.0.0.0</server_arg>
+				<!-- 端口号 -->
+				<server_arg key="nioServerPort">9500,9501</server_arg>
+				<!-- http 服务器名称 -->
+				<server_arg key="httpServerName">YTEC_ECIF</server_arg>
+				<!-- 核心线程数 -->
+				<server_arg key="nioServerMaxExecuter">2</server_arg>
+				<!-- 最大服务选择器 -->
+				<server_arg key="nioServerMaxSelects">1</server_arg>
+				<!-- 报文最大字节数 -->
+				<server_arg key="httpServerMaxBody">65534</server_arg>
+				<!-- 报文中每行最大字节数 -->
+				<server_arg key="httpServerMaxLine">10240</server_arg>
+				<!-- 发送客户端超时时间(毫秒) -->
+				<server_arg key="writeTimeout">1000</server_arg>
+				<!-- 监控超时时间(毫秒) -->
+				<server_arg key="selectTimeOut">1000</server_arg>
+				<!-- http接入超时时间(毫秒) -->
+				<server_arg key="socketTimeOut">300000</server_arg>
+				<!-- 是否服务结束就关闭 -->
+				<server_arg key="isCloseAfterSvc">false</server_arg>
+
+				<!-- 安全控制 -->
+				<!-- 密钥 -->
+				<server_arg key="keyStorePath">D:/ssl/keystore</server_arg>
+				<!-- 密码 -->
+				<server_arg key="keyPassWord">123456</server_arg>
+				<!-- 证书 -->
+				<server_arg key="trustStorePath">D:/ssl/keystore</server_arg>
+				<!-- 密码 -->
+				<server_arg key="trustPassWord">123456</server_arg>
+				<!-- 密钥类型 -->
+				<server_arg key="keyStoreType">JKS</server_arg>
+				<!-- 证书类型 -->
+				<server_arg key="trustStoreType">JKS</server_arg>
+				<!-- 安全协议 -->
+				<server_arg key="protocol">TLS</server_arg>
+				<server_arg key="keyManagerFactoryAlgorithm">SunX509</server_arg>
+				<server_arg key="trustManagerFactoryAlgorithm">SunX509</server_arg>
+				<!-- SSL/TLS握手超时时间(毫秒) -->
+				<server_arg key="handshakeTimeoutInMillis">0</server_arg>
+				<!-- 自定义证书验证 -->
+				<server_arg key="trustManager">com.ytec.mdm.interfaces.socket.https.server.HttpsX509TrustManager
+				</server_arg>
+
+			</server>
+            <!-- 默认配置的端口号和ＩＰ -->
+			<server name="SOCKET_Server" serverImpl="com.ytec.mdm.interfaces.socket.NioServer" adapter="com.ytec.fubonecif.interfaces.SocketExecutorHandler"><!--socket服务应用 名称，实现接口类，适配器处理类 -->
+				<!-- 服务网卡IP地址 -->
+				<server_arg key="nioServerIp">0.0.0.0</server_arg>
+				<!-- 端口号 -->
+				<server_arg key="nioServerPort">9500</server_arg>
+				<!-- 核心线程数 -->
+				<server_arg key="nioServerMaxExecuter">2</server_arg>
+				<!-- 最大服务选择器 -->
+				<server_arg key="nioServerMaxSelects">1</server_arg>
+				<!-- 接收缓冲区大小 -->
+				<server_arg key="bufferBlock">65534</server_arg>
+				<!-- 报文最大字节数 -->
+				<server_arg key="requestMaxBody">65534</server_arg>
+				<!-- 报文头字节数 -->
+				<server_arg key="headLength">8</server_arg>
+				<!-- 发送客户端超时时间(毫秒) -->
+				<server_arg key="writeTimeout">1000</server_arg>
+				<!-- 监控事件超时时间(毫秒) -->
+				<server_arg key="selectTimeOut">1000</server_arg>
+				<!-- 接入超时时间(毫秒) -->
+				<server_arg key="socketTimeOut">30000</server_arg>
+				<!-- 交易流水号时间格式 -->
+				<server_arg key="reqSeqNoDateFormat">yyyyMMddHHmmssSSS</server_arg>
+			</server>
+
+			<server name="SOCKET_Server_Ext" serverImpl="com.ytec.mdm.interfaces.socket.ext.ExtNioServer" adapter="com.ytec.fubonecif.interfaces.HttpExecutorHandler"><!--TCP/IP服务应用 名称，实现接口类，默认适配器处理类 --><!-- 一个服务，监听多个端口，用不同的解析器解析不同的接口报文 -->
+				<!-- 服务网卡IP地址 -->
+				<server_arg key="nioServerIp">0.0.0.0</server_arg>
+				<!-- 端口号 -->
+				<server_arg key="nioServerPort">9500,9501</server_arg>
+				<!-- 核心线程数 -->
+				<server_arg key="nioServerMaxExecuter">2</server_arg>
+				<!-- 最大服务选择器 -->
+				<server_arg key="nioServerMaxSelects">1</server_arg>
+				<!-- 发送客户端超时时间(毫秒) -->
+				<server_arg key="writeTimeout">1000</server_arg>
+				<!-- 监控事件超时时间(毫秒) -->
+				<server_arg key="selectTimeOut">1000</server_arg>
+				<!-- 接入超时时间(毫秒) -->
+				<server_arg key="socketTimeOut">300000</server_arg>
+				<!-- 接收缓冲区大小 -->
+				<server_arg key="bufferBlock">65534</server_arg>
+				<!-- 为不同端口设置不同的协议解析器{[端口:适配器]...} -->
+				<server_arg key="adapters">9500:com.ytec.fubonecif.interfaces.HttpExecutorHandler,9501:com.ytec.fubonecif.interfaces.FixedSocketExecutor
+				</server_arg>
+				<!-- HTTP解析适配器 -->
+				<!-- 服务器名称 -->
+				<server_arg key="httpServerName">YTEC_ECIF</server_arg>
+				<!-- 报文最大字节数 -->
+				<server_arg key="httpServerMaxBody">65534</server_arg>
+				<!-- 报文中每行最大字节数 -->
+				<server_arg key="httpServerMaxLine">10240</server_arg>
+				<!-- 是否服务结束就关闭 -->
+				<server_arg key="isCloseAfterSvc">false</server_arg>
+
+				<!-- 普通SOCKET解析适配器 -->
+				<!-- 报文头字节数 -->
+				<server_arg key="headLength">32</server_arg>
+				<!-- 报文最大字节数 -->
+				<server_arg key="requestMaxBody">65534</server_arg>
+			</server>
+
+		</servers>
+		<clients><!--客户端 -->
+			<client name="httpClient" destSysNo="01"><!--ESB客户端 -->
+				<!-- 发送IP地址 -->
+				<client_arg key="ip">192.168.1.98</client_arg>
+				<!-- 发送端口号 -->
+				<client_arg key="port">9500</client_arg>
+				<!-- 发送服务URL -->
+				<client_arg key="url">/ECIF</client_arg>
+				<!-- 发送报文字符集 -->
+				<client_arg key="charset">GB18030</client_arg>
+				<!-- 超时时间(ms) -->
+				<client_arg key="timeout">60000</client_arg>
+				<!-- 事件超时时间(ms) -->
+				<client_arg key="selecttimeout">3000</client_arg>
+			</client>
+			<client name="ycEsbClient" destSysNo="esb"><!--ESB客户端 -->
+				<!-- 发送报文字符集 -->
+				<client_arg key="charset">GBK</client_arg>
+				<!-- 超时时间(s) -->
+				<client_arg key="timeout">60</client_arg>
+			</client>
+		</clients>
+	</interface>
+	<constants><!--常量配置 -->
+		<constant class="com.ytec.mdm.base.util.MdmConstants"><!--系统常量配置 -->
+			<!-- 项目组需要重新设置 -->
+			<property name="ROOT_APPLICATION_CONTEXT_FILE">applicationContext.xml</property><!-- Spring配置文件 -->
+			<property name="TX_XML_ENCODING">GBK</property>									<!-- XML编码字符集 -->
+			<property name="MCIDENTIFYING">idUtils</property>								<!-- 客户号，客户标识，技术主键生成规则 -->
+			<property name="COVERINGRULE">coverByValidData</property>						<!-- 覆盖规则 -->
+			<property name="GETCONTIDBYECIFCUSTNO">getContIdByEcifcustno</property>			<!-- ECIF客户号识别 -->
+			<property name="GETCONTIDBYIDENT">getContIdByIdent</property>					<!-- 证件识别 -->
+			<!-- add by sunjing5 20170729 -->
+			<property name="GETCUSTINFOBYCUSTNO">getCustInfoBycustno</property>				<!-- 客户合并的识别规则 -->
+			<!-- end-->
+			<property name="GETCONTIDBYSRCCUSTNO">getContIdBySrccustno</property>			<!-- 原客户号识别 -->
+			<property name="MODEL_PERSONIDENTIFIER">MCiIdentifier</property>				<!-- 对私证件业务模型 -->
+			<property name="MODEL_ORGIDENTIFIER">MCiIdentifier</property>					<!-- 对公证件业务模型 -->
+			<property name="COLUMNUTILS">columnUtils</property>			                	<!-- 通用字段处理 -->
+			<property name="QUERY_TX_REQ_PRARM_NODE">//RequestBody</property>           	<!-- 请求报文的条件节点路径，相对根结点 -->
+			<property name="MSG_RESPONSE_BODY">ResponseBody</property>						<!-- 响应报文根节点 -->
+			<property name="formSeq">dual</property>										<!-- 定义DB2的虚表（查询序列时用到） db2:please write 'sysibm.sysdummy1';oracle:please write 'dual' -->
+			<property name="lisenceModel">DEV</property>									<!-- lisence限制级别 DEV,DEP -->
+			<property name="licenseFile">YTEC-0000000026-4-0000000015.lic</property>		<!-- lisence文件 -->
+			<property name="globalTxInfoCtrl">false</property>								<!-- 是否信息分级 -->
+			<property name="txInfoCtrlformat">******</property>								<!-- 信息分级过滤显示 -->
+			<property name="globalTxDefCheck">true</property>								<!-- 是否动态监测交易配置信息更新 -->
+			<property name="txDbLog">true</property>										<!-- 否写日志到数据库 -->
+			<property name="txLogLev">0</property>											<!-- xml请求、响应报文的日志级别 【0为在错误日志和流水日志中都记报文，1为只在错误日志中记报文，2为都不记】 -->
+			<property name="existBusinesskeyError">true</property>							<!-- 请求数据中业务主键字段为空 是否报错，还是过滤 true:报错 false:过滤 -->
+			<property name="isLoadtoMem">false</property>									<!-- 码值，一致性校验信息是否加载内存 -->
+			<property name="checkCustomerStatus">true</property>							<!-- 维护交易是否检查客户状态 -->
+			<property name="NODE_NOGROUP_LIST_SUFFIX">false</property>						<!-- 允许配置结点为单一，但数据为多条 -->
+			<property name="queryMaxsize">20</property>										<!-- 当查询数据为多条时，限定最大返回条数 -->
+			
+			<!-- 需要在生产上置为true，但目前JPA实体类还未与模型更新，所以还不能打开，但目前会将记录插入到关键信息变更表(m_ci_keyinfo_change)中 -->
+			<property name="isSaveHistory">false</property>									<!-- 是否保存历史 -->
+			<property name="chooseSaveHistory">false</property>								<!-- 是否有选择的保留历史 -->
+
+			<!-- 项目组酌情设置 -->
+			<property name="TX_CUST_ORG_TYPE">1</property>									<!-- 客户类型配置 对公为1 -->
+			<property name="TX_CUST_PER_TYPE">2</property>									<!-- 客户类型配置 对私为2 -->
+			<property name="TX_CUST_BANK_TYPE">3</property>									<!-- 客户类型配置 同业为3 -->
+			<property name="BLANK_FLAG">1</property>										<!-- 空白客户标志 -->
+			<property name="AUTH_TYPE">authType</property>									<!-- 信息分级:授权类型标签名称 -->
+			<property name="AUTH_CODE">authCode</property>									<!-- 信息分级：授权代码标签名称 -->
+			<property name="STATE">A</property>                                       		<!-- 客户正常状态 -->
+			<property name="CUSTID">custId</property>										<!-- 客户标识属性名称即将客户信息表关联起来的字段名称 -->
+			<property name="SEQ_CUST_ID">SQ_ECIFNO</property>								<!-- ECIF客户号生成所依赖的数据库序列 -->
+			<property name="CUSTID_TYPE">S</property>										<!-- 客户标识类型 S:字符型 L:数值型 -->
+			<property name="INFORCHECKCONVERSION">cstinfcheckrule</property>				<!-- 信息校验转换规则码 -->
+			<property name="CUSTOMERIDENTIFICATION">cstidrule</property>					<!-- 客户识别规则码 -->
+			<property name="HIS_OPER_TYPE_U">U</property>									<!-- 历史数据保留，操作类型：修改 -->
+			<property name="HIS_OPER_TYPE_D">D</property>									<!-- 历史数据保留，操作类型：删除 -->
+			<property name="HIS_OPER_TYPE_G">G</property>									<!-- 历史数据保留，操作类型：归并 -->
+			<property name="CTRLTYPE_QUERY">Q</property>									<!-- 信息分级：授权类型，查询 -->
+			<property name="CTRLTYPE_WRITE">W</property>									<!-- 信息分级：授权类型，写数据 -->
+			<property name="OPENIDENTFLAG">Y</property>										<!-- 开户证件标志 -->
+			<property name="COMBINE_FLAG">02</property>										<!-- 客户合并状态 -->
+
+			<property name="CRTEDIT_GRADE_CODE">03</property>								<!-- 客户等级(M_CI_GRADE)等级类型(cust_grade_type)：信用等级 -->
+			<property name="IDENT_TYPE_MARI">03</property>									<!-- 客户等级(M_CI_GRADE)等级类型(cust_grade_type)：信用等级 -->
+			<property name="IDENT_TYPE_TWID">03</property>									<!-- 客户等级(M_CI_GRADE)等级类型(cust_grade_type)：信用等级 -->
+			<property name="XSD_CHECK_NULL_ATTR">false</property>							<!-- 开户交易XSD校验后，针对节点默认值非空容错严格限定 -->
+			<property name="TX_LOCK_STAT">1</property>										<!-- ETL处理期间不允许做交易, 1:ETL处理结束,0:ETL处理中 -->
+			<property name="IS_POTENTIAL_CUST">1</property>									<!-- 潜在客户标志字段，1为潜在客户 -->
+			<property name="IDENT_TYPE_NOC">U</property>									<!-- 组织机构代码 -->
+			<property name="IDENT_TYPE_NAT_TAX">W</property>								<!-- 国税登记证 -->
+			<property name="IDENT_TYPE_LOC_TAX">Y</property>								<!-- 地税登记证 -->
+			<property name="IDENT_TYPE_FEXC_TAX">3X</property>								<!-- 外汇许可证 -->
+
+			<property name="ADDR_TYPE_ACT_BUSI">08</property><!-- 实际经营地址 -->
+			<!-- <property name="ADDR_TYPE_LEGAL_REPR"></property>法人代表户籍地址 legalReprAddr -->
+			<property name="ADDR_TYPE_POST">02</property><!-- 通讯地址 postAddr -->
+			<property name="ADDR_TYPE_REG">07</property><!-- 注册登记地址 registerEnAddr -->
+			<property name="ORG_EXCE_ACT_CTL">6</property><!--实际控制人 -->
+			<property name="ORG_EXCE_ACT_CTL_MATE">11</property><!--实际控制人配偶 -->
+			<property name="ORG_EXCE_LEGAL_REPR_MATE">12</property><!--法人配偶 -->
+			<property name="ORG_EXCE_FINA_LINK">10</property><!--财务负责人 -->
+			<property name="ORG_EXCE_OP">7</property><!--企业经办人 -->
+		</constant>
+	</constants>
+	<businessCfg><!--业务配置,加载到内存中 -->
+
+		<!-- 	
+		<property name="chooseSaveHistoryObject">MCiCrossindex,MCiOrgIdentifier,MCiPerIdentifier,MCiAddress,MCiContmeth,MCiCustrel,MCiSpeciallist,MCiCustholdingrel
+		</property>						 需要选择保留历史的模型类 -->
+		<!-- 富邦华一银行交易涉及表主要信息才做记录 -->
+		<property name="chooseSaveHistoryObject">MCiCrossindex,MCiOrgIdentifier,MCiIdentifier,MCiAddress,MCiContmeth,MCiSpeciallist</property>						<!-- 需要选择保留历史的模型类 -->
+		<!-- 配置模型查询的业务主键 (name=XXXBusinessKey value=key1,key2) -->
+		<property name="MCiCrossindexBusinessKey">srcSysNo,srcSysCustNo</property>
+		<property name="MCiOrgIdentifierBusinessKey">custId,identType</property>
+		<property name="MCiOrgExecutiveinfoBusinessKey">orgCustId,linkmanType,linkmanName</property>		
+		<property name="MCiPerIdentifierBusinessKey">custId,identType</property>
+		<property name="MCiIdentifierBusinessKey">custId,identType</property>
+		<property name="MCiAddressBusinessKey">custId,addrType</property>
+		<property name="MCiContmethBusinessKey">custId,contmethType</property>
+		<property name="MCiBelongManagerBusinessKey">custId</property>
+		<property name="MCiBelongBranchBusinessKey">custId</property>
+		<property name="MCiCustrelBusinessKey">custRelType,srcCustId,destCustId</property>
+		<property name="MCiPerMateinfoBusinessKey">custId</property>
+		<property name="MCiPerRelativeinfoBusinessKey">custId,relativeType</property>
+		<property name="MCiPerLinkmanBusinessKey">custId,linkmanType,linkmanName,identType,identNo
+		</property>
+		<property name="MCiAgentinfoBusinessKey">custId,agentType,agentName,identType,identNo
+		</property>
+		<property name="MCiCustholdingrelBusinessKey">custId,holdingId</property>
+		<!-- <property name="MCiSpeciallistBusinessKey">specialListType,identType,identNo,identCustName</property> -->
+		<!-- <property name="MCiSpeciallistBusinessKey">specialListType,identType,identNo</property> -->
+		<property name="MCiSpeciallistBusinessKey">custId</property>
+		<property name="MAppAcctSignBusinessKey">custId,signType</property>
+		<property name="globalTxAuthPdEnc">false</property>									<!-- 交易授权中密码是否加密 -->
+		<property name="globalTxRequestCheck">false</property>								<!-- 是否一致性校验 -->
+		<property name="reconfigsv"></property>											    <!-- 重新加载配置信号(USR2) -->
+		<property name="packageName">com.ytec.mdm.domain.biz,com.ytec.fubonecif.domain
+		</property>	<!-- 模型对象的包名,用于定义业务对象所在的包的地址 -->
+		<property name="noIdentIsAdd">false</property>										<!-- 没有证件信息是否能开户 -->
+		<property name="sopXmlNsPrefix">ns</property>										<!-- 接口報文命名空間 -->
+		<property name="sopXmlNsUri">www.yuchengtech.com.cn</property>						<!-- 接口報文命名空間 -->
+		<property name="sopXmlNsNodeNeme">S007001990ECIF01</property>						<!-- 接口報文命名空間 -->
+		<property name="sopXmlRespSecCd">0101001</property>									<!-- 响应方安全节点号 -->
+		<property name="appCd">FSB_ECIF</property>											<!-- 响应方安全节点号 -->
+		<property name="ExcludeDate">0000-00-00,0000-01-01</property>						<!-- 时间:格式化，排除几个默认值，前台处理可能会传来 0000-00-00,0000-01-01的默认值，对他们来说，这就是空 -->
+		<property name="alarmSys">ECIF</property>											<!-- 报警系统 -->
+		<property name="alarmModule">TX</property>											<!-- 报警模块 -->
+		<property name="doChangeLog">true</property>										<!-- 是否记录数据变更记录 -->
+		<property name="printChangeLog">true</property>										<!-- 是否打印数据变更记录 -->
+		<property name="batchlocalPath">D:/</property>               						<!-- 联机批量文件本地存放路径 -->
+		<property name="ftpServerIp">10.20.34.108/</property>               				<!-- 联机批量文件FTP服务器IP -->
+		<property name="ftpServerPort">21</property>               							<!-- 联机批量文件FTP服务器端口 -->
+		<property name="ftpServerUser">ecif</property>               						<!-- 联机批量文件FTP用户名 -->
+		<property name="ftpServerPass">ecif</property>               						<!-- 联机批量文件FTP密码 -->
+		<!-- <property name="txMaxTPS">1</property> 流量控制,允许最大TPS -->
+		<property name="TX_DECODE_NOT_STR">9</property>									    <!-- 转码失败后在源码值前拼接的串 -->
+
+		<!-- 富邦华一银行客户化报文接口配置 -->
+		<!-- 请求报文（开始） -->
+		<property name="txXmlRootNode">TransBody</property>
+		<property name="txXmlReqHeaderNode">ReqeustHeader</property>
+		<!-- 请求报文头中包含节点（二级节点，也是叶子节点） -->
+		<property name="txXmlReqHeaderNodeAttrReqSysCd">ReqSysCd</property> <!--外围系统代号 -->
+		<property name="txXmlReqHeaderNodeAttrReqSeqNo">ReqSeqNo</property> <!--外围系统交易流水号 -->
+		<property name="txXmlReqHeaderNodeAttrReqDt">ReqDt</property> <!--请求日期 -->
+		<property name="txXmlReqHeaderNodeAttrReqTm">ReqTm</property> <!--请求时间 -->
+		<property name="txXmlReqHeaderNodeAttrChnlNo">ChnlNo</property> <!--渠道号 -->
+		<property name="txXmlReqHeaderNodeAttrBrchNo">BrchNo</property> <!--机构号 -->
+		<property name="txXmlReqHeaderNodeAttrBizLine">BizLine</property> <!--业务条线 -->
+		<property name="txXmlReqHeaderNodeAttrTrmNo">TrmNo</property> <!--终端号 -->
+		<property name="txXmlReqHeaderNodeAttrTrmIP">TrmIP</property> <!--终端IP -->
+		<property name="txXmlReqHeaderNodeAttrTlrNo">TlrNo</property> <!--操作柜员号 -->
+
+		<property name="txXmlReqBodyNode">RequestBody</property>
+		<!-- 请求报文（结束） -->
+
+		<!-- 响应报文（开始） -->
+		<property name="txXmlResHeaderNode">ResponseHeader</property>
+		<!-- 响应报文头中包含节点（二级节点，也是叶子节点） -->
+		<property name="txXmlResHeaderNodeAttrRespSysCd">RespSysCd</property> <!--响应系统号 -->
+		<property name="txXmlResHeaderNodeAttrSvrDt">SvrDt</property> <!--服务日期 -->
+		<property name="txXmlResHeaderNodeAttrSvrTm">SvrTm</property> <!--服务时间 -->
+		<property name="txXmlResHeaderNodeAttrSvrSeqNo">SvrSeqNo</property> <!--服务流水号 -->
+		<property name="txXmlResHeaderNodeAttrReqSysCd">ReqSysCd</property> <!--外围系统代号 -->
+		<property name="txXmlResHeaderNodeAttrReqSeqNo">ReqSeqNo</property> <!--外围系统交易流水号 -->
+		<property name="txXmlResHeaderNodeAttrReqDt">ReqDt</property> <!--请求日期 -->
+		<property name="txXmlResHeaderNodeAttrReqTm">ReqTm</property> <!--请求时间 -->
+		<property name="txXmlResHeaderNodeAttrChnlNo">ChnlNo</property> <!--渠道号 -->
+		<property name="txXmlResHeaderNodeAttrBrchNo">BrchNo</property> <!--机构号 -->
+		<property name="txXmlResHeaderNodeAttrBizLine">BizLine</property> <!--业务条线 -->
+		<property name="txXmlResHeaderNodeAttrTrmNo">TrmNo</property> <!--终端号 -->
+		<property name="txXmlResHeaderNodeAttrTrmIP">TrmIP</property> <!--终端IP -->
+		<property name="txXmlResHeaderNodeAttrTlrNo">TlrNo</property> <!--操作柜员号 -->
+
+		<property name="txXmlResBodyNode">ResponseBody</property>
+
+		<property name="txXmlResTailNode">ResponseTail</property>
+		<!-- 响应报文尾中包含节点（二级节点，也是叶子节点，引用com.ytec.mdm.base.bo.ErrorCode中内容） -->
+		<property name="txXmlResTailNodeTxStatCode">TxStatCode</property><!--交易结果代码 -->
+		<property name="txXmlResTailNodeTxStatString">TxStatString</property><!--交易结果摘要（如：SUCCESS） -->
+		<property name="txXmlResTailNodeTxStatDesc">TxStatDesc</property><!--交易结果描述 -->
+		<!-- 响应报文（结束） -->
+
+	</businessCfg>
+	<extBusinessCfg><!--扩展业务配置,调用初始加工方法，对该配置加工 -->
+		<extBusiness class="com.ytec.mdm.server.common.BusinessCfg" initFun="init" isload="true"><!-- 数据业务验证 -->
+			<property name="checkModels">MCiOrgIdentifier|identType|identNo,MCiPerIdentifier|identType|identNo
+			</property>  <!-- 数据业务验证 -->
+			<property name="MCiOrgIdentifier.ctRule">07|T04</property>
+			<property name="MCiPerIdentifier.ctRule">0100|T03</property>
+		</extBusiness>
+		<extBusiness class="com.ytec.mdm.service.component.general.CustStatusMgr" initFun="init" isload="false" isSingleton="true"><!--客户状态判定管理 -->
+			<!-- 客户状态权限 custStatus=状态码:描述:是否正常(true正常,false异常):权限(客户重新启用，维护，查询) -->
+			<property name="status01">1:正常:true:3</property>
+			<property name="status02">2:注销:false:5</property>
+			<property name="status03">02:已合并:false:5</property>
+			<property name="status04">EC20:没有与其他用户建立关联:false:3</property>
+			<property name="status05">EC21:与其他用户建立关联:false:3</property>
+			<property name="status06">EC310:警示:false:3</property>
+			<property name="status07">EC311:不良:false:3</property>
+			<property name="status08">EC52:暂时冻结:false:1</property>
+			<property name="status09">EC54:冻结:false:1</property>
+			<property name="status10">A:活动户:true:3</property>
+			<property name="status11">C:销户:true:3</property>
+			<property name="status12">B:非活动户:true:3</property>
+			<property name="status11">G:虚拟户:true:3</property>
+		</extBusiness>
+		<extBusiness class="com.ytec.mdm.integration.check.validation.IntegrationValidation" initFun="init" isload="false" isSingleton="true">	<!--请求报文校验链 -->
+			<!-- 数字签名校验 -->
+			<!-- <property name="Validation-1">com.ytec.mdm.integration.check.validation.CheckRequestSum</property> -->
+			<!-- 请求服务是否存在校验 -->
+			<property name="Validation-2">com.ytec.mdm.integration.check.validation.TxDefValidation
+			</property>
+			<!-- 对交易总量,每只交易,每个外围系统的访问 流量控制 -->
+			<!-- <property name="Validation-3">com.ytec.fubonecif.integration.check.TxFlowControlValidation</property> -->
+			<!-- 定长报文转换 -->
+			<!-- <property name="Validation-4">com.ytec.mdm.integration.check.validation.FixedToXmlChain</property> -->
+			<!-- 请求报文体非空验证与设置 -->
+			<property name="Validation-5">com.ytec.mdm.integration.check.validation.TxReqBodyValidation
+			</property>
+			<!-- 请求客户端权限校验 -->
+			<property name="Validation-6">com.ytec.mdm.integration.check.validation.TxAuthValidationChain
+			</property> <!---->
+			<!-- 交易报文一致性校验 -->
+			<!--<property name="Validation-7">com.ytec.mdm.integration.check.validation.TxConsistenceValidation</property> -->
+		</extBusiness>
+		<extBusiness class="com.ytec.mdm.interfaces.common.even.EvenSubject" initFun="init" isload="false">				<!--事件通知 -->
+			<property name="CheckRequestSum">com.ytec.mdm.interfaces.common.even.SynchroEvent
+			</property>				<!--数据同步事件通知 -->
+			<property name="TxAlarmEvent">com.ytec.mdm.interfaces.common.even.TxAlarmEvent
+			</property>					<!--交易报警通知 -->
+			<!-- <property name="TxAlarmEvent">com.ytec.mdm.interfaces.common.even.StatisticsEvent</property> 交易统计 -->
+		</extBusiness>
+		<extBusiness class="com.ytec.mdm.interfaces.common.sensitinfo.SensitHelper" initFun="init" isload="false" isSingleton="true">	<!--敏感信息过滤 -->
+			<!--敏感信息过滤类名称 -->
+			<property name="sensitFilterClass">com.ytec.mdm.interfaces.common.sensitinfo.SensitInforXmlFilter
+			</property>
+			<!--敏感信息标签名称 -->
+			<!-- <property name="sensitiveXmlInfor">identNo,personidentifier,identCustName,addr,账号,密码,号码,性别,联系方式 </property> -->
+			<!--敏感信息数据库字段名称(java 命名) -->
+			<!-- <property name="sensitiveDbInfor">identNo,personidentifier,identCustName,addr,账号,密码,号码,性别,联系方式 </property> -->
+		</extBusiness>
+		<extBusiness class="com.ytec.fubonecif.service.svc.atomic.SuspectCustDao" initFun="init" isload="false">	                    <!--疑似客户识别规则 -->
+			<!--证件类型,证件号码,证件户名相同,客户号不同(对私) -->
+			<property name="P_suspectCustRules1">select distinct t2.cust_id from
+				m_ci_per_identifier t1,m_ci_per_identifier t2 where
+				t1.IDENT_TYPE=t2.IDENT_TYPE and
+				t1.IDENT_NO=t2.IDENT_NO and
+				t1.IDENT_CUST_NAME != t2.IDENT_CUST_NAME and t1.CUST_ID
+				!=
+				t2.CUST_ID
+				and t1.CUST_ID=?
+			</property>
+			<!-- 证件号码、手机号码相同，客户号不同(对私) -->
+			<property name="P_suspectCustRules2">select CUST_ID2 as CUST_ID from (select
+				t1.CUST_ID AS CUST_ID1,t2.cust_id AS CUST_ID2 from
+				m_ci_per_identifier
+				t1,m_ci_per_identifier t2
+				where
+				t1.IDENT_NO=t2.IDENT_NO AND t1.CUST_ID != t2.CUST_ID and
+				t1.CUST_ID=?) t0 left join M_CI_CONTMETH a1 on
+				t0.CUST_ID1=a1.cust_id
+				left join M_CI_CONTMETH a2 on
+				t0.CUST_ID2=a2.cust_id where
+				a1.CONTMETH_INFO=a2.CONTMETH_INFO and
+				a1.CONTMETH_TYPE=a2.CONTMETH_TYPE
+			</property>
+		</extBusiness>
+	</extBusinessCfg>
+
+	<initializations><!--初始化调用 -->
+		<initialization class="com.ytec.mdm.base.util.EcifPubDataUtils" initFun="initPubData" />						<!--数据库配置加载 -->
+		<initialization class="com.ytec.mdm.integration.transaction.bs.ServiceEntityMgr" initFun="init" />				<!--业务模型加载 -->
+		<initialization class="com.ytec.mdm.integration.check.bs.TxBizRuleFactory" initFun="init" />					<!--校验规则引擎加载 -->
+		<initialization class="com.ytec.mdm.service.component.biz.comidentification.GetContIdByType" initFun="init" />	<!--客户识别规则引擎加载 -->
+		<initialization class="com.ytec.mdm.server.common.DealDispatchCfg" initFun="init" />							<!--组合交易配置加载 -->
+		<!-- <initialization class="com.ytec.mdm.plugins.xmlhelper.XmlHelperConfiger" initFun="initXmlHelper" /> 报文处理帮助类加载 -->
+	</initializations>
+
+	<redundances><!--系统冗余字段处理配置 start -->
+		<!--单个冗余字段，对于一些交易（未配置则包含所有交易），其中一个业务类的某个属性发生变化时会修改其他配置的属性 -->
+		<!--个人开始-->
+		<redundance name="custName" >
+			<redundance-class class="MCiCustomer" property="custName" />
+			<redundance-class class="MCiPerson" property="personalName" />
+			<redundance-class class="MCiOrg" property="custName" />
+			<redundance-class class="MCiIdentifier" property="identCustName" />
+		</redundance>
+		<redundance name="hukouPlace">
+			<redundance-class class="MCiPerson" property="hukouPlace" /> 
+			<redundance-class class="MCiAddress" property="addr" condition="addrType" conditionvalue="'10'"/> 
+		</redundance>
+		<redundance name="mobilePhone" >
+			<redundance-class class="MCiPerson" property="mobilePhone" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'100'"/> 
+		</redundance>		
+		<redundance name="email" >
+			<redundance-class class="MCiPerson" property="email" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'503'"/> 
+		</redundance>		
+		<redundance name="homepage" >
+			<redundance-class class="MCiPerson" property="homepage" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'801'"/> 
+		</redundance>		
+		<redundance name="weibo" >
+			<redundance-class class="MCiPerson" property="weibo" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'803'"/> 
+		</redundance>		
+		<redundance name="weixin" >
+			<redundance-class class="MCiPerson" property="weixin" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'804'"/> 
+		</redundance>		
+		<redundance name="qq" >
+			<redundance-class class="MCiPerson" property="qq" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'600'"/> 
+		</redundance>			
+		<redundance name="homeAddr" >
+			<redundance-class class="MCiPerson" property="homeAddr" /> 
+			<redundance-class class="MCiAddress" property="addr" condition="addrType" conditionvalue="'04'"/> 
+		</redundance>
+		<redundance name="homeZipcode" >
+			<redundance-class class="MCiPerson" property="homeZipcode" /> 
+			<redundance-class class="MCiAddress" property="zipcode" condition="addrType" conditionvalue="'04'"/> 
+		</redundance>
+		<redundance name="homeTel" >
+			<redundance-class class="MCiPerson" property="homeTel" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'204'"/> 
+		</redundance>			
+
+		<redundance name="unitAddr" >
+			<redundance-class class="MCiPerson" property="unitAddr" /> 
+			<redundance-class class="MCiAddress" property="addr" condition="addrType" conditionvalue="'05'"/> 
+		</redundance>
+		<redundance name="unitZipcode" >
+			<redundance-class class="MCiPerson" property="unitZipcode" /> 
+			<redundance-class class="MCiAddress" property="zipcode" condition="addrType" conditionvalue="'05'"/> 
+		</redundance>
+		<redundance name="unitTel" >
+			<redundance-class class="MCiPerson" property="unitTel" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'203'"/> 
+		</redundance>			
+		<redundance name="unitFex" >
+			<redundance-class class="MCiPerson" property="unitFex" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'302'"/> 
+		</redundance>			
+		<redundance name="postAddr" >
+			<redundance-class class="MCiPerson" property="postAddr" /> 
+			<redundance-class class="MCiAddress" property="addr" condition="addrType" conditionvalue="'02'"/> 
+		</redundance>
+		<redundance name="postZipcode" >
+			<redundance-class class="MCiPerson" property="postZipcode" /> 
+			<redundance-class class="MCiAddress" property="zipcode" condition="addrType" conditionvalue="'02'"/> 
+		</redundance>
+		<redundance name="postPhone" >
+			<redundance-class class="MCiPerson" property="postPhone" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'201'"/> 
+		</redundance>			
+	    <redundance name="jobType" >
+			<redundance-class class="MCiCustomer" property="jobType" /> 
+			<redundance-class class="MCiPerson" property="careerType"/> 
+		</redundance>		
+	    <redundance name="industType" >
+			<redundance-class class="MCiCustomer" property="industType" /> 
+			<redundance-class class="MCiPerson" property="profession"/> 
+		</redundance>
+		<!-- 针对客户表中证件与证件表中证件(个人、机构共用) -->			
+	    <redundance name="identType" >
+			<redundance-class class="MCiCustomer" property="identType" /> 
+			<redundance-class class="MCiIdentifier" property="identType"  condition="isOpenAccIdent" conditionvalue="'Y'"/> 
+		</redundance>
+		<redundance name="identNo" >
+			<redundance-class class="MCiCustomer" property="identNo" /> 
+			<redundance-class class="MCiIdentifier" property="identNo"  condition="isOpenAccIdent" conditionvalue="'Y'"/> 
+		</redundance>						
+	    <!--个人结束-->
+	    
+	    <!--机构开始
+		<redundance name="orgCustName" >
+			<redundance-class class="MCiOrg" property="custName" />
+			<redundance-class class="MCiCustomer" property="custName" /> 
+			<redundance-class class="MCiIdentifier" property="identCustName" />
+		</redundance>
+		-->
+		
+		<redundance name="orgAddr" >
+			<redundance-class class="MCiOrg" property="orgAddr" /> 
+			<redundance-class class="MCiAddress" property="addr" condition="addrType" conditionvalue="'02'"/> 
+		</redundance>
+		<redundance name="orgZipcode" >
+			<redundance-class class="MCiOrg" property="orgZipcode" /> 
+			<redundance-class class="MCiAddress" property="zipcode" condition="addrType" conditionvalue="'02'"/> 
+		</redundance>	  
+		<redundance name="orgFex" >
+			<redundance-class class="MCiOrg" property="orgFex" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'302'"/> 
+		</redundance>			
+		<redundance name="orgEmail" >
+			<redundance-class class="MCiOrg" property="orgEmail" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'503'"/> 
+		</redundance>		
+		<redundance name="orgHomepage" >
+			<redundance-class class="MCiOrg" property="orgHomepage" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'801'"/> 
+		</redundance>		
+		<redundance name="orgWeibo" >
+			<redundance-class class="MCiOrg" property="orgWeibo" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'803'"/> 
+		</redundance>		
+		<redundance name="orgWeixin" >
+			<redundance-class class="MCiOrg" property="orgWeixin" /> 
+			<redundance-class class="MCiContmeth" property="contmethInfo" condition="contmethType" conditionvalue="'804'"/> 
+		</redundance>		
+	    <redundance name="orgindustType" >
+			<redundance-class class="MCiCustomer" property="industType" /> 
+			<redundance-class class="MCiOrg" property="mainIndustry"/> 
+		</redundance>				
+		
+	    <!--机构结束-->
+	    
+	</redundances><!--系统冗余字段处理配置 end -->
+
+	<consistences><!--交易报文一致性校验配置 -->
+		<!-- 针对核心交易 -->
+		<consistence name="identTypeCBTx" transtions="updatePerCustInfo,updateOrgCustInfo">
+			<msg path="//customer/identType" />
+			<msg path="//perIdentifier/identType" condition="isOpenAccIdent" conditionvalue="1" /> <!--1:是否开户证件(核心) -->
+		</consistence>
+		<consistence name="identNoCBTx" transtions="updatePerCustInfo,updateOrgCustInfo,openPerAccount,openOrgAccount">
+			<msg path="//customer/identNo" />
+			<msg path="//perIdentifier/No" condition="isOpenAccIdent" conditionvalue="1" /> <!--1:是否开户证件(核心) -->
+		</consistence>
+
+		<!-- 针对信贷交易 -->
+		<consistence name="identTypeLNTx" transtions="updatePerCustInfo,updateOrgCustInfo">
+			<msg path="//customer/identType" />
+			<msg path="//perIdentifier/identType" condition="isOpenAccIdent" conditionvalue="2" /> <!--2:是否开户证件(核心) -->
+		</consistence>
+		<consistence name="identNoLNTx" transtions="updatePerCustInfo,updateOrgCustInfo,openPerAccount,openOrgAccount">
+			<msg path="//customer/identNo" />
+			<msg path="//perIdentifier/No" condition="isOpenAccIdent" conditionvalue="2" /> <!--2:是否开户证件(核心) -->
+		</consistence>
+
+		<consistence name="custNameLNTx" transtions="updatePerCustInfo,updateOrgCustInfo,openPerAccount,openOrgAccount">
+			<msg path="//customer/custName" />
+			<msg path="//perIdentifier/identCustName" /> <!--1:是否开户证件(核心) -->
+			<msg path="//orgIdentifier/identCustName" /> <!--1:是否开户证件(核心) -->
+		</consistence>
+
+		<!-- 针对CRM交易 -->
+		<consistence name="identTypeCRMTx" transtions="updatePerCustInfo">
+			<msg path="//customer/identType" />
+			<msg path="//perIdentifier/identType" condition="isOpenAccIdent" conditionvalue="1" /> <!--2:是否开户证件(核心) -->
+		</consistence>
+		<consistence name="identNoCRMTx" transtions="updatePerCustInfo">
+			<msg path="//customer/identNo" />
+			<msg path="//perIdentifier/No" condition="isOpenAccIdent" conditionvalue="1" /> <!--2:是否开户证件(核心) -->
+		</consistence>
+
+		<consistence name="identTypeCRMTx1" transtions="updatePerCustInfo">
+			<msg path="//customer/identType" />
+			<msg path="//perIdentifier/identType" condition="isOpenAccIdent" conditionvalue="2" /> <!--2:是否开户证件(核心) -->
+		</consistence>
+		<consistence name="identNoCRMTx1" transtions="updatePerCustInfo">
+			<msg path="//customer/identNo" />
+			<msg path="//perIdentifier/No" condition="isOpenAccIdent" conditionvalue="2" /> <!--2:是否开户证件(核心) -->
+		</consistence>
+
+		<consistence name="custNameCRMTxPer" transtions="updatePerCustInfo">
+			<msg path="//customer/custName" />
+			<msg path="//perIdentifier/identCustName" /> <!--1:是否开户证件(核心) -->
+		</consistence>
+		<consistence name="custNameCRMTxOrg" transtions="updateOrgCustInfo">
+			<msg path="//orgIdentifier/identCustName" /> <!--1:是否开户证件(核心) -->
+		</consistence>
+	</consistences>
+</server-config>

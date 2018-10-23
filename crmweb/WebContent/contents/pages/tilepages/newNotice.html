@@ -1,0 +1,85 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ include file="/contents/pages/common/includes.jsp"%>
+<html>
+<head>
+<title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/contents/pages/tilepages/animated-dataview.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/contents/pages/com.yucheng.bcrm/com.yucheng.bcrm.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/contents/frameControllers/WljAPPBooter.js"></script>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/contents/pages/tilepages/newNotice.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/contents/pages/tilepages/DataViewTransition.js"></script>
+
+<style type="text/css">
+	.oftenlabel {
+	    float:left; 
+		display:block;
+		text-align:center;
+	}
+	.resultgroup{
+		border : 2px solid #000;
+	}
+	
+	.search_cust{
+		background-color : #FFDDAA;
+	}
+	
+	.search_info{
+		background-color : #00FFFF;
+	}
+	
+	.search_level{
+		background-color : #FF0000;
+	}
+	
+	.search_in{
+		background-color : #F5DEB3;
+	}
+	
+	.search_or{
+		background-color : #F08080;
+	}
+	.button {
+	   border-top: 1px solid #96d1f8;
+	   background: #65a9d7;
+	   background: -webkit-gradient(linear, left top, left bottom, from(#b8c7d1), to(#65a9d7));
+	   background: -webkit-linear-gradient(top, #b8c7d1, #65a9d7);
+	   background: -moz-linear-gradient(top, #b8c7d1, #65a9d7);
+	   background: -ms-linear-gradient(top, #b8c7d1, #65a9d7);
+	   background: -o-linear-gradient(top, #b8c7d1, #65a9d7);
+	   padding: 3.5px 7px;
+	   -webkit-border-radius: 6px;
+	   -moz-border-radius: 6px;
+	   border-radius: 6px;
+	   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	   box-shadow: rgba(0,0,0,1) 0 1px 0;
+	   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	   color: white;
+	   font-size: 13px;
+	   font-family: Georgia, Serif;
+	   text-decoration: none;
+	   vertical-align: middle;
+	   }
+	.button:hover {
+	   border-top-color: #28597a;
+	   background: #28597a;
+	   color: #ccc;
+	   }
+	.button:active {
+	   border-top-color: #1b435e;
+	   background: #1b435e;
+	   }
+	
+</style>
+<script type="text/javascript">
+	<%
+		out.print("var conditionP='"+request.getParameter("condition")+"';");
+	%>
+</script>
+</head>
+<body>
+	
+</body>
+</html>

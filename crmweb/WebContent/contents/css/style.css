@@ -1,0 +1,9 @@
+body {
+	font: 12px SimSun, Arial, Helvetica, sans-serif;
+	background: #ffffff url(images/s/main-bg.gif);
+	padding: 0;
+	margin: 0;
+}
+img {
+	border: none;
+}

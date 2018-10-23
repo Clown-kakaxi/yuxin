@@ -1,0 +1,52 @@
+
+<chart  subcaption='2012年'  xAxisName='月份' yAxisName='元' formatNumberScale='0' >
+	<categories>
+		<category name='2012-01' />
+		<category name='2012-02' />
+		<category name='2012-03' />
+		<category name='2012-04' />
+		<category name='2012-05' />
+	</categories>
+	<dataset SeriesName='客户总积分' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='137401' />
+		<set id='LJ2006' value='141941' />
+		<set id='LJ2007' value='145263'/>
+		<set id='LJ2008' value='157320'/>
+		<set id='LJ2009' value='164845'/>
+	</dataset>
+	<dataset SeriesName='存款积分' id='CR' dragBorderColor='CC9900'>
+		<set id='CR2005' value='15000' />
+		<set id='CR2006' value='25835' />
+		<set id='CR2007' value='20722'/>
+		<set id='CR2008' value='17557'/>
+		<set id='CR2009' value='12633' />
+	</dataset>
+	<dataset SeriesName='贷款积分' id='DK'>
+		<set id='DK2005' value='87040' />
+		<set id='DK2006' value='90835' />
+		<set id='DK2007' value='72722'/>
+		<set id='DK2008' value='90557'/>
+		<set id='DK2009' value='81633' />
+	</dataset>
+	<dataset SeriesName='理财产品积分' id='LJ'>
+		<set id='LJ2005' value='77401' />
+		<set id='LJ2006' value='61941' />
+		<set id='LJ2007' value='55263'/>
+		<set id='LJ2008' value='57320'/>
+		<set id='LJ2009' value='64845'/>
+	</dataset>
+	<dataset SeriesName='信用卡积分' id='CR'>
+		<set id='CR2005' value='23400' />
+		<set id='CR2006' value='35335' />
+		<set id='CR2007' value='44422'/>
+		<set id='CR2008' value='51357'/>
+		<set id='CR2009' value='62633' />
+	</dataset>
+	<dataset SeriesName='其他奖励积分' id='DK'>
+		<set id='DK2005' value='17530' />
+		<set id='DK2006' value='23465' />
+		<set id='DK2007' value='42722'/>
+		<set id='DK2008' value='50557'/>
+		<set id='DK2009' value='21665' />
+	</dataset>
+</chart> 

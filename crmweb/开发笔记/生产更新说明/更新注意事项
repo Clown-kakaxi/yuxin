@@ -1,0 +1,74 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+1.本机调试测试成功
+2.更新到UAT进行测试
+3.整理生产更相关的文件
+4.★将已修改代码与生产文件进行比较，生产《源码比对.docx》
+5.★将生产更新文档提交到【CRM个金一键开户】-->【05.上线文档】下【年月日生产更新】，如果有多个更新需要拆分，请在该目录下新建子目录
+6.科技部从SVN拿下提交的代码进行生产更新
+7.★生产更新成功后，将已更新文件更新到SVN上的生产代码，保持生产与SVN同步更新
+
+生产代码在SVN上的位置：
+    1).crmweb
+        CRM个金一键开户/99.项目环境/crm生产文件/crmweblogic/bea/user_projects/domains/crm_doamin/crmweb
+    2).CRM交易
+        CRM个金一键开户/99.项目环境/20171010
+        主要在该目录下的bin目录下有ytec-crm-trans-2.3.0.jar
+    3).ECIF
+        CRM个金一键开户/99.项目环境/ecif
+
+ECIF更新说明(需要更新三个服务里bin目录下的jar包，每个服务里有2个：ytec-mdm-ecif-2.3.0.jar、ytec-mdm-fubonecif-2.3.0.jar)：
+    #ecif用户登录
+    #进入ecif服务的目录
+    cd transaction/
+    #查询ECIF的3个进程
+    ps -ef|grep java|grep -v grep|grep -v use|grep -v weblogic
+    #杀掉ECIF的3个进程
+    ps -ef|grep java|grep -v grep|grep -v use|grep -v weblogic|awk '{print $2}'|xargs kill -9
+    #再次查询ECIF的3个进程，确保已经杀掉
+    ps -ef|grep java|grep -v grep|grep -v use|grep -v weblogic
+    #★先启动ECIF的两个交易服务(mst_ytec_mdm_core和sdy_ytec_mdm_core)
+    cd mst_ytec_mdm_core/
+    nohup ./ecifAdmin start &
+    cd ../sdy_ytec_mdm_core/
+    nohup ./ecifAdmin start &
+    #启动ECIF同步服务(ytec-mdm-sync)
+    cd ../ytec-mdm-sync/
+    nohup ./syncAdmin start &
+    
+    #查看各个服务的日志：
+    tail -f ~/transaction/mst_ytec_mdm_core/nohup.out
+    tail -f ~/transaction/sdy_ytec_mdm_core/nohup.out
+    tail -f ~/transaction/ytec-mdm-sync/nohup.out
+    
+CRM交易的更新步骤类似，不过只需要更新一个jar即可
+    #crm用户登录
+    #进入crm交易服务的目录
+    cd transaction/
+    #查询crm交易的进程
+    ps -ef|grep java|grep -v grep|grep -v use|grep -v weblogic
+    #杀掉crm交易进程
+    ps -ef|grep java|grep -v grep|grep -v use|grep -v weblogic|awk '{print $2}'|xargs kill -9
+    #再次查询crm交易进程，确保已经杀掉
+    ps -ef|grep java|grep -v grep|grep -v use|grep -v weblogic
+    #启动crm交易服务
+    nohup ./crmAdmin start &
+    #查看服务的日志：
+    tail -f nohup.out
+
+crmweb更新
+    #weblogic用户登录
+    #进入weblogic下的crm_domain域(UAT环境下可以直接使命令crm即可进入，这是个别名)
+    cd /home/weblogic/bea/user_projects/domains/crm_domain
+    #查询weblogic进程(UAT环境下可以直接执行restart.sh脚本实现weblogic的重启)
+    ps -ef|grep java|grep -v grep|grep -v use|grep weblogic
+    #根据进程号杀掉进程
+    ps -ef|grep java|grep -v grep|grep -v use|grep weblogic|awk '{print $2}'|xargs kill -9
+    #启动weblogic
+    nohup ./startWebLogic.sh &
+    #查看日志
+    tail -f nohup.out
+    
+    

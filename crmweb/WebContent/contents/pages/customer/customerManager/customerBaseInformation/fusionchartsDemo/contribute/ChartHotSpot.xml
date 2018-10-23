@@ -1,0 +1,5 @@
+<chart caption='客户产品占比统计'  subcaption='2012年时点余额'  formatNumberScale='0' >
+	<set label='资产类' value='27400' />
+	<set label='负债类' value='39800' />
+	<set label='中间业务类' value='21800' />
+</chart>

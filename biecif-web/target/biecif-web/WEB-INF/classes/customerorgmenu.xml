@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Body>
+	<JavaBasePath>D:\workspace\biecif\src\main\java</JavaBasePath>
+	<JspBasePath>D:\workspace\biecif-web\src\main\webapp\WEB-INF</JspBasePath>
+    <MainEntityPackage>com.yuchengtech.emp.ecif.customer.jlnx.entity</MainEntityPackage>
+	<MainServicePackage>com.yuchengtech.emp.ecif.customer.simplegroup.jlnx.service</MainServicePackage>
+	<MainWebPackage>com.yuchengtech.emp.ecif.customer.simplegroup.jlnx.web</MainWebPackage>
+	<MainJspPath>/pages/ecif/customer/simplegroup/jlnx</MainJspPath>
+	<DefautSchema>MDM</DefautSchema>
+
+	<CustMenu1 MenuName="客户基本信息" BizName="OrgBasic">
+		<CustMenu2 MenuName="基本概况" Entityname="Orgprofile" show="form" tabName="M_CI_ORG"  />  
+		<CustMenu2 MenuName="名称称谓" Entityname="NameTitle"  tabName ="M_CI_NAMETITLE" show="form" />
+		<CustMenu2 MenuName="基本账户" Entityname="Basicaccount"  tabName ="M_CI_ORG_BASICACCOUNT" show="form" />
+		<CustMenu2 MenuName="注册信息" Entityname="Registerinfo"  tabName ="M_CI_ORG_REGISTERINFO" show="form" />
+		<CustMenu2 MenuName="法人证件信息" Entityname="Orgidentinfo"  tabName ="M_CI_ORG_IDENTIFIER" show="list" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户关联信息" BizName="OrgRelevance">
+		<CustMenu2 MenuName="代理人信息" Entityname="Agentinfo"  tabName ="M_CI_ORG_AGENTINFO" show="form"/>
+		<CustMenu2 MenuName="机构联系人信息" Entityname="OrgLinkman"  tabName ="M_CI_ORG_LINKMAN" show="form"/>
+	</CustMenu1>
+	<CustMenu1 MenuName="客户财务信息" BizName="OrgFinance">
+		<CustMenu2 MenuName="纳税信息" Entityname="Taxinfo"  tabName ="M_CI_TAXINFO" show="form" />
+		<CustMenu2 MenuName="机构经营信息" Entityname="Orgbusiinfo"  tabName ="M_CI_ORG_BUSIINFO" show="form" />		
+		<CustMenu2 MenuName="发行债券信息" Entityname="Issuebond"  tabName ="M_CI_ORG_ISSUEBOND" show="form" />	
+	</CustMenu1>
+</Body>

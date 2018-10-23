@@ -1,0 +1,32 @@
+<chart showLegend='1' caption='国结与融资量客户规模分析' showValues='0' legendAllowDrag='1'>
+    <categories>
+    <category label='5亿以上'/>
+   <category label='1亿至5亿'/>
+   <category label='5000万至1亿'/>
+   <category label='1000万至5000万' />
+   <category label='500万至1000万'/>
+   <category label='100万至500万'/>
+   <category label='50万至100万'/>
+   <category label='50万以下'/>
+    </categories>
+    <dataset seriesName='结算量'>
+        <set value='21' />
+        <set value='245' />
+        <set value='3200' />
+        <set value='8903' />
+        <set value='12450' />
+        <set value='17053' />
+        <set value='18703' />
+        <set value='34302' />
+    </dataset>
+    <dataset seriesName='融资量'>
+        <set value='17' />
+        <set value='214' />
+        <set value='3064' />
+        <set value='7984' />
+        <set value='11452' />
+        <set value='14232' />
+        <set value='15672' />
+        <set value='31234' />
+    </dataset>
+</chart>

@@ -1,0 +1,28 @@
+#left {
+	float: left;
+	width: 20%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #D6D6D6;
+}
+#right {
+	width: 79%;
+	float: right;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #D6D6D6;
+}
+
+#bottom {
+	position: relative;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	border-top: 1px solid #C6C6C6;
+
+}
+#all {
+	width: 100%;
+	position: relative;
+}

@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ include file="/contents/pages/common/includes.jsp"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" href="Style/Style.css" rel="stylesheet"/>
+<title>Demo</title>
+<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript">
+	function eventHandler(e) {
+	    debugger;
+		var ddd=new Ext.window({
+			title:'aaaaaaaa' });
+		ddd.show();
+		window.open();
+		
+		
+	}
+</script>
+</head>
+
+<body id="player">
+	<!--容器end-->
+	<div id="container">Get the Flash Player to see this player</div>
+	<!--容器end-->
+	<!--init code-->
+	<script type="text/javascript">
+		var s1 = new SWFObject("ChinaMap.swf","ply","600","500","10","#FFFFFF");
+		s1.addParam("allowfullscreen","true");
+		s1.addParam("allownetworking","all");
+		s1.addParam("allowscriptaccess","always");
+		s1.addParam("wmode","transparent");
+		s1.addVariable("title","资产托管行业地图");
+		s1.addVariable("xmlurl","data/d.xml");
+		s1.addVariable("jsHandler","eventHandler");
+		s1.write("container");
+	</script>
+	<!--/init code-->
+	
+</body>
+</html>

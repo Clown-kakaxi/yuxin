@@ -1,0 +1,24 @@
+.boxBoth{
+	text-align: left;
+	width:800px;
+}
+
+.leftDiv{
+	float: left;	
+	border:1px solid #000;
+	width: 400px;
+	height: 200px;
+}
+.rightDiv{
+	float: right;
+	height: 200px;
+	width: 200px;
+	margin-right: 200px;
+}
+.rightDiv div{
+	margin-top: 10px;
+	text-align: center;
+}
+table{
+	clear: both;
+}

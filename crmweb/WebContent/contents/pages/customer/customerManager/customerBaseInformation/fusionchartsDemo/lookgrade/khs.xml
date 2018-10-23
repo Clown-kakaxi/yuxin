@@ -1,0 +1,16 @@
+<chart subcaption='2012年'  xAxisName='月份' yAxisName='数量统计' formatNumberScale='0' >
+	<categories>
+		<category name='2012-01' />
+		<category name='2012-02' />
+		<category name='2012-03' />
+		<category name='2012-04' />
+		<category name='2012-05' />
+	</categories>
+	<dataset SeriesName='客户数' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='3309' />
+		<set id='LJ2006' value='10098' />
+		<set id='LJ2007' value='23234'/>
+		<set id='LJ2008' value='37320'/>
+		<set id='LJ2009' value='44845'/>
+	</dataset>
+</chart> 

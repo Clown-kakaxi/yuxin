@@ -1,0 +1,8 @@
+<chart xAxisName='Month' yAxisName='Sales' numberPrefix='$' dblclickURL='baidu.com'>
+	<set label='Jan' value='17400' />
+	<set label='Feb' value='19800' />
+	<set label='Mar' value='21800' />
+	<set label='Apr' value='23800' />
+	<set label='May' value='29600' />
+	<set label='Jun' value='27600' />
+</chart>

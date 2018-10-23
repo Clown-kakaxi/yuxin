@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:component-scan base-package="com.yuchengtech.bcrm,com.yuchengtech.bob,com.yuchengtech.crm" />
+	<context:annotation-config />
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<tx:annotation-driven transaction-manager="postgreTransactionManager"
+		proxy-target-class="true" />
+		
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dsOracle" />
+		<property name="persistenceUnitName" value="BOB_JPA_ORACLE" />
+		<property name="jpaVendorAdapter">
+			<bean
+				class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+				<property name="database" value="${dbType}" />
+				<property name="showSql" value="true" />
+			</bean>
+		</property>
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="eclipselink.weaving" value="false" />
+			</map>
+		</property>
+	</bean>
+	<bean id="postgreTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect" />
+		</property>
+	</bean>
+	 
+    <bean name="taskJob" class="com.ecc.echain.wf.TaskJob" />
+    <bean name="callCenterJob" class="com.yuchengtech.bcrm.custmanager.action.CallCenterTaskJobAction" />
+    <bean name="pipelineJob" class="com.yuchengtech.bcrm.customer.potentialSme.action.PipelineTaskJobAction" />
+    <bean name="pipelineTransferJob" class="com.yuchengtech.bcrm.customer.potentialSme.action.PipelineTransferJobAction" />
+    <bean name="dueRemindJob" class="com.yuchengtech.bcrm.workplat.action.DueRemindTaskJobAction" />
+    <bean name="latentCusRecoveryJob" class="com.yuchengtech.bcrm.customer.action.LatentCusRecoveryJobAction" />
+    <bean name="LatentCusFormalQueryJob" class="com.yuchengtech.bcrm.customer.action.LatentCusFormalQueryJobAction" />
+    <!-- pipeline合作意向阶段跑批 -->
+    <bean name="pipelineTaskJob" class="com.yuchengtech.bcrm.customer.potentialSme.action.PipelineTaskAction" />
+    
+    <bean id="methodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="taskJob" />
+       </property>
+       <property name="targetMethod">
+           <value>transMgrHandler</value>
+       </property>
+    </bean>
+    
+    <bean id="callCenterMethodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="callCenterJob" />
+       </property>
+       <property name="targetMethod">
+           <value>remind</value>
+       </property>
+    </bean>
+    
+    <bean id="pipelineMethodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="pipelineJob" />
+       </property>
+       <property name="targetMethod">
+           <value>pipeline</value>
+       </property>
+    </bean>
+    
+    <bean id="pipelineTransferMethodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="pipelineTransferJob" />
+       </property>
+       <property name="targetMethod">
+           <value>pipelineTransfer</value>
+       </property>
+    </bean>
+    
+    <bean id="dueRemindMethodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="dueRemindJob" />
+       </property>
+       <property name="targetMethod">
+           <value>dueRemind</value>
+       </property>
+    </bean>
+    
+    <bean id="latentRecoveryMethodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="latentCusRecoveryJob" />
+       </property>
+       <property name="targetMethod">
+           <value>recoveryLatentCust</value>
+       </property>
+    </bean>
+    
+    <bean id="latentCusFormalQueryMethodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="LatentCusFormalQueryJob" />
+       </property>
+       <property name="targetMethod">
+           <value>turnFormalCusNotice</value>
+       </property>
+    </bean>
+    
+    <!-- pipeline合作意向阶段跑批 -->
+    <bean id="pipelineTaskJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="pipelineTaskJob" />
+       </property>
+       <property name="targetMethod">
+           <value>pipelineTask</value>
+       </property>
+    </bean>
+    
+    <!-- 配置触发器 -->
+   
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="methodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 * 06-09 * * ?</value>
+       </property>
+    </bean>
+    
+    <bean id="callCenterCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="callCenterMethodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0 08,15 * * ?</value>
+       </property>
+    </bean>
+    
+    <bean id="pipelineCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="pipelineTransferMethodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0/2 * * * ?</value>
+       </property>
+    </bean>
+    
+    <bean id="pipelineTransferCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="pipelineMethodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0/2 * * * ?</value>
+       </property>
+    </bean>
+    
+    <bean id="dueRemindCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="dueRemindMethodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0/2 * * * ?</value>
+       </property>
+    </bean>
+     
+      <bean id="recoveryLatentCustCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="latentRecoveryMethodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0 09 * * ?</value>
+       </property>
+    </bean>
+    
+    <bean id="latentCusFormalQueryCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="latentCusFormalQueryMethodInvokingJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0/2 * * * ?</value>
+       </property>
+    </bean>
+    
+    <!-- pipeline合作意向跑批触发器 -->
+    <bean id="pipelineTaskCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+       <property name="jobDetail">
+           <ref bean="pipelineTaskJobDetail" />
+       </property>
+       <property name="cronExpression">
+           <value>0 0/2 * * * ?</value>
+       </property>
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+       <property name="triggers">
+           <list>
+            <ref local="cronTrigger" />
+              <ref local="callCenterCronTrigger" /> 
+              <ref local="pipelineCronTrigger" /> 
+              <ref local="pipelineTransferCronTrigger" /> 
+              <ref local="dueRemindCronTrigger" /> 
+              <ref local="recoveryLatentCustCronTrigger" />
+              <!--  <ref local="latentCusFormalQueryCronTrigger" /> -->
+              <!-- pipeline合作意向跑批触发器 -->
+              <ref local="pipelineTaskCronTrigger" />
+           </list>
+       </property>
+    </bean>
+  
+</beans>
+

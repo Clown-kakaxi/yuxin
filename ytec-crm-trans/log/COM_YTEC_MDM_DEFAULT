@@ -1,0 +1,536 @@
+2018-2-11 10:16:06,899[ INFO][main](AbsServerLauncher.java:75)  ================= JVM Properties =================
+2018-2-11 10:16:06,927[ INFO][main](AbsServerLauncher.java:76)  Java的安装路径:D:\Program Files\Java\jdk1.6.0_43\jre
+2018-2-11 10:16:06,927[ INFO][main](AbsServerLauncher.java:77)  Java的运行环境版本:1.6.0_43
+2018-2-11 10:16:06,927[ INFO][main](AbsServerLauncher.java:78)  Java的运行环境供应商:Sun Microsystems Inc.
+2018-2-11 10:16:06,928[ INFO][main](AbsServerLauncher.java:79)  Java的虚拟机实现版本:20.14-b01
+2018-2-11 10:16:06,928[ INFO][main](AbsServerLauncher.java:80)  服务器操作系统的名称:Windows 7
+2018-2-11 10:16:06,928[ INFO][main](AbsServerLauncher.java:81)  服务器操作系统的构架:amd64
+2018-2-11 10:16:06,928[ INFO][main](AbsServerLauncher.java:82)  服务器操作系统的版本:6.1
+2018-2-11 10:16:06,929[ INFO][main](AbsServerLauncher.java:83)  用户的主目录:C:\Users\Administrator
+2018-2-11 10:16:06,929[ INFO][main](AbsServerLauncher.java:84)  应用的当前工作目录:E:\ProjectWorkspaces\FuBangHuaYiWorkspace_ecif\ytec-crm-trans
+2018-2-11 10:16:06,929[ INFO][main](AbsServerLauncher.java:85)  ==================================================
+2018-2-11 10:16:06,929[ INFO][main](AbsServerLauncher.java:185)  启动默认服务器应用
+2018-2-11 10:16:07,151[ INFO][main](ServerConfiger.java:162)  启动默认的接口[SOCKET_Server]
+2018-2-11 10:16:07,156[ INFO][main](ServerConfiger.java:297)  初始化常量com.ytec.mdm.base.util.MdmConstants
+2018-2-11 10:16:10,873[ INFO][main](PropertiesLoaderSupport.java:177)  Loading properties file from URL [file:/E:/ProjectWorkspaces/FuBangHuaYiWorkspace_ecif/ytec-crm-trans/target/classes/jdbc.properties]
+2018-2-11 10:16:33,460[ WARN][main](SettingsFactory.java:147)  Could not obtain connection to query metadata
+org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (The Network Adapter could not establish the connection)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider.getConnection(InjectedDataSourceConnectionProvider.java:71)
+	at org.hibernate.cfg.SettingsFactory.buildSettings(SettingsFactory.java:114)
+	at org.hibernate.cfg.Configuration.buildSettingsInternal(Configuration.java:2833)
+	at org.hibernate.cfg.Configuration.buildSettings(Configuration.java:2829)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1840)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:902)
+	at org.hibernate.ejb.HibernatePersistence.createContainerEntityManagerFactory(HibernatePersistence.java:74)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:268)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:310)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findDefaultEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:530)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:496)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.resolveEntityManager(PersistenceAnnotationBeanPostProcessor.java:657)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.getResourceToInject(PersistenceAnnotationBeanPostProcessor.java:630)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:150)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessPropertyValues(PersistenceAnnotationBeanPostProcessor.java:339)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:609)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:469)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:83)
+	at com.ytec.mdm.base.util.SpringContextUtils.setApplicationContext(SpringContextUtils.java:62)
+	at com.ytec.mdm.server.common.ServerConfiger.initServer(ServerConfiger.java:356)
+	at com.ytec.mdm.server.CrmTradingLauncher.initServer(CrmTradingLauncher.java:146)
+	at com.ytec.mdm.server.CrmTradingLauncher.start(CrmTradingLauncher.java:75)
+	at com.ytec.mdm.server.CrmTradingLauncher.main(CrmTradingLauncher.java:133)
+Caused by: java.sql.SQLException: The Network Adapter could not establish the connection
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:412)
+	at oracle.jdbc.driver.PhysicalConnection.<init>(PhysicalConnection.java:531)
+	at oracle.jdbc.driver.T4CConnection.<init>(T4CConnection.java:221)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:32)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:503)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 43 more
+Caused by: oracle.net.ns.NetException: The Network Adapter could not establish the connection
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:359)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:422)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:672)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:237)
+	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1042)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:301)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:141)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:123)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:337)
+	... 56 more
+2018-2-11 10:16:34,557[ INFO][main](TxConfigBS.java:198)  初始化交易配置处理类
+2018-2-11 10:16:34,813[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(AcrmFCiPotCusCom)业务主键信息(cusId)
+2018-2-11 10:16:34,813[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewMatepurchase)业务主键信息(taskNumber,mpGoods,mpSupplier)
+2018-2-11 10:16:34,813[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewNewRecord)业务主键信息(taskNumber)
+2018-2-11 10:16:34,813[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewOldPurpose)业务主键信息(taskNumber)
+2018-2-11 10:16:34,813[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewOldRecord)业务主键信息(taskNumber)
+2018-2-11 10:16:34,813[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewProsales)业务主键信息(taskNumber,psGoods,psBuyer)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewRecord)业务主键信息(taskNumber)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewShareholder)业务主键信息(taskNumber,mSponsor)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewFixedassets)业务主键信息(taskNumber,fHtype,fOtype)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewProfit)业务主键信息(taskNumber,pYears)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewDepositbank)业务主键信息(taskNumber,dBankname)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewLoanbank)业务主键信息(taskNumber,lBankname)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewDepositpro)业务主键信息(taskNumber,dpName)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewForexlimit)业务主键信息(taskNumber,flName)
+2018-2-11 10:16:34,814[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewCreditpro)业务主键信息(taskNumber,cpUse,cpProduct)
+2018-2-11 10:16:34,863[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewNewRecord，关联表及配置：nodeName{interviewNewRecord}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@33d88c1f}
+2018-2-11 10:16:34,866[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewShareholder，关联表及配置：nodeName{interviewShareholder}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@4dd761d0}
+2018-2-11 10:16:34,869[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewFixedassets，关联表及配置：nodeName{interviewFixedassets}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@7756c69c}
+2018-2-11 10:16:34,871[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewProfit，关联表及配置：nodeName{interviewProfit}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@620968f9}
+2018-2-11 10:16:34,874[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewMatepurchase，关联表及配置：nodeName{interviewMatepurchase}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@57cae5b7}
+2018-2-11 10:16:34,876[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewProsales，关联表及配置：nodeName{interviewProsales}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@49af7e68}
+2018-2-11 10:16:34,878[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewDepositbank，关联表及配置：nodeName{interviewDepositbank}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@209403a3}
+2018-2-11 10:16:34,881[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewLoanbank，关联表及配置：nodeName{interviewLoanbank}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@557ad30a}
+2018-2-11 10:16:34,883[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewDepositpro，关联表及配置：nodeName{interviewDepositpro}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@72b5615d}
+2018-2-11 10:16:34,885[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewForexlimit，关联表及配置：nodeName{interviewForexlimit}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@620b5b80}
+2018-2-11 10:16:34,887[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewCreditpro，关联表及配置：nodeName{interviewCreditpro}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@57a462c9}
+2018-2-11 10:16:34,890[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewOldPurpose，关联表及配置：nodeName{interviewOldPurpose}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@6951a712}
+2018-2-11 10:16:34,892[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewOldRecord，关联表及配置：nodeName{interviewOldRecord}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@6fafc4c2}
+2018-2-11 10:16:34,893[ INFO][main](CrmTradingLauncher.java:83)  启动服务开始...
+2018-2-11 10:16:34,928[ INFO][main](NioServer.java:144)  !> [START] Server Acceptor Start at 127.0.0.1:9501
+2018-2-11 10:16:34,930[ INFO][Thread-2](Server_I.java:172)  !> [START] Server[Server_I-1520416324303] Start
+2018-2-11 10:18:38,538[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:50243]
+2018-2-11 10:18:38,550[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1518806912039  Executor.run() START.
+2018-2-11 10:18:38,560[ INFO][pool-1-thread-1](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:50243][505]
+2018-2-11 10:18:38,562[ INFO][pool-1-thread-1](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>cmrBlackListCheck</txCode>
+		<TxName>我行黑名单校验</TxName>
+		<IdentNo>75393307-5</IdentNo>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 10:18:38,566[ INFO][pool-1-thread-1](DealDispatchEngine.java:108)  客户化交易[cmrBlackListCheck:CRM黑名单校验]
+2018-2-11 10:18:38,566[ INFO][pool-1-thread-1](CustrizEcifDealEngine.java:55)  交易[交易编码:cmrBlackListCheck]开始处理
+2018-2-11 10:18:38,566[ INFO][pool-1-thread-1](CmrBlackListCheck.java:42)  CRM黑名单校验
+2018-2-11 10:18:39,202[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  select t.SPECIAL_LIST_ID from acrm_f_ci_speciallist t  where sysdate between nvl(t.start_date,sysdate) and nvl(t.end_date,sysdate) and t.special_list_flag='Y' and t.IDENT_NO =?
+2018-2-11 10:18:39,289[ INFO][pool-1-thread-1](CmrBlackListCheck.java:57)  CRM黑名单校验：证件号码为：[75393307-5] 的客户不在我行黑名单中
+2018-2-11 10:18:39,289[ INFO][pool-1-thread-1](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 10:18:39,309[ INFO][pool-1-thread-1](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:50243][633]
+2018-2-11 10:18:39,310[ INFO][pool-1-thread-1](SocketExecutor.java:323)  00000625<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211101839000290</SvrTm><SvrSeqNo>20180211101839000290</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody><BlacklistStatus>N</BlacklistStatus></ResponseBody><ResponseTail><TxStatCode>000000</TxStatCode><TxStatDesc>成功</TxStatDesc><TxStatString>SUCCESS</TxStatString></ResponseTail></TransBody>
+2018-2-11 10:18:39,310[ INFO][pool-1-thread-1](TxAdapterExcutor.java:145)  交易码[cmrBlackListCheck],请求系统[CRM],交易返回[成功],处理耗时[759]ms
+2018-2-11 10:18:39,311[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519930682763  Executor.run() START.
+2018-2-11 10:18:39,312[ INFO][pool-1-thread-2](SocketExecutor.java:150)  !> @SocketExecutorHandler-1519930682763 TxExecutor.run() exit.
+2018-2-11 10:18:39,313[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519930682763 Executor.run() DONE.
+2018-2-11 10:18:39,366[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 10:18:39,411[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1518806912039 Executor.run() DONE.
+2018-2-11 10:29:33,180[ INFO][main](AbsServerLauncher.java:75)  ================= JVM Properties =================
+2018-2-11 10:29:33,183[ INFO][main](AbsServerLauncher.java:76)  Java的安装路径:D:\Program Files\Java\jdk1.6.0_43\jre
+2018-2-11 10:29:33,184[ INFO][main](AbsServerLauncher.java:77)  Java的运行环境版本:1.6.0_43
+2018-2-11 10:29:33,184[ INFO][main](AbsServerLauncher.java:78)  Java的运行环境供应商:Sun Microsystems Inc.
+2018-2-11 10:29:33,184[ INFO][main](AbsServerLauncher.java:79)  Java的虚拟机实现版本:20.14-b01
+2018-2-11 10:29:33,184[ INFO][main](AbsServerLauncher.java:80)  服务器操作系统的名称:Windows 7
+2018-2-11 10:29:33,185[ INFO][main](AbsServerLauncher.java:81)  服务器操作系统的构架:amd64
+2018-2-11 10:29:33,185[ INFO][main](AbsServerLauncher.java:82)  服务器操作系统的版本:6.1
+2018-2-11 10:29:33,185[ INFO][main](AbsServerLauncher.java:83)  用户的主目录:C:\Users\Administrator
+2018-2-11 10:29:33,186[ INFO][main](AbsServerLauncher.java:84)  应用的当前工作目录:E:\ProjectWorkspaces\FuBangHuaYiWorkspace_ecif\ytec-crm-trans
+2018-2-11 10:29:33,186[ INFO][main](AbsServerLauncher.java:85)  ==================================================
+2018-2-11 10:29:33,186[ INFO][main](AbsServerLauncher.java:185)  启动默认服务器应用
+2018-2-11 10:29:33,275[ INFO][main](ServerConfiger.java:162)  启动默认的接口[SOCKET_Server]
+2018-2-11 10:29:33,280[ INFO][main](ServerConfiger.java:297)  初始化常量com.ytec.mdm.base.util.MdmConstants
+2018-2-11 10:29:33,922[ INFO][main](PropertiesLoaderSupport.java:177)  Loading properties file from URL [file:/E:/ProjectWorkspaces/FuBangHuaYiWorkspace_ecif/ytec-crm-trans/target/classes/jdbc.properties]
+2018-2-11 10:29:35,718[ INFO][main](TxConfigBS.java:198)  初始化交易配置处理类
+2018-2-11 10:29:35,895[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(AcrmFCiPotCusCom)业务主键信息(cusId)
+2018-2-11 10:29:35,895[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewMatepurchase)业务主键信息(taskNumber,mpGoods,mpSupplier)
+2018-2-11 10:29:35,896[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewNewRecord)业务主键信息(taskNumber)
+2018-2-11 10:29:35,896[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewOldPurpose)业务主键信息(taskNumber)
+2018-2-11 10:29:35,896[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewOldRecord)业务主键信息(taskNumber)
+2018-2-11 10:29:35,896[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewProsales)业务主键信息(taskNumber,psGoods,psBuyer)
+2018-2-11 10:29:35,896[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewRecord)业务主键信息(taskNumber)
+2018-2-11 10:29:35,896[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewShareholder)业务主键信息(taskNumber,mSponsor)
+2018-2-11 10:29:35,897[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewFixedassets)业务主键信息(taskNumber,fHtype,fOtype)
+2018-2-11 10:29:35,897[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewProfit)业务主键信息(taskNumber,pYears)
+2018-2-11 10:29:35,897[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewDepositbank)业务主键信息(taskNumber,dBankname)
+2018-2-11 10:29:35,897[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewLoanbank)业务主键信息(taskNumber,lBankname)
+2018-2-11 10:29:35,897[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewDepositpro)业务主键信息(taskNumber,dpName)
+2018-2-11 10:29:35,897[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewForexlimit)业务主键信息(taskNumber,flName)
+2018-2-11 10:29:35,898[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewCreditpro)业务主键信息(taskNumber,cpUse,cpProduct)
+2018-2-11 10:29:35,945[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewNewRecord，关联表及配置：nodeName{interviewNewRecord}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@373ee92}
+2018-2-11 10:29:35,948[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewShareholder，关联表及配置：nodeName{interviewShareholder}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@3033b503}
+2018-2-11 10:29:35,951[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewFixedassets，关联表及配置：nodeName{interviewFixedassets}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@12b0f0ae}
+2018-2-11 10:29:35,953[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewProfit，关联表及配置：nodeName{interviewProfit}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@1e893918}
+2018-2-11 10:29:35,955[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewMatepurchase，关联表及配置：nodeName{interviewMatepurchase}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@43036651}
+2018-2-11 10:29:35,957[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewProsales，关联表及配置：nodeName{interviewProsales}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@14327236}
+2018-2-11 10:29:35,959[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewDepositbank，关联表及配置：nodeName{interviewDepositbank}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@7be84195}
+2018-2-11 10:29:35,961[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewLoanbank，关联表及配置：nodeName{interviewLoanbank}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@4d29dcc0}
+2018-2-11 10:29:35,963[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewDepositpro，关联表及配置：nodeName{interviewDepositpro}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@775be8d3}
+2018-2-11 10:29:35,965[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewForexlimit，关联表及配置：nodeName{interviewForexlimit}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@3312b1dd}
+2018-2-11 10:29:35,967[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewCreditpro，关联表及配置：nodeName{interviewCreditpro}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@105b3e5d}
+2018-2-11 10:29:35,969[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewOldPurpose，关联表及配置：nodeName{interviewOldPurpose}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@565b540e}
+2018-2-11 10:29:35,971[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewOldRecord，关联表及配置：nodeName{interviewOldRecord}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@5eb8f6d}
+2018-2-11 10:29:35,972[ INFO][main](CrmTradingLauncher.java:83)  启动服务开始...
+2018-2-11 10:29:35,993[ INFO][main](NioServer.java:144)  !> [START] Server Acceptor Start at 127.0.0.1:9501
+2018-2-11 10:29:35,995[ INFO][Thread-2](Server_I.java:172)  !> [START] Server[Server_I-1518782400370] Start
+2018-2-11 10:29:41,005[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:50529]
+2018-2-11 10:29:41,015[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519973596663  Executor.run() START.
+2018-2-11 10:29:41,018[ INFO][pool-1-thread-1](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:50529][505]
+2018-2-11 10:29:41,019[ INFO][pool-1-thread-1](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>cmrBlackListCheck</txCode>
+		<TxName>我行黑名单校验</TxName>
+		<IdentNo>75393307-5</IdentNo>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 10:29:41,023[ERROR][pool-1-thread-1](DealDispatchEngine.java:124)  构造交易处理引擎失败
+java.lang.NullPointerException
+	at java.util.concurrent.ConcurrentHashMap.putIfAbsent(ConcurrentHashMap.java:895)
+	at com.ytec.mdm.integration.transaction.core.TxModelHolder.getTxModel(TxModelHolder.java:85)
+	at com.ytec.mdm.integration.transaction.core.DealDispatchEngine.getTxDealEngine(DealDispatchEngine.java:103)
+	at com.ytec.mdm.integration.transaction.core.DealDispatchEngine.DealDispatcher(DealDispatchEngine.java:79)
+	at com.ytec.mdm.integration.adapter.message.xml.XmlIntegrationLayer.process(XmlIntegrationLayer.java:145)
+	at com.ytec.mdm.interfaces.socket.normalsocket.server.SocketExecutor.execute(SocketExecutor.java:185)
+	at com.ytec.mdm.interfaces.common.TxAdapterExcutor.run(TxAdapterExcutor.java:195)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+2018-2-11 10:29:41,099[ INFO][pool-1-thread-1](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 10:29:41,113[ INFO][pool-1-thread-1](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:50529][617]
+2018-2-11 10:29:41,114[ INFO][pool-1-thread-1](SocketExecutor.java:323)  00000609<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211102941000101</SvrTm><SvrSeqNo>20180211102941000101</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody/><ResponseTail><TxStatCode>500001</TxStatCode><TxStatDesc>交易cmrBlackListCheck不存在或配置信息异常</TxStatDesc><TxStatString>FAIL</TxStatString></ResponseTail></TransBody>
+2018-2-11 10:29:41,116[ INFO][pool-1-thread-1](TxAdapterExcutor.java:145)  交易码[cmrBlackListCheck],请求系统[CRM],交易返回[交易cmrBlackListCheck不存在或配置信息异常],处理耗时[100]ms
+2018-2-11 10:29:41,117[ INFO][pool-1-thread-1](TxAdapterExcutor.java:150)  交易成功状态[FALSE],设置返回信息位置:file[ErrorEcifDealEngine.java] class[com.ytec.mdm.integration.transaction.core.ErrorEcifDealEngine] method[execute] Line[64]
+2018-2-11 10:29:41,120[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519039427574  Executor.run() START.
+2018-2-11 10:29:41,121[ INFO][pool-1-thread-2](SocketExecutor.java:150)  !> @SocketExecutorHandler-1519039427574 TxExecutor.run() exit.
+2018-2-11 10:29:41,122[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519039427574 Executor.run() DONE.
+2018-2-11 10:29:41,221[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 10:29:41,274[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  insert into TX_ERR (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_ERR_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 10:29:41,304[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519973596663 Executor.run() DONE.
+2018-2-11 10:30:30,016[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:50547]
+2018-2-11 10:30:30,025[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1518946964539  Executor.run() START.
+2018-2-11 10:30:30,025[ INFO][pool-1-thread-2](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:50547][505]
+2018-2-11 10:30:30,026[ INFO][pool-1-thread-2](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>crmBlackListCheck</txCode>
+		<txName>我行黑名单校验</txName>
+		<IdentNo>75393307-5</IdentNo>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 10:30:30,027[ INFO][pool-1-thread-2](DealDispatchEngine.java:108)  客户化交易[crmBlackListCheck:CRM黑名单校验]
+2018-2-11 10:30:30,028[ INFO][pool-1-thread-2](CustrizEcifDealEngine.java:55)  交易[交易编码:crmBlackListCheck]开始处理
+2018-2-11 10:30:30,028[ INFO][pool-1-thread-2](CrmBlackListCheck.java:42)  CRM黑名单校验
+2018-2-11 10:30:30,053[DEBUG][pool-1-thread-2](SQLStatementLogger.java:111)  select t.SPECIAL_LIST_ID from acrm_f_ci_speciallist t  where sysdate between nvl(t.start_date,sysdate) and nvl(t.end_date,sysdate) and t.special_list_flag='Y' and t.IDENT_NO =?
+2018-2-11 10:30:30,064[ INFO][pool-1-thread-2](CrmBlackListCheck.java:57)  CRM黑名单校验：证件号码为：[75393307-5] 的客户不在我行黑名单中
+2018-2-11 10:30:30,065[ INFO][pool-1-thread-2](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 10:30:30,065[ INFO][pool-1-thread-2](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:50547][633]
+2018-2-11 10:30:30,066[ INFO][pool-1-thread-2](SocketExecutor.java:323)  00000625<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211103030000065</SvrTm><SvrSeqNo>20180211103030000065</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody><BlacklistStatus>N</BlacklistStatus></ResponseBody><ResponseTail><TxStatCode>000000</TxStatCode><TxStatDesc>成功</TxStatDesc><TxStatString>SUCCESS</TxStatString></ResponseTail></TransBody>
+2018-2-11 10:30:30,066[ INFO][pool-1-thread-2](TxAdapterExcutor.java:145)  交易码[crmBlackListCheck],请求系统[CRM],交易返回[成功],处理耗时[41]ms
+2018-2-11 10:30:30,066[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519210923725  Executor.run() START.
+2018-2-11 10:30:30,067[ INFO][pool-1-thread-1](SocketExecutor.java:150)  !> @SocketExecutorHandler-1519210923725 TxExecutor.run() exit.
+2018-2-11 10:30:30,067[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519210923725 Executor.run() DONE.
+2018-2-11 10:30:30,069[DEBUG][pool-1-thread-2](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 10:30:30,077[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1518946964539 Executor.run() DONE.
+2018-2-11 10:30:42,310[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:50557]
+2018-2-11 10:30:42,319[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1518396436580  Executor.run() START.
+2018-2-11 10:30:42,319[ INFO][pool-1-thread-1](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:50557][505]
+2018-2-11 10:30:42,320[ INFO][pool-1-thread-1](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>crmBlackListCheck</txCode>
+		<txName>我行黑名单校验</txName>
+		<IdentNo>75393307-5</IdentNo>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 10:30:42,321[ INFO][pool-1-thread-1](DealDispatchEngine.java:108)  客户化交易[crmBlackListCheck:CRM黑名单校验]
+2018-2-11 10:30:42,321[ INFO][pool-1-thread-1](CustrizEcifDealEngine.java:55)  交易[交易编码:crmBlackListCheck]开始处理
+2018-2-11 10:30:42,321[ INFO][pool-1-thread-1](CrmBlackListCheck.java:42)  CRM黑名单校验
+2018-2-11 10:30:42,324[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  select t.SPECIAL_LIST_ID from acrm_f_ci_speciallist t  where sysdate between nvl(t.start_date,sysdate) and nvl(t.end_date,sysdate) and t.special_list_flag='Y' and t.IDENT_NO =?
+2018-2-11 10:30:42,329[ INFO][pool-1-thread-1](CrmBlackListCheck.java:57)  CRM黑名单校验：证件号码为：[75393307-5] 的客户不在我行黑名单中
+2018-2-11 10:30:42,329[ INFO][pool-1-thread-1](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 10:30:42,329[ INFO][pool-1-thread-1](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:50557][633]
+2018-2-11 10:30:42,330[ INFO][pool-1-thread-1](SocketExecutor.java:323)  00000625<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211103042000329</SvrTm><SvrSeqNo>20180211103042000329</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody><BlacklistStatus>N</BlacklistStatus></ResponseBody><ResponseTail><TxStatCode>000000</TxStatCode><TxStatDesc>成功</TxStatDesc><TxStatString>SUCCESS</TxStatString></ResponseTail></TransBody>
+2018-2-11 10:30:42,330[ INFO][pool-1-thread-1](TxAdapterExcutor.java:145)  交易码[crmBlackListCheck],请求系统[CRM],交易返回[成功],处理耗时[11]ms
+2018-2-11 10:30:42,330[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519728098296  Executor.run() START.
+2018-2-11 10:30:42,331[ INFO][pool-1-thread-2](SocketExecutor.java:150)  !> @SocketExecutorHandler-1519728098296 TxExecutor.run() exit.
+2018-2-11 10:30:42,331[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519728098296 Executor.run() DONE.
+2018-2-11 10:30:42,332[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 10:30:42,342[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1518396436580 Executor.run() DONE.
+2018-2-11 15:17:40,313[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:51476]
+2018-2-11 15:17:40,322[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519426961020  Executor.run() START.
+2018-2-11 15:17:40,322[ INFO][pool-1-thread-2](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:51476][631]
+2018-2-11 15:17:40,322[ INFO][pool-1-thread-2](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>crmBlackListCheck</txCode>
+		<txName>我行黑名单校验</txName>
+		<IdentNo>75393307-5</IdentNo>
+		<tax1>tax11</tax1>
+		<tax1>tax12</tax1>
+		<tax1>tax13</tax1>
+		<tax2>tax21</tax2>
+		<tax2>tax22</tax2>
+		<tax2>tax23</tax2>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 15:17:40,324[ INFO][pool-1-thread-2](DealDispatchEngine.java:108)  客户化交易[crmBlackListCheck:CRM黑名单校验]
+2018-2-11 15:17:40,324[ INFO][pool-1-thread-2](CustrizEcifDealEngine.java:55)  交易[交易编码:crmBlackListCheck]开始处理
+2018-2-11 15:17:40,324[ INFO][pool-1-thread-2](CrmBlackListCheck.java:42)  CRM黑名单校验
+2018-2-11 15:17:40,331[DEBUG][pool-1-thread-2](SQLStatementLogger.java:111)  select t.SPECIAL_LIST_ID from acrm_f_ci_speciallist t  where sysdate between nvl(t.start_date,sysdate) and nvl(t.end_date,sysdate) and t.special_list_flag='Y' and t.IDENT_NO =?
+2018-2-11 15:17:40,339[ INFO][pool-1-thread-2](CrmBlackListCheck.java:57)  CRM黑名单校验：证件号码为：[75393307-5] 的客户不在我行黑名单中
+2018-2-11 15:17:40,339[ INFO][pool-1-thread-2](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 15:17:40,340[ INFO][pool-1-thread-2](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:51476][633]
+2018-2-11 15:17:40,340[ INFO][pool-1-thread-2](SocketExecutor.java:323)  00000625<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211031740000340</SvrTm><SvrSeqNo>20180211031740000340</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody><BlacklistStatus>N</BlacklistStatus></ResponseBody><ResponseTail><TxStatCode>000000</TxStatCode><TxStatDesc>成功</TxStatDesc><TxStatString>SUCCESS</TxStatString></ResponseTail></TransBody>
+2018-2-11 15:17:40,340[ INFO][pool-1-thread-2](TxAdapterExcutor.java:145)  交易码[crmBlackListCheck],请求系统[CRM],交易返回[成功],处理耗时[18]ms
+2018-2-11 15:17:40,341[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519061754390  Executor.run() START.
+2018-2-11 15:17:40,342[ INFO][pool-1-thread-1](SocketExecutor.java:150)  !> @SocketExecutorHandler-1519061754390 TxExecutor.run() exit.
+2018-2-11 15:17:40,343[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519061754390 Executor.run() DONE.
+2018-2-11 15:17:40,346[DEBUG][pool-1-thread-2](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 15:17:40,358[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519426961020 Executor.run() DONE.
+2018-2-11 15:18:11,564[ INFO][main](AbsServerLauncher.java:75)  ================= JVM Properties =================
+2018-2-11 15:18:11,568[ INFO][main](AbsServerLauncher.java:76)  Java的安装路径:D:\Program Files\Java\jdk1.6.0_43\jre
+2018-2-11 15:18:11,569[ INFO][main](AbsServerLauncher.java:77)  Java的运行环境版本:1.6.0_43
+2018-2-11 15:18:11,569[ INFO][main](AbsServerLauncher.java:78)  Java的运行环境供应商:Sun Microsystems Inc.
+2018-2-11 15:18:11,569[ INFO][main](AbsServerLauncher.java:79)  Java的虚拟机实现版本:20.14-b01
+2018-2-11 15:18:11,570[ INFO][main](AbsServerLauncher.java:80)  服务器操作系统的名称:Windows 7
+2018-2-11 15:18:11,570[ INFO][main](AbsServerLauncher.java:81)  服务器操作系统的构架:amd64
+2018-2-11 15:18:11,570[ INFO][main](AbsServerLauncher.java:82)  服务器操作系统的版本:6.1
+2018-2-11 15:18:11,570[ INFO][main](AbsServerLauncher.java:83)  用户的主目录:C:\Users\Administrator
+2018-2-11 15:18:11,571[ INFO][main](AbsServerLauncher.java:84)  应用的当前工作目录:E:\ProjectWorkspaces\FuBangHuaYiWorkspace_ecif\ytec-crm-trans
+2018-2-11 15:18:11,571[ INFO][main](AbsServerLauncher.java:85)  ==================================================
+2018-2-11 15:18:11,571[ INFO][main](AbsServerLauncher.java:185)  启动默认服务器应用
+2018-2-11 15:18:11,668[ INFO][main](ServerConfiger.java:162)  启动默认的接口[SOCKET_Server]
+2018-2-11 15:18:11,672[ INFO][main](ServerConfiger.java:297)  初始化常量com.ytec.mdm.base.util.MdmConstants
+2018-2-11 15:18:12,331[ INFO][main](PropertiesLoaderSupport.java:177)  Loading properties file from URL [file:/E:/ProjectWorkspaces/FuBangHuaYiWorkspace_ecif/ytec-crm-trans/target/classes/jdbc.properties]
+2018-2-11 15:18:14,204[ INFO][main](TxConfigBS.java:198)  初始化交易配置处理类
+2018-2-11 15:18:14,392[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(AcrmFCiPotCusCom)业务主键信息(cusId)
+2018-2-11 15:18:14,393[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewMatepurchase)业务主键信息(taskNumber,mpGoods,mpSupplier)
+2018-2-11 15:18:14,393[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewNewRecord)业务主键信息(taskNumber)
+2018-2-11 15:18:14,393[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewOldPurpose)业务主键信息(taskNumber)
+2018-2-11 15:18:14,393[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewOldRecord)业务主键信息(taskNumber)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewProsales)业务主键信息(taskNumber,psGoods,psBuyer)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewRecord)业务主键信息(taskNumber)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewShareholder)业务主键信息(taskNumber,mSponsor)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewFixedassets)业务主键信息(taskNumber,fHtype,fOtype)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewProfit)业务主键信息(taskNumber,pYears)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewDepositbank)业务主键信息(taskNumber,dBankname)
+2018-2-11 15:18:14,394[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewLoanbank)业务主键信息(taskNumber,lBankname)
+2018-2-11 15:18:14,395[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewDepositpro)业务主键信息(taskNumber,dpName)
+2018-2-11 15:18:14,395[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewForexlimit)业务主键信息(taskNumber,flName)
+2018-2-11 15:18:14,395[ INFO][main](TxConfigBS4CRM.java:114)  读取配置参数，表(OcrmFInterviewCreditpro)业务主键信息(taskNumber,cpUse,cpProduct)
+2018-2-11 15:18:14,444[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewNewRecord，关联表及配置：nodeName{interviewNewRecord}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@3033b503}
+2018-2-11 15:18:14,446[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewShareholder，关联表及配置：nodeName{interviewShareholder}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@12b0f0ae}
+2018-2-11 15:18:14,449[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewFixedassets，关联表及配置：nodeName{interviewFixedassets}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@1e893918}
+2018-2-11 15:18:14,452[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewProfit，关联表及配置：nodeName{interviewProfit}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@43036651}
+2018-2-11 15:18:14,454[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewMatepurchase，关联表及配置：nodeName{interviewMatepurchase}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@14327236}
+2018-2-11 15:18:14,456[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewProsales，关联表及配置：nodeName{interviewProsales}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@7be84195}
+2018-2-11 15:18:14,458[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewDepositbank，关联表及配置：nodeName{interviewDepositbank}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@4d29dcc0}
+2018-2-11 15:18:14,460[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewLoanbank，关联表及配置：nodeName{interviewLoanbank}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@775be8d3}
+2018-2-11 15:18:14,462[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewDepositpro，关联表及配置：nodeName{interviewDepositpro}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@3312b1dd}
+2018-2-11 15:18:14,464[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewForexlimit，关联表及配置：nodeName{interviewForexlimit}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@105b3e5d}
+2018-2-11 15:18:14,466[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewCreditpro，关联表及配置：nodeName{interviewCreditpro}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@565b540e}
+2018-2-11 15:18:14,468[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewOldPurpose，关联表及配置：nodeName{interviewOldPurpose}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@5eb8f6d}
+2018-2-11 15:18:14,470[ INFO][main](TxConfigBS4CRM.java:179)  添加关联表信息, 主表：interviewOldRecord，关联表及配置：nodeName{interviewOldRecord}, table{com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast}, condition{mgrId,custId}, key_s{[Ljava.lang.String;@2c154024}
+2018-2-11 15:18:14,471[ INFO][main](CrmTradingLauncher.java:83)  启动服务开始...
+2018-2-11 15:18:14,492[ INFO][main](NioServer.java:144)  !> [START] Server Acceptor Start at 127.0.0.1:9501
+2018-2-11 15:18:14,494[ INFO][Thread-2](Server_I.java:172)  !> [START] Server[Server_I-1519244109693] Start
+2018-2-11 15:18:19,060[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:51501]
+2018-2-11 15:18:19,073[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519985802188  Executor.run() START.
+2018-2-11 15:18:19,076[ INFO][pool-1-thread-1](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:51501][631]
+2018-2-11 15:18:19,077[ INFO][pool-1-thread-1](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>crmBlackListCheck</txCode>
+		<txName>我行黑名单校验</txName>
+		<IdentNo>75393307-5</IdentNo>
+		<tax1>tax11</tax1>
+		<tax1>tax12</tax1>
+		<tax1>tax13</tax1>
+		<tax2>tax21</tax2>
+		<tax2>tax22</tax2>
+		<tax2>tax23</tax2>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 15:18:19,081[ INFO][pool-1-thread-1](DealDispatchEngine.java:108)  客户化交易[crmBlackListCheck:CRM黑名单校验]
+2018-2-11 15:18:19,081[ INFO][pool-1-thread-1](CustrizEcifDealEngine.java:55)  交易[交易编码:crmBlackListCheck]开始处理
+2018-2-11 15:18:19,081[ INFO][pool-1-thread-1](CrmBlackListCheck.java:44)  CRM黑名单校验
+2018-2-11 15:18:19,160[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  select t.SPECIAL_LIST_ID from acrm_f_ci_speciallist t  where sysdate between nvl(t.start_date,sysdate) and nvl(t.end_date,sysdate) and t.special_list_flag='Y' and t.IDENT_NO =?
+2018-2-11 15:18:19,207[ INFO][pool-1-thread-1](CrmBlackListCheck.java:71)  CRM黑名单校验：证件号码为：[75393307-5] 的客户不在我行黑名单中
+2018-2-11 15:18:19,207[ INFO][pool-1-thread-1](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 15:18:19,211[ INFO][pool-1-thread-1](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:51501][633]
+2018-2-11 15:18:19,211[ INFO][pool-1-thread-1](SocketExecutor.java:323)  00000625<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211031819000207</SvrTm><SvrSeqNo>20180211031819000208</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody><BlacklistStatus>N</BlacklistStatus></ResponseBody><ResponseTail><TxStatCode>000000</TxStatCode><TxStatDesc>成功</TxStatDesc><TxStatString>SUCCESS</TxStatString></ResponseTail></TransBody>
+2018-2-11 15:18:19,211[ INFO][pool-1-thread-1](TxAdapterExcutor.java:145)  交易码[crmBlackListCheck],请求系统[CRM],交易返回[成功],处理耗时[137]ms
+2018-2-11 15:18:19,212[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1519815391643  Executor.run() START.
+2018-2-11 15:18:19,213[ INFO][pool-1-thread-2](SocketExecutor.java:150)  !> @SocketExecutorHandler-1519815391643 TxExecutor.run() exit.
+2018-2-11 15:18:19,213[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519815391643 Executor.run() DONE.
+2018-2-11 15:18:19,246[DEBUG][pool-1-thread-1](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 15:18:19,266[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1519985802188 Executor.run() DONE.
+2018-2-11 15:18:57,802[ INFO][main](NioServer.java:210)  !> [ Acceptor:9501 ACCEPT] Client[/127.0.0.1:51520]
+2018-2-11 15:18:57,811[ INFO][pool-1-thread-2](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1518423614635  Executor.run() START.
+2018-2-11 15:18:57,811[ INFO][pool-1-thread-2](SocketExecutor.java:175)  >>>[RECV] Client[/127.0.0.1:51520][621]
+2018-2-11 15:18:57,811[ INFO][pool-1-thread-2](SocketExecutorHandler.java:281)  <?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20180918150202000</ReqSeqNo>
+		<ReqDt>20180918</ReqDt>
+		<ReqTm>15:02:02</ReqTm>
+		<DestSysCd>CRM</DestSysCd>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TrmNo></TrmNo>
+		<TlrNo></TlrNo>
+		<ChnlNo></ChnlNo>
+		<BrchNo></BrchNo>
+		<BizLine></BizLine>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>crmBlackListCheck</txCode>
+		<txName>我行黑名单校验</txName>
+		<IdentNo></IdentNo>
+		<tax1>tax11</tax1>
+		<tax1>tax12</tax1>
+		<tax1>tax13</tax1>
+		<tax2>tax21</tax2>
+		<tax2>tax22</tax2>
+		<tax2>tax23</tax2>
+	</RequestBody>
+</TransBody>
+
+2018-2-11 15:18:57,813[ INFO][pool-1-thread-2](DealDispatchEngine.java:108)  客户化交易[crmBlackListCheck:CRM黑名单校验]
+2018-2-11 15:18:57,813[ INFO][pool-1-thread-2](CustrizEcifDealEngine.java:55)  交易[交易编码:crmBlackListCheck]开始处理
+2018-2-11 15:18:57,813[ INFO][pool-1-thread-2](CrmBlackListCheck.java:44)  CRM黑名单校验
+2018-2-11 15:18:57,813[ INFO][pool-1-thread-2](CustrizEcifDealEngine.java:59)  交易出错
+2018-2-11 15:18:57,814[ERROR][pool-1-thread-2](CustrizEcifDealEngine.java:60)  {}
+com.ytec.mdm.base.exception.BizException: 证件号码不能为空
+	at com.ytec.mdm.service.svc.atomic.CrmBlackListCheck.process(CrmBlackListCheck.java:48)
+	at com.ytec.mdm.integration.transaction.core.CustrizEcifDealEngine.execute(CustrizEcifDealEngine.java:56)
+	at com.ytec.mdm.integration.transaction.core.DealDispatchEngine.DealDispatcher(DealDispatchEngine.java:87)
+	at com.ytec.mdm.integration.adapter.message.xml.XmlIntegrationLayer.process(XmlIntegrationLayer.java:145)
+	at com.ytec.mdm.interfaces.socket.normalsocket.server.SocketExecutor.execute(SocketExecutor.java:185)
+	at com.ytec.mdm.interfaces.common.TxAdapterExcutor.run(TxAdapterExcutor.java:195)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+2018-2-11 15:18:57,817[ INFO][pool-1-thread-2](SocketExecutorHandler.java:88)  构造响应报文
+2018-2-11 15:18:57,818[ INFO][pool-1-thread-2](SocketExecutor.java:322)  <<<[SEND] Client[/127.0.0.1:51520][584]
+2018-2-11 15:18:57,818[ INFO][pool-1-thread-2](SocketExecutor.java:323)  00000576<?xml version="1.0" encoding="GBK"?>
+<TransBody><ResponseHeader><RespSysCd>crm01</RespSysCd><SvrDt>20180211</SvrDt><SvrTm>20180211031857000818</SvrTm><SvrSeqNo>20180211031857000818</SvrSeqNo><ReqSysCd>CRM</ReqSysCd><ReqSeqNo>20180918150202000</ReqSeqNo><ReqDt>20180918</ReqDt><ReqTm>15:02:02</ReqTm><ChnlNo></ChnlNo><BrchNo></BrchNo><BizLine></BizLine><TrmNo></TrmNo><TrmIP>127.0.0.1</TrmIP><TlrNo></TlrNo></ResponseHeader><ResponseBody/><ResponseTail><TxStatCode>700005</TxStatCode><TxStatDesc>交易出错</TxStatDesc><TxStatString>FAIL</TxStatString></ResponseTail></TransBody>
+2018-2-11 15:18:57,819[ INFO][pool-1-thread-2](TxAdapterExcutor.java:145)  交易码[crmBlackListCheck],请求系统[CRM],交易返回[交易出错],处理耗时[8]ms
+2018-2-11 15:18:57,819[ INFO][pool-1-thread-2](TxAdapterExcutor.java:150)  交易成功状态[FALSE],设置返回信息位置:file[CustrizEcifDealEngine.java] class[com.ytec.mdm.integration.transaction.core.CustrizEcifDealEngine] method[execute] Line[61]
+2018-2-11 15:18:57,819[ INFO][pool-1-thread-1](TxAdapterExcutor.java:121)  !> @ SocketExecutorHandler-1520153928262  Executor.run() START.
+2018-2-11 15:18:57,819[ INFO][pool-1-thread-1](SocketExecutor.java:150)  !> @SocketExecutorHandler-1520153928262 TxExecutor.run() exit.
+2018-2-11 15:18:57,819[ INFO][pool-1-thread-1](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1520153928262 Executor.run() DONE.
+2018-2-11 15:18:57,822[DEBUG][pool-1-thread-2](SQLStatementLogger.java:111)  insert into TX_LOG (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_LOG_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 15:18:57,830[DEBUG][pool-1-thread-2](SQLStatementLogger.java:111)  insert into TX_ERR (REQ_MSG, RES_MSG, SRC_SYS_CD, SRC_SYS_NM, TX_CN_NAME, TX_CODE, TX_DT, TX_FW_ID, TX_ID, TX_METHOD, TX_NAME, TX_REQ_TM, TX_RES_TM, TX_RESULT, TX_RTN_CD, TX_RTN_MSG, TX_SVR_IP, TX_ERR_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-2-11 15:18:57,842[ INFO][pool-1-thread-2](TxAdapterExcutor.java:158)  !> @ SocketExecutorHandler-1518423614635 Executor.run() DONE.

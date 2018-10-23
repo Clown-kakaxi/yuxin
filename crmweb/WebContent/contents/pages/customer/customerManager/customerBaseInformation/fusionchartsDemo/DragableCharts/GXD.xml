@@ -1,0 +1,8 @@
+<chart caption='客户业务贡献度分析' showPercentValues='1'>
+   <set label='100以上' value='420000' />
+   <set label='50至100万' value='720000' />
+   <set label='20至50亿' value='550000' />
+   <set label='10至20万' value='510000' />
+    <set label='5至10万' value='680000' />
+    <set label='0至5万' value='620000' />
+</chart>

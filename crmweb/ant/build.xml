@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--工程定义    ：工程名定义;basedir定义;-->
+<project name="yuchengCRM" basedir="D:\workspace3.5" default="help">
+	<!--系统目录定义-->
+	<!-- java 工程名定义-->
+	<property name="base" value="crmbase"/>
+	<!-- web  工程名定义-->
+	<property name="web" value="crmweb"/>
+	<!-- 打包输出目录名-->
+	<property name="outwar.dir" value="crmwebwar"/>	
+	<!--是否打包base代码-->
+	<property name="exportBaseCode" value="false"/>
+	
+	<property name="WebContent" value="WebContent"/>   
+	<property name="crmbase.dir" value="crmbase"/>
+	<property name="crmweb.dir" value="crmweb"/>
+	<property name="WebContent.dir" value="${crmweb.dir}/${WebContent}"/>
+	<property name="basesrc.dir" value="${crmbase.dir}/src"/>
+	<property name="websrc.dir" value="${crmweb.dir}/src"/>	
+	<property name="outbasesrc.dir" value="${outwar.dir}/${base}/src"/>
+	<property name="outwebsrc.dir" value="${outwar.dir}/${web}/src"/>
+	<property name="weblib.dir" value="${WebContent.dir}/WEB-INF/lib"/>
+	<property name="outlib.dir" value="${outwar.dir}/${web}/${WebContent}/WEB-INF/lib"/>
+	<property name="ant.dir" value="${crmweb.dir}/ant"/>
+	<property file="${ant.dir}/build.properties"/> 
+	<property name="workspace.dir" value="${basedir}"/> 
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${ant.dir}/ant-contrib-1.0b2.jar"/>
+	
+	<!--使用说明-->
+	<target name="help">
+		<echo message=""/>
+		<echo message="CRM build file"/>
+		<echo message="------------------------------------------------------"/>
+		<echo message=""/>
+		<echo message="Available targets are:"/>
+		<echo message=""/>
+		<echo message="help            --> Show help "/>
+		<echo message="clean           --> Clean output dirs"/>
+		<echo message="build           --> Build Java sources ,UI files and libraries"/>
+		<echo message="build_Pub       --> Build pub Java sources ,UI files and libraries"/>
+		<echo message="build_CrmPub    --> Build crmpub Java sources ,UI files and libraries"/>
+		<echo message="build_Module    --> Build functionModule Java sources ,UI files and libraries"/>
+		<echo message="build_The_patch --> Build functionModule Java sources ,UI files and libraries"/>
+		<echo message="All             --> Clean old project and build an new version war!"/>
+		<echo message=""/>
+		<echo message="------------------------------------------------------"/>
+	</target>
+	<!--清除文件-->
+	<target name="clean" description="Clean output build, weblib, ...">
+		<echo message="clean temp file/dir ..."/>
+		<delete dir="${outwar.dir}"/>
+	</target>
+	<!--准备 build-->
+	<target name="build prepare" description="build prepare ...">
+		<echo message="build prepare ..."/>
+		<echo message="create new file path ..."/>
+		<mkdir dir="${outwar.dir}"/>
+		<mkdir dir="${outbasesrc.dir}"/>
+		<mkdir dir="${outwebsrc.dir}"/>
+		<mkdir dir="${outwar.dir}/${web}/${WebContent}/echain"/>
+		<mkdir dir="${outwar.dir}/${web}/${WebContent}/FusionCharts/"/>
+		<mkdir dir="${outlib.dir}"/> 
+		<echo message="copy web config files ..."/>				
+		<copy todir="${outwebsrc.dir}" preservelastmodified="true" overwrite="true">
+			<fileset dir="${websrc.dir}">
+				<include name="applicationContext-crm.xml"/>
+				<include name="applicationContext-dataSource.xml"/>
+				<include name="applicationContext-security.xml"/>
+				<include name="applicationContext-ytec-crm-exception.xml"/>
+				<include name="applicationContext.xml"/>
+				<include name="bip.cer"/>
+				<include name="bip.properties"/>
+				<include name="default-domain.cfg"/>
+				<include name="ehcache.xml"/>
+				<include name="extendpoint-ytec-crm-exception.xml"/>
+				<include name="struts.xml"/>
+				<include name="systemProperties.properties"/>
+				<include name="META-INF/MANIFEST.MF"/>
+				<include name="META-INF/persistence.xml"/>
+			</fileset>
+		</copy>
+		<echo message="copy WEB-INF config files ..."/>				
+		<copy todir="${outwar.dir}/${web}/${WebContent}/WEB-INF" preservelastmodified="true" overwrite="true">
+			<fileset dir="${WebContent.dir}/WEB-INF">
+				<include name="log4j.properties"/>
+				<include name="reportConfig.xml"/>
+				<include name="runqian_Server2013-03-31.lic"/>
+				<include name="runqian-Server2012-12-31.lic"/>
+				<include name="runqianReport4.tld"/>
+				<include name="runqianReportLog.properties"/>
+				<include name="spring-servlet.xml"/>
+				<include name="spring-ws-servlet.xml"/>
+				<include name="web.xml"/>
+				<include name="weblogic.xml"/>
+			</fileset>
+		</copy>
+		<echo message="copy WebContent file ..."/>				
+		<copy todir="${outwar.dir}/${web}/${WebContent}" preservelastmodified="true" overwrite="true">
+			<fileset dir="${WebContent.dir}"><include name="*.*"/></fileset>
+		</copy>
+		<copy todir="${outwar.dir}/${web}/${WebContent}/echain" preservelastmodified="true"  overwrite="true">
+			<fileset dir="${WebContent.dir}/echain/"/>
+		</copy>
+		<copy todir="${outwar.dir}/${web}/${WebContent}/FusionCharts" preservelastmodified="true" overwrite="true">
+			<fileset dir="${WebContent.dir}/FusionCharts">
+				<include name="/**"/>
+			</fileset>
+		</copy>
+		<echo message="copy lib file"/>		
+		<copy todir="${outlib.dir}" preservelastmodified="true">
+			<fileset dir="${weblib.dir}"><include name="*.jar"/></fileset>
+		</copy>
+		<if><equals arg1="true" arg2="${exportBaseCode}"></equals>
+			<then>		
+				<echo message="export java source..."/>
+				<echo message="build pub files"/>		
+				<ant antfile="${PubBuild}" dir="${ant.dir}" target="pub-build"/> 
+				<copy todir="${outbasesrc.dir}" preservelastmodified="true" overwrite="true">
+					<fileset dir="${basesrc.dir}">
+						<include name="echain.properties"/>
+						<include name="eChainForms.xml"/>
+						<include name="ImportTradeDefine.xml"/>
+						<include name="securityMessage_zh_CN.properties"/>
+					</fileset>
+				</copy>
+				<echo message="build crmpub files"/>	
+				<ant antfile="${CrmPubBuild}" dir="${ant.dir}" target="CrmPub-build"/> 
+			</then>
+			<else>
+				<echo message="compile java file"/>
+				<!--
+				<javac encoding="utf-8" destdir="${crmbase.dir}" source="1.6" target="1.6" debug="true" 
+						deprecation="false" optimize="false" failonerror="true" includeantruntime="on">
+					<src path="${basesrc.dir}"/>
+					<classpath refid="master-classpath"/>
+				</javac>
+				-->
+				<jar jarfile="${outlib.dir}/${base}.jar" compress="true" basedir="${crmbase.dir}/bin">
+					<manifest>
+		            <attribute name="Version" value="4.5">
+		            </attribute>
+					</manifest>	
+				</jar>
+			</else>
+		</if>
+	</target>
+	<!-- CRM 代码打包处理 -->
+	<target name="build" depends="build prepare,build_Pub,build_CrmPub,build_FunctionModule" description="Tranform the properties files to UTF-8">
+		<echo message="build FunctionModule files"/>	
+		<ant antfile="${ModuleBuild}" dir="${ant.dir}" target="FunctionModule-build"/> 
+		<echo message="crm build completely"/>	
+    </target>
+	<!-- 代码打包处理(框架公共部分) -->
+	<target name="build_Pub" depends="build prepare" description="Tranform the properties files to UTF-8">
+		<echo message="build pub files only"/>		
+		<ant antfile="${PubBuild}" dir="${ant.dir}" target="pub-build"/> 
+	</target>
+	<!-- 代码打包处理(CRM框架公共部分) -->
+	<target name="build_CrmPub" depends="build prepare" description="Tranform the properties files to UTF-8">
+		<echo message="build pub files only"/>		
+		<ant antfile="${CrmPubBuild}" dir="${ant.dir}" target="CrmPub-build"/> 
+	</target>
+	<!-- 代码打包处理(业务模块部分) -->
+	<target name="build_FunctionModule" depends="build prepare" description="Tranform the properties files to UTF-8">
+		<echo message="build FunctionModule files only"/>		
+		<ant antfile="${ModuleBuild}" dir="${ant.dir}" target="FunctionModule-build"/> 
+	</target>
+	<!-- 代码打包处理(补丁包时使用) -->
+	<target name="build_The patch" description="Tranform the properties files to UTF-8">
+		<echo message="build_The patch files only"/>		
+		<ant antfile="${PatchBuild}" dir="${ant.dir}" target="patch-build"/> 	
+	</target>
+	<!-- 代码打包处理(清除临时文件后再进行打包) -->
+	<target name="All" depends="clean,build" description="Clean,build"/>
+</project>

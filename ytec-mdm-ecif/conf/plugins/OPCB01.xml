@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transaction txCode="OPCB01">
+	<class name="Identifier" isRequest="0">
+		<id name="identTpCd" AttRoot="" AttName="identTpCd" default=""/>
+		<id name="identNo" AttRoot="" AttName="identNo" default=""/>
+		<id name="identName" AttRoot="" AttName="identName" default=""/>
+		<property name="startDt" AttRoot="" AttName="signDate" default=""/>
+		<property name="expiryDt" AttRoot="" AttName="lapseDate" default=""/>
+		<property name="assignedby" AttRoot="" AttName="signOrgAddr" default=""/>
+	</class>
+	<class name="Crossindex" isRequest="0">
+		<id name="srcSysCd" AttRoot="request/txDef" AttName="srcSysCd" default=""/>
+		<id name="srcSysCustNo" AttRoot="" AttName="srcSysCustNo" default=""/>
+	</class>
+	<class name="Person" isRequest="0">
+		<property name="personTpCd" AttRoot="" AttName="custType" default=""/>
+		<property name="birthDt" AttRoot="" AttName="birthDay" default=""/>
+		<property name="genderCd" AttRoot="" AttName="sex" default=""/>
+	</class>
+	<class name="Xperson" isRequest="0">
+		<property name="chgdpt" AttRoot="" AttName="maitOult" default=""/>
+		<property name="chgtlr" AttRoot="" AttName="maitTellerId" default=""/>
+		<property name="auttlr" AttRoot="" AttName="authTeller" default=""/>
+		<property name="chgdat" AttRoot="" AttName="maitDate" default=""/>
+		<property name="countrycode" AttRoot="" AttName="nationalCode" default=""/>
+		<property name="cusman" AttRoot="" AttName="custMagNo" default=""/>
+		<property name="crtdpt" AttRoot="" AttName="openBrno" default=""/>
+		<property name="crttlr" AttRoot="" AttName="openTellerId" default=""/>
+		<property name="crtdat" AttRoot="" AttName="openDate" default=""/>
+		<property name="nativeplace" AttRoot="" AttName="birthPlace" default=""/>
+		<property name="nationality" AttRoot="" AttName="race" default=""/>
+		<property name="eduexperience" AttRoot="" AttName="education" default=""/>
+		<property name="marriage" AttRoot="" AttName="marital" default=""/>
+		<property name="healthstatus" AttRoot="" AttName="health" default=""/>
+		<property name="population" AttRoot="" AttName="homeNum" default=""/>
+		<property name="ifman" AttRoot="" AttName="manTyp" default=""/>
+		<property name="mancha" AttRoot="" AttName="manCha" default=""/>
+		<property name="workcorp" AttRoot="" AttName="companyName" default=""/>
+		<property name="oprare" AttRoot="" AttName="oprAre" default=""/>
+		<property name="tracls" AttRoot="" AttName="traCls" default=""/>
+		<property name="wrktyp" AttRoot="" AttName="profession" default=""/>
+		<property name="wrklev" AttRoot="" AttName="rank" default=""/>
+		<property name="headship" AttRoot="" AttName="position" default=""/>
+		<property name="tectit" AttRoot="" AttName="tecTit" default=""/>
+		<property name="remark" AttRoot="" AttName="memo1+memo2+memo3+memo4+memo5" default=""/>
+	</class>
+	<class name="Personname" isRequest="0">
+		<id name="personName" AttRoot="" AttName="identName" default=""/>
+		<id name="personNameTpCd" AttRoot="" AttName="" default="1574001001"/>
+	</class>
+	<class name="Personname" isRequest="0">
+		<id name="personName" AttRoot="" AttName="custName4" default=""/>
+		<id name="personNameTpCd" AttRoot="" AttName="" default="1574001002"/>
+	</class>
+	<class name="Personname" isRequest="0">
+		<id name="personName" AttRoot="" AttName="custName5" default=""/>
+		<id name="personNameTpCd" AttRoot="" AttName="" default="1574001998"/>
+	</class>
+	<class name="Personname" isRequest="0">
+		<id name="personName" AttRoot="" AttName="custName6" default=""/>
+		<id name="personNameTpCd" AttRoot="" AttName="" default="1574001004"/>
+	</class>
+	<class name="Personname" isRequest="0">
+		<id name="personName" AttRoot="" AttName="custName7" default=""/>
+		<id name="personNameTpCd" AttRoot="" AttName="" default="1574001003"/>
+	</class>
+	
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001001"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone1" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001007"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone2" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001003"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone3" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001004"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone4" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001008"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="cellphone" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001002"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="callNo" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001009"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="email" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578002002"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="homeAddr" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578002001"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone5" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001010"/>
+	</class>
+	<class name="Contactmethod" isRequest="0">
+		<id name="contMeth" AttRoot="" AttName="tellphone6" default=""/>
+		<id name="contMethTpCd" AttRoot="" AttName="" default="1578001011"/>
+	</class>
+	<class name="Address" isRequest="0">
+		<id name="addrTpCd" AttRoot="" AttName="addrType1" default=""/>
+		<id name="address" AttRoot="" AttName="address11+address21+address31" default=""/>
+		<property name="postcode" AttRoot="" AttName="postcode1" default=""/>
+	</class>
+	<class name="Address" isRequest="0">
+		<id name="addrTpCd" AttRoot="" AttName="addrType2" default=""/>
+		<id name="address" AttRoot="" AttName="address12+address22+address32" default=""/>
+		<property name="postcode" AttRoot="" AttName="postcode2" default=""/>
+	</class>
+	<class name="Address" isRequest="0">
+		<id name="addrTpCd" AttRoot="" AttName="addrType3" default=""/>
+		<id name="address" AttRoot="" AttName="address13+address23+address33" default=""/>
+		<property name="postcode" AttRoot="" AttName="postcode3" default=""/>
+	</class>
+	<class name="Xcisfmpcfi" isRequest="0">
+		<property name="nexdat" AttRoot="" AttName="nextDate" default=""/>
+		<property name="curtyp" AttRoot="" AttName="currType" default=""/>
+		<property name="faminc" AttRoot="" AttName="homeIncome" default=""/>
+		<property name="frehod" AttRoot="" AttName="immoveProperty" default=""/>
+		<property name="anjare" AttRoot="" AttName="mortgageDebt" default=""/>
+		<property name="secrit" AttRoot="" AttName="securities" default=""/>
+		<property name="othloa" AttRoot="" AttName="otherDebit" default=""/>
+		<property name="businv" AttRoot="" AttName="commInvest" default=""/>
+		<property name="ovrdra" AttRoot="" AttName="ovdFlg" default=""/>
+		<property name="floase" AttRoot="" AttName="workingFund" default=""/>
+		<property name="flodeb" AttRoot="" AttName="flowDebt" default=""/>
+		<property name="othase" AttRoot="" AttName="otherFund" default=""/>
+		<property name="debsum" AttRoot="" AttName="debt" default=""/>
+		<property name="asesum" AttRoot="" AttName="netEstate" default=""/>
+		<property name="avonum" AttRoot="" AttName="avonum" default=""/>
+		<property name="avobal" AttRoot="" AttName="avobal" default=""/>
+		<property name="funacc" AttRoot="" AttName="funAcc" default=""/>
+		<property name="ppcacc" AttRoot="" AttName="ppcAcc" default=""/>
+		<property name="cpcacc" AttRoot="" AttName="cpcAcc" default=""/>
+		<property name="kepitm" AttRoot="" AttName="bussProject" default=""/>
+		<property name="kepbrd" AttRoot="" AttName="bussType" default=""/>
+		<property name="scale" AttRoot="" AttName="scale" default=""/>
+		<property name="output" AttRoot="" AttName="production" default=""/>
+		<property name="outuin" AttRoot="" AttName="unit" default=""/>
+		<property name="proval" AttRoot="" AttName="output" default=""/>
+		<property name="chattel" AttRoot="" AttName="chatTel" default=""/>
+		<property name="monsal" AttRoot="" AttName="monSal" default=""/>
+		<property name="othinc" AttRoot="" AttName="othinc" default=""/>
+	</class>
+	<class name="Xcisfmcrdi" isRequest="0">
+		<property name="fevadp" AttRoot="" AttName="exEvaOrgCode" default=""/>
+		<property name="fevada" AttRoot="" AttName="exEvaDate" default=""/>
+		<property name="ievadp" AttRoot="" AttName="enEvaOrgCode" default=""/>
+		<property name="ievale" AttRoot="" AttName="enEvaLevel" default=""/>
+		<property name="ievada" AttRoot="" AttName="enEvaDate" default=""/>
+	</class>
+</transaction>

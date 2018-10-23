@@ -1,0 +1,56 @@
+<chart palette="2" caption="" subcaption="" showvalues="0" xAxisName="" yAxisName="元"  formatNumberScale='0'>
+−
+<categories>
+<category name="2013-01"/>
+<category name="2013-03"/>
+<category name="2013-05"/>
+<category name="2013-07"/>
+<category name="2013-09"/>
+</categories>
+−
+<dataset id="IJ" seriesName="总买进">
+<set id="IJ2005" value="25601" allowDrag="0"/>
+<set id="IJ2006" value="20148" allowDrag="0"/>
+<set id="IJ2007" value="17372" allowDrag="0"/>
+<set id="IJ2008" value="27372" allowDrag="0" />
+<set id="IJ2009" value="35407" allowDrag="0" />
+</dataset>
+−
+<dataset id="TZ" seriesName="总卖出">
+<set id="TZ2005" value="55601" allowDrag="0"/>
+<set id="TZ2006" value="40148" allowDrag="0"/>
+<set id="TZ2007" value="39372" allowDrag="0"/>
+<set id="TZ2008" value="57372" allowDrag="0" />
+<set id="TZ2009" value="65407" allowDrag="0" />
+</dataset>
+−
+<dataset id="SY" seriesName="实现损益">
+<set id="SY2005" value="45601" allowDrag="0"/>
+<set id="SY2006" value="74148" allowDrag="0"/>
+<set id="SY2007" value="65372" allowDrag="0"/>
+<set id="SY2008" value="56372" allowDrag="0" />
+<set id="SY2009" value="63407" allowDrag="0" />
+</dataset>
+−
+−
+<dataset id="BC" seriesName="派息">
+<set id="BC2005" value="85601" allowDrag="0"/>
+<set id="BC2006" value="80148" allowDrag="0"/>
+<set id="BC2007" value="77372" allowDrag="0"/>
+<set id="BC2008" value="87372" allowDrag="0" />
+<set id="BC2009" value="95407" allowDrag="0" />
+</dataset>
+−
+<styles>
+−
+<definition>
+<style name="myCaptionFont" type="font" font="Arial" size="14" bold="1"/>
+<style name="mySubCaptionFont" type="font" font="Arial" size="10" bold="0"/>
+</definition>
+−
+<application>
+<apply toObject="Caption" styles="myCaptionFont"/>
+<apply toObject="SubCaption" styles="mySubCaptionFont"/>
+</application>
+</styles>
+</chart>

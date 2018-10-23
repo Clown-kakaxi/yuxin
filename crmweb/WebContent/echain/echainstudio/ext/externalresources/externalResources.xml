@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="GBK"?>
+<externalResources>
+   <externalResource name="COM资源" type="COM">
+      <property name="com.url" value="liujy:4060"></property>
+   </externalResource>
+   <externalResource name="Java类库" type="JCL">
+      <property name="FILE" value="eChainEJB.jar"></property>
+      <property name="jcl.versionable" value="false"></property>
+   </externalResource>
+   <externalResource name=".net资源" type=".NET">
+      <property name="dotnet.port" value="5050"></property>
+      <property name="dotnet.host" value="localhost"></property>
+   </externalResource>
+   <externalResource name="bsf" type="JCL">
+      <property name="FILE" value="bsf.jar"></property>
+   </externalResource>
+   <externalResource name="ws_workflowclient" type="WebService">
+      <property name="path" value="http://127.0.0.1/echaindemo/services/WorkFlowClient?wsdl"></property>
+   </externalResource>
+   <externalResource name="BizTest" type="EMPBiz">
+      <property name="OP" value="dsf"></property>
+      <property name="EMPFlow" value="adsfadf"></property>
+      <property name="EMPBiz" value="adfad"></property>
+   </externalResource>
+   <externalResource name="EMP业务构件测试" type="EMPBiz">
+      <property name="OP" value="addSOrgRecord"></property>
+      <property name="EMPFlow" value="org"></property>
+      <property name="EMPBiz" value="EMPTrain"></property>
+   </externalResource>
+   <externalResource name="插入会计分录" type="EMPBiz">
+      <property name="OP" value="add"></property>
+      <property name="EMPFlow" value="LM_GL_TX"></property>
+      <property name="EMPBiz" value="cebpoc"></property>
+   </externalResource>
+   <externalResource name="127服务器" type="synServer">
+      <property name="path" value="http://127.0.0.1:80/echaindemo/definitionservlet"></property>
+   </externalResource>
+   <externalResource name="192.168.8.6服务器" type="synServer">
+      <property name="path" value="http://192.168.8.6:7001/echaindemo/definitionservlet"></property>
+   </externalResource>
+   <externalResource name="设置审批状态为审批中" type="EMPBiz">
+      <property name="OP" value="setSPStatus1"></property>
+      <property name="EMPFlow" value="demo_leave"></property>
+      <property name="EMPBiz" value="EMPTrain"></property>
+   </externalResource>
+   <externalResource name="设置审批状态为退回" type="EMPBiz">
+      <property name="OP" value="setSPStatus2"></property>
+      <property name="EMPFlow" value="demo_leave"></property>
+      <property name="EMPBiz" value="EMPTrain"></property>
+   </externalResource>
+   <externalResource name="设置审批状态为同意" type="EMPBiz">
+      <property name="OP" value="setSPStatus3"></property>
+      <property name="EMPFlow" value="demo_leave"></property>
+      <property name="EMPBiz" value="EMPTrain"></property>
+   </externalResource>
+   <externalResource name="设置审批状态为拒绝" type="EMPBiz">
+      <property name="OP" value="setSPStatus4"></property>
+      <property name="EMPFlow" value="demo_leave"></property>
+      <property name="EMPBiz" value="EMPTrain"></property>
+   </externalResource>
+   <externalResource name="EMPWebService" type="WebService">
+      <property name="path" value="http://127.0.0.1/EMPTrain/EMPWebService/demo_ajax"></property>
+   </externalResource>
+</externalResources>
+

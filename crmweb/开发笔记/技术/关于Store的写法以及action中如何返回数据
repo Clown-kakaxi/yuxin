@@ -1,0 +1,90 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+项目中store的写法普遍如下：
+var qzComStore = new Ext.data.Store({
+    restful:true,
+    proxy : new Ext.data.HttpProxy({
+        url:basepath+'/dealWithCom!queryComfsx.json',
+        method:'GET'
+    }),
+    reader: new Ext.data.JsonReader({
+        totalProperty : 'json.count',
+        root:'json.data'
+    }, ['CUST_ID', 'CORE_NO', 'LOAN_CUST_ID'])
+});
+
+如果是这种远程取数，并返回JSON的格式的Store可以直接使用Ext.data.JsonStore,如下：
+var qzComStore = new Ext.data.JsonStore({
+    restful:true,
+    url:basepath+'/dealWithCom!queryComfsx.json',
+    totalProperty : 'json.count',
+    root:'json.data',
+    //简写
+    fields  : ['CUST_ID', 'CORE_NO', 'LOAN_CUST_ID'],
+    //正常写
+    fields  : [
+        {name    : 'CUST_ID'},
+        {name    : 'CORE_NO'},
+        {name    : 'LOAN_CUST_ID'}
+    ],
+    //如果需要对服务端key做转换,比如服务端返回CUST_ID,可以在ExtJs里映射为CUST_ID2，可以作如下写法
+    fields  : [
+        {name    : 'CUST_ID2',mapping    : 'CUST_ID'},
+        {name    : 'CORE_NO2',mapping    : 'CUST_ID'},
+        {name    : 'LOAN_CUST_ID2',mapping    : 'CUST_ID'}
+    ]
+});
+
+需要注意的是：
+    1.由于项目里采用的是Struts restFull方式进行的请求交互，因此Store里需要配置一个【restful:true】，标识使用restFull
+            在该种情况下，Action返回数据的时候可以直接使用this.json,对this.json的赋值将会返回到
+    2.如果没有配置该属性，则无法使用restFull风格的交互，Action里无法直接使用this.json返回数据，需要手动获取response进行输出
+    response = (HttpServletResponse) ctx.get(ServletActionContext.HTTP_RESPONSE);
+    try {
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write(result);
+        response.getWriter().flush();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    3.这两种方式不能混用，否则会抛出异常提示getWriter()已被使用
+如果是使用Ajax请求，想要使用this.json获取数据的话，需要指定method为GET
+
+根据补丁文件
+/crmweb/WebContent/contents/pages/common/Crm-Ext-Patch-1.000-v1.0.js
+Ext.Ajax.on('beforerequest',function(a,b){
+    b.url = Ext.URL_PAR(b.url);
+    if(b.method && b.method.trim().toUpperCase()=='GET'){
+        Ext.getMehtodFormat(b);
+    }else if(b.method && b.method.trim().toUpperCase()=='POST'){
+        Ext.postMehtodFormat(b);
+    }
+});
+postMehtodFormat : function(b){
+    if(!Ext.postFormatTrigger){
+        return;
+    }
+    if(b.url.indexOf('!')>=0 || b.url.indexOf('.json')<0){
+        return;
+    }
+    var fUrl = b.url.substring(0,b.url.indexOf('.json'))+'!create'+b.url.substring(b.url.indexOf('.json'));
+    b.url = fUrl;
+},
+getMehtodFormat : function(b){
+    if(!Ext.getFormatTrigger){
+        return;
+    }
+    if(!b.reader&&b.params){
+        if(b.url.indexOf('?')>0){
+            b.url += '&'+ (Ext.isString(b.params) ? b.params : Ext.urlEncode(b.params));
+        }else{
+            b.url += '?'+ (Ext.isString(b.params) ? b.params : Ext.urlEncode(b.params));
+        }
+        delete b.params;
+    }
+}
+所有的GET请求都会经过Ext.getMehtodFormat(b);进行urlEncode格式化并拼接url
+所有的POST请求，如果没有指定处理方法(!方法名),则默认指定为create，调用指定url对应Action里的create方法(create默认在CommonAction里已经写了)
+根据Ext.Ajax的API,存在参数的情况下，如果没有指定method,当没有参数被发送时为"GET",有参数发送时为"POST"。提示：请求方式名称是大小写敏感的，应该全是大写

@@ -1,0 +1,100 @@
+/* CSS Document */
+/**全局样式**/
+/**
+/* 2011-10-17
+/* 定义页面全局样式,宽高位置字体。
+/*
+**/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, img, strong, li, ol, ul, form, label, table, caption, tfoot, thead, tr, th, td, dl, dd, dt{
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;	
+}
+i{
+	font-style:normal;
+	font-weight:normal;	
+}
+body{
+	margin:0;
+	padding:0;
+	top:0;
+	left:0;
+	font-size:12px;
+	line-height: 1.5em !important;
+	line-height:1.4em;
+	_line-height:normal;
+	/*font-family:"Microsoft YaHei", "SimSun", Arial;*/	
+	font-family:"SimSun", Arial;	
+	font-size: 12px;
+	word-break: break-all;
+	background:#fafafa;
+}
+div{
+	text-align:left;
+	cursor:default;
+}
+a{
+	color:#666666;
+	text-decoration:none;
+	outline:none;
+	hide-focus: expression(this.hideFocus=true);
+}
+a:hover {
+	color:#2b2b2b;
+	text-decoration:none;
+}
+li{
+	list-style-type:none;
+}
+img{
+	border-style:none;
+}
+fieldset{
+	border-style:none;
+}
+label{
+	cursor:pointer;
+	hide-focus: expression(this.hideFocus=true);
+}
+button{
+	cursor:pointer;
+}
+select{
+	line-height:1.2em;
+	font-size:12px;
+	resize:none;
+}
+input{
+	line-height:1.2em;
+	font-size:12px;
+	resize:none;
+}
+textarea{
+	line-height:1.2em;
+	font-size:12px;
+	resize:none;
+}
+table{
+	border-collapse:collapse;
+	border-style:none;
+}
+td{
+	border:0px;
+	padding:0px 0px 0px 0px;
+	line-height:1.5em;
+	font-size:12px;
+}
+.clear{
+	clear:both;
+}
+.clearfix:after {
+	clear:both;
+	content:'.';
+	display:block;
+	font-size:0;
+	line-height:0;
+	visibility:hidden;
+	height:0
+}
+.clearfix {
+	zoom:1
+}

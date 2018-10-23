@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>富邦华一银行业务凭证</title>
+<link rel="stylesheet" type="text/css" href="printBusinessVouchers.css">
+<script type="text/javascript">
+	window.onload = function(){
+		//加载数据
+		onLoadData();
+	}
+
+	//打印当前页面
+	function printPage(){
+		window.print();
+	}
+
+	//加载需要的数据
+	function onLoadData(){
+		if(window.opener){
+			if(window.opener.getBusinessVouchersData){
+				var data = window.opener.getBusinessVouchersData();
+				//
+				var coreNo = data.coreNo ? data.coreNo : '--';
+				var customerNm = data.customerNm ? data.customerNm : '--'
+				var identyType = data.accountIdentyTypeNm ? data.accountIdentyTypeNm : '--'
+				var identyNo = data.accountIdentyNo ? data.accountIdentyNo : '--';
+				var zipCode  = data.POST_ZIPCODE ? data.POST_ZIPCODE : '--';
+				var contactPath = data.HOME_ADDR ? data.HOME_ADDR : '--';
+				var contactTel = data.contactTel ? data.contactTel : '--';
+				var contactMobil = data.mbPhone ? data.mbPhone : '--';
+				var contactEmail = data.EMAIL ? data.EMAIL : '--';
+				var cardNo = data.accountCardNo ? data.accountCardNo : '--';
+				var cardType = data.accountCardType ? data.accountCardType : '--';
+				var businessType = data.businessType ? data.businessType : '--';
+				var aggreMeth = data.aggreMeth ? data.aggreMeth : '--';
+				var businessType_mobile = data.businessType_mobile ? data.businessType_mobile : '--';
+				var aggreMeth_mobile = data.aggreMeth_mobile ? data.aggreMeth_mobile : '--';
+				var dealDate = data.dealDate ? data.dealDate : '--';
+				var dealDept = data.dealDept ? data.dealDept : '--';
+				var dealUser = data.dealUser ? data.dealUser : '--';
+				var dealSerial = data.dealSerial ? data.dealSerial : '--';
+
+
+				document.getElementById('coreNo').innerHTML = '客户号：' + coreNo;
+				document.getElementById('customerNm').innerHTML = '客户姓名：' + customerNm;
+				document.getElementById('identyType').innerHTML = '证件类型：' + identyType;
+				document.getElementById('identyNo').innerHTML = '证件号码：' + identyNo;
+				document.getElementById('zipCode').innerHTML = '邮政编码：' + zipCode;
+				document.getElementById('contactPath').innerHTML = '联系地址：' + contactPath;
+				document.getElementById('contactTel').innerHTML = '联系电话：' + contactTel;
+				document.getElementById('contactMobil').innerHTML = '手机号码：' + contactMobil;
+				document.getElementById('contactEmail').innerHTML = '电子邮件E-mail：' + contactEmail;
+				document.getElementById('cardNo').innerHTML = '卡号：' + cardNo;
+				document.getElementById('cardType').innerHTML = '卡片类型：' + cardType;
+				document.getElementById('businessType').innerHTML = '业务种类：' + businessType;
+				document.getElementById('aggreMeth').innerHTML = '认证方式：' + aggreMeth;
+				document.getElementById('businessType_mobile').innerHTML = '业务类型：' + businessType_mobile;
+				document.getElementById('aggreMeth_mobile').innerHTML = '认证方式：' + aggreMeth_mobile;
+				document.getElementById('dealDate').innerHTML = '交易日期：' + dealDate;
+				document.getElementById('dealDept').innerHTML = '交易网点：' + dealDept;
+				document.getElementById('dealUser').innerHTML = '经办/复核：' + dealUser;
+				document.getElementById('dealSerial').innerHTML = '交易流水号：' + dealSerial;
+				var date = new Date();
+				var yyyy = date.getFullYear();
+				var MM = date.getMonth() + 1;
+				var dd = date.getDate();
+				var HH = date.getHours();
+				var mm = date.getMinutes();
+				var ss = date.getSeconds();
+				var ms = date.getMilliseconds();
+				document.getElementById('printTime').innerHTML = '打印时间：' 
+																+ yyyy + '-' + MM + '-' + dd + ' '
+																+ HH + ':' + mm + ':' + ss + ':' + ms;
+			}
+		}
+	}
+</script>
+</head>
+<body onbeforePrint="beforePrint()"  onafterprint="afterPrint()">
+	<div id="d_header" align= 'center'>
+		<button class="btn_print" onClick='printPage()'>打印</button>
+	</div>
+
+	<div id="d_content">
+		<div class='d_title'>
+			<h4>富  邦  华  一  银  行</h4>
+			<h1></h1>
+			<h4>业务凭证</h4>
+		</div>
+		<div class='customerInfo d_group'>
+			<label class='row'>【客户信息】</label>
+			<div class='row'>
+				<label class='l_2' id='coreNo'>客户号：</label>
+				<label class='l_4' id='customerNm'>客户姓名：</label>
+			</div>
+			<div class='row'>
+				<label class='l_2' id='identyType'>证件类型：</label>
+				<label class='l_4' id='identyNo'>证件号码：</label>
+			</div>
+			<div class='row'>
+				<label class='l_2' id='zipCode'>邮政编码：</label>
+				<label class='l_4' id='contactPath'>联系地址：</label>
+			</div>
+			<div class='row'>
+				<label class='l_2' id='contactTel'>联系电话：</label>
+				<label class='l_4' id='contactMobil'>手机号码：</label>
+			</div>
+			<div class='row'>
+				<label id='contactEmail'>电子邮件E-mail：</label>
+			</div>
+		</div>
+		<div class='cardInfo d_group'>
+			<label class='row'>【银行卡开卡】</label>
+			<div class='row'>
+				<label class='l_2' id='cardNo'>卡号：</label>
+				<label class='l_4' id='cardType'>卡片类型：</label>
+			</div>
+		</div>
+		<div class='perNetBankInfo d_group'>
+			<label class='row'>【个人网上银行开通】</label>
+			<div class='row'>
+				<label class='l_2' id='businessType'>业务种类：</label>
+				<label class='l_4' id='aggreMeth'>认证方式：</label>
+			</div>
+		</div>
+		<div class='mobileBankInfo d_group'>
+			<label class='row'>【手机银行开通】</label>
+			<div class='row'>
+				<label class='l_2' id='businessType_mobile'>业务类型：</label>
+				<label class='l_4' id='aggreMeth_mobile'>认证方式：</label>
+			</div>
+		</div>
+		<div >
+			<label class='row row_right' style="padding-top:50px;padding-bottom:20px;">客户签名：______________________</label>
+		</div>
+		<div class='baseInfo d_group'>
+			<div class='row'>
+				<label class='l_3' id='dealDate'>交易日期：</label>
+				<label class='l_3' id='dealDept'>交易网点：</label>
+				<label id='dealUser'>经办/复核：</label>
+			</div>
+			<div class='row'>
+				<label class='l_3' id='dealSerial'>交易流水号：</label>
+				<label class='l_3' id='dealSerial'>第 1 页，共 1 页</label>
+				<label class='l_3' id='printTime'>打印时间：</label>
+			</div>
+		</div>
+	</div>
+
+	<div id="d_footer" align= 'center'>
+		<button class="btn_print"  onClick='printPage()'>打印</button>
+	</div>
+</body>
+<script type="text/javascript">
+function pagesetup_default() {
+		try {
+			 var RegWsh = new ActiveXObject("WScript.Shell");
+			hkey_key = "header";
+			RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "&w&b页码，&p/&P");
+			hkey_key = "footer";
+			RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "&u&b&d");  
+			
+		 	var RegWsh = new ActiveXObject("WScript.Shell");
+			hkey_key = "footer";
+			RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "&w&b页码，&p/&P");
+			
+			//设置下页边距（10）   
+			HKEY_Key="margin_bottom";    
+			Wsh.RegWrite(HKEY_Root+HKEY_Path+HKEY_Key,"5"); 
+
+			/* hkey_key = "footer";
+			RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "&u&b&d"); */
+		} catch (e) {
+		}
+	}
+	function pagesetup_null() {
+		try {
+			var RegWsh = new ActiveXObject("WScript.Shell");
+			hkey_key = "header";
+			RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, "");
+			hkey_key = "footer";
+			RegWsh.RegWrite(hkey_root + hkey_path + hkey_key, ""); 
+		} catch (e) {
+		}
+	}
+function beforePrint(){
+	pagesetup_null();
+	document.all('d_header').style.display='none';
+	document.all('d_footer').style.display='none';
+}	
+function afterPrint(){
+	pagesetup_default();
+	document.all('d_header').style.display="";
+	document.all('d_footer').style.display="";
+}
+</script>
+</html>

@@ -1,0 +1,4 @@
+<chart caption='养老金缺口'  subcaption=''  formatNumberScale='0' >
+	<set label='缺口金' value='15000' />
+	<set label='已有金' value='50000' />
+</chart>

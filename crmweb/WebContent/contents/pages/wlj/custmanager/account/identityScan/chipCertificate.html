@@ -1,0 +1,114 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>SDK 演示</title>
+
+<Script language="javascript">
+window.onload = function(){
+	OpenDevice();
+	var identInfo = Read();
+	if(window.parent && window.parent.getIdentInfoByChip){
+		window.parent.getIdentInfoByChip(identInfo);
+		CloseDevice();
+		// window.close();
+	}else{
+		alert("读取信息出错");
+	}
+}
+function OpenDevice()
+{
+	IDCard.OpenUSBPort();
+	IDCard.SetHeadPicPath("D:\\tempHeadPic.bmp");
+}
+
+function Read()
+{
+	IDCard.ReadIDCard();
+	Name.value = IDCard.GetName();
+	Sex.value = IDCard.GetSex();
+	Nation.value = IDCard.GetNation();
+	BirthDate.value = IDCard.GetBirthDate();
+	Addr.value = IDCard.GetAddr();
+	ID.value = IDCard.GetID();
+	Office.value = IDCard.GetOffice();//
+	BeginDate.value = IDCard.GetBeginDate();
+	EndDate.value = IDCard.GetEndDate();
+	HeadPicCode.value = IDCard.GetHeadPicBase64();
+	HeadPic.src = "D:\\tempHeadPic.bmp"
+	var identInfo = {
+		'name' : IDCard.GetName(),
+		'sex' : IDCard.GetSex(),
+		'nation' : IDCard.GetNation(),
+		'birthday' : IDCard.GetBirthDate(),
+		'addr' : IDCard.GetAddr(),
+		'identNo' : IDCard.GetID(),
+		'identType' : '0',
+		'office' : IDCard.GetOffice(),//发证机关
+		'beginDate' : IDCard.GetBeginDate(),//生效日期
+		'endDate' : IDCard.GetEndDate()//失效日期
+	};
+	return identInfo;
+}
+function Decode()
+{
+	IDCard.DecodeBase64(IDCard.GetHeadPicBase64(),"D:\\DecodeFile.bmp");
+}
+function CloseDevice()
+{
+	IDCard.CloseUSBPort();
+}
+</script>
+
+</head>
+
+<body>
+	
+		<p>
+
+			<OBJECT id="IDCard" style="MARGIN-LEFT:5px; WIDTH: 5px; HEIGHT:5px" 
+			classid="clsid:284E9DE2-3E31-4F82-B20C-3A3C902B7656" > 		
+			</OBJECT>	
+			
+		</p>
+	
+		<input type = "button" value = "打开设备 " onClick = "OpenDevice();" name = "open">
+		<input type = "button" value = "读取信息 " onClick = "Read();" name = "read">
+		<input type = "button" value = "关闭设备 " onClick = "CloseDevice();" name = "close">
+		<input type = "button" value = "解码文件 " onClick = "Decode();" name = "Decode">
+		<p>
+		<input type="text" value = "" name = "Name"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "Sex"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "Nation"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "BirthDate"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "Addr"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "ID"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "Office"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "BeginDate"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "EndDate"/>
+		</p>
+		<p>
+		<input type="text" value = "" name = "HeadPicCode"/>
+		</p>
+		<p>
+		<img src="" width="102" height="126"/ name = "HeadPic">
+		</p>
+</body>
+
+</html>

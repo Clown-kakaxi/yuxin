@@ -1,0 +1,45 @@
+
+<chart  subcaption='2013年'  xAxisName='月份' yAxisName='元' formatNumberScale='0' >
+	<categories>
+		<category name='2012-11' />
+		<category name='2012-12' />
+		<category name='2013-01' />
+		<category name='2013-02' />
+		<category name='2013-03' />
+		<category name='2013-04' />
+		<category name='2013-05' />
+		<category name='2013-06' />
+		<category name='2013-07' />
+		<category name='2013-08' />
+		<category name='2013-09' />
+		<category name='2013-10' />
+	</categories>
+	<dataset SeriesName='投资金额' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ1' value='31231' />
+		<set id='LJ2' value='44941' />
+		<set id='LJ3' value='40263'/>
+		<set id='LJ4' value='57320'/>
+		<set id='LJ5' value='61844'/>
+		<set id='LJ6' value='72462'/>
+		<set id='LJ7' value='79821'/>
+		<set id='LJ8' value='80936'/>
+		<set id='LJ9' value='83445'/>
+		<set id='LJ10' value='91123'/>
+		<set id='LJ11' value='99893'/>
+		<set id='LJ12' value='99135'/>
+	</dataset>
+	<dataset SeriesName='市值金额' id='TZ'  dragBorderColor='00eeee'>
+		<set id='TZ1' value='34231' />
+		<set id='TZ2' value='45841' />
+		<set id='TZ3' value='41263'/>
+		<set id='TZ4' value='57380'/>
+		<set id='TZ5' value='61544'/>
+		<set id='TZ6' value='79462'/>
+		<set id='TZ7' value='79871'/>
+		<set id='TZ8' value='81936'/>
+		<set id='TZ9' value='87645'/>
+		<set id='TZ10' value='90923'/>
+		<set id='TZ11' value='95593'/>
+		<set id='TZ12' value='96635'/>
+	</dataset>
+</chart> 

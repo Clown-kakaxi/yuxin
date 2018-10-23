@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="http://%serverip%:%port%/echain/studio">
+<information>
+	<title>eChainStudio</title>
+	<vendor>ECC</vendor>
+	<homepage href="http://www.echannels.com"/>
+	<description>eChainStudio</description>
+	<description kind="short">eChainStudio</description>
+	<icon href="logo.gif"/>
+	<offline-allowed/>
+</information>
+<security>
+	<all-permissions/>
+</security>
+<resources>
+	<j2se version="1.4+"/>
+	<jar href="eChainStudio.jar"/>
+</resources>
+<application-desc main-class="com.ecc.echain.workflow.studio.Studio">
+	<argument>org.jnp.interfaces.NamingContextFactory</argument>
+	<argument>%serverip%</argument>
+	<argument>%orgid%</argument>
+	<argument>%userid%</argument>
+</application-desc>
+</jnlp>

@@ -1,0 +1,445 @@
+1.【首页查询提醒信息磁铁】
+/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryNewAction.java
+首页提醒信息磁铁的加载
+只更新了SVN
+
+2.【客户视图页面】
+/crmweb/WebContent/contents/frameControllers/Wlj-view-base.js
+/crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.js
+/crmweb/WebContent/contents/pages/common/Com.yucheng.crm.common.ImpExpNew.js
+/crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.jsp
+CALLREPORT页面调整
+只更新SVN
+
+3.【客户视图页面调用的查询方法】
+/crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportQueryAction.java
+初始化加载方法，保存方法，查询历史方法，查询当天记录方法
+只更新SVN
+
+4.【提醒页面调用的方法】
+/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryAction.java
+初始化加载，设为已读
+只更新SVN
+
+5.【提醒页面左侧树的查询呈现】
+/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListTreeAction.java
+提醒页面左侧树的数据查询
+只更新SVN
+
+6.【客户信息页面，客户信息首页显示】
+/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+客户信息首页调整
+只更新SVN
+
+7.【提醒页面修改】
+/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemindListQuery.js
+提醒页面左侧树的加载以及显示字段的修改
+只更新SVN
+
+8.【首页提醒信息磁铁显示】
+/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemind.js
+提醒信息磁铁显示字段修改
+只更新SVN
+
+**********************************2017-11-10 周五**********************************
+1.【xx功能】
+    说明：
+    涉及文件：
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+    
+**********************************2017-11-13 周一**********************************
+1.【CALLREPORT汇总功能】
+    说明：显示页面删除字段，更换查询的表
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/serviceManager/callReportTotal.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+2.【OCRM_F_CI_CALLREPORT_INFO表格添加字段】
+ alter table OCRM_F_CI_CALLREPORT_INFO add CUST_NAME VARCHAR2(50)
+ alter table OCRM_F_CI_CALLREPORT_INFO add CREATE_USERNAME VARCHAR2(50)
+ alter table OCRM_F_CI_CALLREPORT_INFO add UPDATE_USERNAME VARCHAR2(50)
+ alter table OCRM_F_CI_CALLREPORT_INFO add MANAGER_OPINION VARCHAR2(1000)
+ alter table OCRM_F_CI_CALLREPORT_INFO add MANAGER_USER VARCHAR2(20)
+ alter table OCRM_F_CI_CALLREPORT_INFO add MANAGER_USER_NAME VARCHAR2(32)
+ 3.【客户视图页面保存按钮位置调整，以及页面增加传参】
+  	涉及文件：/crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.js
+          ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+ 4.【callreport信息】
+   	说明：callreport增加字段
+        涉及文件：/crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportQueryAction.java
+         ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码  
+ 5.【model层】
+    说明：增加字段
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/callReport/model/OcrmFCiCallreportInfo.java
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+    
+ **********************************2017-11-14 周二**********************************
+1.【callreport汇总功能】
+    说明：更换表，将OCRM_F_SE_CALLREPORT表换成OCRM_F_CI_CALLREPORT_INFO表，并且更换model层，修改主管意见录入方法，修改导出功能
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/serviceManager/callReportTotal.js
+    	  /crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportTotalAction.java
+    	  /crmweb/src/com/yuchengtech/bcrm/callReport/service/CallReportTotalService.java
+    	  /crmweb/src/com/yuchengtech/bcrm/callReport/model/OcrmFCiCallreportInfo.java
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+
+**********************************2017-11-15 周三**********************************
+1.【提醒信息功能】
+    说明：把CallReportQueryAction中的保存及修改方法移到CallReportQueryService中，防止出现部分保存，部分报错的情况。
+    涉及文件： /crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportQueryAction.java
+    	   /crmweb/src/com/yuchengtech/bcrm/callReport/service/CallReportQueryService.java
+    	   /crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.js
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码    
+************************2017-11-16 周四 以及 2017-11-17 周五*************************
+1.【法金客户经理批量移转功能】
+    说明：查看原有法金客户经理批量移转模块的逻辑，里面是有批量转移逻辑的，根据客户类型不同，显示的移转按钮也会不同，移转类型不同，填写的移转信息也不同
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+    	  /crmweb/src/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.java
+    	  /crmweb/src/com/yuchengtech/bcrm/customer/belong/action/OcrmFCiTransBusinessAction.java
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+
+
+
+**********************************2017-11-20 周一**********************************
+1.【法金客户经理批量移转功能】
+    说明：     法金客户经理移交过程中，首先会在客户移交申请表OCRM_F_CI_TRANS_APPLY中传入数据，然后在移交客户列表OCRM_F_CI_TRANS_CUST中传入相应数据。移交过程中会判断
+            接收人是否为客户经理，移交客户是否有未完成或待复核的电拜访信息。在OCRM_F_CI_TRANS_BUSINESS中保存电访信息，拜访信息，pipeline信息。
+                   提出客户移交的客户经理的待办工作里会有一条待办记录，根据移交类型不同，流程图分为法金客户支行内移交、法金客户区域分行内移交，法金客户跨区域分行移交。涉及到流程ID有106，116，118，110，117，107，113，112，111，
+          select * from wf_studio where wfid in ('106','116','118','110','117','107','113','112','111')
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/common/action/EchainCommonAction.java
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+    
+    
+    **********************************2017-11-29 周三**********************************
+1.【提醒功能】
+    说明：增加提醒查询时数据的码值条件
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryAction.java
+    		/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryNewAction.java
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+2.【向财富系统查询结构理财功能】
+    说明：写向财富系统请求的新接口
+    涉及文件：/crmweb/src/bip.properties
+    		/crmweb/src/com/yuchengtech/trans/client/TransClient.java
+    		/crmweb/src/com/yuchengtech/bcrm/custview/action/accountQueryAction.java
+    		/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+    ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+3.【callreporter汇总功能】
+    说明：修改查询字段  updateUser改成createrUser
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportTotalAction.java
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码   
+    
+ **********************************2017-11-30 周四**********************************
+1.【客户经理移交功能】
+    说明：把生产上的文件与SVN上的文件对比并拿下来，写模板下载按钮和上传按钮
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码  
+ 2.【法金客户经理移交功能】
+    说明：把生产上的文件与SVN上的文件对比并拿下来
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码  
+ 3.【向WMS请求理财产品功能】
+    说明：修改WMS IP地址，多次测试，修改XML报文  10.20.35.42和10.20.35.242和10.20.35.193 端口8101
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+    		/crmweb/src/com/yuchengtech/bcrm/custview/action/accountQueryAction.java
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码  
+    **********************************2017-12-1 周五**********************************
+1.【首页磁铁提醒查询功能】
+    说明：修改查询语句条件
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryNewAction.java
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码  
+ 2.【客户经理移交功能】
+    说明：增加模板下载和批量上传功能
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+    		/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/TempDownload/gjyjImportGroup.xlsx
+    		/crmweb/src/systemProperties.properties
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码  
+    
+    
+  **********************************2017-12-4 周一**********************************
+1.【向WMS请求理财功能】
+    说明：连接WMS接口从8101改为18002，解析返回报文
+    涉及文件：/crmweb/src/bip.properties
+    		/crmweb/src/com/yuchengtech/bcrm/custview/action/accountQueryAction.java
+    		/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+2.【提醒查询功能】
+    说明：取消页面弹出的保存成功窗口
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemindListQuery.js
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+3.【客户经理移交功能】
+    说明：批量上传功能
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+ 4.【法金客户经理移交功能】
+    说明：模板下载功能
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+    
+   **********************************2017-12-5 周二**********************************
+1.【客户经理移转功能】
+    说明：批量上传
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bob/action/CallReportImport.java
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+   
+      **********************************2017-12-6 周三**********************************
+1.【客户经理移转功能】
+    说明：批量上传数据录入临时表OCRM_F_CI_BELONG_CUSTMGR_TEMP并进行数据校验，新建表OCRM_F_CI_BELONG_CUSTMGR_TEMP;
+   		 create table OCRM_F_CI_BELONG_CUSTMGR_TEMP
+		(
+		  id               varchar2(30) not null,
+		  cust_id          varchar2(80),
+		  cust_name        varchar2(80),
+		  cust_type        varchar2(80),
+		  mgr_id           varchar2(80),
+		  mgr_name         varchar2(80),
+		  tmgr_id          varchar2(80),
+		  tmgr_name        varchar2(80),
+		  torg_id          varchar2(80),
+		  apply_date       varchar2(80),
+		  hand_kind        varchar2(80),
+		  hand_over_reason varchar2(2000)
+		)
+    涉及文件：/crmweb/src/com/yuchengtech/bob/action/CallReportImport.java
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+ 2.【】
+  说明：接口增加日志
+  涉及文件：/crmweb/src/com/yuchengtech/bcrm/custview/action/accountQueryAction.java
+  		  /crmweb/src/com/yuchengtech/trans/client/TransClient.java
+  		  /crmweb/src/com/yuchengtech/trans/impl/CBAccountQueryTransaction.java
+  		  /crmweb/src/com/yuchengtech/trans/impl/WMSAccountQueryTransaction.java
+  		  /crmweb/src/com/yuchengtech/bcrm/custview/service/AccountQueryService.java
+  ★未更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+  
+  **********************************2017-12-8 周五**********************************
+1.【客户经理移转功能】
+    说明：批量导入数据校验，导出错误数据
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+    
+  **********************************2017-12-14 周四**********************************
+1.【客户经理移转功能】
+    说明：批量导入
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+    		/crmweb/src/com/yuchengtech/bob/action/ImportAction.java
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+ 
+ 
+   **********************************2017-12-15 周五**********************************
+1.【客户经理移转功能】
+    说明：批量导入
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+    		/crmweb/src/com/yuchengtech/bob/action/ImportAction.java
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+  2.【callreport信息】
+    说明：修改按钮的权限设置
+    涉及文件：/crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.js
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+   
+    **********************************2017-12-21 周四**********************************
+1.【客户经理移转功能】
+    说明：企业以及个人批量导入
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+ 2.【客户查询个人】
+    说明：修改显示字段
+    涉及文件：/crmweb/src/com/yuchengtech/bcrm/customer/action/PrivateCustInfoAction.java
+    		/crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.js
+    		/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+     **********************************2017-12-22 周五**********************************
+ 1.【客户经理移转功能】
+    说明：企业以及个人批量导入
+    涉及文件：/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+        ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+         **********************************2017-12-26 周二**********************************
+ 1.【客户经理移转功能】
+    说明：企业以及个人批量导入
+    涉及文件：/crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+    		/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+        ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+  **********************************2017-12-29 周五**********************************
+ 1.【主管直接移转功能】
+    说明：主管直接移转的批量导入和模板下载
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransForChargeImport.java
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+        ★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+   **********************************2018-01-02 周二**********************************   
+  1.【callreport汇总功能】
+    说明：
+    涉及文件：/crmweb/WebContent/contents/pages/wlj/serviceManager/callReportTotal.js
+    		/crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportTotalAction.java
+        ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码 	
+    **********************************2018-01-03 周三**********************************  
+    涉及文件：/crmweb/WebContent/WEB-INF/web.xml
+    		/crmweb/src/com/yuchengtech/bcrm/util/SpringContextServlet.java
+    		/crmweb/src/com/yuchengtech/bcrm/util/SpringContextUtils.java
+      ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码 	
+  1.【主管直接移转功能】
+    说明：主管直接移转的批量导入和模板下载
+    涉及文件：/crmweb/src/ImportTradeDefine.xml
+    		/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+    		/crmweb/src/com/yuchengtech/bob/action/CustTransForChargeImport.java
+    		/crmweb/src/com/yuchengtech/trans/impl/custTransfer/CustTransferSyncLNTransaction.java
+    		/crmweb/src/com/yuchengtech/trans/impl/ecif/EcifTransaction.java
+    		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+        ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码  	
+     **********************************2018-01-04 周四********************************** 
+  1.【主管直接移转功能】
+    说明：主管直接移转的批量导入和模板下载 
+    涉及文件：/crmweb/src/com/yuchengtech/bob/action/CustTransForChargeImport.java
+     ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码  
+  **********************************2018-01-05 周五********************************** 
+  1.【主管直接移转功能】
+    说明：主管直接移转的批量导入和模板下载 
+    涉及文件：/crmweb/src/com/yuchengtech/bob/action/CustTransForChargeImport.java
+     ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码 
+  2.【客户经理移交】
+  说明：简化导入
+  涉及文件：/crmweb/src/ImportTradeDefine.xml
+  		  /crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+  		  /crmweb/src/com/yuchengtech/bob/action/CustTransForChargeImport.java
+  ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-10 周三********************************** 
+ 1.【客户经理移交】
+   说明：简化导入
+   涉及文件：/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+   		   /crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+   		   /crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+    ★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-11 周四**********************************
+1.【页面提醒磁贴】
+说明：显示数据增加括号
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryNewAction.java
+		 /crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemind.js
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+2.【法金客户经理移交】
+说明：批量导入
+涉及文件：/crmweb/src/ImportTradeDefine.xml
+		  /crmweb/src/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.java
+		  /crmweb/src/com/yuchengtech/bob/action/CustTransToManageImport.java
+		  /crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+		  /crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+		  /crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-12 周五**********************************
+1.【页面磁贴】
+说明：优化加载
+涉及文件：/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemind.js
+		 /crmweb/WebContent/contents/frameControllers/widgets/views/index/grid/grid.js
+		 /crmweb/WebContent/contents/pages/echainCommon/workTodo.js
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+2.优化
+/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.java
+/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+/crmweb/WebContent/contents/pages/echainCommon/workTodo.js
+/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemind.js
+/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+/crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+/crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+**********************************2018-01-12 周五**********************************
+说明：批量导入客户ID换成核心客户号
+涉及文件：/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+		 /crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+		 /crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+		 /crmweb/src/com/yuchengtech/bob/action/CustTransByManagerImport.java
+		 /crmweb/src/com/yuchengtech/bob/action/CustTransForChargeImport.java
+		 /crmweb/src/com/yuchengtech/bob/action/CustTransToManageImport.java
+		 /crmweb/src/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.java
+		 /crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+		 /crmweb/src/ImportTradeDefine.xml
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-17 周三**********************************
+说明：提醒和客户信息增加字段
+涉及文件:/crmweb/src/com/yuchengtech/bcrm/customer/action/PrivateCustInfoAction.java
+		/crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryAction.java
+		/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+		/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemindListQuery.js
+**********************************2018-01-18 周四**********************************
+1.【客户视图】
+说明：增加贷款接口
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/custview/action/accountQueryAction.java
+		 /crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+★更新SVN★未更新UAT★未更新生产★未更新SVN上生产代码
+2.修改导出
+1./crmweb/WebContent/contents/pages/common/Com.yucheng.crm.common.ImpExpNew.js
+2./crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+3./crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+4./crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+**********************************2018-01-19 周五**********************************
+	/crmweb/src/com/yuchengtech/bob/action/ImportAction.java
+	/crmweb/WebContent/contents/pages/wlj/custmanager/custTransByManager.js
+	/crmweb/WebContent/contents/pages/wlj/custmanager/custTransToManager.js
+	/crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+	/crmweb/WebContent/contents/pages/common/Com.yucheng.crm.common.ImpExpNew.js
+	/crmweb/src/com/yuchengtech/bob/common/CommonAction.java
+	/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/CustTransAction.java
+	/crmweb/src/com/yuchengtech/bcrm/customer/belong/action/ChangeCustManagerAction.java
+2【wms接口】
+涉及文件：/crmweb/src/com/yuchengtech/trans/impl/queryCustInfo/QueryWMSProductListTransaction.java
+	      /crmweb/src/com/yuchengtech/trans/impl/BaseTransaction.java
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-22 周一**********************************
+1.【客户视图】
+说明：修改客户信息字段
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/customer/action/PrivateCustInfoAction.java
+		 /crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-22 周一**********************************
+1.【客户视图】
+说明：增加接口日志
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/custview/action/accountQueryAction.java
+		 /crmweb/src/com/yuchengtech/trans/client/TransClient.java
+		 /crmweb/src/com/yuchengtech/trans/impl/queryCustInfo/CBAccountQueryTransaction.java
+		 /crmweb/src/com/yuchengtech/bcrm/custview/service/AccountQueryService.java
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-01-22 周一**********************************
+1.【客户视图】
+说明：按钮配置
+涉及文件：/crmweb/WebContent/contents/frameControllers/Wlj-view-base.js
+		  /crmweb/WebContent/contents/frameControllers/widgets/search/window.js
+		  /crmweb/WebContent/contents/pages/common/includes.jsp
+		  /crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.js
+		  /crmweb/WebContent/contents/frameControllers/view/Wlj-callreportview-base.jsp
+		  /crmweb/WebContent/contents/pages/wlj/customerManager/customerQueryNew.js
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+2.【callport信息汇总】
+说明：增加查询条件
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportTotalAction.java
+★更新SVN★更新UAT★未更新生产★未更新SVN上生产代码
+**********************************2018-02-01 周四**********************************
+涉及文件：/crmweb/src/bip.properties
+		/crmweb/src/com/yuchengtech/trans/client/TransClient.java
+		/crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemindListQuery.js
+		/crmweb/WebContent/contents/pages/wlj/custmanager/custTransForCharge.js
+**********************************2018-02-02 周五**********************************
+/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.js
+/crmweb/WebContent/contents/pages/wlj/customerManager/privateCustView/privateCustInfoHomePage.jsp
+/crmweb/WebContent/contents/frameControllers/view/Wlj-view-function.jsp
+**********************************2018-02-05 周一**********************************
+1.【提醒首页磁贴】
+说明：修改提醒开始日期
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/callReport/service/CallReportQueryService.java
+		 /crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryAction.java
+		 /crmweb/src/com/yuchengtech/bcrm/workplat/action/RemindListQueryNewAction.java
+		 /crmweb/WebContent/contents/pages/wlj/workspaceManager/newRemindListQuery.js
+**********************************2018-02-09 周五**********************************
+1.【call report汇总】
+说明：修改控制权限和显示字段
+涉及文件：/crmweb/src/com/yuchengtech/bcrm/callReport/action/CallReportTotalAction.java
+		 /crmweb/WebContent/contents/pages/wlj/serviceManager/callReportTotal.js
+		 /crmweb/src/com/yuchengtech/bcrm/callReport/model/OcrmFCiCallreportInfo.java
+		 /crmweb/src/com/yuchengtech/bcrm/callReport/service/CallReportQueryService.java

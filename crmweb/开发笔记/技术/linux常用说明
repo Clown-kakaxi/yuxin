@@ -1,0 +1,119 @@
+################################################################
+#####writed by liuyx仅供项目组同事学习参考，如有错误可及时指出以便及时修正#####
+################################################################
+1.ls命令
+    列出指定目录下的文件(简单列出，不包括隐藏文件)：ls /home
+    列出指定目录下的文件(详细列出，包括隐藏文件)：ls -al /home
+    如果文件或目录以 . 开头，则为隐藏文件或目录，必须使用ls -al才能看得到，或者使用ll命令，效果与ls -al一样
+2.环境变量
+有个系统全局配置文件/etc/profile
+同时每个用户的家目录下都有一个隐藏文件.bash_profile，该文件里引用了上面的系统全局配置文件，用户环境变量配置文件会在用户登录的时候自动执行一遍
+以上两个配置文件类似于window里的系统环境变量和用户环境变量，例如我们配置JAVA_HOME一样，都是在这里配置的，只是语法上稍微有些区别
+在windows下，我们可以在cmd窗口里使用set命令设置临时用户环境变量，一旦cmd关闭就失效
+在linux下，我们同样可以在命令行使用export命令设置临时用户环境变量，一旦用户连接断开就失效
+例：
+windows下：
+set JAVA_HEOME=D:\Program Files\Java\jdk1.6.0_43
+linux下：
+export JAVA_HOME=/opt/soft/jdk1.6.0_43
+如果想该变量永久生效
+windows下就要在【计算机】-->【属性】-->【高级系统设置】-->【高级】-->【环境变量】里选择设置为全局变量还是用户变量
+linux下只需要把上面的export JAVA_HOME=/opt/soft/jdk1.6.0_43写入到全局配置文件或者用户环境变量配置文件里，然后使用 . .bash_profile执行或者. /etc/profile执行下就会立即生效，如果不执行，则会在下次重新登录时生效
+
+linux下与windows下对应环境变量里各个值得连接与环境变量的引用稍有区别：
+windows下，path变量的各个值用 ; 分割，对变量的使用需要在两边加上百分号，例如：%JAVA_HOME%
+linux下，path变量的各个值用 : 分割，对变量的使用需要在变量前面加上英文状态下的美元符号，例如：$JAVA_HOME
+
+3.文件查看命令cat
+cat 文件名
+该命令会列出文件的所有内容，文件比较小的时候可以使用
+
+4.文件内容搜索命令grep
+搜索指定文件里存在字符串admin的数据行：grep "admin" 文件1 文件2 文件3
+也可以配合cat命令：cat 文件1 文件2|grep "admin"
+
+5.一页一页的查看文件命令more
+more 文件1
+该命令会按屏幕一页的大小将文件分成若干页，先显示第一页，然后按空格键会然后翻页，直到翻到最后一页，命令自动结束退出
+命令less与more效果基本上一致
+
+6.文件编辑命令vi或者vim
+vim 文件1
+该命令会打开文件1并显示文件内容，可以使用方向键向上或向下查看文件内容
+该命令有两种状态：编辑状态、命令行状态，编辑状态下可以编辑文件内容，命令行状态可以使用相关的内置命令编辑文件 
+默认情况下，刚打开时是命令行状态，按下键盘上的i键，即可进入编辑状态，此时可以随意编辑
+在编辑状态下，按下左上角的ESC键即可进入命令行状态
+命令行状态下，输入:w即可保存修改，输入:q即可退出文件打开，输入:q!即可强制退出(忽略警告)，一般使用:wq!保存并退出，输入dd即可删除当前行,注意，这里的冒号:不能少
+如果需要在文件里搜索，可以使用:/admin    即可搜索有字符串admin的地方，然后可以使用按键n或者shift+n查找下一个或前一个匹配的行
+
+7.查看进程
+ps -ef
+该命令会查询出所有的进程，但是进程太多了，可以配合grep命令进行过滤结果
+查看所有的java进程：ps -ef|grep java
+如果需要排除对某个条件的过滤，可以使用-v参数排除，例如排除grep命令自己(因为ps -ef得到的结果里包含了grep命令自己)：ps -ef|grep java|grep -v grep
+例如：
+命令：ps -ef|grep java
+结果：
+app       3178  2625  0 04:37 pts/1    00:00:00 grep java
+其中app使用进程的用户，3178是进程的进程号，2625是该进程的父进程，最后面的grep java是该进程对应的命令
+
+8.杀进程
+上面的ps命令会得到进程的进程号，然后可以使用kill -9进程号杀掉进程
+
+9.查看当前网络端口监听状态
+netstat -natup
+可配合grep命令进行过滤结果，例如：
+列出目前有端口监听的网络进程状态(grep -i xxx中的i为忽略大小写过滤)：netstat -natup|grep -i list
+结果：
+tcp        0      0 :::43852                    :::*                        LISTEN      -                   
+tcp        0      0 :::8109                     :::*                        LISTEN      3205/java           
+tcp        0      0 :::111                      :::*                        LISTEN      -                   
+tcp        0      0 :::1521                     :::*                        LISTEN      -                   
+tcp        0      0 :::22                       :::*                        LISTEN      -                   
+tcp        0      0 ::1:631                     :::*                        LISTEN      -                   
+tcp        0      0 ::1:25                      :::*                        LISTEN      -                   
+tcp        0      0 :::34174                    :::*                        LISTEN      -                   
+tcp        0      0 :::8010                     :::*                        LISTEN      3205/java
+其中，:::8010里的8010就是端口，3205/java里的3205就是对应进程的进程号，java就是对应的进程
+
+过滤监听端口9500
+netstat -natup|grep -i list|grep 9500
+
+10.查看主机名称
+hostname
+11.查看ip地址信息
+ifconfig
+结果示例：
+eth0      Link encap:Ethernet  HWaddr 00:0C:29:25:6E:14  
+          inet addr:192.168.20.128  Bcast:192.168.20.255  Mask:255.255.255.0
+          inet6 addr: fe80::20c:29ff:fe25:6e14/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:58 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:33 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:9214 (8.9 KiB)  TX bytes:4334 (4.2 KiB)
+          
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:9027 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:9027 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1355298 (1.2 MiB)  TX bytes:1355298 (1.2 MiB)
+11.远程拷贝命令scp
+scp 用户名/密码@远程主机IP:远程主机上的文件路径(相对用户家目录的路径) 当前机器的文件的放置路径
+例如，拷贝10.20.34.107机器上weblogic用户家目录下的文件a.txt 到当前机器的/home/weblogic/bea目录下
+scp weblogic/密码@10.20.34.107:a.txt /home/weblogic/bea
+
+12.sftp命令，登录到远程机器上，进入到指定目录下，然后使用get 远程文件 即可下载远程机器上的文件到本机当前目录下，也可以使用put 本地文件上传本地文件到远程机器上
+sftp weblogic@10.20.34.107
+根据提示输入密码
+然后可以正常使用命令，例如cd 进入特点目录，使用ls列出远程主机对应目录下的文件
+get 远程文件.txt
+put 本地文件.txt
+
+
+
+
+

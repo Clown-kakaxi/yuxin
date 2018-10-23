@@ -1,0 +1,4 @@
+<chart caption='货币市场'  subcaption=''  formatNumberScale='0' >
+	<set label='存款' value='33400' link='F-contentClo-data21.html'/><!-- 下钻柱状图，在fram中显示（存款） -->
+	<set label='货币型基金' value='24000' link='F-contentClo-data22.html'/><!-- 下钻柱状图，在fram中显示（货币型基金） -->
+</chart>

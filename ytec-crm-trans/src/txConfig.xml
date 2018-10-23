@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tx-config>
+	<Tx>
+		<TxCode>QECIF2_001</TxCode>
+		<TxCnName>查询客户</TxCnName>
+		<TxDealClass>queryMCiContmeth</TxDealClass>
+	</Tx>
+	
+	<Tx>
+		<TxCode>ECIFU_001</TxCode>
+		<TxCnName>修改客户联系人</TxCnName>
+		<TxDealClass>updateMCiContmeth</TxDealClass>
+	</Tx>
+	
+	<Tx>
+		<TxCode>CRMLOG_001</TxCode>
+		<TxCnName>查询日志信息</TxCnName>
+		<TxDealClass>queryLogInfo</TxDealClass>
+	</Tx>
+	
+	<Tx>
+		<TxCode>CRMLOG_002</TxCode>
+		<TxCnName>修改日志信息</TxCnName>
+		<TxDealClass>updateLogInfo</TxDealClass>
+	</Tx>	
+</Tx-config>

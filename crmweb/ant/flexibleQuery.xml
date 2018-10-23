@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--工程定义 :flexibleQuery; 灵活查询相关文件-->
+<project name="flexibleQuery-build" basedir="E:\newPro" default="flexibleQuery-build">
+	<!-- java 工程名定义-->
+		<property name="base" value="crmbase"/>
+		<!-- web  工程名定义-->
+		<property name="web" value="crmweb"/>
+	<!-- 打包输出目录名-->
+	<property name="outwar.dir" value="crmwebwar"/>	
+	<property name="WebContent" value="WebContent"/>
+	<property name="crmbase.dir" value="crmbase"/>
+	<property name="crmweb.dir" value="crmweb"/>
+	<property name="WebContent.dir" value="${crmweb.dir}/${WebContent}"/>
+	<property name="basesrc.dir" value="${crmbase.dir}/src"/>
+	<property name="websrc.dir" value="${crmweb.dir}/src"/>	
+	<property name="outbasesrc.dir" value="${outwar.dir}/${base}/src"/>
+	<property name="outwebsrc.dir" value="${outwar.dir}/${web}/src"/>
+	<property name="weblib.dir" value="${WebContent.dir}/WEB-INF/lib"/>
+	<property name="outlib.dir" value="${outwar.dir}/${web}/${WebContent}/WEB-INF/lib"/>
+	<property name="outWebContent.dir" value="${outwar.dir}/${web}/${WebContent}" />
+	<property name="outPageContent.dir" value="${outWebContent.dir}/contents/pages" />
+	<property name="workspace.dir" value="${basedir}"/> 
+	<target name="flexibleQuery-build" description="flexibleQuery-build.....">
+		<echo message="flexibleQuery-build..."/>
+		<echo message="create new file path ..."/>
+		<mkdir dir="${outwar.dir}"/>
+		<mkdir dir="${outbasesrc.dir}"/>
+		<mkdir dir="${outwebsrc.dir}"/>
+		<mkdir dir="${outPageContent.dir}" />
+		
+		<!-- crmbase JAVA 文件,数据集管理 -->
+		<copy todir="${outbasesrc.dir}" preservelastmodified="true" overwrite="true">
+			<fileset dir="${basesrc.dir}">
+				<include name="com/yuchengtech/bcrm/system/action/DataSetSingleQueryAction.java"/>
+				<include name="com/yuchengtech/bcrm/system/action/DataSetManagerQueryAction.java"/>
+				<include name="com/yuchengtech/bcrm/system/service/DataSetService.java"/>
+				<include name="com/yuchengtech/bcrm/system/action/SetDataRelationQueryAction.java"/>
+				<include name="com/yuchengtech/bcrm/system/action/QueryJoinLeftTableAction.java"/>
+				<include name="com/yuchengtech/bcrm/system/action/QueryJoinLeftColAction.java"/>
+				<include name="com/yuchengtech/bcrm/system/action/DataSetRelationAction.java"/>
+				<include name="com/yuchengtech/bcrm/system/service/DataSetRelationService.java"/>
+			</fileset>
+		</copy>
+				
+		<!-- crmweb JAVA 文件，灵活查询逻辑 -->
+		<copy todir="${outwebsrc.dir}" preservelastmodified="true"  overwrite="true">
+			<fileset dir="${websrc.dir}">
+				<include name="com/yuchengtech/bcrm/customer/action/QueryAgileQueryAction.java" />
+				<include name="com/yuchengtech/bcrm/customer/action/AgileSearchAction.java" />
+				<include name="com/yuchengtech/bcrm/customer/service/AgileSearchService.java" />
+				<include name="com/yuchengtech/bcrm/customer/action/QueryAgileResultAction.java" />
+				<include name="com/yuchengtech/bcrm/customer/constance/AgileSearchConstance.java" />
+			</fileset>
+		</copy>		
+		
+		<!--数据集前台-->
+		<copy todir="${outPageContent.dir}"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+				<include name="com.yucheng.bcrm/com.yucheng.bcrm.js" />	
+				<include name="system/dataSetManager/dataSetManager.jsp" />	
+				<include name="system/dataSetManager/dataSetManager.js" />	
+				<include name="system/dataSetManager/dataSetRelation.jsp" />	
+				<include name="system/dataSetManager/dataSetRelation.js" />	
+			</fileset>
+		</copy>
+		
+			<!--数据集前台-->
+		<copy todir="${outPageContent.dir}"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+				<include name="com.yucheng.bcrm/com.yucheng.bcrm.js" />	
+				<include name="system/dataSetManager/dataSetManager.jsp" />	
+				<include name="system/dataSetManager/dataSetManager.js" />	
+				<include name="system/dataSetManager/dataSetRelation.jsp" />	
+				<include name="system/dataSetManager/dataSetRelation.js" />	
+			</fileset>
+		</copy>
+		
+			<!--灵活查询前台-->
+		<copy todir="${outPageContent.dir}"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+				<include name="customer/customerManager/agileQuerySolutions.js" />	
+				<include name="customer/customerManager/agileQueryDatasets.js" />	
+				<include name="customer/customerManager/agileQueryItems.js" />	
+				<include name="customer/customerManager/agileQueryResults.js" />	
+				<include name="customer/customerManager/agileQueryGrouping.js" />	
+				<include name="customer/customerManager/agileQuery.js" />	
+			</fileset>
+		</copy>
+		
+		<!--公共库文-->
+		<copy todir="${outWebContent.dir}"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}">
+				<include name="contents/pages/com.yucheng.bcrm/com.yucheng.bcrm.js" />	
+				<include name="contents/commonjs/scriptLoader.js" />	
+			</fileset>
+		</copy>
+		
+	
+	</target>
+</project>

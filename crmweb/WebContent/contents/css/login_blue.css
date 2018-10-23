@@ -1,0 +1,247 @@
+/* CSS Document */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, img, strong, li, ol, ul, form, label, table, caption, tfoot, thead, tr, th, td, dl, dd, dt{
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;	
+}
+i{
+	font-style:normal;
+	font-weight:normal;	
+}
+html{
+	overflow:hidden;
+	*overflow-y:hidden;
+	*overflow-x:hidden;
+}
+body{
+	margin:0;
+	padding:0;
+	top:0;
+	left:0;
+	font-size:12px;
+	line-height: 1.5em !important;
+	line-height:1.4em;
+	_line-height:normal;
+	/*font-family:"Microsoft YaHei", "SimSun", Arial;*/	
+	font-family:"SimSun", Arial;	
+	font-size: 12px;
+	word-break: break-all;
+	background:url(../images/login/blue_bg_login2.gif) repeat-y center top;
+	overflow:hidden;
+	*overflow-y:hidden;
+	*overflow-x:hidden;
+}
+div{
+	text-align:left;
+	cursor:default;
+}
+a{
+	color:#666666;
+	text-decoration:none;
+	outline:none;
+	*hide-focus: expression(this.hideFocus=true);
+}
+a:hover {
+	color:#2b2b2b;
+	text-decoration:none;
+}
+li{
+	list-style-type:none;
+}
+img{
+	border-style:none;
+}
+fieldset{
+	border-style:none;
+}
+label{
+	cursor:pointer;
+	*hide-focus: expression(this.hideFocus=true);
+}
+button{
+	cursor:pointer;
+}
+select{
+	line-height:1.2em;
+	font-size:12px;
+	resize:none;
+}
+input{
+	line-height:1.2em;
+	font-size:12px;
+	resize:none;
+}
+textarea{
+	line-height:1.2em;
+	font-size:12px;
+	resize:none;
+}
+table{
+	border-collapse:collapse;
+	border-style:none;
+}
+td{
+	border:0px;
+	padding:0px 0px 0px 0px;
+	line-height:1.5em;
+	font-size:12px;
+}
+.clear{
+	clear:both;
+}
+.clearfix:after {
+	clear:both;
+	content:'.';
+	display:block;
+	font-size:0;
+	line-height:0;
+	visibility:hidden;
+	height:0
+}
+.clearfix {
+	zoom:1
+}
+
+/**login**/
+.login_bg{
+	width:100%;
+	height:572px;
+	position:absolute;
+	z-index:1;
+	top:30%;
+	overflow:hidden;	
+}
+.login_logo{
+	width:970px;
+	height:178px;
+	margin:0 auto;
+	background:url(../images/login/blue_login_logo.png) no-repeat 0px 0px;	
+}
+.login_body{
+	width:970px;
+	margin:0 auto;
+	position:relative;
+	top:0;
+	left:0;
+	z-index:2;	
+	background:url(../images/login/blue_bg_login2.gif) repeat-y center 0px;
+}
+.login_form{
+	position:absolute;
+	z-index:3;
+	top:0px;
+	left:0px;
+	width:970px;
+	height:509px;
+	padding:63px 0px 0px 0px;
+	background:url(../images/login/blue_bg02_login.jpg) no-repeat 0px 0px;	
+}
+.login_verInfo{
+	position:absolute;
+	z-index:3;
+	top:370px;
+	left:325px;
+	width:970px;
+	align:'center'
+	height:100px;
+}
+.login_form_left{
+	width:300px;
+	padding:7px 0px 0px 668px;	
+}
+.login_form_right{
+	width:113px;
+	padding:20px 0px 0px 728px;		
+}
+.login_p{
+	height:40px;
+	white-space:nowrap;
+	padding:0px 0px 12px 0px;
+}
+.login_pt{
+	width:65px;
+	height:36px;
+	float:left;
+	display:inline;
+	text-align:right;
+	margin:2px 0px 0px 0px;
+	_margin:5px 0px 0px 0px;
+	color:#635107;
+}
+.login_name{
+	background:url(../images/login/blue_login_tit.gif) no-repeat 0px 5px;
+	_background:url(../images/login/blue_login_tit.gif) no-repeat 0px 1px;
+}
+.login_password{
+	background:url(../images/login/blue_login_tit.gif) no-repeat 0px -127px;
+	_background:url(../images/login/blue_login_tit.gif) no-repeat 0px -131px;	
+}
+.login_inner{
+	padding:0px 0px 0px 0px;
+	overflow:hidden;
+	height:36px;
+	float:left;
+	background:url(../images/login/blue_login_input.gif) repeat-x right -36px;
+}
+.login_input{
+	width:158px;
+	height:36px;
+	padding:0px 7px 0px 7px;
+	margin:0;
+	background:url(../images/login/blue_login_input.gif) no-repeat left 0px;
+}
+.login_input input{
+	width:152px;
+	border:0 none;	
+	font-size:14px;
+	height:33px;
+	line-height:33px;
+	*height:31px;
+	*line-height:31px;
+	padding:0;
+	margin:0;
+	background:url(../images/login/blue_login_input2.gif) #fafafa 0px 0px;
+	*background:url(../images/login/blue_login_input2.gif) #fafafa 0px -1px;
+	color:#ffffff;
+}
+.code_input{
+	width:74px;
+}
+.code_input input{
+	width:65px;
+}
+.login_txt{
+	padding:0px 0px 20px 11px;
+	height:14px;
+	overflow:hidden;	
+}
+.cod_img{
+	display:inline;
+	margin:1px 0px 0px 6px;
+	float:left;
+	cursor:pointer;
+}
+.cod_tip{
+	margin:-4px 0px 0px 0px;
+	padding:0px 0px 0px 62px;
+	color:#868686;
+	cursor:pointer;	
+}
+.login_oper{
+	width:113px;
+	height:92px;	
+}
+.login_bt{
+	padding:0px 0px 0px 2px;	
+}
+.login_bt a{
+	display:block;
+	width:117px;
+	height:43px;
+	background:url(../images/login/blue_login_bt.gif) no-repeat 0px 0px;
+}
+.login_bt a:hover{
+	display:block;
+	width:117px;
+	height:43px;
+	background:url(../images/login/blue_login_bt.gif) no-repeat 0px -43px;
+}

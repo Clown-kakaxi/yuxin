@@ -1,0 +1,6 @@
+<chart caption=''  subcaption=''  formatNumberScale='0' >
+	<set label='股票市场方向' value='25' />
+	<set label='债券市场方向' value='25' />
+	<set label='货币市场方向' value='25' />
+	<set label='其他市场方向' value='25' />
+</chart>

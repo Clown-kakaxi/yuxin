@@ -1,0 +1,20 @@
+<chart palette="2" caption="山西省行业托管规模柱状图" subcaption="2013年4月"  xAxisName="" yAxisName="托管规模"  formatNumberScale='0' baseFontSize="13">
+					<categories>
+							<category name="基金"/>
+							<category name="信托"/>
+                            <category name="证券"/>
+							</categories>
+					    <dataset seriesName="托管总规模（亿元）" color="3366FF" anchorBorderColor="3366FF" anchorBgColor="1D8BD1">
+							<set id="IJ2005" value="123" allowDrag="0"/>
+							<set id="IJ2006" value="320" allowDrag="0"/>
+							<set id="IJ2007" value="459" allowDrag="0"/>
+						</dataset>
+						<!--<dataset seriesName="年初时点" color="FF3300" anchorBorderColor="F1683C" anchorBgColor="F1683C">
+							<set id="IJ2010" value="12331" allowDrag="0"/>
+							<set id="IJ2011" value="20348" allowDrag="0"/>
+							<set id="IJ2012" value="14272" allowDrag="0"/>
+							<se  id="IJ2013" value="29407" allowDrag="0" dashed="0"/>
+							<set id="IJ2014" value="64324" allowDrag="0" />
+						</dataset>-->
+						
+					</chart>

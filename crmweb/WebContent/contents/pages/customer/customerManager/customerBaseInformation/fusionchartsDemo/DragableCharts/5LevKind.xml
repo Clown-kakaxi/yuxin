@@ -1,0 +1,27 @@
+<chart caption='五级分类规模分析' xAxisName='风险等级' yAxisName='XXXX' showValues='0' numberPrefix='$'>
+
+   <categories>
+      <category label='正常' />
+      <category label='关注' />
+      <category label='次级' />
+      <category label='可疑' />
+      <category label='损失' />
+   </categories>
+
+   <dataset seriesName='2006'>
+      <set value='27400' />
+      <set value='29800'/>
+      <set value='25800' />
+      <set value='26800' />
+      <set value='29600' />
+   </dataset>
+
+   <dataset seriesName='2005'>
+      <set value='10000'/>
+      <set value='11500'/>
+      <set value='12500'/>
+      <set value='15000'/>
+      <set value='11000' />
+   </dataset>
+
+</chart>

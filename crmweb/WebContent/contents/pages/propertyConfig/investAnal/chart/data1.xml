@@ -1,0 +1,5 @@
+<chart caption=''  subcaption=''  formatNumberScale='0' >
+	<set label='货币市场' value='57400' link ='P-detailsPopUp,width=400,height=300,toolbar=no, 
+    scrollbars=no,resizable=no-data11.html'/> <!-- 下钻饼图，pop方式 -->
+	<set label='债券市场' value='21800'  link='F-contentClo-data2.html'/>  <!-- 下钻柱状图，在fram中显示（债券市场） -->
+</chart>

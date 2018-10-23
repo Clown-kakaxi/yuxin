@@ -1,0 +1,24 @@
+
+<chart caption='Monthly Sales Summary' subcaption='For the year 2006'  xAxisName='Year' yAxisName='Units' formAction='DataHandler.html' dblclickURL='baidu.com' >
+	<categories>
+		<category name='2005 (Actuals)' />
+		<category name='2006 (Actuals)' />
+		<category name='2007 (Predicted)' />
+		<category name='2008 (Predicted)' />
+		<category name='2009 (Predicted)' />
+	</categories>
+	<dataset id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='57401' />
+		<set id='LJ2006' value='41941' />
+		<set id='LJ2007' value='45263'/>
+		<set id='LJ2008' value='117320'/>
+		<set id='LJ2009' value='114845'/>
+	</dataset>
+	<dataset id='CR' dragBorderColor='CC9900'>
+		<set id='CR2005' value='45000' />
+		<set id='CR2006' value='35835' />
+		<set id='CR2007' value='20722'/>
+		<set id='CR2008' value='77557'/>
+		<set id='CR2009' value='92633' />
+	</dataset>
+</chart> 

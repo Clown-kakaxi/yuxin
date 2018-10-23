@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <emp>3.0</emp>
+  <packageName/>
+  <description/>
+  <navigator name="biappframe">
+    <node child="logical" name="应用代码" path="/src/main/java" type="1">
+      <node child="physical" name="示例" path="${package}/demo" type="11"/>
+      
+      <node child="physical" name="核心模块" path="/com/yuchengtech/emp/biappframe/base" type="11"/>
+      <node child="physical" name="数据源管理" path="/com/yuchengtech/emp/biappframe/mtool" type="11"/>
+      <node child="physical" name="调度管理" path="/com/yuchengtech/emp/biappframe/schedule" type="11"/>
+      <node child="physical" name="安全管理" path="/com/yuchengtech/emp/biappframe/security" type="11"/>
+      <node child="physical" name="参数变量管理" path="/com/yuchengtech/emp/biappframe/variable" type="11"/>
+      <node child="physical" name="授权管理" path="/com/yuchengtech/emp/biappframe/auth" type="11"/>
+      <node child="physical" name="授权对象管理" path="/com/yuchengtech/emp/biappframe/authobj" type="11"/>
+      <node child="physical" name="授权资源管理" path="/com/yuchengtech/emp/biappframe/authres" type="11"/>
+      <node child="physical" name="逻辑系统管理" path="/com/yuchengtech/emp/biappframe/logicsys" type="11"/>
+      <node child="physical" name="用户管理" path="/com/yuchengtech/emp/biappframe/user" type="11"/>
+    </node>
+    <node child="mix" name="应用资源" path="/src/main/resources" type="2">
+      <node child="physical" name="连接器" path="/connector" type="21"/>
+    </node>
+    <node child="mix" name="页面代码" path="/src/main/webapp" type="3"/>
+    <node child="logical" name="测试代码" path="/src/test/java" type="4"/>
+    <node child="physical" name="测试资源" path="/src/test/resources" type="5"/>
+    <node child="physical" name="数据库资源" path="/db" type="6"/>
+    <node child="physical" name="文档" path="/doc" type="7"/>
+  </navigator>
+</project>

@@ -1,0 +1,20 @@
+<chart palette="2" caption="业务量（亿）" subcaption="2012年" showvalues="0" xAxisName="" yAxisName="单位：亿" yAxisMinValue="0" yAxisMaxValue="450" formatNumberScale='0' baseFontSize="13">
+					<categories>
+							<category name="存款日均"/>
+							<category name="存款余额"/>
+							<category name="消费贷款日均"/>
+							<category name="消费贷款余额"/>
+							<category name="按揭贷款日均"/>
+							<category name="按揭贷款余额"/>
+							</categories>
+					    <dataset color="3366FF" anchorBorderColor="3366FF" anchorBgColor="1D8BD1">
+							<set id="IJ2005" value="304" allowDrag="0"/>
+							<set id="IJ2006" value="389" allowDrag="0"/>
+							<set id="IJ2007" value="34" allowDrag="0"/>
+							<set id="IJ2008" value="43" allowDrag="0" />
+							<set id="IJ2009" value="180" allowDrag="0" />
+							<set id="IJ2010" value="202" allowDrag="0" />
+						</dataset>
+					
+						
+					</chart>

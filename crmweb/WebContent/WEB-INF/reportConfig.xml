@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reportConfig>
+  <config>
+    <name>logConfig</name>
+    <value>/WEB-INF/runqianReportLog.properties</value>
+  </config>
+  <config>
+    <name>license</name>
+    <value>/WEB-INF/Server2015-06-30 Windows.lic</value>
+  </config>
+  <config>
+    <name>reportFileHome</name>
+    <value>/reportFiles</value>
+  </config>
+  <config>
+    <name>olapGraphProfile</name>
+    <value />
+  </config>
+  <config>
+    <name>olapDir</name>
+    <value>/olap</value>
+  </config>
+  <!-- 
+  <config>
+    <name>semanticsFile</name>
+    <value>/WEB-INF/demo.xml</value>
+  </config>
+   -->
+  <config>
+    <name>JNDIPrefix</name>
+    <value>java:comp/env</value>
+  </config>
+<!--
+  <config>
+    <name>dataSource</name>
+    <value />
+  </config>
+   -->
+  <config>
+    <name>jspCharset</name>
+    <value>UTF-8</value>
+  </config>
+  <config>
+    <name>alwaysReloadDefine</name>
+    <value>yes</value>
+  </config>
+  <config>
+    <name>cachedParamsTimeout</name>
+    <value>120</value>
+  </config>
+  <config>
+    <name>cachedReportDir</name>
+    <value>E:\work\report\cached</value>
+  </config>
+  <config>
+    <name>cachedIdPrefix</name>
+    <value>A</value>
+  </config>
+  <config>
+    <name>cachedReportTimeout</name>
+    <value>120</value>
+  </config>
+  <config>
+    <name>maxCellNum</name>
+    <value>100000</value>
+  </config>
+  <config>
+    <name>maxConcurrentForReport</name>
+    <value>10</value>
+  </config>
+  <config>
+    <name>maxWaitForReport</name>
+    <value>10</value>
+  </config>
+  <config>
+    <name>maxWaitTimeForReport</name>
+    <value>30</value>
+  </config>
+  <config>
+    <name>appUrlPrefix</name>
+    <value />
+  </config>
+  <config>
+    <name>errorPage</name>
+    <value>/myError.jsp</value>
+  </config>
+  
+  	    <jdbc-ds-configs>
+		  <jdbc-ds-config>
+			<name>crm_db</name>
+			<db-type>oracle</db-type>
+			<connection-url>jdbc:oracle:thin:@10.20.34.107:1521:FBDEVDB</connection-url>
+			<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+			<user-name>HY_CRM</user-name>
+			<password>HY_CRM</password>
+			<db-charset>GBK</db-charset>
+			<client-charset>GBK</client-charset>
+			<extend-properties></extend-properties>
+		  </jdbc-ds-config>
+	    </jdbc-ds-configs>
+		
+
+  
+</reportConfig>
+

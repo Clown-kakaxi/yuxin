@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="GBK"?>
+<server-config>
+	<interface><!--接口 -->
+		<listener listenerImpl="com.ytec.mdm.integration.sync.listen.DataBaseEventListener"><!--监听处理类 -->
+			<!-- 同步处理线程池常在线程数 -->
+			<listener_arg key="poolSize">2</listener_arg>
+			<!-- 监听程序启动延迟 (秒)-->
+			<listener_arg key="startTime">3</listener_arg>
+			<!-- 监听周期(秒) -->
+			<!-- <listener_arg key="each">30</listener_arg> -->
+			<listener_arg key="each">5</listener_arg>
+			<!-- 处理一个事件超时时间(毫秒) -->
+			<listener_arg key="dealTimeOut">600000</listener_arg>
+		</listener>
+		<clients><!--客户端 -->
+			<client name="socketClient" destSysNo="SMS"><!--客户端 ,客户端实现类 -->
+				<client_arg key="ip">192.168.1.105</client_arg>
+				<client_arg key="port">8500</client_arg>
+				<client_arg key="url">/ECIF</client_arg>
+				<client_arg key="charset">GB18030</client_arg>
+				<client_arg key="timeout">60000</client_arg>
+				<client_arg key="selecttimeout">3000</client_arg>
+			</client>
+			
+			<client name="socketClient" destSysNo="LN"><!--客户端 ,客户端实现类 -->
+				<client_arg key="ip">192.168.1.105</client_arg>
+				<client_arg key="port">8030</client_arg>
+				<client_arg key="url">/ECIF</client_arg>
+				<client_arg key="charset">GB18030</client_arg>
+				<client_arg key="timeout">60000</client_arg>
+				<client_arg key="selecttimeout">3000</client_arg>
+			</client>
+			
+			<client name="socketClient" destSysNo="CBS"><!--客户端 ,客户端实现类 -->
+				<client_arg key="ip">192.168.1.105</client_arg>
+				<client_arg key="port">8500</client_arg>
+				<client_arg key="charset">GB18030</client_arg>
+				<client_arg key="timeout">60000</client_arg>
+				<client_arg key="selecttimeout">3000</client_arg>
+			</client>
+		</clients>
+		
+	</interface>
+	<constants><!--常量配置 -->
+		<constant class="com.ytec.mdm.base.util.MdmConstants"><!--系统常量配置 -->
+			<!-- 项目组需要重新设置 -->
+			<property name="ROOT_APPLICATION_CONTEXT_FILE">applicationContext.xml</property><!-- Spring配置文件-->
+			<property name="TX_XML_ENCODING">GB18030</property>								<!-- XML编码字符集 -->
+			<property name="MCIDENTIFYING">idUtils</property>								<!-- 客户号，客户标识，技术主键生成规则 -->
+			<property name="COVERINGRULE">coverByValidData</property>						<!-- 覆盖规则 -->
+			<property name="GETCONTIDBYECIFCUSTNO">getContIdByEcifcustno</property>			<!-- ECIF客户号识别 -->
+			<property name="GETCONTIDBYIDENT">getContIdByIdent</property>					<!-- 证件识别 -->
+			<property name="GETCONTIDBYSRCCUSTNO">getContIdBySrccustno</property>			<!-- 原客户号识别 -->
+			<property name="MODEL_PERSONIDENTIFIER">MCiPerIdentifier</property>				<!-- 对私证件业务模型 -->
+			<property name="MODEL_ORGIDENTIFIER">MCiOrgIdentifier</property>				<!-- 对公证件业务模型 -->
+			<property name="COLUMNUTILS">columnUtils</property>			                	<!-- 通用字段处理 -->
+			<property name="QUERY_TX_REQ_PRARM_NODE">//RequestBody</property>           	<!-- 请求报文的条件节点路径，相对根结点 -->
+			<property name="MSG_RESPONSE_BODY">ResponseBody</property>						<!-- 响应报文根节点 -->
+			<property name="formSeq">dual</property>										<!-- 定义DB2的虚表（查询序列时用到） db2:please write 'sysibm.sysdummy1';oracle:please write 'dual' -->
+			<property name="lisenceModel">DEV</property>									<!-- lisence限制级别  DEV,DEP-->
+			<property name="licenseFile">YTEC-0000000026-4-0000000015.lic</property>		<!-- lisence文件  -->
+			<property name="globalTxInfoCtrl">false</property>								<!-- 是否信息分级 -->
+			<property name="txInfoCtrlformat">******</property>								<!-- 信息分级过滤显示 -->
+			<property name="globalTxDefCheck">true</property>								<!-- 是否动态监测交易配置信息更新 -->
+			<property name="txDbLog">true</property>										<!-- 否写日志到数据库 -->
+			<property name="txLogLev">0</property>											<!-- xml请求、响应报文的日志级别 【0为在错误日志和流水日志中都记报文，1为只在错误日志中记报文，2为都不记】 -->
+			<property name="existBusinesskeyError">true</property>							<!-- 请求数据中业务主键字段为空  是否报错，还是过滤 true:报错  false:过滤 -->
+			<property name="isLoadtoMem">false</property>									<!-- 码值，一致性校验信息是否加载内存 -->
+			<property name="checkCustomerStatus">true</property>							<!-- 维护交易是否检查客户状态 -->
+			<property name="NODE_NOGROUP_LIST_SUFFIX">false</property>						<!-- 允许配置结点为单一，但数据为多条 -->
+			<property name="queryMaxsize">20</property>										<!-- 当查询数据为多条时，限定最大返回条数 -->
+			<property name="isSaveHistory">true</property>									<!-- 是否保存历史 -->
+			<property name="chooseSaveHistory">false</property>								<!-- 是否有选择的保留历史 -->
+			
+			<!-- 项目组酌情设置 -->
+			<property name="TX_CUST_PER_TYPE">1</property>									<!-- 客户类型配置  对私为1 -->
+			<property name="TX_CUST_ORG_TYPE">2</property>									<!-- 客户类型配置  对公为2 -->
+			<property name="TX_CUST_BANK_TYPE">3</property>									<!-- 客户类型配置  同业为3 -->
+			<property name="BLANK_FLAG">1</property>										<!-- 空白客户标志 -->
+			<property name="AUTH_TYPE">authType</property>									<!-- 信息分级:授权类型标签名称 -->
+			<property name="AUTH_CODE">authCode</property>									<!-- 信息分级：授权代码标签名称 -->
+			<property name="STATE">1</property>                                       		<!-- 客户正常状态 -->
+			<property name="CUSTID">custId</property>										<!-- 客户标识属性名称即将客户信息表关联起来的字段名称 -->
+			<property name="CUSTID_TYPE">L</property>										<!-- 客户标识类型   S:字符型  L:数值型 -->
+			<property name="INFORCHECKCONVERSION">cstinfcheckrule</property>				<!-- 信息校验转换规则码-->
+			<property name="CUSTOMERIDENTIFICATION">cstidrule</property>					<!-- 客户识别规则码-->
+			<property name="HIS_OPER_TYPE_U">U</property>									<!-- 历史数据保留，操作类型：修改 -->
+			<property name="HIS_OPER_TYPE_D">D</property>									<!-- 历史数据保留，操作类型：删除 -->
+			<property name="HIS_OPER_TYPE_G">G</property>									<!-- 历史数据保留，操作类型：归并 -->
+			<property name="CTRLTYPE_QUERY">Q</property>									<!-- 信息分级：授权类型，查询 -->
+			<property name="CTRLTYPE_WRITE">W</property>									<!-- 信息分级：授权类型，写数据 -->
+			<property name="OPENIDENTFLAG">Y</property>										<!-- 开户证件标志 -->
+			<property name="COMBINE_FLAG">02</property>										<!-- 客户合并状态 -->
+		</constant>
+	</constants>
+	<businessCfg><!--业务配置,加载到内存中 -->
+		<property name="reconfigsv">USR2</property>											<!-- 重新加载配置信号量 -->
+		<property name="appCd">ecif01</property>											<!-- 响应方安全节点号 -->
+		<property name="syncDealMethod">HTTP:httpClient,YCESB:ycEsbClient,WS:wsClient,SOCKET:socketClient</property>  <!-- 同步处理方式与接口类的映射关系 -->
+		<property name="alarmSys">ECIF</property>											<!-- 报警系统 -->
+		<property name="alarmModule">SY</property>											<!-- 报警模块 -->
+	</businessCfg>
+	<extBusinessCfg>
+		<extBusiness class="com.ytec.mdm.interfaces.common.even.EvenSubject" initFun="init" isload="false">				<!--事件通知 -->
+			<property name="TxAlarmEvent">com.ytec.mdm.interfaces.common.even.TxAlarmEvent</property>					<!-- 交易报警通知 -->
+		</extBusiness>
+		<extBusiness class="com.ytec.mdm.interfaces.common.sensitinfo.SensitHelper" initFun="init" isload="false" isSingleton="true">	<!--敏感信息过滤-->
+			<property name="sensitFilterClass">com.ytec.mdm.interfaces.common.sensitinfo.SensitInforXmlFilter</property>				<!-- 敏感信息过滤类名称 -->
+			<property name="sensitiveInfor">identNo,personidentifier,addr</property>													<!-- 敏感信息标签名称-->
+		</extBusiness>
+	</extBusinessCfg>
+	<initializations><!--初始化调用 -->
+		<initialization class="com.ytec.mdm.server.common.BusinessCfg" initFun="init" />
+		<initialization class="com.ytec.mdm.integration.sync.listen.DataSynchroData" initFun="init" />                  <!--数据库配置加载 -->
+		<initialization class="com.ytec.mdm.base.util.EcifPubDataUtils" initFun="initPubData" />						<!--数据库配置加载 -->
+		<initialization class="com.ytec.mdm.integration.check.bs.TxBizRuleFactory" initFun="init" />					<!--校验规则引擎加载-->
+<!-- 		<initialization class="com.ytec.mdm.plugins.synchelper.SyncXmlHelper" initFun="init" />							ECIF报文帮助类配置加载 -->
+	</initializations>
+</server-config>

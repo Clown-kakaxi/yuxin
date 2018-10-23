@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="p_pub" basedir="${workspace}" default="pub-build">
+	<target name="pub-build" description="Tranform the properties files to UTF-8">
+		<!--copy contents下部分系统文件-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/${WebContent}/contents"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents">
+				<include name="commonjs/**" />
+				<include name="css/**" />
+				<include name="demo/**" />
+				<include name="images/**" />
+				<include name="img/**" />
+				<include name="resource/**" />
+				<include name="uploadImages/**" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/${WebContent}/contents/pages"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+				<!-- copy日程管理调用代码  calendarApp下文件-->
+				<include name="calendarApp/extensible-lang-zh_CN.js" />
+				<include name="calendarApp/CalendarStore.js" />
+				<include name="calendarApp/calendarFormCust.js" />
+				<include name="calendarApp/data/calendars-custom.js" />
+				<!-- copy树形结构解析 com.yucheng.bcrm下文件-->
+				<include name="com.yucheng.bcrm/com.yucheng.bcrm.js" />
+				<include name="common/ViewContext.js" />
+				<include name="common/LovCombo.js" />
+				<include name="common/ImportWindow.js" />
+				<include name="common/commonExtPanel.js" />
+				<include name="common/commonEchainPanel.js" />
+				<include name="common/Com.yucheng.crm.cust.ViewWindow.js" />
+				<include name="common/Com.yucheng.crm.common.Upload.js" />
+				<include name="common/Com.yucheng.crm.common.OrgUserManage.js" />
+				<include name="common/Com.yucheng.crm.common.ImpExp.js" />
+				<include name="common/Com.yucheng.bcrm.common.OrgField.js" />
+				<include name="common/Com.yucheng.bcrm.common.CustomerQueryField.js" />
+				<include name="common/Com.yucheng.bcrm.common.CustGroup.js" />
+				<include name="common/Com.yucheng.bcrm.common.Annacommit.js" />
+				<!-- 产品放大镜调用Action 位于web工程中 如何处理-->
+				<include name="common/Com.yucheng.bcrm.common.ProductManage.js" />
+				<!-- copyEXTJS定义js-->
+				<include name="common/Crm-Ext-Extends-1.000-v1.0.js" />
+				<include name="common/Crm-Ext-Patch-1.000-v1.0.js" />
+				<include name="common/Crm-Ext-Patch-Css-1.000-v1.0.css" />
+				<!-- copy前台认证策略js-->
+				<include name="common/Com.yucheng.crm.security.js" />
+				<!--copy前台首页js,jsp -->
+				<include name="common/Com.yucheng.crm.index.js" />
+				<include name="common/includes.jsp" />
+				<!-- copy  domo下文件,经典例子-->
+				<include name="domo/**" />
+				<include name="mxGraph/**" />		
+				<!-- copy  echainCommon下文件,工作流-->
+				<include name="echainCommon/**" />
+				<!-- copy  error下文件-->
+				<include name="error/**" />
+				<!-- copy  ckeditor下文件-->
+				<include name="FinancialInfo/ckeditor/**" />
+	    		<!--copy服务管理下JS,JSP-->
+	    		<include name="finService/**" />
+				<!--copy首页所需JS,JSP-->
+	    		<include name="index/**" />
+	    		<include name="xtIndex/**" />
+				<!--copy工作平台知识库JS,JSP-->
+	    		<include name="repository/**" />
+				<!--copy系统管理JS,JSP-->
+	    		<include name="system/**" />
+	    		<include name="systemManager/**" />
+				<!--copy工作平台JS,JSP     细分时候workLog下的不需要-->
+	    		<include name="workplat/**" />
+	    		<include name="workSpace/**" />
+	    		<include name="dmGraphApplet.jar" />
+				<include name="runqianReport4Applet.jar" />
+			</fileset>
+		</copy>
+		<!-- copy echain所需java类-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/ecc/echain/wf"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/ecc/echain/wf">
+				<include name="**" />
+			</fileset>
+		</copy>	
+
+		<!-- copy日程管理后台调用java类-->
+		<!-- 	<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bcrm/workplat"  preservelastmodified="true">
+					<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bcrm/workplat">
+						<include name="action/WorkingplatformScheduleAction.java" />
+		                <include name="model/WorkingplatformSchedule.java" />
+		                <include name="service/WorkingplatformScheduleService.java" />
+					</fileset>
+		</copy>   -->
+		 <!-- copy前台认证策略调用java类-->
+		 <!--		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bcrm"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bcrm">
+			    <include name="system/action/LoginRolesInfoAction.java" />
+	            <include name="system/model/AdminAuthAccount.java" />
+	            <include name="system/model/AdminAuthPasswordLog.java" />
+	            <include name="system/service/UserManagerService.java" />
+				<include name="common/service/SecGrantService.java" />
+				<include name="common/service/OrgSearchService.java" />
+				<include name="common/action/InitMenuGrantAction.java" />
+			</fileset>
+		</copy>
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/crm"  preservelastmodified="true">
+					<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/crm">
+						<include name="constance/EndecryptUtils.java" />
+						<include name="constance/OperateTypeConstant.java" />
+			            <include name="constance/SystemConstance.java" />
+						<include name="dataauth/model/AuthSysFilter.java" />
+						<include name="dataauth/model/AuthSysFilterAuth.java" />
+						<include name="dataauth/service/FilterLoader.java" />
+						<include name="dataauth/service/DataAuthInfo.java" />
+						<include name="dataauth/managerment/DataAuthManager.java" />
+						<include name="sec/vo/CredentialInfo.java" />
+						<include name="sec/ctxsession/ICtxSessionManager.java" />
+						<include name="sec/common/SecLoaderManager.java" />
+						<include name="sec/common/SystemUserConstance.java" />
+						<include name="sec/credentialstrategy/CredentialStrategy.java" />
+					</fileset>
+		</copy>
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bob"  preservelastmodified="true">
+							<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bob">
+							    <include name="common/LogService.java" />
+					            <include name="model/BIPLogInfo.java" />
+							    <include name="vo/AuthUser.java" />
+							    <include name="vo/IAuser.java" />
+								<include name="core/QueryHelper.java" />
+							</fileset>
+		</copy>
+		-->
+		<!-- copy bcrm下java类-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bcrm"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bcrm">
+				<include name="**" />
+			</fileset>
+		</copy>		
+		<!-- copy   bob下java类-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bob"   preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bob">
+				<include name="**" />
+			</fileset>
+		</copy>	<!-- copy   crm下java类-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/crm"   preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/crm">
+				<include name="**" />
+			</fileset>
+		</copy>
+		<!--copy web下echain后台-->
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/src/com"  preservelastmodified="true">				
+			<fileset dir="${workspace.dir}/${web}/src/com">
+				<include name="yuchengtech/bcrm/action/QueryWorkApprovedAction.java" />	
+				<include name="yuchengtech/bcrm/action/QueryRestApplyWaitAction.java" />	
+				<include name="yuchengtech/bcrm/action/QueryWorkFlowEndAction.java" />	
+			</fileset>
+			</copy>
+	</target>
+</project>

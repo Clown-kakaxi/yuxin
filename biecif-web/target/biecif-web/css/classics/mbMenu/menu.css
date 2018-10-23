@@ -1,0 +1,224 @@
+.mbmenu {
+	display: none;
+}
+
+.menuMain {
+	
+}
+/**未选中菜单块样式**/
+.rootVoices {
+	
+}
+
+#rootVoiceDiv {
+	width: 100%;
+	height: 30px;
+	display: block;
+	overflow: hidden;
+}
+
+.rootVoices #rootVoiceContent {
+	position: relative;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: url("./images/bgnd_sel_2.jpg");
+}
+
+/**被选中的一级菜单**/
+.rootVoices #rootVoiceContent.selected {
+	background: url("./images/bgnd_sel_4.jpg") repeat scroll 0 0;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 12px;
+	text-shadow: 1px 1px 1px #333333;
+	word-break: keep-all;
+}
+
+.rootVoices .rightside {
+	width: 15px;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+.rootVoices .selected_prev {
+	background:
+		url("../../../images/classics/menu/menu_bg_rootVoiceSide_selected_prev.png");
+}
+
+.rootVoices .noselected {
+	background:
+		url("../../../images/classics/menu/menu_bg_right_default.png");
+}
+
+.rootVoices .selected_next {
+	background:
+		url("../../../images/classics/menu/menu_bg_rootVoiceSide_selected_next.png");
+}
+
+.rootVoices .last {
+	background:
+		url("../../../images/classics/menu/menu_bg_rootVoiceSide_last.png");
+}
+
+.rootVoices .last_selected {
+	background:
+		url("../../../images/classics/menu/menu_bg_rootVoiceSide_last_selected.png");
+}
+
+.rootVoices #rootVoiceSideFirst {
+	width: 15px;
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+
+.rootVoices #rootVoiceSideFirst.first {
+	background:
+		url("../../../images/classics/menu/menu_bg_rootVoiceSide_first.png");
+}
+
+.rootVoices #rootVoiceSideFirst.first_selected {
+	background:
+		url("../../../images/classics/menu/menu_bg_rootVoiceSide_first_selected.png");
+}
+
+/*未选中样式*/
+.rootVoices td.rootVoice {
+	background-color: transparent;
+	color: #5F5F5F;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 30px;
+	vertical-align: middle;
+	word-break: keep-all;
+	overflow: hidden;
+	text-align: center;
+}
+/*被选中样式(此样式废弃不再使用)*/
+.rootVoices td.rootVoice.selected {
+	background: url("./images/bgnd_sel_2.jpg") repeat scroll 0 0;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 12px;
+	word-break: keep-all;
+	overflow: hidden;
+	text-align: center;
+	line-height: 30px;
+	filter: glow(color =   black, strength =   5);
+}
+/*被点击样式*/
+.rootVoices td.rootVoice.mouseDown {
+	background: url("./images/bgnd_sel_2.jpg") repeat scroll 0 0;
+	box-shadow: 2px 2px 10px #999999;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 12px;
+	text-shadow: 1px 1px 1px #333333;
+	word-break: keep-all;
+	overflow: hidden;
+	text-align: center;
+	line-height: 30px;
+}
+
+.rootVoices.vertical {
+	width: 140px;
+}
+
+.rootVoices.vertical td.rootVoice {
+	border-radius: 8px 0 0 8px;
+}
+
+.menuShadow {
+	left: -2px;
+	padding: 2px 2px 0;
+	top: 1px;
+}
+
+.menuContainer {
+	background-color: gray;
+	box-shadow: 2px 2px 10px #999999;
+	padding: 0;
+}
+
+.menuContainer .line {
+	width: 100%;
+}
+
+.menuContainer .line.title {
+	background-color: #999999;
+	border-bottom: 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.menuContainer .line.title a {
+	font-size: 14px;
+}
+
+.menuContainer td a {
+	text-decoration: none;
+}
+
+.menuContainer td.voice {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 7px;
+}
+
+.menuContainer .separator {
+	background-color: #999999;
+	height: 1px;
+}
+
+.menuContainer td.img {
+	background-color: transparent;
+	color: #C3C3C3;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+	width: 24px;
+}
+
+.menuContainer td.img img {
+	width: 20px;
+}
+
+.menuContainer .textBox {
+	color: #C3C3C3;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 10px;
+}
+
+.menuContainer .selected td {
+	background-color: #F3F3F3;
+	background-image: url("./images/bgnd_sel_2.jpg");
+}
+
+.menuContainer .selected td a {
+	color: #000000;
+	text-shadow: 2px 2px 1px #FFFFFF;
+}
+
+.menuContainer .disabled td,.menuContainer .disabled td a {
+	color: #CCCCCC;
+}
+
+.menuContainer .subMenuOpener {
+	background-image: url("./images/menuArrow_w.gif");
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+
+.menuContainer .selected .subMenuOpener {
+	background-image: url("./images/menuArrow.gif");
+	background-position: right center;
+	background-repeat: no-repeat;
+}

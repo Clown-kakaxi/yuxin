@@ -1,0 +1,5 @@
+<chart subcaption="2012年6月30日"  formatNumberScale='0'   baseFontSize="13">
+	<set label='存款业务' value='27400' />
+	<set label='贷款业务' value='39800' />
+	<set label='中间业务' value='21800' />
+</chart>

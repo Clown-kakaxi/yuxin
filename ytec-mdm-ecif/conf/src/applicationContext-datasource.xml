@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.1.xsd  http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.1.xsd  http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<!-- 定义属性配置文件 -->
+	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+	<!-- 数据库用户名密码加密 -->
+	<bean class="com.ytec.mdm.base.util.PropertyPlaceholderConfigurerExt">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="encryption" value="false" /><!--是否 数据库用户名密码加密 ,用com.ytec.mdm.base.util.PropertyPlaceholderConfigurerExt中自带的加密工具加密-->
+		<property name="locations">
+			<list>
+				<!-- 数据库配置 -->
+				<value>classpath*:/jdbc.properties</value>
+				<!-- 可以配置多个 -->
+				<value>classpath*:/bip.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 开启annotation 自动扫描注册bean, 扫描@Service 类-->
+	<context:component-scan base-package="com.ytec" >
+  		<context:include-filter type="regex" expression=".mdm.*"/>
+  		<context:include-filter type="regex" expression=".fubonecif.*"/>
+	</context:component-scan>
+
+	<!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 数据库连接JDBC驱动名称 -->
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<!-- 数据库连接URL地址 -->
+		<property name="url" value="${jdbc.url}" />
+		<!-- 数据库连接用户名 -->
+		<property name="username" value="${jdbc.username}" />
+		<!-- 数据库连接密码 -->
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池启动时的初始值-->
+		<property name="initialSize" value="${dbcp.initialSize}" />
+		<!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请。-->
+		<property name="minIdle" value="${dbcp.minIdle}" />
+		<!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止。-->
+		<property name="maxIdle" value="${dbcp.maxIdle}" />
+		<!-- 连接池的最大值-->
+		<property name="maxActive" value="${dbcp.maxActive}" />
+		<!-- 最大等待秒数，单位为毫秒， 超过时间会报出错误信息 -->
+		<property name="maxWait" value="${dbcp.maxWait}" />
+		<!-- 设置从数据源中返回的连接是否采用自动提交机制，默认值为 true -->
+		<property name="defaultAutoCommit" value="false" />
+		<!-- 取出连接时进行有效验证-->
+		<property name="testOnBorrow" value="true" />
+		<!-- 空闲时是否进行验证，检查对象是否有效 -->
+		<property name="testWhileIdle" value="true" />
+		<!-- 返回对象时是否进行验证 -->
+		<!-- <property name="testOnReturn" value="true" /> -->
+		 <!--给出一条简单的sql语句进行验证-->
+  		<property name="validationQuery" value="${dbcp.validationQuery}" />
+		<!-- 强制自我中断避免dbcp自身bug出现连接过久资源耗尽 -->
+		<property name="removeAbandoned" value="${dbcp.removeAbandoned}" />
+		<!-- 自我中断时间秒 -->
+  		<property name="removeAbandonedTimeout" value="${dbcp.removeAbandonedTimeout}" />
+  		<!-- 记录中断事件 -->
+  		<property name="logAbandoned" value="${dbcp.logAbandoned}" />
+ 		<!--运行判断连接超时任务的时间间隔，单位为毫秒，默认为-1，即不执行任务。 -->
+		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+		 <!--连接的超时时间，默认为半小时。 -->
+		<property name="minEvictableIdleTimeMillis" value="3600000" />
+
+	</bean>
+
+	<!-- 数据源配置,使用应用服务器的数据库连接池 -->
+	<!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/ExampleDB" 
+		/> -->
+
+	<!-- 定义 entityManager Factory -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 扫描实体类 -->
+		<property name="packagesToScan">
+			<list>
+              <value>com.ytec.mdm.domain.txp</value><!-- 平台模型 -->
+              <value>com.ytec.mdm.domain.biz</value><!-- 业务模型 -->
+              <value>com.ytec.fubonecif.domain</value><!-- 客户化业务模型 -->
+            </list>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+				<prop key="hibernate.id.new_generator_mappings">true</prop>
+				<!-- 对DDL的自动生成方式 ,自动创建|更新|验证数据库表结构,与jpaVendorAdapter中generateDdl设置相符-->
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<!-- JDBC批量更新的大小，建议设置为5～30之间的值，默认为5 -->
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+				<!-- JDBC抓取记录的大小，相当于设置Statement.setFetchSize()，默认值为25 -->
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+			</props>
+		</property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<!-- JPA数据库操作是否打印SQL -->
+				<property name="showSql" value="${jpa.showSql}" />
+				<!-- JPA是否操作DDL语句 -->
+				<property name="generateDdl" value="${jpa.generateDdl}" />
+				<!-- 数据库使用方言 -->
+				<property name="databasePlatform" value="${jpa.databasePlatform}" />
+			</bean>
+		</property>
+		<property name="loadTimeWeaver">
+			<bean
+				class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+	</bean>
+
+	<!-- 自动注入entityManager，保证@PersistenceContext可用 -->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<!-- 自动注入entityManager，保证@PersistenceContext可用 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+</beans>

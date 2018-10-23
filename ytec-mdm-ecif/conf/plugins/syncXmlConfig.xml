@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messageAnalysis>
+	<syncFuns><!-- 响应报文数据的处理函数 -->
+		<syncFun name="Date" class="com.ytec.mdm.plugins.synchelper.util.SyncDate" />
+		<syncFun name="SyncMany2one" class="com.ytec.mdm.plugins.synchelper.util.SyncMany2one" />
+		<syncFun name="SyncMany2Many" class="com.ytec.mdm.plugins.synchelper.util.SyncMany2Many" />
+		<syncFun name="SyncOne2many" class="com.ytec.mdm.plugins.synchelper.util.SyncOne2many" />
+		<syncFun name="SyncRemoveElement" class="com.ytec.mdm.plugins.synchelper.util.SyncRemoveElement" />
+	</syncFuns>
+	<messageTemplet name="temp1">
+		<syncXml>synctemp1.xml</syncXml><!-- 同步请求报文模板文件 -->
+	</messageTemplet>
+</messageAnalysis>

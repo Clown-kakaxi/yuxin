@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <mapping path="/admin/login!logon.xhtml" exclude="true"/>
+    <mapping path="/**/*.json" exclude="true"/>
+    <mapping path="/**/*.xml" exclude="true"/>
+    <mapping path="/**/*.js" exclude="true"/>
+    <mapping path="/**/*.css" exclude="true"/>
+    <mapping path="/images/*" exclude="true"/>
+</sitemesh>

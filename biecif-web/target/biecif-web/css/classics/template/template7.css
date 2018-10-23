@@ -1,0 +1,17 @@
+#left {
+	float: left;
+	width: 20%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #D6D6D6;
+}
+#right {
+	width: 79%;
+	float: right;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #D6D6D6;
+}
+#tree{
+	background-color: #F1F1F1;
+}

@@ -1,0 +1,39 @@
+
+<chart caption='房屋价格走势'  xAxisName='日期' yAxisName='价格指数' formatNumberScale='0'>
+	<categories>
+	  	<category name='2010-01' />
+		<category name='2010-05' />
+		<category name='2010-09' />
+		<category name='2011-02' />
+		<category name='2011-07' />
+		<category name='2011-11' />
+		<category name='2012-01' />
+	</categories>
+	<dataset SeriesName='国房景气指数' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='110' />
+		<set id='a3' value='130' />
+		<set id='a4' value='124'/>
+		<set id='a5' value='123'/>
+		<set id='a6' value='115'/>
+		<set id='a7' value='152'/>
+		<set id='a8' value='132'/>		
+	</dataset>
+	<dataset SeriesName='土地开发面积指数 ' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='121' />
+		<set id='a3' value='142' />
+		<set id='a4' value='135'/>
+		<set id='a5' value='152'/>
+		<set id='a6' value='122'/>
+		<set id='a7' value='110'/>
+		<set id='a8' value='130'/>		
+	</dataset>
+	<dataset SeriesName='销售指数 ' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='110' />
+		<set id='a3' value='100' />
+		<set id='a4' value='124'/>
+		<set id='a5' value='143'/>
+		<set id='a6' value='138'/>
+		<set id='a7' value='129'/>
+		<set id='a8' value='142'/>		
+	</dataset>
+</chart> 

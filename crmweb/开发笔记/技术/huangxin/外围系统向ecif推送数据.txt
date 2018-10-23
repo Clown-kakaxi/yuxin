@@ -1,0 +1,17 @@
+网银向ecif推送数据，ecif接口配置在tx_def表中  
+其中TX_CODE为交易标识  TX_DEAL_CLASS为交易处理类，业务处理都在这里进行。
+-- 修改个人客户基本信息处理类  UpdateByGeneral --》UpdateGeneral 中的updateRedundance方法通过报文节点获取信息
+
+调用方法:
+向ecif服务器监听的端口发送报文就可以
+ECIF.IP=10.20.34.108
+ECIF.PORT=9500
+
+
+
+ecif向CRM同步数据在表tx_sync_conf中
+其中TX_CODE为交易标识  SRC_SYS_NO为源系统  DEST_SYS_NO为目标系统  
+SYNC_DEAL_CLASS为同步处理类，业务处理都在这里进行
+修改个人客户基本信息的同步处理类  --> FubonSynchroHandler4CRM
+
+

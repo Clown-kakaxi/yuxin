@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <emp>3.0</emp>
+  <packageName>com.yuchengtech.emp</packageName>
+  <description/>
+  <navigator name="biapp4-comp工程">
+    <node child="logical" name="应用代码" path="/src/main/java" type="1">
+      <node child="physical" name="模块1" path="/com/yuchengtech/emp/bione" type="11"/>
+      <node child="physical" name="模块2" path="/com/yuchengtech/emp/core" type="11"/>
+      <node child="physical" name="模块3" path="/com/yuchengtech/emp/log" type="11"/>
+      <node child="physical" name="模块4" path="/com/yuchengtech/emp/utils" type="11"/>
+    </node>
+    <node child="mix" name="应用资源" path="/src/main/resources" type="2">
+      <node child="physical" name="连接器" path="/connector" type="21"/>
+    </node>
+    <node child="mix" name="页面代码" path="/src/main/webapp" type="3"/>
+    <node child="logical" name="测试代码" path="/src/test/java" type="4">
+      <node child="physical" name="模块1" path="/com/yuchengtech/emp/bione" type="11"/>
+      <node child="physical" name="模块2" path="/com/yuchengtech/emp/core" type="11"/>
+      <node child="physical" name="模块3" path="/com/yuchengtech/emp/log" type="11"/>
+      <node child="physical" name="模块4" path="/com/yuchengtech/emp/utils" type="11"/>
+    </node>
+    <node child="physical" name="测试资源" path="/src/test/resources" type="5"/>
+    <node child="physical" name="数据库资源" path="/db" type="6"/>
+    <node child="physical" name="文档" path="/doc" type="7"/>
+  </navigator>
+</project>

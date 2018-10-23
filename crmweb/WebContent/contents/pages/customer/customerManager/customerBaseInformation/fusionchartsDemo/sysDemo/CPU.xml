@@ -1,0 +1,4 @@
+<chart   formatNumberScale='0' >
+	<set label='已使用' value='40' />
+	<set label='未使用' value='60' />
+</chart>

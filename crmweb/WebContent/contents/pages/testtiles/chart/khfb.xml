@@ -1,0 +1,11 @@
+<chart   formatNumberScale='0' >
+	<set label='A类' value='41000' />
+	<set label='B类' value='1000' />
+	<set label='C类' value='7000' />
+	<set label='D类' value='1000' />
+	<set label='E类' value='2000' />
+	<set label='F类' value='30000' />
+	<set label='G类' value='7000' />
+	<set label='未评级' value='9000' />
+	<set label='缓冲期' value='1000' />
+</chart>

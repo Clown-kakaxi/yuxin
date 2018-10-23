@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="GBK"?>
+<wfs>
+   <wf id="134" status="A" orgid="500" sysid="echaindefault" name="个金潜在客户来源渠道复核">
+      <property name="wfsign" value="latentSourceChannel"></property>
+      <property name="wfout" value=""></property>
+      <property name="wfchange" value="0"></property>
+      <property name="wftimelimitnotification" value="0"></property>
+      <property name="ver" value="V1.0"></property>
+      <property name="delafterend" value="0"></property>
+      <property name="wfreaders" value="A.05"></property>
+      <property name="author" value="admin"></property>
+      <property name="wfcreatetime" value="2016-03-23 17:42:28"></property>
+      <property name="orgid" value="500"></property>
+      <property name="overdueext" value=""></property>
+      <property name="wfsort" value="${ALL}"></property>
+      <property name="wfappname" value="信用评级"></property>
+      <property name="wfwake" value="0"></property>
+      <property name="sysid" value="echaindefault"></property>
+      <property name="appextclass" value=""></property>
+      <property name="wftimelimitrepeattimes" value="0"></property>
+      <property name="wftimelimitrepeat" value=""></property>
+      <property name="wfver" value="V0008"></property>
+      <property name="wfreturnback" value="1"></property>
+      <property name="readersafterend" value="8"></property>
+      <property name="wfinitiators" value="0"></property>
+      <property name="overduetreat" value="0"></property>
+      <property name="wfcondition" value=""></property>
+      <property name="wfagent" value="0"></property>
+      <property name="wfagain" value="0"></property>
+      <property name="wfid" value="134"></property>
+      <property name="wftype" value="0"></property>
+      <property name="wfdurationtime" value=""></property>
+      <property name="wfurge" value="0"></property>
+      <property name="wfrecall" value="1"></property>
+      <property name="wfdescription" value="个金潜在客户来源渠道复核"></property>
+      <property name="wfhangup" value="0"></property>
+      <property name="wfjump" value="0"></property>
+      <property name="wftimelimitefficient" value=""></property>
+      <property name="wfmainformid" value="xypj_apply"></property>
+      <property name="wfname" value="个金潜在客户来源渠道复核"></property>
+      <property name="wfmainformname" value="评级申请单"></property>
+      <property name="wfin" value=""></property>
+      <property name="wfadmin" value="U.admin"></property>
+      <property name="depid" value=""></property>
+      <property name="wfappid" value="xypj"></property>
+      <property name="wfstatus" value="A"></property>
+      <variable></variable>
+      <flowappext>
+         <property name="txtExtcancel" value="String ClassName=&quot;com.ecc.echain.wf.Latentsource&quot;;String Method=&quot;endCB&quot;;Reflector.dynamicInvoke(ClassName,Method,obj);"></property>
+      </flowappext>
+      <node id="134_a4" type="A" name="个金AO主管">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a4"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="2"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="个金AO主管"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.310;A.06"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_20">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a4"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_20"></property>
+            <property name="noderouternodeid" value="134_a5"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_23">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a4"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_23"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a5" type="A" name="总行个金财管专员">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a5"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="总行个金财管专员"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.125"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_22">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a5"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_22"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <route id="134_24">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a5"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_24"></property>
+            <property name="noderouternodeid" value="134_a7"></property>
+            <property name="method" value=""></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a7" type="A" name="个金部门主管">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a7"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="个金部门主管"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.122"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_26">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=" com.ecc.echain.wf.Latentsourc"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a7"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_26"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <route id="134_25">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="1"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a7"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_25"></property>
+            <property name="noderouternodeid" value="134_e6"></property>
+            <property name="method" value="endY"></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a3" type="A" name="个金RM,个金AO主管">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a3"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="个金RM,个金AO主管"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.310;R.303;A.01"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_38">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a3"></property>
+            <property name="routecondition" value="boolean b=true;String flagv=(String)obj.paramMap.get(&quot;flag&quot;);String role=(String)obj.paramMap.get(&quot;role&quot;);if(flagv.equals(&quot;0&quot;)&amp;&amp;role.equals(&quot;R310&quot;))b=true;else{return false;}return b;"></property>
+            <property name="routeid" value="134_38"></property>
+            <property name="noderouternodeid" value="134_a5"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_19">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a3"></property>
+            <property name="routecondition" value="boolean b=true;String flagv=(String)obj.paramMap.get(&quot;flag&quot;);String role=(String)obj.paramMap.get(&quot;role&quot;);if(flagv.equals(&quot;0&quot;)&amp;&amp;role.equals(&quot;R303&quot;))b=true;else{return false;}return b;"></property>
+            <property name="routeid" value="134_19"></property>
+            <property name="noderouternodeid" value="134_a4"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_27">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a3"></property>
+            <property name="routecondition" value="boolean b=true;String flagv=(String)obj.paramMap.get(&quot;flag&quot;);String role=(String)obj.paramMap.get(&quot;role&quot;);if(flagv.equals(&quot;1&quot;)&amp;&amp;role.equals(&quot;R303&quot;))b=true;else{return false;}return b;"></property>
+            <property name="routeid" value="134_27"></property>
+            <property name="noderouternodeid" value="134_a8"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_40">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a3"></property>
+            <property name="routecondition" value="boolean b=true;String flagv=(String)obj.paramMap.get(&quot;flag&quot;);String role=(String)obj.paramMap.get(&quot;role&quot;);if(flagv.equals(&quot;1&quot;)&amp;&amp;role.equals(&quot;R310&quot;))b=true;else{return false;}return b;"></property>
+            <property name="routeid" value="134_40"></property>
+            <property name="noderouternodeid" value="134_a9"></property>
+            <property name="method" value=""></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a8" type="A" name="AO主管">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a8"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="2"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="AO主管"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.310;A.06"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_28">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a8"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_28"></property>
+            <property name="noderouternodeid" value="134_a9"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_35">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a8"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_35"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a9" type="A" name="总行个金财管专员">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a9"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="总行个金财管专员"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.125"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_29">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a9"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_29"></property>
+            <property name="noderouternodeid" value="134_a10"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_34">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a9"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_34"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a11" type="A" name="个金执行长">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a11"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="个金执行长"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.124"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_31">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="1"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a11"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_31"></property>
+            <property name="noderouternodeid" value="134_e6"></property>
+            <property name="method" value="endY"></property>
+         </route>
+         <route id="134_32">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a11"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_32"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_e6" type="E" name="同意">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_e6"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="E"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="同意"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="结束节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value=""></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_s1" type="S" name="开始">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_s1"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="S"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="开始"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="开始节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value=""></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_18">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_s1"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_18"></property>
+            <property name="noderouternodeid" value="134_a3"></property>
+            <property name="method" value=""></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_e2" type="E" name="否决">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_e2"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="E"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="否决"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="结束节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value=""></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+      <node id="134_a10" type="A" name="个金部门主管">
+         <property name="nodeusesubwf" value="0"></property>
+         <property name="nodeusersassign" value="0"></property>
+         <property name="nodeweigh" value="0"></property>
+         <property name="noderecallset" value="0"></property>
+         <property name="nodepowercontrol" value=""></property>
+         <property name="nodeurgeset" value="0"></property>
+         <property name="nodetransfercondition" value=""></property>
+         <property name="nodetimelimitrepeattimes" value="0"></property>
+         <property name="nodeannounceset" value="0"></property>
+         <property name="nodesign" value=""></property>
+         <property name="nodeid" value="134_a10"></property>
+         <property name="nodeafterduration" value="0"></property>
+         <property name="repeatersign" value="0"></property>
+         <property name="nodeassist" value="0"></property>
+         <property name="nodetype" value="A"></property>
+         <property name="nodevicarset" value="0"></property>
+         <property name="overdueext" value=""></property>
+         <property name="nodeuserscompute" value="0"></property>
+         <property name="nodeeditcontrol" value="0"></property>
+         <property name="nodename" value="个金部门主管"></property>
+         <property name="nodetimelimitefficient" value=""></property>
+         <property name="nodedescription" value="人工节点"></property>
+         <property name="nodecallbackset" value="0"></property>
+         <property name="nodereturnbackset" value="0"></property>
+         <property name="nodeformid" value=""></property>
+         <property name="nodetimelimitnotification" value="0"></property>
+         <property name="nodereaderscontrol" value="0"></property>
+         <property name="nodereaderslist" value=""></property>
+         <property name="nodeuserslist" value="R.122"></property>
+         <property name="subwfid" value=""></property>
+         <property name="classname" value=""></property>
+         <property name="wfid" value="134"></property>
+         <property name="nodereturnreceiptscope" value="0"></property>
+         <property name="nodetodonotice" value="0"></property>
+         <property name="nodegather" value="0"></property>
+         <property name="noderoutertype" value="0"></property>
+         <property name="nodelevel" value="0"></property>
+         <property name="nodetransacttype" value="0"></property>
+         <property name="nodechangeset" value="0"></property>
+         <property name="noderunscript" value=""></property>
+         <property name="$ext_scene" value="0"></property>
+         <property name="nodetimelimitrepeat" value=""></property>
+         <property name="nodedurationtime" value=""></property>
+         <property name="method" value=""></property>
+         <property name="meetingsign" value="0"></property>
+         <property name="taskstrategy" value=""></property>
+         <property name="nodeannounceuser" value=""></property>
+         <route id="134_30">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value=""></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="0"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a10"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_30"></property>
+            <property name="noderouternodeid" value="134_a11"></property>
+            <property name="method" value=""></property>
+         </route>
+         <route id="134_33">
+            <property name="routerunscriptsign" value="0"></property>
+            <property name="routeseq" value=""></property>
+            <property name="classname" value="com.ecc.echain.wf.Latentsource"></property>
+            <property name="wfid" value="134"></property>
+            <property name="spstatus" value="2"></property>
+            <property name="routename" value=""></property>
+            <property name="routerunscript" value=""></property>
+            <property name="appsign" value=""></property>
+            <property name="nodeid" value="134_a10"></property>
+            <property name="routecondition" value=""></property>
+            <property name="routeid" value="134_33"></property>
+            <property name="noderouternodeid" value="134_e2"></property>
+            <property name="method" value="endN"></property>
+         </route>
+         <field id="content" name="内容" type="F" control="1"></field>
+         <field id="title" name="标题" type="F" control="1"></field>
+      </node>
+   </wf>
+</wfs>
+

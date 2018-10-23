@@ -1,0 +1,10 @@
+<chart caption='国结业务量客户规模分析' showPercentValues='1'>
+   <set label='5亿以上' value='1000' />
+   <set label='1亿至5亿' value='20000' />
+   <set label='5000万至1亿' value='80000' />
+   <set label='1000万至5000万' value='3000000' />
+   <set label='500万至1000万' value='810000' />
+   <set label='100万至500万' value='510000' />
+   <set label='50万至100万' value='2680000' />
+   <set label='50万以下' value='620000' />
+</chart>

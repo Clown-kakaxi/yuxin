@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="p_buildpatch" basedir="${workspace}" default="patch-build">
+	<target name="patch-build" description="build project patch...">
+	<!-- 前台JS以及JSP-->
+		<echo message="------------------------------------------------------"/>
+		<echo message=" add the patch code list"/>
+		<echo message="------------------------------------------------------"/>
+		<!--
+		<copy todir="${workspace.dir}/${outwar.dir}/${web}/${WebContent}/contents/pages/common">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages/common">
+		    	<include name="/includes.jsp" />
+		 	</fileset>
+		</copy>
+		-->
+		<!-- 后台JAVA-->
+		<!--
+		<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bob">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bob">
+		    	<include name="vo/**" />
+			</fileset>
+		</copy>
+		<target name="All" depends="clean,build" description="Clean,build"/>
+		-->
+	</target>
+</project>

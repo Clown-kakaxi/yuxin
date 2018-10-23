@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Chart palette="3" caption="业绩完成情况" subcaption="2012年6月30日"  bgColor="#FFFFFF" bgAlpha="0"  showLegend="1" lowerLimit="0" gaugeOuterRadius="70" majorTMHeight='18' minorTMHeight='10' showBorder='0'  showGaugeBorder='1' upperLimit="100" gaugeStartAngle="240" gaugeEndAngle="-60" gaugeInnerRadius="60%" gaugeFillMix="{light-10},{light-30},{light-20},{dark-5},{color},{light-30},{light-20},{dark-10}" gaugeFillRatio="0" baseFontColor="#000000" toolTipBgColor="#FFFFFF" toolTipBorderColor="#FFFFFF" decimals="1">
+<colorRange>
+  <color minValue="0" maxValue="25" /> 
+  <color minValue="25" maxValue="50" /> 
+  <color minValue="50" maxValue="75" /> 
+  <color minValue="75" maxValue="100" /> 
+  </colorRange>
+<dials>
+  <dial id="Dial1" value="70.0" baseWidth="6" color="#FF0000" topWidth="1" editMode="0" showValue="1" rearExtension="10"  /> 
+  <dial id="Dial2" value="20.0" color="#99bbe8" baseWidth="6" topWidth="1" editMode="0" rearExtension="10" showValue="1"  /> 
+  </dials>
+  
+<annotations>
+      <annotationGroup id='Grp1' showBelow='3' >
+         
+         <annotation type='text' label="贷款业绩指标" x='113' y='207' bold="1" color='#000000 ' size="13" />
+      </annotationGroup>
+</annotations>
+
+<styles>
+<definition>
+  <style type="font" name="valueFont" borderColor="#FFFFFF" bold="0" size="13"  /> 
+  <style type="font" font="Arial" name="labelFont" borderColor="#FFFFFF" bold="0"   />
+  </definition>
+<application>
+  <apply toObject="value" styles="valueFont" /> 
+  <apply toObject="label" styles="labelFont" /> 
+  </application>
+  </styles>
+</Chart>

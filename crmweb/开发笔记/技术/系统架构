@@ -1,0 +1,48 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+目前系统使用的是：ExtJs3+Struts2+eclipselink2.1+Spring3+Spring Security3
+页面展示使用基于ExtJs3开发的Wlj,通过配置生产功能页面
+控制层使用的Struts2
+    1.所有Action均继承自BaseAction
+    2.BaseAction里提供常用、通用特性，并继承或实现Struts2相关的类或接口
+    2.本项目的BaseAction的用法跟以往的用法有些异同
+      1).经常在网上看到的是继承ActionAupport
+      2).项目里的做法是继承ValidationAwareSupport，实现ModelDriven接口
+      3).提供了默认的分页属性start和limit,页面传入的这两个参数会自动被注入到这里，不需要单独的接受，子类Action可以直接使用
+    3.采用RESTFull风格
+      1).所有不指定方法名的GET方式的请求都会指向Action里的index方法(如无特殊情况，子类不覆写BaseAction里的index方法)
+      2).BaseAction里的index方法提供了简便的查询处理方式，在调用index时，在prepare方法里，所有查询条件会自动设置到BaseAction的json属性里
+                       也就是说，默认情况下可以直接使用this.json.get(key)获取查询条件的参数
+                       需要注意的是，这个区别于request.getParameter(key)，查询面板生成的参数会被包装在了condition对象里，再将condition作为参数发送请求
+         request.getParameter("condition") = this.json
+                        这个可以自行在谷歌浏览器的Network标签页下Header标签页监测所请求参数情况
+      3).index方法里会先处理查询条件，将查询条件转到this.json里 ，然后调用prepare,最后处理分页条件已经将查询结果封装成List<Map>
+         prepare里主要负责编写SQL,注意是原生SQL,可以使用configCondition配置筛选条件，也可以直接拼接SQL
+         configCondition(SQL比较字段,比较条件,this.json里参数值对应的key,数据类型);
+                        例如：
+            SQL=sb.toString();
+            datasource = ds;
+            for (String key : this.getJson().keySet()) {
+                if (null != this.getJson().get(key) && !this.getJson().get(key).equals("")) {
+                    if (key.equals("TEXT")){
+                        configCondition("a.text", "like", "TEXT",DataType.String);
+                    }else if (key.equals("VALID_DT")){
+                        configCondition("to_char(a.valid_dt,'yyyy-MM-dd hh24:mi')", "like", "VALID_DT",DataType.String);
+                    }
+                }
+            }
+            setPrimaryKey("a.create_dt desc");
+                       排序字段，可以使用setPrimaryKey，也可以直接拼接SQL
+      4).在RESTFull风格下，所有方法不设置返回值，全部为void,所有需要返回的数据均设置到this.json里,系统会自动返回这些数据
+                        如果需要返回的是Map,可以直接使用this.json = xxxMap;
+                        如果需要返回的不是Map,则需要包装一个Map:
+         if(this.json==null){
+            this.json = new HashMap<String,Object>();
+         }
+         this.json.put("data", list);
+      
+      
+获取当前登录用户信息：
+AuthUser auth=(AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

@@ -1,0 +1,7 @@
+<chart   formatNumberScale='0' >
+	<set label='普通风险' value='200' />
+	<set label='高风险' value='100' />
+	<set label='低风险' value='80' />
+	<set label='中高风险' value='70' />
+	<set label='中低风险' value='160' />
+</chart>

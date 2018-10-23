@@ -1,0 +1,47 @@
+﻿<chart palette="2" caption="规划总览" subcaption="" showvalues="0" xAxisName="" yAxisName="金额"  formatNumberScale='0'  >
+−
+<categories>
+<category name="购房"/>
+<category name="购车"/>
+<category name="养老"/>
+<category name="基金"/>
+<category name="现金"/>
+</categories>
+−
+<dataset id="IJ" seriesName="投资总额">
+<set id="IJ2005" value="240000" allowDrag="0"/>
+<set id="IJ2006" value="80000" allowDrag="0"/>
+<set id="IJ2007" value="260000" allowDrag="0"/>
+<set id="IJ2008" value="60000" allowDrag="0" />
+<set id="IJ2009" value="30000" allowDrag="0" />
+</dataset>
+−
+<dataset id="TZ" seriesName="目标金额">
+<set id="TZ2005" value="500000" allowDrag="0"/>
+<set id="TZ2006" value="60000" allowDrag="0"/>
+<set id="TZ2007" value="500000" allowDrag="0"/>
+<set id="TZ2008" value="55000" allowDrag="0" />
+<set id="TZ2009" value="45000" allowDrag="0" />
+</dataset>
+
+<dataset id="JX" seriesName="绩效总额">
+<set id="JX2005" value="300000" allowDrag="0"/>
+<set id="JX2006" value="75000" allowDrag="0"/>
+<set id="JX2007" value="280000" allowDrag="0"/>
+<set id="JX2008" value="70000" allowDrag="0" />
+<set id="JX2009" value="35000" allowDrag="0" />
+</dataset>
+
+<styles>
+−
+<definition>
+<style name="myCaptionFont" type="font" font="Arial" size="14" bold="1"/>
+<style name="mySubCaptionFont" type="font" font="Arial" size="10" bold="0"/>
+</definition>
+−
+<application>
+<apply toObject="Caption" styles="myCaptionFont"/>
+<apply toObject="SubCaption" styles="mySubCaptionFont"/>
+</application>
+</styles>
+</chart>

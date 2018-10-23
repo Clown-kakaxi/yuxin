@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GB18030"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="www.yuchengtech.com.cn">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<ns:S007001990ECIF01>
+			<ResponseHeader>
+				<VerNo>1.0</VerNo>
+				<RespSysCd>ecif01</RespSysCd>
+				<RespSecCd>0101001</RespSecCd>
+				<TxnCd></TxnCd>
+				<ReqDt>#{head:ReqDt}</ReqDt><!-- #开头表示该数据来自请求报文 -->
+				<ReqTm>#{head:ReqTm}</ReqTm>
+				<ReqSeqNo>#{head:ReqSeqNo}</ReqSeqNo>
+				<SvrDt>${Date(yyyyMMdd)}</SvrDt><!-- $开头表示该数据来自函数处理 -->
+				<SvrTm>${Date(yyyyMMddhhmmssSSSSSS)}</SvrTm>
+				<SvrSeqNo>${Date(yyyyMMddhhmmssSSSSSS)}</SvrSeqNo>
+				<AuthFlg>#{head:AuthFlg}</AuthFlg>
+				<BrchNo>#{head:BrchNo}</BrchNo>
+				<BrchNme>#{head:BrchNme}</BrchNme>
+				<DevCd/>
+				<TlrNo>#{head:TlrNo}</TlrNo>
+				<TlrLvl></TlrLvl>
+				<TlrNme></TlrNme>
+				<TlrTyp></TlrTyp>
+				<TlrPwd></TlrPwd>
+				<TrmNo></TrmNo>
+				<TrmIP></TrmIP>
+				<ChnlNo>#{head:ChnlNo}</ChnlNo>
+				<RcvFileNme></RcvFileNme>
+				<TotNum></TotNum>
+				<CurrRecNum>${YcEsbMsgCd(#{head:ReqSeqNo})}</CurrRecNum>
+				<FileHMac></FileHMac>
+				<HMac></HMac>
+			</ResponseHeader>
+			<Fault>
+				<FaultCode>@{repStateCd}</FaultCode><!-- @开头表示该数据来ecifData对象中的属性 -->
+				<FaultString>@{detailDes}</FaultString>
+				<Detail>
+					<TxnStat>${TxnStat(@{isSuccess})}</TxnStat>
+				</Detail>
+			</Fault>
+		</ns:S007001990ECIF01>
+	</soapenv:Body>
+</soapenv:Envelope>

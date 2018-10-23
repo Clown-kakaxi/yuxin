@@ -1,0 +1,24 @@
+ <ehcache  updateCheck="false" name="shiroCache"> 
+ 	<diskStore path="java.io.tmpdir/bione/ehcache/shiro" />
+     <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"/>
+    <cache name="shiro-activeSessionCache"
+           maxElementsInMemory="10000"
+           eternal="true"
+           overflowToDisk="true"
+           diskPersistent="true"
+           diskExpiryThreadIntervalSeconds="600"/>
+
+    <!-- <cache name="com.ytec.bione.admin.security.DefaultAuthorizingRealm.authorization" -->
+    <cache name="com.yuchengtech.emp.biappframe.security.realm.DefaultAuthorizingRealm.authorization"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"/>        
+</ehcache>

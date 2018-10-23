@@ -1,0 +1,32 @@
+HTML{
+	background-color:#FFF;
+	margin-right: 1px;
+}
+
+#all {
+	width: 100%;
+	position: relative;
+}
+
+.gridli {
+	padding-top: 5px;
+}
+
+.gridli a{
+	color: #000000;
+	text-decoration: none;
+	outline: none;
+	padding:1px;0px;0px;0px;
+}
+
+.gridli span{
+	color: #72747a;
+	float: right;
+	padding-right: 2px;
+}
+
+.iconspan{
+	float: left;
+	width:16px;
+	height:16px;
+}

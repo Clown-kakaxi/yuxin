@@ -1,0 +1,112 @@
+@media print{
+	.Noprint {display: none;}
+	.PageNext {page-break-after: always;}
+}
+
+html{
+	_background-image:url(about:blank); /*用浏览器空白页面作为背景*/
+	_background-attachment:fixed;   /*IE6确保滚动条滚动时，元素不闪动*/
+}
+
+.Noprint{
+	z-index:100;/*设置浮动层次*/
+	position: fixed;/*IE6以外的浏览器浮动设置*/
+	top:48px;/*IE6以外的浏览器下定位*/
+	left:330mm;
+	_position:absolute;/*IE6用absolute模拟fixed*/
+	_top:expression(documentElement.scrollTop +48+ "px");/*IE6动态设置top位置为10px*/
+}
+/**
+ * .Noprint{position:absolute;margin-left:98mm;margin-top: expression(documentElement.scrollTop+"px");}
+ * ie6/ie7/ie8不兼容问题写三个样式方法
+ * #id{IE6}  *html #id{ie7} *+html #id{ie8}
+ *  .Noprint{text-align: left;position: fixed!important;top: 5px;z-index:100;top:expression(offsetParent.scrollTop);}
+ */
+
+ 
+.table1 {
+	background-color:white;
+	border: 0px;width: 100%;
+	border-spacing: 0px;
+	border-right: 1px black solid;
+	border-bottom: 1px black solid;
+	font-size:	10px;
+}
+.table1 td {
+	border-top: 1px black solid;
+	border-left: 1px black solid;
+}
+
+#pageOne {
+          height: 210mm;
+          width: 297mm;
+          margin-left: auto;
+          margin-right: auto;
+          background-color:#e6e6fa;
+}
+
+#div1{/*左边div*/
+	 height: 192mm;
+     width: 135mm;
+     margin-left: 10mm;
+     float: left; 
+     color: #000;
+}
+
+#div2{/*右边div*/
+	 height: 192mm;
+     width: 135mm;
+     margin-left: 155mm;
+     color: #000;
+}
+
+.checkbox{
+	height: 2mm;
+	width: 2mm;
+}
+
+.printButton{
+	height:	8mm;
+	width:	16mm;
+	margin-left:	300mm;
+}
+
+.td1{
+	height:	3.2mm;
+	width: 15mm;
+}
+.td15{
+	height:	3.2mm;
+	width:	22.7mm;
+}
+.td2{
+	height:	3.2mm;
+	width:	30mm;
+}
+.td3{
+	height:	3.2mm;
+	width:	45mm;
+}
+.td4{
+	height:	3.2mm;
+	width:	60mm;
+}
+.td45{
+	height:	48mm;
+	width: 67.5mm;
+}
+
+.td5{
+	height:	3.2mm;
+	width: 75mm;
+}
+
+.td6{
+	height:	3.2mm;
+	width:	90mm;
+}
+
+.td9{
+	height:	3.2mm;
+	width:	135mm;
+}

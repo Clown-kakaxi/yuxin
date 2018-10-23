@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="GBK"?>
+<conf>
+	<!-- 表业务主键定义,name对应JPA实体类，key为业务主键 -->
+	<biz_key_def>
+		<biz_key name="AcrmFCiPotCusCom" key="cusId" />								<!-- 潜在客户表 ACRM_F_CI_POT_CUS_COM 客户号 -->
+		<biz_key name="OcrmFInterviewMatepurchase" key="taskNumber,mpGoods,mpSupplier" />				<!-- 新户_原料采购情况 OCRM_F_INTERVIEW_MATEPURCHASE 拜访任务编号 -->
+		<biz_key name="OcrmFInterviewNewRecord" key="taskNumber" />					<!-- 新户拜访任务明细 OCRM_F_INTERVIEW_NEW_RECORD 拜访任务编号 -->
+		<biz_key name="OcrmFInterviewOldPurpose" key="taskNumber" />				<!-- 旧户拜访目的明细 OCRM_F_INTERVIEW_OLD_PURPOSE 拜访任务编号 -->
+		<biz_key name="OcrmFInterviewOldRecord" key="taskNumber" />					<!-- 旧户拜访任务明细 OCRM_F_INTERVIEW_OLD_RECORD 拜访任务编号 -->
+		<biz_key name="OcrmFInterviewProsales" key="taskNumber,psGoods,psBuyer" />					<!-- 新户_产品销售状况 OCRM_F_INTERVIEW_PROSALES 拜访任务编号 -->
+		<biz_key name="OcrmFInterviewRecord" key="taskNumber" />					<!-- 拜访任务信息表 OCRM_F_INTERVIEW_RECORD 拜访任务编号 -->
+		<biz_key name="OcrmFInterviewShareholder" key="taskNumber,mSponsor" />		<!-- 新户_股东及持股比例 OCRM_F_INTERVIEW_SHAREHOLDER 拜访任务编号+出资人 -->
+		<biz_key name="OcrmFInterviewFixedassets" key="taskNumber,fHtype,fOtype" />	<!-- 新户_主要固定资产 OCRM_F_INTERVIEW_FIXEDASSETS 拜访任务编号+房产类型+持有类型 -->
+		<biz_key name="OcrmFInterviewProfit" key="taskNumber,pYears" />				<!-- 新户_营收、获利情况 OCRM_F_INTERVIEW_PROFIT 拜访任务编号+年份 -->
+		<biz_key name="OcrmFInterviewDepositbank" key="taskNumber,dBankname" />		<!-- 新户_存款往来银行 OCRM_F_INTERVIEW_DEPOSITBANK 拜访任务编号+往来银行 -->
+		<biz_key name="OcrmFInterviewLoanbank" key="taskNumber,lBankname" />		<!-- 新户_贷款往来银行 OCRM_F_INTERVIEW_LOANBANK 拜访任务编号+往来银行 -->
+		<biz_key name="OcrmFInterviewDepositpro" key="taskNumber,dpName" />			<!-- 新户_拟承做存款产品 OCRM_F_INTERVIEW_DEPOSITPRO 拜访任务编号+存款产品 -->
+		<biz_key name="OcrmFInterviewForexlimit" key="taskNumber,flName" />			<!-- 新户_拟申请外汇产品额度 OCRM_F_INTERVIEW_FOREXLIMIT 拜访任务编号+外汇产品 -->
+		<biz_key name="OcrmFInterviewCreditpro" key="taskNumber,cpUse,cpProduct" />	<!-- 新户_拟申请授信产品 OCRM_F_INTERVIEW_CREDITPRO 拜访任务编号+授信产品+用途 -->
+	</biz_key_def>
+
+	<!-- 交易信息配置 -->
+	<trans_def>
+		<!-- 客户化开发交易 -->
+		<trans code="crmBlackListCheck" name="crmBlackListCheck" cn_name="CRM黑名单校验" deal_class="crmBlackListCheck" deal_engine="custrizEcifDealEngine"
+			tx_cfg_tp="1" tx_type="" />
+		<trans code="pushCustInformation" name="pushCustInformation" cn_name="客户识别" deal_class="pushCustInformation" deal_engine="custrizEcifDealEngine"
+			tx_cfg_tp="1" tx_type="" />
+		<trans code="pushCustInformation" name="pushCustInformation" cn_name="客户识别" deal_class="pushCustInformation" deal_engine="custrizEcifDealEngine"
+			tx_cfg_tp="1" tx_type="" />
+		<trans code="queryCustState" name="queryCustState" cn_name="查询客户状态" deal_class="queryCustState"
+			deal_engine="custrizEcifDealEngine" tx_cfg_tp="1" tx_type="" />
+		<trans code="queryCustLastVisitInfo" name="queryCustLastVisitInfo" cn_name="查询新旧户客户任务信息" deal_class="queryCustLastVisitInfo"
+			deal_engine="custrizEcifDealEngine" tx_cfg_tp="1" tx_type="" />
+		<trans code="openOrgAccount" name="openOrgAccount" cn_name="对公开户接口" deal_class="openOrgAccount" deal_engine="custrizEcifDealEngine"
+			tx_cfg_tp="1" tx_type="" />
+		<trans code="openPerAccount" name="openPerAccount" cn_name="对私开户接口" deal_class="openPerAccount" deal_engine="custrizEcifDealEngine"
+			tx_cfg_tp="1" tx_type="" />
+		<trans code="updateCustBaseInfo" name="updateCustBaseInfo" cn_name="网银修改客户信息" deal_class="updateCustBaseInfo" deal_engine="custrizEcifDealEngine"
+			tx_cfg_tp="1" tx_type="" />
+	    <trans code="querySpecifiedCust" name="querySpecifiedCust" cn_name="查询特定状态潜在客户" deal_class="querySpecifiedCust"
+			deal_engine="custrizEcifDealEngine" tx_cfg_tp="1" tx_type="" />
+		<!-- 维护交易配置，基于ECIF产品代码做改造， product-based transactions for add/update customer information -->
+		<trans code="addPotenCust" name="addPotenCust" cn_name="新增潜在客户" deal_class="updateGeneral" deal_engine="writeEcifDealEngine"
+			tx_cfg_tp="0" tx_type="W">
+			<node name="postcuscom" table="com.ytec.mdm.domain.biz.AcrmFCiPotCusCom" filter="CusId" condition="" conditionValue=""
+				list="false" xpath="//TransBody/RequestBody/postcuscom">
+			</node>
+		</trans>
+
+		<trans code="addHistCustVisitInfo" name="addHistCustVisitInfo" cn_name="新增旧户拜访记录" deal_class="updateGeneral" deal_engine="writeEcifDealEngine"
+			tx_cfg_tp="0" tx_type="W">
+			<node name="interviewRecord" table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" filter="taskNumber" condition=""
+				conditionValue="" list="false" xpath="//TransBody/RequestBody/interviewRecord"></node>
+			<node name="interviewOldPurpose" table="com.ytec.mdm.domain.biz.OcrmFInterviewOldPurpose" filter="taskNumber" condition=""
+				conditionValue="" list="false" xpath="//TransBody/RequestBody/interviewOldPurpose"></node>
+			<node name="interviewOldRecord" table="com.ytec.mdm.domain.biz.OcrmFInterviewOldRecord" filter="taskNumber" condition=""
+				conditionValue="" list="false" xpath="//TransBody/RequestBody/interviewOldRecord"></node>
+		</trans>
+
+		<trans code="addPotenCustVisitInfo" name="addPotenCustVisitInfo" cn_name="新增新户拜访记录" deal_class="updateGeneral"
+			deal_engine="writeEcifDealEngine" tx_cfg_tp="0" tx_type="W">
+			<node name="interviewRecord" table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" filter="" condition="" conditionValue=""
+				list="false" xpath="//TransBody/RequestBody/interviewRecord"></node>
+			<node name="interviewNewRecord" table="com.ytec.mdm.domain.biz.OcrmFInterviewNewRecord" filter="" condition=""
+				conditionValue="" list="false" xpath="//TransBody/RequestBody/interviewNewRecord"></node>
+			<node name="interviewMatepurchase" table="com.ytec.mdm.domain.biz.OcrmFInterviewMatepurchase" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewMatepurchaseList/interviewMatepurchase"></node>
+			<node name="interviewProsales" table="com.ytec.mdm.domain.biz.OcrmFInterviewProsales" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewProsalesList/interviewProsales"></node>
+			<node name="interviewDepositbank" table="com.ytec.mdm.domain.biz.OcrmFInterviewDepositbank" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewDepositbankList/interviewDepositbank"></node>
+			<node name="interviewShareholder" table="com.ytec.mdm.domain.biz.OcrmFInterviewShareholder" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewShareholderList/interviewShareholder"></node>
+			<node name="interviewFixedassets" table="com.ytec.mdm.domain.biz.OcrmFInterviewFixedassets" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewFixedassetsList/interviewFixedassets"></node>
+			<node name="interviewProfit" table="com.ytec.mdm.domain.biz.OcrmFInterviewProfit" filter="" condition="" conditionValue=""
+				list="true" xpath="//TransBody/RequestBody/interviewProfitList/interviewProfit"></node>
+			<node name="interviewLoanbank" table="com.ytec.mdm.domain.biz.OcrmFInterviewLoanbank" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewLoanbankList/interviewLoanbank"></node>
+			<node name="interviewDepositpro" table="com.ytec.mdm.domain.biz.OcrmFInterviewDepositpro" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewDepositproList/interviewDepositpro"></node>
+			<node name="interviewForexlimit" table="com.ytec.mdm.domain.biz.OcrmFInterviewForexlimit" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewForexlimitList/interviewForexlimit"></node>
+			<node name="interviewCreditpro" table="com.ytec.mdm.domain.biz.OcrmFInterviewCreditpro" filter="" condition=""
+				conditionValue="" list="true" xpath="//TransBody/RequestBody/interviewCreditproList/interviewCreditpro"></node>
+		</trans>
+
+
+		<!-- 查询交易配置，基于ECIF产品代码做改造，product-based transactions for query customer information -->
+		<!-- 
+		<trans code="querySpecifiedCust" name="querySpecifiedCust" cn_name="查询特定状态潜在客户" deal_class="queryBizLogic" deal_engine="queryEcifDealEngine"
+			tx_cfg_tp="0" tx_type="R">
+			<node name="postcuscom" table="com.ytec.mdm.domain.biz.AcrmFCiPotCusCom" filter="(conclusion='1' or conclusion='2') and custType='1' and state='0'  "
+				condition="custMgr" conditionValue="//TransBody/RequestBody/custMgr" list="true" xpath="//TransBody/RequestBody/postcuscom">
+				<resp>
+					<resp_attr>cusId</resp_attr>
+					<resp_attr>cusName</resp_attr>
+					<resp_attr>cusAddr</resp_attr>
+					<resp_attr>attenName</resp_attr>
+					<resp_attr>attenBusi</resp_attr>
+					<resp_attr>attenPhone</resp_attr>
+					<resp_attr>legalName</resp_attr>
+					<resp_attr>regCapAmt</resp_attr>
+					<resp_attr>cusResource</resp_attr>
+					<resp_attr>reqCurrency</resp_attr>
+				</resp>
+			</node>
+		</trans>
+		 -->
+		
+	
+
+		<!-- create view V_OCRM_F_INTERVIEW_RECORD_LAST as select * from ( select row_number() OVER (PARTITION BY cust_id, mgr_id ORDER BY 
+			visit_time desc) rn,t.* from OCRM_F_INTERVIEW_RECORD t ) where rn = 1 -->
+		<trans code="queryPotenCustLastVisit" name="queryPotenCustLastVisit" cn_name="查询新户最近一次拜访记录" deal_class="queryBizLogic"
+			deal_engine="queryEcifDealEngine" tx_cfg_tp="0" tx_type="R">
+			<node name="interviewNewRecord" table="com.ytec.mdm.domain.biz.OcrmFInterviewNewRecord" filter="" condition="mgrId,custId"
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="false"
+				xpath="//TransBody/RequestBody/interviewNewRecord">
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>intervieweeName</resp_attr>
+					<resp_attr>intervieweePost</resp_attr>
+					<resp_attr>intervieweePhone</resp_attr>
+					<resp_attr>joinPerson</resp_attr>
+					<resp_attr>callTime</resp_attr>
+					<resp_attr>cusDomicile</resp_attr>
+					<resp_attr>cusNature</resp_attr>
+					<resp_attr>cusLegalperson</resp_attr>
+					<resp_attr>cusRegtime</resp_attr>
+					<resp_attr>cusCntpeople</resp_attr>
+					<resp_attr>cusOnmark</resp_attr>
+					<resp_attr>cusOnmarkplace</resp_attr>
+					<resp_attr>cusOwnbusi</resp_attr>
+					<resp_attr>cusBusistatus</resp_attr>
+					<resp_attr>cusOperateperson</resp_attr>
+					<resp_attr>cusAccountperson</resp_attr>
+					<resp_attr>cusMajorproduct</resp_attr>
+					<resp_attr>cusMajorrival</resp_attr>
+					<resp_attr>dcrbMajorsholder</resp_attr>
+					<resp_attr>dcrbFlow</resp_attr>
+					<resp_attr>dcrbFixedassets</resp_attr>
+					<resp_attr>dcrbProfit</resp_attr>
+					<resp_attr>dcrbSymbiosis</resp_attr>
+					<resp_attr>dcrbOthertrade</resp_attr>
+					<resp_attr>dcrbMyselftrade</resp_attr>
+					<resp_attr>resCustsource</resp_attr>
+					<resp_attr>resCasebyperson</resp_attr>
+					<resp_attr>resCasebyptel</resp_attr>
+					<resp_attr>resFollowup</resp_attr>
+					<resp_attr>resOtherinfo</resp_attr>
+					<resp_attr>markResult</resp_attr>
+					<resp_attr>markRefusereason</resp_attr>
+					<resp_attr>callSpendtime</resp_attr>
+					<resp_attr>callNexttime</resp_attr>
+					<resp_attr>createTime</resp_attr>
+					<resp_attr>remark</resp_attr>
+				</resp>
+			</node>
+			
+			<node name="interviewShareholder" table="com.ytec.mdm.domain.biz.OcrmFInterviewShareholder" filter="" condition="mgrId,custId"
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true"
+				xpath="//TransBody/RequestBody/interviewShareholder">
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+			<!-- </node>
+			
+			<node name="interviewShareholder" table="com.ytec.mdm.domain.biz.OcrmFInterviewShareholder" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId" list="true" xpath="//TransBody/RequestBody/interviewShareholder">
+				<tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" />
+				 -->
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>mSponsor</resp_attr>
+					<resp_attr>mRatio</resp_attr>
+					<resp_attr>mMoney</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewFixedassets" table="com.ytec.mdm.domain.biz.OcrmFInterviewFixedassets" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewFixedassets">
+			<!-- 	<tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>fHtype</resp_attr>
+					<resp_attr>fOtype</resp_attr>
+					<resp_attr>fArea</resp_attr>
+					<resp_attr>fUtype</resp_attr>
+					<resp_attr>fAssess</resp_attr>
+					<resp_attr>fMemo</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewProfit" table="com.ytec.mdm.domain.biz.OcrmFInterviewProfit" filter="" condition="mgrId"
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewProfit">
+			<!-- 	<tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>pYears</resp_attr>
+					<resp_attr>pRevenue</resp_attr>
+					<resp_attr>pGross</resp_attr>
+					<resp_attr>pPnet</resp_attr>
+					<resp_attr>pMemo</resp_attr>
+					<resp_attr>pYearsEnd</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewMatepurchase" table="com.ytec.mdm.domain.biz.OcrmFInterviewMatepurchase" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewMatepurchase">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>mpGoods</resp_attr>
+					<resp_attr>mpSupplier</resp_attr>
+					<resp_attr>mpIsrelate</resp_attr>
+					<resp_attr>mpMonth2money</resp_attr>
+					<resp_attr>mpBalancedays</resp_attr>
+					<resp_attr>mpTradeyears</resp_attr>
+					<resp_attr>mpPayway</resp_attr>
+					<resp_attr>mpMemo</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewProsales" table="com.ytec.mdm.domain.biz.OcrmFInterviewProsales" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewProsales">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>psGoods</resp_attr>
+					<resp_attr>psBuyer</resp_attr>
+					<resp_attr>psIsrelate</resp_attr>
+					<resp_attr>psMonth2money</resp_attr>
+					<resp_attr>psBalancedays</resp_attr>
+					<resp_attr>psTradeyears</resp_attr>
+					<resp_attr>psPayway</resp_attr>
+					<resp_attr>psMemo</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewDepositbank" table="com.ytec.mdm.domain.biz.OcrmFInterviewDepositbank" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewDepositbank">
+			<!-- 	<tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>dBankname</resp_attr>
+					<resp_attr>dAvgdeposit</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewLoanbank" table="com.ytec.mdm.domain.biz.OcrmFInterviewLoanbank" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewLoanbank">
+			<!-- 	<tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>lBankname</resp_attr>
+					<resp_attr>lLimittype</resp_attr>
+					<resp_attr>lLimitmoney</resp_attr>
+					<resp_attr>lBalance</resp_attr>
+					<resp_attr>lRate</resp_attr>
+					<resp_attr>lCollateral</resp_attr>
+					<resp_attr>lMemo</resp_attr>
+					<resp_attr>lDbrate</resp_attr>
+				</resp>
+			</node>
+			<!-- interviewForexlimit -->
+			<node name="interviewDepositpro" table="com.ytec.mdm.domain.biz.OcrmFInterviewDepositpro" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewDepositpro">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>dpName</resp_attr>
+					<resp_attr>dpAvgdeposit</resp_attr>
+
+				</resp>
+			</node>
+
+			<node name="interviewForexlimit" table="com.ytec.mdm.domain.biz.OcrmFInterviewForexlimit" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewForexlimit">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>flName</resp_attr>
+					<resp_attr>flDeal2month</resp_attr>
+					<resp_attr>flLimitmoney</resp_attr>
+
+				</resp>
+			</node>
+			<node name="interviewCreditpro" table="com.ytec.mdm.domain.biz.OcrmFInterviewCreditpro" filter="" condition=""
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="true" xpath="//TransBody/RequestBody/interviewCreditpro">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>cpUse</resp_attr>
+					<resp_attr>cpProduct</resp_attr>
+					<resp_attr>cpCurrency</resp_attr>
+					<resp_attr>cpLimitmoney</resp_attr>
+					<resp_attr>cpMemo</resp_attr>
+					<resp_attr>cpCollateral</resp_attr>
+					<resp_attr>cpDbrate</resp_attr>
+					<resp_attr>cpProductP</resp_attr>
+				</resp>
+			</node>
+		</trans>
+		<trans code="queryHistCustLastVisit" name="queryHistCustLastVisit" cn_name="查询旧户最近一次拜访记录" deal_class="queryBizLogic"
+			deal_engine="queryEcifDealEngine" tx_cfg_tp="0" tx_type="R">
+			<node name="interviewOldPurpose" table="com.ytec.mdm.domain.biz.OcrmFInterviewOldPurpose" filter="" condition="mgrId,custId"
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="false"
+				xpath="//TransBody/RequestBody/interviewOldPurpose">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId,custId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>purCust2call</resp_attr>
+					<resp_attr>purSeek2coll</resp_attr>
+					<resp_attr>purWarn2call</resp_attr>
+					<resp_attr>purDefend2call</resp_attr>
+					<resp_attr>purMark2pro</resp_attr>
+					<resp_attr>purRisk2call</resp_attr>
+				</resp>
+			</node>
+			<node name="interviewOldRecord" table="com.ytec.mdm.domain.biz.OcrmFInterviewOldRecord" filter="" condition="mgrId"
+				conditionValue="//TransBody/RequestBody/mgrId,//TransBody/RequestBody/custNo" list="false" xpath="//TransBody/RequestBody/interviewOldRecord">
+				<!-- <tab_rel table="com.ytec.mdm.domain.biz.OcrmFInterviewRecord" key_map="taskNumber" condition="mgrId,custId" /> -->
+				<tab_rel table="com.ytec.mdm.domain.biz.VOcrmFInterviewRecordLast" key_map="taskNumber" condition="mgrId,custId" />
+				<resp>
+					<resp_attr>taskNumber</resp_attr>
+					<resp_attr>intervieweeName</resp_attr>
+					<resp_attr>intervieweePost</resp_attr>
+					<resp_attr>intervieweePhone</resp_attr>
+					<resp_attr>joinPerson</resp_attr>
+					<resp_attr>callTime</resp_attr>
+					<resp_attr>cusStatus</resp_attr>
+					<resp_attr>isbuschange</resp_attr>
+					<resp_attr>busExplain</resp_attr>
+					<resp_attr>isrevchange</resp_attr>
+					<resp_attr>revExplain</resp_attr>
+					<resp_attr>isprochange</resp_attr>
+					<resp_attr>proExplain</resp_attr>
+					<resp_attr>issupchange</resp_attr>
+					<resp_attr>supExplain</resp_attr>
+					<resp_attr>ispurchange</resp_attr>
+					<resp_attr>purExplain</resp_attr>
+					<resp_attr>isequchange</resp_attr>
+					<resp_attr>equExplain</resp_attr>
+					<resp_attr>isopcchange</resp_attr>
+					<resp_attr>opcExplain</resp_attr>
+					<resp_attr>iscolchange</resp_attr>
+					<resp_attr>colExplain</resp_attr>
+					<resp_attr>issymchange</resp_attr>
+					<resp_attr>symExplain</resp_attr>
+					<resp_attr>markProduct</resp_attr>
+					<resp_attr>markResult</resp_attr>
+					<resp_attr>markRefusereason</resp_attr>
+					<resp_attr>resFollowup</resp_attr>
+					<resp_attr>resOtherinfo</resp_attr>
+					<resp_attr>callSpendtime</resp_attr>
+					<resp_attr>callNexttime</resp_attr>
+					<resp_attr>createTime</resp_attr>
+					<resp_attr>remark</resp_attr>
+				</resp>
+			</node>
+		</trans>
+	</trans_def>
+</conf>

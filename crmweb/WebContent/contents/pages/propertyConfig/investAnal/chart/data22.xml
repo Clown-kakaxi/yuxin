@@ -1,0 +1,34 @@
+<chart palette="2" caption="货币型基金" subcaption="" showvalues="0" xAxisName="" yAxisName="元"  formatNumberScale='0'>
+−
+<categories>
+<category name="投资金额"/>
+<category name="投资比例"/>
+<category name="实现损益"/>
+<category name="报酬率"/>
+<category name="报酬率贡献度"/>
+</categories>
+−
+<dataset id="IJ" seriesName="金额">
+<set id="IJ2005" value="24000" allowDrag="0"/>
+<set id="IJ2006" value="20148" allowDrag="0"/>
+<set id="IJ2007" value="17372" allowDrag="0"/>
+<set id="IJ2008" value="10%" allowDrag="0" />
+<set id="IJ2009" value="35407" allowDrag="0" />
+</dataset>
+−
+
+−
+−
+<styles>
+−
+<definition>
+<style name="myCaptionFont" type="font" font="Arial" size="14" bold="1"/>
+<style name="mySubCaptionFont" type="font" font="Arial" size="10" bold="0"/>
+</definition>
+−
+<application>
+<apply toObject="Caption" styles="myCaptionFont"/>
+<apply toObject="SubCaption" styles="mySubCaptionFont"/>
+</application>
+</styles>
+</chart>

@@ -1,0 +1,65 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+1.功能入口的jsp文件：
+/crmweb/WebContent/contents/wljFrontFrame/JSsearch_index.jsp
+该文件引入了2个重要的js和一个公共的jsp文件
+    ★./crmweb/WebContent/contents/wljFrontFrame/searchFace.js
+    ★./crmweb/WebContent/contents/frameControllers/WljAPPBooter.js
+    ★./crmweb/WebContent/contents/pages/common/includes.jsp
+    1) includes.jsp
+        ▲该文件引入了公用的js和css(包括extjs等待)
+        ▲该文件将用户登录后的信息初始化到了js里(包括登录用户的姓名、机构、部门条线、角色、权限等待)
+        ▲该文件引入了文件ViewContext.js，并根据登录信息初始化了JsContext对象，可以使用JsContext.checkGrant检查用户是否拥有某个在模块管理功能里配置的权限
+    2)  searchFace.js
+        ▲该文件初始化了对象window._APP = new Wlj.search.App();
+         /crmweb/WebContent/contents/frameControllers/Wlj-search-APP.js此文件封装了首页的一系列操作(包括认证校验、初始化菜单等待)
+    3) WljAPPBooter.js
+        ▲该文件引入了首页Metro风格所需的一些类js和css
+
+2.文件：
+/crmweb/WebContent/contents/frameControllers/plugin/customerView/Wlj-frame-view-builder.js
+有Ext的入口函数
+Ext.onReady(function(){
+    window.APPBUILD = new Wlj.frame.view.app.Builder();
+});
+在构造函数里调用
+-->codeLoad函数
+-->然后调用codeLoading函数根据传入的参数resId动态加载对应的js资源
+-->加载完成之后调用codeCheck函数检查js资源里定义的变量信息即相应的配置信息,这里的js就是我们进行功能开发时自定义的js
+-->然后调用函数buildApp,功能js里的配置信息会被传入 ，创建window._app，如下：
+    buildApp : function(){
+        window._app = new Wlj.frame.functions.app.App(this.APPCFG);
+    }
+其中Wlj.frame.functions.app.App在下面的文件中
+/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-app.js
+★该文件负责app对象的构建，同时提供了一些列的事件函数以便在功能js里进行事件处理
+★初始化默认分页大小this.pageSize = WLJUTIL.defaultPagesize;
+★设置各个配置的初始值，然后使用功能js里的配置进行覆盖
+★调用initEvents函数声明支持的事件
+★调用initAPI函数，检查API文件Wlj-frame-function-api.js里定义的方法在app里有没有，如果有则创建代理函数，并覆盖API文件里的原有配置
+  其实说白了就是API里配置的函数都可以在app里 找得到，如果想调用，可用直接调用或者通过_app.xxx调用
+★调用prepareLookup函数处理数据字典项,为每个数据字典创建store并加装数据，然后将此store注册到lookupManager里以便需要时调用
+★调用init函数初始化页面，如:
+    ▲buildEdgeViews函数初始化上下左右边缘面板
+    ▲buildMajor函数初始化中间主区域面板majorPanel,majorPanel下又会构建searchDomain(查询条件区域)和resultDomain(表格查询结果区域)
+     bootSearchDomain构建searchDomain /crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+     bootResultDomain构建resultDomain /crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+    ▲render函数构建Viewport,使用border布局处理上下左右中5个区域
+
+3.文件/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+★searchDomain即searchGridView，searchGridView下有SearchGrid,SearchGrid其实是个Panel
+    SearchGrid里构建了分页工具栏，调用initStore初始化store并为store注册相应的事件
+    store加载之前禁用查询按钮，并遮罩表格，加载之后启用查询按钮，并取消遮罩,调用booterDataElements-->调用titleTile.bootEls-->调用settimeoutDataLineRender转换数据字典
+    store取数的默认配置：jsonRoot : 'json.data',jsonCount : 'json.count',url为功能js里定义的url
+★resultDomain
+
+4.关于自定义视图customerView下视图的几个重要配置
+suspendWidth:1,//视图宽度
+    类型：integer|float;悬浮模式下，该悬浮面板宽度定义，当suspendFitAll为true时，失效
+    当配置项大于1时，该参数做为面板宽度属性；当配置项小于1时，将做为比例，以列表宽度为基准进行计算
+hideTitle:true,//是否在tbar上显示相应的按钮
+suspended : false,//点击标题是否收缩当前视图
+
+

@@ -1,0 +1,38 @@
+
+<chart  subcaption='2012年'  xAxisName='月份' yAxisName='元' formatNumberScale='0' >
+	<categories>
+		<category name='2012-01' />
+		<category name='2012-02' />
+		<category name='2012-03' />
+		<category name='2012-04' />
+		<category name='2012-05' />
+	</categories>
+	<dataset SeriesName='客户存款余额' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='137401' />
+		<set id='LJ2006' value='141941' />
+		<set id='LJ2007' value='145263'/>
+		<set id='LJ2008' value='157320'/>
+		<set id='LJ2009' value='164845'/>
+	</dataset>
+	<dataset SeriesName='客户存款日均余额' id='CR' dragBorderColor='CC9900'>
+		<set id='CR2005' value='15000' />
+		<set id='CR2006' value='25835' />
+		<set id='CR2007' value='20722'/>
+		<set id='CR2008' value='17557'/>
+		<set id='CR2009' value='12633' />
+	</dataset>
+	<dataset SeriesName='客户存款余额' id='DK'>
+		<set id='DK2005' value='387040' />
+		<set id='DK2006' value='290835' />
+		<set id='DK2007' value='372722'/>
+		<set id='DK2008' value='340557'/>
+		<set id='DK2009' value='281633' />
+	</dataset>
+	<dataset SeriesName='客户存款日均余额' id='LJ'>
+		<set id='LJ2005' value='77401' />
+		<set id='LJ2006' value='61941' />
+		<set id='LJ2007' value='55263'/>
+		<set id='LJ2008' value='57320'/>
+		<set id='LJ2009' value='64845'/>
+	</dataset>
+</chart> 

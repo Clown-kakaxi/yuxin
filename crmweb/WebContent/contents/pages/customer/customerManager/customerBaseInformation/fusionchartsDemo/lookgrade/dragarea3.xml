@@ -1,0 +1,17 @@
+
+<chart  subcaption='2012年'  xAxisName='月份' yAxisName='元' formatNumberScale='0' >
+	<categories>
+		<category name='2012-01' />
+		<category name='2012-02' />
+		<category name='2012-03' />
+		<category name='2012-04' />
+		<category name='2012-05' />
+	</categories>
+	<dataset SeriesName='AUM' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='35231' />
+		<set id='LJ2006' value='45941' />
+		<set id='LJ2007' value='40263'/>
+		<set id='LJ2008' value='57320'/>
+		<set id='LJ2009' value='61844'/>
+	</dataset>
+</chart> 

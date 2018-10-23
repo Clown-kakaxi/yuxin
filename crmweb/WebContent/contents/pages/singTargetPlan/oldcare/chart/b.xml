@@ -1,0 +1,32 @@
+<chart caption='' subCaption=''  shownames='1' showvalues='0' decimals='0' numberPrefix='$' >
+	<categories>
+		<category label='2011' />
+		<category label='2015' />
+		<category label='2019' />
+		<category label='2023' />
+		<category label='2027' />
+		<category label='2031' />
+		<category label='2035' />
+		<category label='2039' />
+	</categories>
+	<dataset seriesName='期初资产'  showValues="0">
+		<set value='88' />
+		<set value='96' />
+		<set value='92' />
+		<set value='100' />
+		<set value='-10' />
+		<set value='-30' />
+		<set value='-48' />
+		<set value='-62' />
+	</dataset>
+	<dataset seriesName='总支出' showValues="0">
+		<set value='75' />
+		<set value='86' />
+		<set value='80' />
+		<set value='90' />
+		<set value='102' />
+		<set value='85' />
+		<set value='75' />
+		<set value='86' />
+	</dataset>
+</chart>

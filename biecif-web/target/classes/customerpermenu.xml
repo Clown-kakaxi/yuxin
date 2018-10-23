@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Body>
+	<JavaBasePath>D:\workspace\biecif\src\main\java</JavaBasePath>
+	<JspBasePath>D:\workspace\biecif-web\src\main\webapp\WEB-INF</JspBasePath>
+    <MainEntityPackage>com.yuchengtech.emp.ecif.customer.entity.jlnx</MainEntityPackage>
+	<MainServicePackage>com.yuchengtech.emp.ecif.customer.simplegroup.service.jlnx</MainServicePackage>
+	<MainWebPackage>com.yuchengtech.emp.ecif.customer.simplegroup.web.jlnx</MainWebPackage>
+	<MainJspPath>/pages/ecif/customer/simplegroup/bank</MainJspPath>
+	<DefautSchema>MDM</DefautSchema>
+
+	<CustMenu1 MenuName="客户基本信息" BizName="PerBasicBank"  >
+		<CustMenu2 MenuName="人口轮廓" Entityname="PersonProfile" show="form" tabName="M_CI_PERSON" />
+		<CustMenu2 MenuName="名称称谓" Entityname="NameTitle" show="form" tabName="M_CI_NAMETITLE" />
+		<CustMenu2 MenuName="工作履历" Entityname="JobResume" show="list" />
+		<CustMenu2 MenuName="职业信息" Entityname="Career" />
+		<CustMenu2 MenuName="学业履历" Entityname="EduResume" />
+		<CustMenu2 MenuName="家庭状况" Entityname="Family" tabName="M_CI_PER_FAMILY" />
+		<CustMenu2 MenuName="联网核查信息" Entityname="IdentityVerify" />
+		<CustMenu2 MenuName="个人证件信息" Entityname="PersonIdentifier" tabName="M_CI_PER_IDENTIFIER" />
+		<CustMenu2 MenuName="个人客户重要标志" Entityname="PersonKeyFlag" tabName="M_CI_PER_KEYFLAG"  url="/ecif/customer/simplegroup/perbasic/personkeyflag-index"/>
+		<CustMenu2 MenuName="个人客户重要指标" Entityname="" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户联系信息" BizName="CustomerContactBank">
+		<CustMenu2 MenuName="地址信息" Entityname="Address" />
+		<CustMenu2 MenuName="联系信息" Entityname="Contmeth" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户关联信息" BizName="PerRelativeBank">
+		<CustMenu2 MenuName="配偶信息" Entityname="MateInfo" />
+		<CustMenu2 MenuName="亲属信息" Entityname="RelativeInfo"/>
+		<CustMenu2 MenuName="联系人信息" Entityname="LinkMan" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户财务信息" BizName="PerFinanceBank">
+		<CustMenu2 MenuName="个人资产" Entityname="PersonAsset"  tabName ="M_CI_PER_ASSETS" show="list" />
+		<CustMenu2 MenuName="个人负债" Entityname="Persondebt" tabName ="M_CI_PER_DEBT" show="list" />
+		<CustMenu2 MenuName="个人经营信息" Entityname="Personbusiinfo" tabName ="M_CI_PER_BUSIINFO" show="list" />
+		<CustMenu2 MenuName="个人投资信息" Entityname="Personinvestment" tabName="M_CI_PER_INVESTMENT" show="form" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户风险信息" BizName="PerRisk">
+		<CustMenu2 MenuName="评级信息" Entityname="Rating"  tabName ="M_CI_RATING" show="list" />
+		<CustMenu2 MenuName="违约信息" Entityname="Defaultinfo" tabName ="M_CI_BADRECORD" show="list" />
+		<CustMenu2 MenuName="欠息信息" Entityname="Overinterest"  tabName ="M_CI_ORG_OVERINTEREST" show="list"  />
+		<CustMenu2 MenuName="虚假情况" Entityname="Mendinfo"   tabName ="M_CI_ORG_MENDINFO" show="list" />
+		<CustMenu2 MenuName="特殊名单" Entityname="SpecialList"   tabName ="M_CI_SPECIALLIST" show="list" />
+		<CustMenu2 MenuName="风险预警信号" Entityname="Risksignal"  tabName ="M_CI_ORG_RISKSIGNAL" show="list"  />
+		<CustMenu2 MenuName="个人公积金信息" Entityname="Persongjj"   tabName ="M_CI_PER_GJJ" show="list"  />
+		<CustMenu2 MenuName="个人社会保障信息" Entityname="Personsocialsecurity"  tabName ="M_CI_PER_SOCIALSECURITY" show="form"  />
+		<CustMenu2 MenuName="个人社会保险信息" Entityname="Personsocialinsurance"  tabName ="M_CI_PER_SOCIALINSURANCE" show="list"  />
+		<CustMenu2 MenuName="个人商业保险信息" Entityname="Personbusiinsurance"   tabName ="M_CI_PER_INSURE_INFO" show="list" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户评价信息" BizName="PerEvaluate">
+		<CustMenu2 MenuName="评分信息" Entityname="Scoreinfo"   tabName ="M_CI_SCOREINFO" show="list" />
+		<CustMenu2 MenuName="征信信息" Entityname="Creditinfo"   tabName ="M_CI_CREDITINFO" show="list" />
+		<CustMenu2 MenuName="客户评价信息" Entityname="Evaluate"   tabName ="M_CI_EVALUATE" show="form" />
+		<CustMenu2 MenuName="个人客户等级信息" Entityname="Persongrade"   tabName ="M_CI_PER_GRADE" show="list" />
+		<CustMenu2 MenuName="个人客户积分信息" Entityname="Personpoint"   tabName ="M_CI_PER_POINT" show="list" />
+		<CustMenu2 MenuName="个人客户偏好信息" Entityname="Personpreference"   tabName ="M_CI_PER_PREFERENCE" show="list" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户往来信息"   BizName="PerDealing">
+		<CustMenu2 MenuName="个人客户渠道签约" Entityname="Personchannelsign"   tabName ="M_CI_BELONG_CHANNEL" show="list" />
+	</CustMenu1>
+	<CustMenu1 MenuName="客户管理信息"  BizName="PerManage">
+		<CustMenu2 MenuName="生命周期信息" Entityname="Lifecycleinfo"   tabName ="M_CI_LIFECYCLE" show="form" />
+		<CustMenu2 MenuName="归属机构信息" Entityname="Belongbranch"   tabName ="M_CI_BELONG_BRANCH" show="list" />
+		<CustMenu2 MenuName="归属客户经理" Entityname="BelongManager"   tabName ="M_CI_BELONG_MANAGER" show="list" />
+		<CustMenu2 MenuName="归属条线部门信息" Entityname="Belonglinedept"   tabName ="M_CI_BELONG_LINE" show="list" />
+	</CustMenu1>
+
+	<CustMenu1 MenuName="产品" EntityPackage="product" BizName="Product">
+		<CustMenu2 MenuName="产品基本信息" Entityname="Product"   tabName ="" show="list" />
+	</CustMenu1>
+
+	<CustMenu1 MenuName="事件"  BizName="Event">
+		<CustMenu2 MenuName="大事记" Entityname="LargeEvent"     tabName ="" show="list" />
+		<CustMenu2 MenuName="交易事件" Entityname="TxEvent"    tabName ="" show="list" />
+		<CustMenu2 MenuName="关注事件" Entityname="AttentEvent"   tabName ="" show="list" />
+	</CustMenu1>
+	<CustMenu1 MenuName="资产"  BizName="Asset">
+		<CustMenu2 MenuName="房产" Entityname="CustomerRealty"    tabName ="M_HL_REALTY" show="list" />
+		<CustMenu2 MenuName="车辆" Entityname="CustomerVehicle"   tabName ="M_HL_VEHICLE" show="list" />
+		<CustMenu2 MenuName="存货" Entityname="EntInventory"   tabName ="M_HL_INVENTORY" show="list" />
+		<CustMenu2 MenuName="厂房" Entityname="SmeInveinfo"    tabName ="" show="list" />
+		<CustMenu2 MenuName="经营权" Entityname="Right"    tabName ="" show="list" />
+		<CustMenu2 MenuName="固定资产" Entityname="EntFixedasset"    tabName ="M_HL_FIXEDASSETS" show="list" />
+		<CustMenu2 MenuName="机器设备" Entityname="Machine"    tabName ="M_HL_MACHINE" show="list" />
+		<CustMenu2 MenuName="抵质押物" Entityname="Guaranty"   tabName ="" show="list" />
+		<CustMenu2 MenuName="应收账款" Entityname="Receivable"   tabName ="M_HL_RECEIVABLE" show="list" />
+		<CustMenu2 MenuName="无形资产" Entityname="CustomerImasset"   tabName ="" show="list" />
+		<CustMenu2 MenuName="股票信息" Entityname="Stock"   tabName ="M_HL_STOCK" show="list" />
+		<CustMenu2 MenuName="债券信息" Entityname="Bond"   tabName ="M_HL_BOND" show="list" />
+		<CustMenu2 MenuName="票据信息" Entityname="Bond"   tabName ="" show="list" />
+		<CustMenu2 MenuName="他行存款" Entityname="Otherbankdeposit"   tabName ="M_HL_OTHERBANK_DEPOSIT" show="list" />
+		<CustMenu2 MenuName="个人其他资产" Entityname="IndOasset"   tabName ="M_HL_OTHER_ASSETS" show="list" />
+	</CustMenu1>
+
+</Body>

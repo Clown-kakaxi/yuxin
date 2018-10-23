@@ -1,0 +1,106 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+名词解释：
+导入查询：根据导入的Excel数据进行数据筛选，并将筛选后的数据显示在功能页面的表格里
+批量导入：将Excel数据导入进数据库，中间会有一些列的校验确保数据的合法性
+
+★不管是导入查询还是批量导入，都需要先在ImportTradeDefine.xml文件里进行相应的配置(包括导入编码，校验类等待)
+★页面上需要有导出模板按钮和导入按钮
+★需要引入控件文件Com.yucheng.crm.common.ImpExpNew.js
+★功能页面的使用
+    ▲导入查询
+    /**
+     * 导入查询管理器
+     */
+    var importSearchManager = new Com.yucheng.crm.common.ImportSearchManager({
+        templateFile: 'fajinImport.xlsx',
+        tradeCode   : 'importCustTransToManager',
+        url         : basepath + '/custTrans.json',
+        params      : {},
+        fields       : [
+            {text : '核心客户号' ,name   : 'CORE_NO'}, 
+            {text : '校验信息' ,name : 'IMP_MSG'}
+        ],
+        listeners   : {
+            beforeSearch : function(){
+                var me = this;
+                Ext.Msg.wait("系统消息","正在处理，请稍后。。。");
+                //发送请求，查询当前导入 查询临时表里数据的客户类型，然后设置查询条件的值
+                Ext.Ajax.request({
+                    url : basepath + '/changeCustManager!searchCustId.json',
+                    success : function(response){
+                        Ext.Msg.hide();
+                        var temp = Ext.decode(response.responseText);
+                        //获取查询条件客户类型，并设置值
+                        getConditionField('CUST_TYPE').setValue(temp.CUST_TYPE);
+                        extraParams.impFlag = "1";//设置导入查询标志为1，即导入查询
+                        _app.searchDomain.searchHandler();//执行查询
+                    }
+                });
+                return true;
+            }
+        }
+    });
+        然后在导出模板和导入查询按钮里的代码如下：
+    {
+        text : '模板下载', 
+        hidden:JsContext.checkGrant('custTransToManager_download'),
+        handler : function(){
+            importSearchManager.downloadTemplate();
+        }
+    },{
+        text : '导入查询',
+        hidden:JsContext.checkGrant('custTransToManager_import'),
+        handler : function(){
+            importSearchManager.importSearch();
+        }
+    }
+    ▲批量导入
+    /**
+     * 导入查询管理器
+     */
+    var importSearchManager = new Com.yucheng.crm.common.ImportSearchManager({
+        templateFile: 'managerImport.xlsx',
+        tradeCode   : 'importCustTransForCharge',
+        url         : basepath + '/custTrans.json',
+        params      : {importFlag:"charge"},
+        impSearch   : false,
+        successMsg  : '移转成功!',
+        fields       : [
+            {text: '核心客户号',name: 'CORE_NO'},
+            {text: '客户姓名',name: 'CUST_NAME'},
+            {text: '客户类型',name: 'CUST_TYPE'},
+            {text: '客户经理编号',name: 'MGR_ID'},
+            {text: '客户经理名称',name: 'MGR_NAME'},
+            {text: '接受客户经理编号',name: 'T_MGR_ID'},
+            {text: '接受客户经理',name: 'T_MGR_NAME'},
+            {text: '客户移交类别',name: 'HAND_KIND'},
+            {text: '工作移交原因',name: 'HAND_OVER_REASON'},
+            {text: '工作交接日期',name: 'WORK_INTERFIX_Dt'},
+            {text: '校验信息',name:'IMP_MSG'}
+        ],
+        listeners:{
+            beforeSerach:function(){
+                this.progressWin.hide();
+            }
+        }
+    });
+            然后在导出模板和导入查询按钮里的代码如下：
+    {
+        text : '模板下载', 
+        hidden:JsContext.checkGrant('custTransToManager_download'),
+        handler : function(){
+            importSearchManager.downloadTemplate();
+        }
+    },{
+        text : '导入查询',
+        hidden:JsContext.checkGrant('custTransToManager_import'),
+        handler : function(){
+            importSearchManager.importSearch();
+        }
+    }
+★服务端，ImportSearchManager配置的url对应的action里，需要定义prepareFalse方法用于查询导入失败的数据，写法与prepare方法类型
+★服务端，需要编写在ImportTradeDefine.xml里定义好的校验类，并进行导入数据的校验,该校验类需要实现ImportInterface接口
+★ImportTradeDefine.xml里定义的column第一个基本上固定是ID，导入模板的第一列置空不要写数据(怕不好看可以考虑因此该列)，留给这个ID，这个ID导入任务管理器里会自动生成的

@@ -1,0 +1,150 @@
+
+<chart caption='业务变化统计趋势图'  xAxisName='月份' yAxisName='金额:(单位:元)' formatNumberScale='0'>
+	<categories>
+	  	<category name='上年末' />
+		<category name='一月' />
+		<category name='二月' />
+		<category name='三月' />
+		<category name='四月' />
+		<category name='五月' />
+		<category name='六月' />
+		<category name='七月' />
+		<category name='八月' />
+		<category name='九月' />
+		<category name='十月' />
+		<category name='十一月' />
+		<category name='十二月' />
+   
+    		
+		
+	</categories>
+	<dataset SeriesName='存款余额' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='11111' />
+		<set id='a3' value='22222' />
+		<set id='a4' value='33333'/>
+		<set id='a5' value='44444'/>
+		<set id='a6' value='55555'/>
+		<set id='a7' value='66666'/>
+		<set id='a8' value='77777'/>		
+		<set id='a9' value='88888'/>
+		<set id='a10' value='99999'/>
+		<set id='a11' value='11111'/>
+		<set id='a12' value='11111'/>
+		<set id='a13' value='64811'/>
+		<set id='a14' value='64845'/>
+
+	</dataset>
+		<dataset SeriesName='存款日均' id='r1'  dragBorderColor='00ffff'>
+		<set id='r2' value='15000' />
+		<set id='r3' value='25835' />
+		<set id='r4' value='20722'/>
+		<set id='r5' value='17557'/>
+		<set id='r6' value='12633'/>
+		<set id='r7' value='64845'/>
+		<set id='r8' value='64845'/>		
+		<set id='r9' value='20722'/>
+		<set id='r10' value='25835'/>
+		<set id='r11' value='12633'/>
+		<set id='r12' value='17557'/>
+		<set id='r13' value='15000'/>
+		<set id='r14' value='20722'/>
+
+	</dataset>
+		<dataset SeriesName='贷款余额' id='t1'  dragBorderColor='dc143c'>
+		<set id='t2' value='37401' />
+		<set id='t3' value='41941' />
+		<set id='t4' value='15000'/>
+		<set id='t5' value='82632'/>
+		<set id='t6' value='12342'/>
+		<set id='t7' value='65835'/>
+		<set id='t8' value='24113'/>		
+		<set id='t9' value='57622'/>
+		<set id='t10' value='34523'/>
+		<set id='t11' value='53113'/>
+		<set id='t12' value='53113'/>
+		<set id='t13' value='84234'/>
+		<set id='t14' value='10832'/>
+
+	</dataset>
+		<dataset SeriesName='承兑余额' id='s1'  dragBorderColor='ff8c00'>
+		<set id='s2' value='23232' />
+		<set id='s3' value='32323' />
+		<set id='s4' value='42312'/>
+		<set id='s5' value='44211'/>
+		<set id='s6' value='10235'/>
+		<set id='s7' value='23232'/>
+		<set id='s8' value='72322'/>		
+		<set id='s9' value='26493'/>
+		<set id='s10' value='32823'/>
+		<set id='s11' value='12323'/>
+		<set id='s12' value='23415'/>
+		<set id='s13' value='24144'/>
+		<set id='s14' value='22431'/>
+
+	</dataset>
+			<dataset SeriesName='承兑累计' id='a1'  dragBorderColor='1e90ff'>
+		<set id='a2' value='32341' />
+		<set id='a3' value='31342' />
+		<set id='a4' value='83231'/>
+		<set id='a5' value='23415'/>
+		<set id='a6' value='10235'/>
+		<set id='a7' value='26493'/>
+		<set id='a8' value='21213'/>		
+		<set id='a9' value='13123'/>
+		<set id='a10' value='51441'/>
+		<set id='a11' value='73211'/>
+		<set id='a12' value='52321'/>
+		<set id='a13' value='54141'/>
+		<set id='a14' value='80746'/>
+
+	</dataset>
+			<dataset SeriesName='贴现余额' id='a1'  dragBorderColor='ffd700'>
+		<set id='a2' value='21313' />
+		<set id='a3' value='86482' />
+		<set id='a4' value='39475'/>
+		<set id='a5' value='89264'/>
+		<set id='a6' value='10273'/>
+		<set id='a7' value='20832'/>
+		<set id='a8' value='30843'/>		
+		<set id='a9' value='34743'/>
+		<set id='a10' value='27402'/>
+		<set id='a11' value='28402'/>
+		<set id='a12' value='28402'/>
+		<set id='a13' value='37648'/>
+		<set id='a14' value='74972'/>
+
+	</dataset>
+			<dataset SeriesName='中间业务收入' id='a1'  dragBorderColor='ff7f50'>
+		<set id='a2' value='57040' />
+		<set id='a3' value='41941' />
+		<set id='a4' value='45263'/>
+		<set id='a5' value='57320'/>
+		<set id='a6' value='45263'/>
+		<set id='a7' value='41941'/>
+		<set id='a8' value='89264'/>		
+		<set id='a9' value='28402'/>
+		<set id='a10' value='10273'/>
+		<set id='a11' value='10273'/>
+		<set id='a12' value='39475'/>
+		<set id='a13' value='57320'/>
+		<set id='a14' value='10273'/>
+
+	</dataset>
+			<dataset SeriesName='利润贡献度' id='a1'  dragBorderColor='000000'>
+		<set id='a2' value='88630' />
+		<set id='a3' value='72939' />
+		<set id='a4' value='12925'/>
+		<set id='a5' value='82536'/>
+		<set id='a6' value='92633'/>
+		<set id='a7' value='18932'/>
+		<set id='a8' value='63623'/>		
+		<set id='a9' value='23241'/>
+		<set id='a10' value='23156'/>
+		<set id='a11' value='98743'/>
+		<set id='a12' value='90783'/>
+		<set id='a13' value='23132'/>
+		<set id='a14' value='32322'/>
+
+	</dataset>
+	
+</chart> 

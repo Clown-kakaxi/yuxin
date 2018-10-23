@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C// DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>信息查询</title>
+<script type="text/javascript" src="../../../commonjs/pageEffects.js"></script>
+<style type="text/css">
+	p{
+	font-size: 15px;font-weight: bold;text-align: center;
+	}
+	li{
+	font-size: 13px;font-weight: bold; font:'宋体';color: #0066CC;
+	}
+</style>
+
+
+	<script>
+	function showMoney(){
+		document.getElementById('money1').style.display='';
+		document.getElementById('money2').style.display='';
+		document.getElementById('money3').style.display='';		
+	}
+	function show(imgDivId)
+	{	  
+		document.getElementById(imgDivId).style.visibility='visible';
+	}
+
+	function hide(imgDivId){
+		document.getElementById(imgDivId).style.visibility='hidden';
+   	}
+
+	function imgDivMove(id){
+		var divIndex = id.substr(3,id.length-3);
+		document.getElementById(id).onmouseover = function(){}
+		document.getElementById('img'+divIndex).style.visibility='visible';
+	}
+	function imgDivMoveOut(id){
+        	var divIndex = id.substr(3,id.length-3);
+		document.getElementById('img'+divIndex).style.visibility='hidden';
+		document.getElementById(id).onmouseover = function(){
+			document.getElementById('img'+divIndex).style.visibility='visible';
+		}
+	}
+	function turnToRealTime(){
+		document.getElementById("contentFrame").src="../../realTimeQuery/realTimeQuery.html";
+	}
+	
+</script>
+
+<script type="text/javascript">
+    	function redirect(url)
+    	{    url=url+parent.location.href.split("customerId=")[1];
+    		parent.location=url;
+    	}
+    	function to(url){
+			window.location.href=url;
+		}
+    </script>
+
+</head>
+<body>
+	<div onclick="redirect('customerBaseInformation.html');" style="position:absolute;width:310px;height:190px;left:110px;top:110px;background-image:url(../../../img/custmerView/center.png);border:1px   none   #000000;">
+            <p>&nbsp;</P><p>&nbsp;</P>
+            <p >内蒙古伊泰 </p>
+        	<p >股份有限公司</p></div>		
+            
+             <div id="div4" onmousemove="show('img4');" onmouseout="hide('img4');" style="position:absolute;width:100px;height:110px;left:415px;top:150px;background-image:url(../../../img/custmerView/circle.png);border:1px   none   #000000;background-position:center;background-repeat:no-repeat;">
+             <p>&nbsp;</P>
+             <p style="font-size: 12px;cursor:hand;">客户经理</p></div>
+             <div id="img4" onmousemove="imgDivMove('div4');" onmouseout="imgDivMoveOut('div4');"   style="position:absolute;width:309px;height:205px;left:515px;top:155px;background-image:url(../../../img/custmerView/popup3.png);border:1px  none   #000000;visibility: hidden;">
+	     <ul style="position:relative;top:20px;list-style:none;">
+	    	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	 ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	电话
+			<li>001263473  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			          焦项波        &nbsp;&nbsp;&nbsp;
+			    13900027382</li>
+			<li>001263454 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			           余勇智         &nbsp;&nbsp;&nbsp;
+			    15802384325</li>
+			<li>001263673  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			           姚亮       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    13702872374</li>
+ 	     </ul></div>
+            
+            <div id="div2" onmousemove="show('img2');"  onmouseout="hide('img2');" style="position:absolute;width:140px;height:110px;left:295px;top:15px;background-image:url(../../../img/custmerView/circle.png);border:1px   none   #000000;background-position:center;background-repeat:no-repeat;" >
+            <p>&nbsp;</P>
+            <p style="font-size: 12px;cursor:hand;">联系人</p></div>
+            <div id="img2" onmousemove="imgDivMove('div2');" onmouseout="imgDivMoveOut('div2');" style="position:absolute;width:309px;height:205px;left:410px;z-index:1;top:20px;background-image:url(../../../img/custmerView/popup3.png);border:1px   none   #000000;visibility: hidden;">
+	    <ul style="position:relative;top:20px;list-style:none;">
+	    	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法人姓名：余永智</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人姓名：焦向波</li>
+			<li>证明文件名称：身份证</li>
+			<li>证明文件号码：130982198910257258</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;税务证号：sw29342234</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资产总额：123,143.00万元</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销售额：183.00万元</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员工人数：3000人</li>
+ 	    	</ul>
+            </div>
+            	
+           
+            <div id="div1" onmousemove="show('img1');" onmouseout="hide('img1');" style="position:absolute;width:100px;height:110px;left:140px;top:15px;background:url(../../../img/custmerView/circle.png);border:1px   none   #000000;background-position:center;background-repeat:no-repeat;">
+            <p>&nbsp;</p>
+           <p style="font-size: 12px;cursor:hand;">实时查询</p></div>
+            <div id="img1" onmousemove="imgDivMove('div1');" onmouseout="imgDivMoveOut('div1');" style="position:absolute;width:395px;height:205px;left:235px;top:20px;background-image:url(../../../img/custmerView/popup4.png);border:1px   none   #000000;visibility: hidden">
+	    <ul style="position:relative;top:20px;list-style:none;">
+	    	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	 账户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	余额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	查询时间
+			<li>01098322124224252345264&nbsp;&nbsp;
+			    5,725,142.00万元&nbsp;&nbsp;
+			    09:57:23</li>
+			<li>01098322124224252345284 &nbsp;&nbsp;
+			    1,725,142.00万元 &nbsp;&nbsp;
+			    14:17:23</li>
+			<li>01098322124224252345286  &nbsp;&nbsp;
+			    3,725,142.00万元  &nbsp;&nbsp;
+			    15:48:12</li>
+			
+ 	    	</ul>
+            </div>	
+            
+            <div id="div3" onmousemove="show('img3');"  onmouseout="hide('img3');" style="position:absolute;width:100px;height:110px;left:10px;top:150px;background-image:url(../../../img/custmerView/circle.png);border:1px   none   #000000;background-position:center;background-repeat:no-repeat;">
+            <p>&nbsp;</P>
+            <p style="font-size: 12px;cursor:hand;"    onclick="redirect('customerBaseInformation.jsp?customerId=')">基本信息</p></div>	
+            <div id="img3"  onmousemove="imgDivMove('div3');" onmouseout="imgDivMoveOut('div3');" style="z-index:128889;position:absolute;width:309px;height:205px;left:100px;top:155px;background-image:url(../../../img/custmerView/popup3.png);border:1px   none   #000000;visibility: hidden">
+	    <ul style="position:relative;top:20px;list-style:none;">
+	    	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法人姓名：余永智</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;负责人姓名：焦向波</li>
+			<li>证明文件名称：身份证</li>
+			<li>证明文件号码：130982198910257258</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;税务证号：sw29342234</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资产总额：123,143.00万元</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销售额：183.00万元</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员工人数：3000人</li>
+ 	    </ul>
+ 	  	  	<!--table style="position:relative;top:20px;list-style:none;">
+				<tr><td>客户名称</td><td>第1行第2列</td><td>第1行第3列</td></tr>
+				<tr><td>第2行第1列</td><td>第2行第2列</td><td>第2行第3列</td></tr>
+				<tr><td>第3行第1列</td><td>第3行第2列</td><td>第3行第3列</td></tr>
+			</table-->
+            </div>
+            
+           
+            	
+            <div id="div5" onmousemove="show('img5');"  onmouseout="hide('img5');" style="position:absolute;width:100px;height:110px;left:140px;top:295px;background-image:url(../../../img/custmerView/circle.png);border:1px   none   #000000;background-position:center;background-repeat:no-repeat;">
+           	<p>&nbsp;</p>
+            <p style="font-size: 12px;cursor:hand;">客户贡献度</p></div>
+            <div id="img5"  onmousemove="imgDivMove('div5');" onmouseout="imgDivMoveOut('div5');" style="position:absolute;z-index:128888;width:192px;height:205px;left:250px;top:55px;background-image:url(../../../img/custmerView/popup2.png);border:1px   none   #000000;visibility: hidden">
+	    <!--ul style="position:relative;top:20px;list-style:none;">
+	    	<li>客户一：焦向波</li>
+			<li>金额：1,000,000</li>
+			<li>客户二：余永智</li>
+			<li>金额：1,500,000</li>
+			<li>客户三：姚亮</li>
+			<li>金额：2,000,000</li>
+			<li>客户四：汪占元</li>
+			<li>金额：2,500,000</li>
+ 	    </ul-->
+ 	     <iframe id="contentFrame1" name="content1" height="400" frameborder="no" width="600" src="../../index/fusionchartsDemo/contribute/a.html"/> scrolling="no"> </iframe>
+            </div>
+            
+            <div id="div6" onmousemove="show('img6');" onclick="showMoney();" onmouseout="hide('img6');" style="position:absolute;width:100px;height:110px;left:295px;top:295px;background-image:url(../../../img/custmerView/circle.png);border:1px   none   #000000;background-position:center;background-repeat:no-repeat;">
+           <p>&nbsp;</p>
+            <p style="font-size: 12px;cursor:hand;">产品信息</p></div>
+            <div id="img6" onmousemove="imgDivMove('div6');" onmouseout="imgDivMoveOut('div6');" style="position:absolute;width:259px;height:185px;left:385px;top:95px;background-image:url(../../../img/custmerView/popup3.png);border:1px   none   #000000;visibility: hidden">
+	    <!--ul style="position:relative;top:20px;list-style:none;">
+	    	
+	    	<li>2593209482940938234余额：<span id='money1' style='display:none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.00</span></li>
+			<li>2593209482940938321余额：<span id='money2' style='display:none;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.00</span></li>
+			<li>2593209482940938938余额：<span id='money3' style='display:none;'>100，000.00</span></li>
+ 	    	</ul-->
+ 	    	<iframe id="contentFrame1" name="content1" height="400" frameborder="no" width="600" src="../../index/fusionchartsDemo/DragableCharts/DragCol1.html"/> scrolling="no"> </iframe>
+	    </div>
+</body>
+</html>

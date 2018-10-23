@@ -1,0 +1,39 @@
+
+<chart caption='居民消费价格指数(CPI)'  xAxisName='日期' yAxisName='百分比%' formatNumberScale='0'>
+	<categories>
+	  	<category name='2010-01' />
+		<category name='2010-05' />
+		<category name='2010-09' />
+		<category name='2011-02' />
+		<category name='2011-07' />
+		<category name='2011-11' />
+		<category name='2012-01' />
+	</categories>
+	<dataset SeriesName='全国' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='3.5' />
+		<set id='a3' value='3.6' />
+		<set id='a4' value='4.7'/>
+		<set id='a5' value='3.6'/>
+		<set id='a6' value='2.5'/>
+		<set id='a7' value='3.7'/>
+		<set id='a8' value='3.1'/>		
+	</dataset>
+	<dataset SeriesName='城市 ' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='3.9' />
+		<set id='a3' value='3.1' />
+		<set id='a4' value='3.5'/>
+		<set id='a5' value='3.2'/>
+		<set id='a6' value='3.0'/>
+		<set id='a7' value='3.5'/>
+		<set id='a8' value='3.7'/>		
+	</dataset>
+	<dataset SeriesName='农村 ' id='a1'  dragBorderColor='0099FF'>
+		<set id='a2' value='2.2' />
+		<set id='a3' value='3.4' />
+		<set id='a4' value='3.8'/>
+		<set id='a5' value='2.5'/>
+		<set id='a6' value='3.7'/>
+		<set id='a7' value='4.0'/>
+		<set id='a8' value='2.8'/>		
+	</dataset>
+</chart> 

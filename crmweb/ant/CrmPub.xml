@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="p_crmpub" basedir="${workspace}" default="CrmPub-build">	
+	<target name="CrmPub-build" description="Tranform the properties files to UTF-8">
+		<!-- 前台JS以及JSP-->
+		<!--<copy todir="${workspace.dir}/${outwar.dir}/${web}/${WebContent}/contents/pages"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${web}/${WebContent}/contents/pages">
+			    <include name="common/ViewContext.js" />
+				<include name="common/LovCombo.js" />
+				<include name="common/ImportWindow.js" />
+				<include name="common/commonExtPanel.js" />
+				<include name="common/Com.yucheng.crm.cust.ViewWindow.js" />
+		        <include name="common/Com.yucheng.crm.common.Upload.js" />
+		        <include name="common/Com.yucheng.crm.common.OrgUserManage.js" />
+		        <include name="common/Com.yucheng.crm.common.ImpExp.js" />
+		        <include name="common/Com.yucheng.bcrm.common.OrgField.js" />
+		        <include name="common/Com.yucheng.bcrm.common.CustomerQueryField.js" />
+		        <include name="common/Com.yucheng.bcrm.common.CustGroup.js" />
+		        <include name="common/Com.yucheng.bcrm.common.Annacommit.js" />
+		        <include name="common/Com.yucheng.bcrm.common.ProductManage.js" />
+			</fileset>
+		</copy>	-->
+		
+		<!-- copy公共组件后台bob下java类-->
+		<!--<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bob"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bob">
+				<include name="upload/FileUploadServlet.java" />
+	        	<include name="upload/FileUploadListener.java" />
+	       		<include name="upload/AjaxUploadStatusServlet.java" />
+	        	<include name="upload/AnneFileDownloadServlet.java" />
+	      		<include name="upload/ExportMetaBean.java" />
+	         	<include name="upload/ExportXLSCellFormat.java" />
+	     		<include name="upload/FileDownloadServlet.java" />
+	      		<include name="upload/FileTypeConstance.java" />
+	       		<include name="upload/ImportColumnBean.java" />
+	      		<include name="upload/ImportTradeBean.java" />
+	       		<include name="upload/ImportTradeManage.java" />
+	     		<include name="upload/MonitoredDiskFileItem.java" />
+	          	<include name="upload/MonitoredDiskFileItemFactory.java" />
+	          	<include name="upload/MonitoredOutputStream.java" />
+	          	<include name="upload/OutputStreamListener.java" />
+	          	<include name="upload/TemplateFileDownServlet.java" />
+	          	<include name="importimpl/DefaultImpl.java" />
+	          	<include name="importimpl/DefaultImpl.java" />
+	          	<include name="upload/poi/DataMetaBean.java" />
+	          	<include name="upload/poi/ExportCellStyle.java" />
+	          	<include name="upload/poi/POIUtils.java" />
+	          	<include name="action/ImportAction.java" />
+				<include name="model/WorkingplatformAnnexe.java" />
+				<include name="vo/WorkingplatformAnnexeVo.java" />
+				<include name="action/OrgUserManageAction.java" />
+			</fileset>
+		</copy>-->
+		<!-- copy公共组件后台crm下java类-->
+		<!--<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/crm"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/crm">
+				<include name="dataauth/action/QueryCustViewAuthorizeAction.java" />
+			</fileset>
+		</copy>-->
+		<!-- copy公共组件后台bcrm下java类-->
+		<!--<copy todir="${workspace.dir}/${outwar.dir}/${base}/src/com/yuchengtech/bcrm"  preservelastmodified="true">
+			<fileset dir="${workspace.dir}/${base}/src/com/yuchengtech/bcrm">
+		  		<include name="workplat/action/WorkingplatformAnnexeAction.java" />
+          		<include name="workplat/service/WorkingplatformAnnexeService.java" />
+          		<include name="custview/action/WorkPlatAnnaexeQueryAction.java" />
+          		<include name="common/action/CommonSearchAction.java" />
+          		<include name="common/service/OrgSearchService.java" />
+          		<include name="common/CommonContance.java" />
+          		<include name="system/action/RoleQueryAction.java" />
+          		<include name="system/model/AdminAuthRole.java" />
+          		<include name="system/service/RoleManagerService.java" />
+          		<include name="customer/action/QueryCustomerBaseInfoAction.java" />
+			</fileset>
+		</copy>-->
+	</target>
+</project>

@@ -1,0 +1,46 @@
+﻿
+<chart  subcaption='投资监控'  xAxisName='月' yAxisName='金额' formatNumberScale='0' yAxisMinValue='380000' showValues='0' >
+	<categories>
+		<category name='1' />
+		<category name='2' />
+		<category name='3' />
+		<category name='4' />
+		<category name='5' />
+		<category name='6' />
+		<category name='7' />
+		<category name='8' />
+		<category name='9' />
+		<category name='10' />
+		<category name='11' />
+		<category name='12' />
+	</categories>
+	<dataset SeriesName='投资总额' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='500000' />
+		<set id='LJ2006' value='500000' />
+		<set id='LJ2007' value='500000'/>
+		<set id='LJ2008' value='500000'/>
+		<set id='LJ2009' value='500000'/>
+		<set id='LJ2010' value='500000'/>
+		<set id='LJ2011' value='500000'/>
+		<set id='LJ2011' value='500000'/>
+		<set id='LJ2011' value='500000'/>
+		<set id='LJ2011' value='500000'/>
+		<set id='LJ2011' value='500000'/>
+		<set id='LJ2011' value='500000'/>
+	</dataset>
+	<dataset SeriesName='投资绩效' id='CR' dragBorderColor='CC9900'>
+		<set id='CR2005' value='500000' />
+		<set id='CR2006' value='480000' />
+		<set id='CR2007' value='550000'/>
+		<set id='CR2008' value='500000'/>
+		<set id='CR2009' value='490000' />
+		<set id='LJ2010' value='560000'/>
+		<set id='LJ2011' value='610000'/>
+		<set id='LJ2011' value='580000'/>
+		<set id='LJ2011' value='530000'/>
+		<set id='LJ2011' value='490000'/>
+		<set id='LJ2011' value='620000'/>
+		<set id='LJ2011' value='640000'/>
+	</dataset>
+	
+</chart> 

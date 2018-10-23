@@ -1,0 +1,37 @@
+
+2014-12-3 17:01:19,250[
+INFO][pool-1-thread-2](SocketExecutorHandler.java:310) 00000902<?xml version="1.0" encoding="GBK"?>
+<TransBody>
+	<RequestHeader>
+		<ReqSysCd>CRM</ReqSysCd>
+		<ReqSeqNo>20141203170117841</ReqSeqNo>
+		<ReqDt>20141203</ReqDt>
+		<ReqTm>05011784</ReqTm>
+		<DestSysCd>ECIF</DestSysCd>
+		<ChnlNo>82</ChnlNo>
+		<BrchNo>503</BrchNo>
+		<BizLine>209</BizLine>
+		<TrmNo>TRM10010</TrmNo>
+		<TrmIP>127.0.0.1</TrmIP>
+		<TlrNo>701N0931</TlrNo>
+	</RequestHeader>
+	<RequestBody>
+		<txCode>updatePerCustInfo</txCode>
+		<txName>修改个人客户基本信息</txName>
+		<authType>1</authType>
+		<authCode>1010</authCode>
+		<custNo>210000140852</custNo>
+		<identifier>
+			<custId>210000140852</custId>
+			<identExpiredDate>2024-04-29</identExpiredDate>
+			<lastUpdateUser>701N0931</lastUpdateUser>
+			<lastUpdateTm>2014-12-03</lastUpdateTm>
+			<identId></identId>
+			<identNo>M30016611</identNo>
+			<identType>5</identType>
+			<lastUpdateSys>CRM</lastUpdateSys>
+			<identCustName>黄凤章</identCustName>
+			<identModifiedTime>2014-12-03</identModifiedTime>
+		</identifier>
+	</RequestBody>
+</TransBody>

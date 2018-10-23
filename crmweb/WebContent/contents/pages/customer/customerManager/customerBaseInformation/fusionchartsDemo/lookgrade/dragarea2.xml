@@ -1,0 +1,31 @@
+
+<chart  subcaption='2012年'  xAxisName='月份' yAxisName='元' formatNumberScale='0' >
+	<categories>
+		<category name='2012-01' />
+		<category name='2012-02' />
+		<category name='2012-03' />
+		<category name='2012-04' />
+		<category name='2012-05' />
+	</categories>
+	<dataset SeriesName='贷款时点余额' id='LJ'  dragBorderColor='0099FF'>
+		<set id='LJ2005' value='37401' />
+		<set id='LJ2006' value='41941' />
+		<set id='LJ2007' value='45263'/>
+		<set id='LJ2008' value='67320'/>
+		<set id='LJ2009' value='84845'/>
+	</dataset>
+	<dataset SeriesName='贷款月均余额' id='CR' dragBorderColor='CC9900'>
+		<set id='CR2005' value='15000' />
+		<set id='CR2006' value='25835' />
+		<set id='CR2007' value='20722'/>
+		<set id='CR2008' value='37557'/>
+		<set id='CR2009' value='52633' />
+	</dataset>
+	<dataset SeriesName='贷款贡献度' id='DK'>
+		<set id='DK2005' value='17040' />
+		<set id='DK2006' value='20835' />
+		<set id='DK2007' value='22722'/>
+		<set id='DK2008' value='10557'/>
+		<set id='DK2009' value='11633' />
+	</dataset>
+</chart> 

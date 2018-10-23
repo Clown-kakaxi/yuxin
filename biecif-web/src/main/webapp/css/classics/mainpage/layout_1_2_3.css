@@ -1,0 +1,32 @@
+.design_all {
+	width: 100%;
+	position: relative;
+}
+
+.design_left {
+	float: left;
+	width: 20%;
+	margin-top:5px;
+	margin-left:5px;
+}
+
+.design_subdiv {
+	background-color: #FFFFFF;
+	width:100%;
+	border:1px solid #D6D6D6;
+}
+
+.design_center {
+	float: left;
+	width: 57%;
+	margin-left: 1%;
+	margin-top:5px;
+}
+
+.design_right {
+	width: 20%;
+	float: left;
+	margin-left:1%;
+	margin-top:5px;
+}
+

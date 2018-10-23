@@ -1,0 +1,5 @@
+<report:param name="form1" paramFileName="<%=paramFile%>"
+			needSubmit="no" height="-1"
+			params="<%=param.toString()%>"
+			
+		/>

@@ -1,0 +1,6 @@
+<chart caption='职位'  formatNumberScale='0' >
+	<set label='高管' value='27400' />
+	<set label='经理' value='39800' />
+	<set label='职员' value='21800' />
+	<set label='工人'  value='39800' />
+</chart>

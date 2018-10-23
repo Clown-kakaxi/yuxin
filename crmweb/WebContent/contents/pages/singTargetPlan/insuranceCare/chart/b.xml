@@ -1,0 +1,20 @@
+<chart caption='' subCaption=''  shownames='1' showvalues='0' decimals='0' numberPrefix='$' >
+	<categories>
+		<category label='养老保险' />
+		<category label='教育保险' />
+		<category label='医疗保险' />
+		<category label='意外保险' />
+	</categories>
+	<dataset seriesName='保险需求'  showValues="0">
+		<set value='20000' />
+		<set value='500' />
+		<set value='1500' />
+		<set value='1500' />
+	</dataset>
+	<dataset seriesName='已有保障' showValues="0">
+		<set value='10000' />
+		<set value='500' />
+		<set value='2000' />
+		<set value='2000' />
+	</dataset>
+</chart>

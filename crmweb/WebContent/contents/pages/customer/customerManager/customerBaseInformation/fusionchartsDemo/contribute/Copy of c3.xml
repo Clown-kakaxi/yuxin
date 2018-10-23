@@ -1,0 +1,5 @@
+<chart   numberPrefix='￥' >
+	<set label='存款日均' value='29400' />
+	<set label='贷款日均' value='35800' />
+	<set label='中间业务额度' value='22800' />
+</chart>

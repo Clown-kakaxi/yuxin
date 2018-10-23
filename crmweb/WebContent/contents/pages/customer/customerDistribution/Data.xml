@@ -1,0 +1,6 @@
+<chart caption='' showLegend='1' legendPosition='RIGHT' showLabels='0'
+   xAxisName='Week' yAxisName='Sales' numberPrefix='占比'> 
+      <set label='杨奇' value='30' />
+      <set label='赵瑞' value='30' />
+      <set label='王东' value='40' />
+</chart>

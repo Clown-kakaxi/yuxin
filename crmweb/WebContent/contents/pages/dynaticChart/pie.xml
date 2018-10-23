@@ -1,0 +1,7 @@
+<chart subcaption="客户数"  formatNumberScale='0'   baseFontSize="13">
+	<set label='私人银行客户数' value='8892' />
+	<set label='重点客户数' value='20489' />
+	<set label='优质客户数' value='30488' />
+	<set label='普通客户数' value='60903' />
+	<set label='潜力客户数' value='110293' />
+</chart>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="biecif-web">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/biecif"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/biappframe"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/biapp-comp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/biapp-comp-resources"/>
+        <dependent-module archiveName="biecif-2.3.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/biecif/biecif">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="biappframe-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/biappframe/biappframe">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="biapp-comp-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/biapp-comp/biapp-comp">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="biecif-web"/>
+        <property name="java-output-path" value="/biecif-web/target/classes"/>
+    </wb-module>
+</project-modules>

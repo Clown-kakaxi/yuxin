@@ -1,0 +1,12 @@
+<chart   formatNumberScale='0' >
+	<set label='保证金' value='41000' />
+	<set label='协定' value='1000' />
+	<set label='协议' value='7000' />
+	<set label='定期' value='1000' />
+	<set label='通知' value='2000' />
+	<set label='定活两便' value='30000' />
+	<set label='普通' value='7000' />
+	<set label='应解及临时' value='9000' />
+	<set label='信用卡' value='0' />
+	<set label='结构性' value='1000' />
+</chart>

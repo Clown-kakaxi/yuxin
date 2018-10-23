@@ -1,0 +1,18 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+该文件主要是CRM系统常量的配置
+基本上除了
+    echain.properties：工作流配置信息
+    esb.properties：ESB配置信息
+    systemProperties.properties：文件上传下载、Excel导入导出、附件、报表地址等等配置信息
+    其他的配置全部在bip.properties里，例如：数据库连接信息、ECIF信息、与其他系统对接信息等等
+
+关于配置信息的获取，可以在Java代码里使用如下方式：
+#获取bip.properties配置信息：
+    FileTypeConstance.getBipProperty("crm.front.defaultBG")//参数为配置文件里的参数名称
+#获取systemProperties.properties配置信息：
+    FileTypeConstance.getSystemProperty("maxUploadFileSize");
+
+

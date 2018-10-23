@@ -1,0 +1,119 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-app-cfg.js
+上面文件conditionButtons里配置了查询条件里的各个按钮
+
+/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+createColumnItems函数里处理了查询条件区域的生成
+按钮是根据前面的Wlj-frame-function-app-cfg.js里配置生成的
+ps：_this.searchPanel里配置了渲染后时间，按回车自动查询
+响应函数：
+查询：searchHandler
+重置：resetCondition
+清除：resetHandler
+
+重点关注下searchHandler
+searchHandler : function(){
+    var _this = this;
+    if(!_this.searchPanel.getForm().isValid()){
+        Ext.Msg.alert("提示",'请填写必要的查询条件');
+        return false;
+    }
+    pars = _this.searchPanel.getForm().getFieldValues();
+    for(var key in pars){
+        if(!pars[key]){
+            delete pars[key];
+        }
+    }
+    _this._APP.setSearchParams(pars,true,true);
+
+}
+1.校验查询条件
+2.获取查询面板里的参数后调用_APP.setSearchParams
+
+/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-app.js
+上面的文件定义了setSearchParams
+/**
+ * 设置查询条件并刷新数据
+ * @param params : 参数
+ * @param forceLoad : 是否强制刷新,default : true
+ * @param add : 是否清除过期条件,default : true
+ * @param transType : 是否需要转换字段命名模式,默认为APP的SEARCHFIELDTRANS属性;1：转为驼峰命名;2：转为大写下划线模式;3：不做转换;
+ * @return
+ */
+ Wlj.frame.functions.app.App.prototype.setSearchParams = function(params, forceLoad, add, transType)
+
+/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+上面的文件里处理了页面加载数据前后的事件
+数据加载之前：onBeforeLoad
+数据加载异常：onExceptionLoad
+数据加载：onDataLoad
+
+
+下面是一个案例：
+1.修改默认查询按钮事件
+2.在查询按钮前添加了新的按钮
+3.通过其他按钮触发查询事件
+//额外传递的参数
+var extraParams = {
+    impFlag : 0
+};
+//新添加的按钮
+var conditionButtons = {
+    impSearch : {
+        text : '导入查询',
+        cls:'simple-btn',
+        overCls:'simple-btn-hover',
+        fn : function(){
+            extraParams.impFlag = 1;
+            this.searchHandler();
+        }
+    }
+};
+//按钮的添加顺序与属性的添加顺序一致，因此新构造一个对象，先添加导入查询按钮，再使用Ext.apply添加其他属性
+Ext.apply(conditionButtons,WLJUTIL.conditionButtons);
+//使用新的按钮 配置覆盖原有默认的配置
+WLJUTIL.conditionButtons = conditionButtons;
+//删除临时变量
+delete conditionButtons;
+//修改查询按钮的默认响应函数，也可以使用createInterceptor创建拦截函数，然后覆盖原先的默认函数
+WLJUTIL.conditionButtons.search.fn = function(){
+    extraParams.impFlag = 0
+    this.searchHandler();
+    console.info(this);
+};
+//添加按钮类型
+WLJUTIL.BUTTON_TYPE.IMPSEARCH = 'impSearch';
+//在初始化之前，创建拦截函数，修改默认的事件函数，使得新的按钮与原来的按钮一样可以在加载之前禁用，加载后启用
+var beforeinit = function(app){
+    var SearchGrid =  Wlj.frame.functions.app.widgets.SearchGrid.prototype;
+    SearchGrid.onBeforeLoad = SearchGrid.onBeforeLoad.createInterceptor(function(store, option){
+       var _this = store.resultContainer;
+        _this._APP.disableConditionButton(WLJUTIL.BUTTON_TYPE.IMPSEARCH);
+    });
+    SearchGrid.onExceptionLoad = SearchGrid.onExceptionLoad.createInterceptor(function(store, records, option){
+       var _this = store.resultContainer;
+        _this._APP.enableConditionButton(WLJUTIL.BUTTON_TYPE.IMPSEARCH);
+    });
+    SearchGrid.onDataLoad = SearchGrid.onDataLoad.createInterceptor(function(store, records, option){
+       var _this = store.resultContainer;
+        _this._APP.enableConditionButton(WLJUTIL.BUTTON_TYPE.IMPSEARCH);
+    });
+}
+//app初始化之后触发的函数，创建setSearchParams的拦截函数，在每次设置参数加载数据之前添加自定义的额外参数
+var afterinit = function(app){
+    app.setSearchParams = app.setSearchParams.createInterceptor(function(params, forceLoad, add, transType){
+       Ext.apply(params,extraParams)
+    },app);
+}
+//在表格工具栏添加测试按钮，点击后触发查询
+var tbar = [{
+        text    : '测试',
+        handler : function(){
+            extraParams.impFlag = 1;
+            _app.searchDomain.searchHandler();
+        }
+    }]
+parent.window._APP

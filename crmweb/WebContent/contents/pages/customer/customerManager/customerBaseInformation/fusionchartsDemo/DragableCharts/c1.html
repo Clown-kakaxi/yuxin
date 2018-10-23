@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html >
+	<head>
+		<title></title>
+		<script language="JavaScript" src="../../../../../../../FusionCharts/FusionCharts.js"></script>
+		<style type="text/css">
+			body { background:none !important }
+		</style>
+		</head>   
+	<body width=100% height=100%>
+		
+		<!-- chart -->
+		<div id="chartdiv" width="100%" height="100%" ></div>
+		<script type="text/javascript">
+			var chart = new FusionCharts("../../../../../../../FusionCharts/MSColumn2D.swf", "ChartId", "100%", "100%", "0", "0");
+			chart.setXMLUrl("c1.xml");		   
+			chart.render("chartdiv");
+		</script>
+	</body>
+</html>

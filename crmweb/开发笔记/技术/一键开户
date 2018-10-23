@@ -1,0 +1,27 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+涉及到的页面程序：
+	输入证件信息的页面：accountLogin.js
+	详细信息录入的页面：accountSecond.js
+点击扫描，会调用identifyByCamera函数，函数里会 调用高拍仪扫描页面cameraScan.html进行证件信息的OCR扫描识别，在识别出结果后调用getIdentInfoByCamera函数进行解析
+解析后会先进行预约信息的查询，
+如果查询成功，如果是预约客户，会调用函数reviewShow进行信息反显处理，如果不是则对页面做简单的初始化
+如果查询失败，则对页面做简单的初始化
+
+
+
+客户开户预约进入调用visitAccount
+	visitAccount函数里会先发起ECIF交易查询预约系统信息
+	如果预约成功，则进行预约信息反显，接着进入联网核查和黑名单校验，后面与临柜开户一致
+	
+
+客户临柜开户进入调用：visitingCustAccount
+	visitingCustAccount函数里会先进行证件信息的校验，然后调用NetCheckAndBlackOrderCheck函数，向服务端发送请求/oneKeyAccountAction!netCheckAndBlackOrderCheck.json，
+	服务端会发送交易请求进行联网核查和黑名单校验以及本地黑名单校验
+	校验成功后会调用CheckAccountLimitFromCB进行核心是否允许开户校验
+
+	
+高拍仪解析后的信息处理后放到全局变量scanData里，然后在点击进入按钮的时候通过Ext.apply与visitJson进行合并
+反显的信息会在accountSecond.js里的initLayout2函数里从visitJson里获取数据进行处理反显，非联名户的大概在1827行

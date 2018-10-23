@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root debug='false'>	<!-- 影响分析 -->
+	<view name="1">
+		<imageMapping>
+			<zoomin url="flex/images/zoom_in.png" />
+			<zoomout url="flex/images/zoom_out.png" />
+			<print url="flex/images/print.gif" />
+			<search url="flex/images/search.gif" />
+			<fullScreen url="flex/images/arrow_out.png" />
+		    <normalScreen url="flex/images/arrow_in.png" />
+			<help url="flex/images/help.png" />
+			<tour url="flex/images/shape_group.png" />
+			<export url="flex/images/exporter.gif" />
+		</imageMapping>
+		<dataMapping>
+			<type name="analyse" url="/metadata/analysis/meta-analysis" />
+			<method initfunc="getAnalyse.xml" subdatafunc="getSubNodes.xml"
+				argumentsfunc="getNodeAttributes" filtercond="getFilterCondition"
+				filterfunc="getFilterImpact" downImage="downImage.xhtml" downFile="downFile.xhtml"/>
+		</dataMapping>
+		<viewMapping>
+			<viewName node="head.mdanalystyle" />
+			<isOpen value="false" />
+			<isImage value="true" />
+			<width value="700" />
+			<height value="650" />
+		</viewMapping>
+		<argumentsMapping title="元数据：" rowCount="20" istrue="false">
+			<head node="head" mdid="mdid" mdcode="mdcode" title="元数据："
+				titleCode="mdcode" />
+			<attributes root="attributes.attribute" attname="属性名"
+				attvalue="属性值" attnameCode="attname" attvalueCode="attvalue" />
+		</argumentsMapping>
+		<modelArgumentMapping messageColor="0xE7E7EF"
+			lineColor="0x000000" fillColor="0xF8D263" rimColor="0xCCCCCC"
+			defaultFillColor="0x00FA9A" defaultRimColor="0x000000">
+			<mouseOutHandler isClickFill="0x637DFF" isClickRim="0x474FFF"
+				fillColor="0xF8D263" rimColor="0xCCCCCC" />
+			<mouseOverHandler isClickFill="0x8695FF" isClickRim="0x7D8DFF"
+				fillColor="0xF8D263" rimColor="0xE9C951" />
+			<mouseClickHandler fillColor="0xF8D263" rimColor="0x474FFF">
+				<fromModel fillColor="0xCDFC0E" rimColor="0xDC143C" />
+				<toModel fillColor="0xF2DEA1" rimColor="0x80000" />
+				<fromLine lineColor="0xFF1493" />
+				<toLine lineColor="0xFF0000" />
+			</mouseClickHandler>
+			<focusEventInHandler fillColor="" rimColor="" />
+			<focusEventOutHandler fillColor="0xF8D263"
+				rimColor="0xCCCCCC" />
+			<customization color="0xFDF7DD" />
+			<customization color="0xEAF1F6" />
+			<customization color="0xEAF1F6" />
+			<customization color="0xEAF1F6" />
+			<customization color="0xEAF1F6" />
+		</modelArgumentMapping>
+		<nodeMapping>
+			<head node="head" mdanalystyle="mdanalystyle" viewid="viewid"
+				viewname="viewname" />
+			<node node="nodes.node" nodeId="id" mdid="mdid" mdcode="mdcode" mdname="mdname"
+				mdmodelcode="mdmodelcode" mdmodelname="mdmodelname" mdtip="mdcode" layer="layer" icon="icon"/>
+			<transformer node="transformers.transformer" frommdid="fromid"
+				tomdid="toid" />
+			<refmapping node="refmappings.refmapping" srcmdid="srcmdid"
+				targetmdid="targetmdid" />
+			<view node="mdname" />
+		</nodeMapping>
+		<modelMapping>
+			
+		</modelMapping>
+		<lineMapping>
+			<line id="1" color="0x000000" direction="0" style="0" thickness="0.25" />
+			<line id="2" color="0x000000" direction="0" style="1" thickness="0.25" />
+		</lineMapping>
+	</view>	
+	<!-- 血统分析 -->
+	<view name="2">
+		<imageMapping>
+			<zoomin url="flex/images/zoom_in.png" />
+			<zoomout url="flex/images/zoom_out.png" />
+			<print url="flex/images/print.gif" />
+			<search url="flex/images/search.gif" />
+			<fullScreen url="flex/images/arrow_out.png" />
+		    <normalScreen url="flex/images/arrow_in.png" />
+			<help url="flex/images/help.png" />
+			<tour url="flex/images/shape_group.png" />
+			<export url="flex/images/exporter.gif" />
+		</imageMapping>
+		<dataMapping>
+			<type name="analyse" url="/metadata/analysis/meta-analysis" />
+			<method initfunc="getAnalyse.xml" subdatafunc="getSubNodes.xml"
+				argumentsfunc="getNodeAttributes" filtercond="getFilterCondition"
+				filterfunc="getFilterLineage" downImage="downImage.xhtml" downFile="downFile.xhtml"/>
+		</dataMapping>
+		<viewMapping>
+			<viewName node="head.mdanalystyle" />
+			<isOpen value="false" />
+			<isImage value="true" />
+			<width value="700" />
+			<height value="650" />
+		</viewMapping>
+		<argumentsMapping title="元数据：" rowCount="20" istrue="false">
+			<head node="head" mdid="mdid" mdcode="mdcode" title="元数据："
+				titleCode="mdcode" />
+			<attributes root="attributes.attribute" attname="属性名"
+				attvalue="属性值" attnameCode="attname" attvalueCode="attvalue" />
+		</argumentsMapping>
+		<modelArgumentMapping messageColor="0xE7E7EF"
+			lineColor="0x000000" fillColor="0xF8D263" rimColor="0xCCCCCC"
+			defaultFillColor="0x00FA9A" defaultRimColor="0x000000">
+			<mouseOutHandler isClickFill="0x637DFF" isClickRim="0x474FFF"
+				fillColor="0xF8D263" rimColor="0xCCCCCC" />
+			<mouseOverHandler isClickFill="0x8695FF" isClickRim="0x7D8DFF"
+				fillColor="0xF8D263" rimColor="0xE9C951" />
+			<mouseClickHandler fillColor="0xF8D263" rimColor="0x474FFF">
+				<fromModel fillColor="0xCDFC0E" rimColor="0xDC143C" />
+				<toModel fillColor="0xF2DEA1" rimColor="0x80000" />
+				<fromLine lineColor="0xFF1493" />
+				<toLine lineColor="0xFF0000" />
+			</mouseClickHandler>
+			<focusEventInHandler fillColor="" rimColor="" />
+			<focusEventOutHandler fillColor="0xF8D263"
+				rimColor="0xCCCCCC" />
+			<customization color="0xFDF7DD" />
+			<customization color="0xEAF1F6" />
+			<customization color="0xEAF1F6" />
+			<customization color="0xEAF1F6" />
+			<customization color="0xEAF1F6" />
+		</modelArgumentMapping>
+		<nodeMapping>
+			<head node="head" mdanalystyle="mdanalystyle" viewid="viewid"
+				viewname="viewname" />
+			<node node="nodes.node" nodeId="id" mdid="mdid" mdcode="mdcode" mdname="mdname"
+				mdmodelcode="mdmodelcode" mdmodelname="mdmodelname" mdtip="mdcode" layer="layer" icon="icon"/>
+			<transformer node="transformers.transformer" frommdid="fromid"
+				tomdid="toid" />
+			<refmapping node="refmappings.refmapping" srcmdid="srcmdid"
+				targetmdid="targetmdid" />
+			<view node="mdname" />
+		</nodeMapping>
+		<modelMapping>
+		</modelMapping>
+		<lineMapping>
+			<line id="1" color="0x000000" direction="0" style="0" thickness="0.25" />
+			<line id="2" color="0x000000" direction="0" style="1" thickness="0.25" />
+		</lineMapping>
+	</view>
+</root>

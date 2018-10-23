@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root debug='false'>
+	<view name="datamap">
+	    <imageMapping>
+	    	<refresh url="flex/images/arrow_refresh.png" />
+	    	<savepos url="flex/images/accept.png" />
+		    <zoomin url="flex/images/zoom_in.png" />
+		    <zoomout url="flex/images/zoom_out.png" />
+		    <fullScreen url="flex/images/arrow_out.png" />
+		    <normalScreen url="flex/images/arrow_in.png" />
+	    </imageMapping>
+		<dataMapping>
+			<type name="dataMapAction"
+				url="/metadata/dataMap/meta-datamap" />
+			<method initfunc="getDataMap.xml" tipfunc="getStat"
+				linedcfunc="getSchemaDataMap.xml" savefunc="savePos.xml" linkNodesfunc="getSystemRelation.xml" />
+		</dataMapping>
+		<viewMapping>
+			<isOpen value="false" />
+		</viewMapping>
+		<nodeMapping>
+			<node node="nodes.node" mdid="mdid" mdcode="mdcode"
+				mdname="mdname" mdmodelcode="mdmodelcode" mdtip="mdcode"
+				mdcolor="mdcolor" mdtype="mdtype" parentmdid="parentmdid"
+				parentmdmodel="parentmdmodel" />
+			<transformer node="transformers.transformer"
+				frommdid="frommdid" tomdid="tomdid" fromstyle="fromstyle"
+				tostyle="tostyle" transtypeid="typeid" />
+		</nodeMapping>
+		<modelMapping>
+			<model modelName="SystemLevel" typeClass="SystemLevel"
+				gridClass="com.ytec.view.grid.OpenGrid"
+				modelClass="com.ytec.view.model.DataMapComModel"
+				extender="com.ytec.view.extender.DataMapComModelExtender"
+			    rightMenu="com.ytec.view.handler.DataMapComModelContextMenu">
+			</model>
+			<model modelName="System" typeClass="System"
+				gridClass="com.ytec.view.grid.CloseGrid"
+				modelClass="com.ytec.view.model.BasicModel"
+				extender="com.ytec.view.extender.BasicModelExtender"
+				rightMenu="com.ytec.view.handler.BasicModelContextMenu">
+			</model>
+			<model modelName="Schema" typeClass="System"
+				gridClass="com.ytec.view.grid.CloseGrid"
+				modelClass="com.ytec.view.model.BasicModel"
+				extender="com.ytec.view.extender.BasicModelExtender"
+				rightMenu="com.ytec.view.handler.BasicModelContextMenu">
+			</model>
+		</modelMapping>
+	</view>
+</root>

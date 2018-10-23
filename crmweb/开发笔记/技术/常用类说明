@@ -1,0 +1,30 @@
+###################################################################################################
+************************************* author:刘叶祥 ***********************************************
+###################################################################################################
+
+1.app.searchDomain为new Wlj.frame.functions.app.widgets.SearchContainer(_this.createSearchCfg());
+    这个其实就是一个Panel
+  /crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+    事件：beforeconditioninit、afterconditioninit、beforeconditionrender就是在该类的initComponent里触发的
+    事件：afterconditionrender在onRender里触发 
+  Panel下放FormPanel,每一列一个Panel（form布局）
+    函数searchHandler处理了查询动作，里面调用setSearchParams进行参数设置和数据加载(1457)
+    
+    
+2.app.resultDomain为new Wlj.frame.functions.app.widgets.ResultContainer(this.createResultCfg());
+    这其实就是个Panel
+    /crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-app.js
+    表格的相关属性就是在这里进行处理的
+    事件：beforeresultinit、afterresultinit、beforeresultrender就是在该类的initComponent里触发的
+    需要特别说明的是，如果fields配置里没有指定text则默认为hidden,如果没有配置name属性，则跳过该配置
+    按钮栏的初始化在initComponent里做的，表格的生成与初始化在onRender里做的
+    表格的daatType在文件/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-app-cfg.js里进行配置的，可自定义扩展
+        目前已有的类型有：date、string、number、numberNoDot、money、productChoose、userchoose、orgchoose、customerquery
+    表格数据集默认取数json.data和json.count
+  
+  app.resultDomain.searchGridView为new Wlj.frame.functions.app.widgets.SearchGrid
+    这其实还是个Panel,这里出里了分页工具栏等信息
+  /crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-widgets.js
+3.app.setSearchParams
+/crmweb/WebContent/contents/frameControllers/widgets/app/Wlj-frame-function-app.js
+事件：beforesetsearchparams、setsearchparams都在该函数里触发

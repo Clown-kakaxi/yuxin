@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+body{
+	margin: auto;
+	padding: 0;
+	width: 700px;
+	font-size:18px;
+	
+}
+.d_title{
+	text-align: center;
+	font-size : 25px;
+}
+
+label{
+	float: left;
+}
+
+.row{
+	width: 100%;
+	float: left;
+}
+
+.row_right{
+	text-align: right;
+	float: right;
+}
+
+.l_2{
+	width: 60%;
+}
+.l_3{
+	width: 33%;
+}
+.l_4{
+	width: 40%;
+}
+ .d_group{
+ 	margin-bottom:30px;
+ }
+
+ .d_group div,label{
+ 	margin-bottom: 15px;
+ }
+#d_header{
+	margin : auto;
+}
+.qianming{
+       padding-top: 300px;
+       padding-bottom: 300px;
+}
